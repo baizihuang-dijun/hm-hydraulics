@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Support',
+  title: 'Technical & After-Sales Support — HM Hydraulics',
   description:
-    'After-sales support for hydraulic actuators. 12-month warranty, 3-tier supply chain, 24-hour response. Service kits and maintenance guidance.',
+    'Technical support and after-sales service for hydraulic actuators. Warranty coverage, service kits, maintenance guidance, and supply coordination.',
 };
 
 const servicePackages = [
@@ -34,14 +34,13 @@ export default function SupportPage() {
       {/* Hero */}
       <section className="border-b border-[rgba(44,74,115,0.10)]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
-          <p className="eyebrow mb-4">Support</p>
+          <p className="eyebrow text-[#2C4A73] mb-4">TECHNICAL & AFTER-SALES SUPPORT</p>
           <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-medium text-[#1B1E20] mb-4">
-            After-sales infrastructure
+            Support that keeps you operational
           </h1>
           <p className="text-lg text-[#4A4E54] leading-relaxed max-w-2xl">
-            Comprehensive support from warranty through maintenance. We ensure
-            your equipment stays operational with rapid response and readily
-            available spare parts.
+            From warranty coverage to maintenance guidance and spare parts coordination.
+            We work with you to minimize downtime and keep your equipment running.
           </p>
         </div>
       </section>
@@ -76,30 +75,30 @@ export default function SupportPage() {
             </div>
             <div className="p-8 border border-[rgba(44,74,115,0.10)] rounded-md">
               <p className="font-label text-xs text-[#62666C] uppercase tracking-wider mb-3">
-                Dispatch
+                Spare Parts
               </p>
               <p className="font-heading text-3xl font-medium text-[#2C4A73] mb-2">
-                48 Hours
+                Coordinated
               </p>
               <p className="text-sm text-[#4A4E54]">
-                In-stock replacement parts dispatched within 48 hours.
-                Minimizing your equipment downtime.
+                Spare parts and service kits coordinated through our production
+                network. Planned ahead to minimize lead times.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 3-Tier Supply Chain */}
+      {/* Supply Continuity */}
       <section className="border-b border-[rgba(44,74,115,0.10)]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
-          <p className="eyebrow mb-4">Supply Chain</p>
+          <p className="eyebrow text-[#2C4A73] mb-4">SUPPLY CONTINUITY</p>
           <h2 className="font-heading text-2xl md:text-3xl font-medium text-[#1B1E20] mb-4">
-            3-Tier Support Model
+            How we ensure parts availability
           </h2>
           <p className="text-[#4A4E54] leading-relaxed max-w-2xl mb-10">
-            We maintain multiple layers of inventory to ensure parts are always
-            available when you need them.
+            We coordinate production planning and scheduling to keep spare parts
+            and replacement components available when you need them.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -109,12 +108,12 @@ export default function SupportPage() {
                   <span className="text-white text-xs font-medium">1</span>
                 </div>
                 <h3 className="font-heading text-lg font-medium text-[#1B1E20]">
-                  Local Stock
+                  Production Planning
                 </h3>
               </div>
               <p className="text-sm text-[#4A4E54] leading-relaxed">
-                Common replacement parts and seals maintained in local or
-                regional warehouses for immediate availability.
+                We plan production runs around known demand and service intervals,
+                so common replacement parts are ready when needed.
               </p>
             </div>
             <div className="relative p-6 border border-[rgba(44,74,115,0.10)] rounded-md">
@@ -127,8 +126,8 @@ export default function SupportPage() {
                 </h3>
               </div>
               <p className="text-sm text-[#4A4E54] leading-relaxed">
-                Regular production runs ensure continuous stock availability.
-                Planned replenishment cycles aligned with demand forecasts.
+                Regular production cycles ensure continuous availability.
+                Planned replenishment aligned with your maintenance schedules.
               </p>
             </div>
             <div className="relative p-6 border border-[rgba(44,74,115,0.10)] rounded-md">
@@ -137,12 +136,12 @@ export default function SupportPage() {
                   <span className="text-white text-xs font-medium">3</span>
                 </div>
                 <h3 className="font-heading text-lg font-medium text-[#1B1E20]">
-                  Emergency Production
+                  Expedited Coordination
                 </h3>
               </div>
               <p className="text-sm text-[#4A4E54] leading-relaxed">
-                Dedicated emergency production capacity for urgent requirements.
-                Expedited manufacturing for critical downtime situations.
+                For urgent requirements, we coordinate expedited production
+                to minimize equipment downtime in critical situations.
               </p>
             </div>
           </div>
@@ -152,7 +151,7 @@ export default function SupportPage() {
       {/* Service Packages */}
       <section className="border-b border-[rgba(44,74,115,0.10)] bg-white">
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
-          <p className="eyebrow mb-4">Service Kits</p>
+          <p className="eyebrow text-[#2C4A73] mb-4">SERVICE KITS</p>
           <h2 className="font-heading text-2xl md:text-3xl font-medium text-[#1B1E20] mb-4">
             Maintenance Service Packages
           </h2>
@@ -186,7 +185,7 @@ export default function SupportPage() {
       <section className="border-b border-[rgba(44,74,115,0.10)]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
           <div className="max-w-2xl">
-            <p className="eyebrow mb-4">Maintenance</p>
+            <p className="eyebrow text-[#2C4A73] mb-4">MAINTENANCE</p>
             <h2 className="font-heading text-2xl md:text-3xl font-medium text-[#1B1E20] mb-4">
               Recommended Service Intervals
             </h2>

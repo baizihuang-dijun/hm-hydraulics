@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Tilt Actuators',
+  title: 'Tilt Actuators — HM Hydraulics',
   description:
-    'DTA Series (12 models) and DTD Series (7 models) tilt actuators for excavator tilt couplers. Cross-reference compatible with HKS BVC/BVE and Helac PT.',
+    'DTA Series (12 models) and DTD Series (7 models) tilt actuators for excavator tilt couplers. Comparable specifications to HKS BVC/BVE and Helac PT.',
 };
 
 const dtaModels = [
@@ -51,13 +51,13 @@ export default function TiltActuatorsPage() {
       {/* Hero */}
       <section className="border-b border-[rgba(44,74,115,0.10)]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
-          <p className="eyebrow mb-4">Tilt Actuators</p>
+          <p className="eyebrow text-[#2C4A73] mb-4">TILT ACTUATORS</p>
           <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-medium text-[#1B1E20] mb-4">
             For Excavator Tilt Couplers
           </h1>
           <p className="text-lg text-[#4A4E54] leading-relaxed max-w-2xl">
-            19 models across two series, designed as direct replacements for
-            leading international brands. Fully tested and traceable.
+            19 models across two series, with specifications comparable to leading international brands.
+            Final model selection should be verified against your existing mounting dimensions and operating parameters.
           </p>
         </div>
       </section>
@@ -73,8 +73,8 @@ export default function TiltActuatorsPage() {
               DTA Series
             </h2>
             <p className="text-[#4A4E54] leading-relaxed max-w-2xl">
-              12 models designed for excavator tilt couplers. Direct
-              cross-reference with HKS BVC and BVE series.
+              12 models with specifications comparable to the HKS BVC and BVE series.
+              Cross-reference provided for evaluation purposes — verify mounting dimensions and performance parameters before ordering.
             </p>
           </div>
 
@@ -157,8 +157,8 @@ export default function TiltActuatorsPage() {
               DTD Series
             </h2>
             <p className="text-[#4A4E54] leading-relaxed max-w-2xl">
-              7 models with Helac PT series compatibility. Drop-in replacement
-              for existing installations with identical mounting patterns.
+              7 models with specifications comparable to the Helac PT series.
+              Cross-reference provided for evaluation — verify mounting patterns and operating parameters before ordering.
             </p>
           </div>
 

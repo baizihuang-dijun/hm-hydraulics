@@ -2,17 +2,17 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Quality & Validation',
+  title: 'Quality & Technical Validation — HM Hydraulics',
   description:
-    'ISO9001 certified. 1,000,000-cycle fatigue test passed. Full QA traceability. Every unit tested before shipment.',
+    'ISO9001 certified production. 1,000,000-cycle fatigue test passed. Full QA traceability. Every unit tested before shipment.',
 };
 
 const milestones = [
   {
     phase: 'Phase 1',
-    title: 'Design & Manufacturing',
+    title: 'Production Planning & Quality Management',
     description:
-      'Each unit manufactured under ISO9001 quality management system. Unique Production Order ID assigned per sales order, linking BOM, work orders, and inspection records.',
+      'Each unit produced under ISO9001 quality management system. Unique Production Order ID assigned per sales order, linking BOM, work orders, and inspection records.',
   },
   {
     phase: 'Phase 2',
@@ -24,7 +24,7 @@ const milestones = [
     phase: 'Phase 3',
     title: 'Independent Fatigue Validation',
     description:
-      '1,000,000-cycle full-load fatigue test at 150 bar, independently conducted by international customer. Result: PASSED with zero actuator failures.',
+      '1,000,000-cycle full-load fatigue test at 150 bar, independently conducted by an international customer. Result: PASSED with zero actuator failures.',
   },
   {
     phase: 'Phase 4',
@@ -49,14 +49,13 @@ export default function QualityPage() {
       {/* Hero */}
       <section className="border-b border-[rgba(44,74,115,0.10)]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
-          <p className="eyebrow mb-4">Quality & Validation</p>
+          <p className="eyebrow text-[#2C4A73] mb-4">QUALITY & TECHNICAL VALIDATION</p>
           <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-medium text-[#1B1E20] mb-4">
             Proven at every stage
           </h1>
           <p className="text-lg text-[#4A4E54] leading-relaxed max-w-2xl">
-            From manufacturing to independent customer validation. Our quality
-            system ensures every unit meets the highest standards before it
-            leaves our facility.
+            From production planning to independent customer validation. Our quality
+            system ensures every unit meets performance standards before shipment.
           </p>
         </div>
       </section>
@@ -120,9 +119,9 @@ export default function QualityPage() {
       {/* Quality Timeline */}
       <section className="border-b border-[rgba(44,74,115,0.10)]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
-          <p className="eyebrow mb-4">Quality Journey</p>
+          <p className="eyebrow text-[#2C4A73] mb-4">QUALITY JOURNEY</p>
           <h2 className="font-heading text-2xl md:text-3xl font-medium text-[#1B1E20] mb-12">
-            From factory floor to field validation
+            From production planning to field validation
           </h2>
 
           <div className="relative">
@@ -158,15 +157,15 @@ export default function QualityPage() {
         </div>
       </section>
 
-      {/* Manufacturing Equipment */}
+      {/* Manufacturing Capabilities */}
       <section className="border-b border-[rgba(44,74,115,0.10)] bg-white">
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
-          <p className="eyebrow mb-4">Production Equipment</p>
+          <p className="eyebrow text-[#2C4A73] mb-4">MANUFACTURING CAPABILITIES</p>
           <h2 className="font-heading text-2xl md:text-3xl font-medium text-[#1B1E20] mb-4">
-            Precision manufacturing capabilities
+            Precision manufacturing behind our products
           </h2>
           <p className="text-[#4A4E54] leading-relaxed max-w-2xl mb-10">
-            Advanced CNC equipment ensures tight tolerances and consistent
+            Our production network uses CNC equipment to ensure tight tolerances and consistent
             quality across every production run.
           </p>
 
@@ -217,9 +216,9 @@ export default function QualityPage() {
       {/* Pre-Shipment Testing */}
       <section className="border-b border-[rgba(44,74,115,0.10)] bg-white">
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
-          <p className="eyebrow mb-4">Every Unit, Every Time</p>
+          <p className="eyebrow text-[#2C4A73] mb-4">PRE-SHIPMENT TESTING</p>
           <h2 className="font-heading text-2xl md:text-3xl font-medium text-[#1B1E20] mb-4">
-            Pre-Shipment Testing
+            Every unit, every time
           </h2>
           <p className="text-[#4A4E54] leading-relaxed max-w-2xl mb-10">
             Each actuator undergoes a comprehensive 6-point test protocol
@@ -304,7 +303,7 @@ export default function QualityPage() {
       {/* Certifications */}
       <section className="border-b border-[rgba(44,74,115,0.10)]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
-          <p className="eyebrow mb-4">Certifications & IP</p>
+          <p className="eyebrow text-[#2C4A73] mb-4">CERTIFICATIONS & IP</p>
           <h2 className="font-heading text-2xl md:text-3xl font-medium text-[#1B1E20] mb-10">
             Certified quality, proprietary technology
           </h2>

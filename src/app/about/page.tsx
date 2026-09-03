@@ -2,17 +2,17 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'About',
+  title: 'About — HM Hydraulics',
   description:
-    'HM Hydraulics — Technical sourcing partner bridging Chinese manufacturing capability with overseas OEM quality requirements. Vetted production network, full quality oversight.',
+    'HM Hydraulics — Technical sourcing partner for hydraulic rotary actuators and core hydraulic components. Engineering-led validation, quality oversight, supply coordination.',
 };
 
 const applications = [
   'Mining',
   'Construction',
-  'Defense',
   'Energy',
   'Marine',
+  'Agriculture',
   'Industrial',
 ];
 
@@ -39,7 +39,7 @@ export default function AboutPage() {
           <div className="absolute inset-0 bg-[#1B1E20]/60" />
         </div>
         <div className="relative max-w-[1200px] mx-auto px-6 md:px-8 py-20 md:py-28">
-          <p className="eyebrow mb-4 text-white/70">About HM Hydraulics</p>
+          <p className="eyebrow mb-4 text-white/70">ABOUT HM HYDRAULICS</p>
           <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-medium text-white mb-4">
             Technical sourcing partner,
             <br />
@@ -47,7 +47,7 @@ export default function AboutPage() {
           </h1>
           <p className="text-lg text-white/80 leading-relaxed max-w-2xl">
             We bridge the gap between Chinese manufacturing capability and
-            overseas OEM quality requirements. Our role is to do the technical
+            international quality requirements. Our role is to do the technical
             sourcing work you&apos;d have to do yourself &mdash; already done.
           </p>
         </div>
@@ -58,7 +58,7 @@ export default function AboutPage() {
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
             <div>
-              <p className="eyebrow mb-4">Our Role</p>
+              <p className="eyebrow text-[#2C4A73] mb-4">OUR ROLE</p>
               <h2 className="font-heading text-2xl md:text-3xl font-medium text-[#1B1E20] mb-4">
                 We handle what you can&apos;t easily do yourself
               </h2>
@@ -100,8 +100,8 @@ export default function AboutPage() {
                   Supply Chain Management
                 </h3>
                 <p className="text-sm text-[#4A4E54]">
-                  3-tier inventory model ensuring parts availability. 24-hour
-                  response, 48-hour dispatch.
+                  Production planning and coordination to manage lead times.
+                  Proactive communication throughout your order cycle.
                 </p>
               </div>
             </div>
@@ -114,7 +114,7 @@ export default function AboutPage() {
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
             <div>
-              <p className="eyebrow mb-4">Research & Development</p>
+              <p className="eyebrow text-[#2C4A73] mb-4">ENGINEERING</p>
               <h2 className="font-heading text-2xl md:text-3xl font-medium text-[#1B1E20] mb-4">
                 Engineering-led technical validation
               </h2>
@@ -145,9 +145,9 @@ export default function AboutPage() {
       {/* Manufacturing Network */}
       <section className="border-b border-[rgba(44,74,115,0.10)]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
-          <p className="eyebrow mb-4">Manufacturing Network</p>
+          <p className="eyebrow text-[#2C4A73] mb-4">MANUFACTURING CAPABILITIES</p>
           <h2 className="font-heading text-2xl md:text-3xl font-medium text-[#1B1E20] mb-4">
-            Vetted production capabilities we stand behind
+            Production capabilities behind our network
           </h2>
           <p className="text-[#4A4E54] leading-relaxed max-w-2xl mb-10">
             We work with a select network of manufacturing partners and
@@ -244,9 +244,9 @@ export default function AboutPage() {
       {/* Applications */}
       <section className="border-b border-[rgba(44,74,115,0.10)] bg-white">
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
-          <p className="eyebrow mb-4">Applications</p>
+          <p className="eyebrow text-[#2C4A73] mb-4">APPLICATIONS</p>
           <h2 className="font-heading text-2xl md:text-3xl font-medium text-[#1B1E20] mb-10">
-            Trusted across industries
+            Where our components are used
           </h2>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 mb-12">
@@ -260,37 +260,23 @@ export default function AboutPage() {
             ))}
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h3 className="font-heading text-lg font-medium text-[#1B1E20] mb-3">
-                Military-Grade Applications
-              </h3>
-              <p className="text-sm text-[#4A4E54] leading-relaxed">
-                Our actuators have been deployed in demanding defense
-                applications including fighter aircraft refueling systems,
-                missile radar positioning, and nuclear submarine valve
-                control. These applications demand the highest levels of
-                reliability and precision.
-              </p>
-            </div>
-            <div>
-              <h3 className="font-heading text-lg font-medium text-[#1B1E20] mb-3">
-                Civilian Partners
-              </h3>
-              <p className="text-sm text-[#4A4E54] leading-relaxed mb-4">
-                Leading Chinese equipment manufacturers trust our components
-                for their most demanding product lines.
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {partners.map((partner) => (
-                  <span
-                    key={partner}
-                    className="px-3 py-1.5 bg-[rgba(44,74,115,0.06)] text-[#2C4A73] text-xs font-medium rounded"
-                  >
-                    {partner}
-                  </span>
-                ))}
-              </div>
+          <div className="max-w-2xl">
+            <h3 className="font-heading text-lg font-medium text-[#1B1E20] mb-3">
+              Industry Partners
+            </h3>
+            <p className="text-sm text-[#4A4E54] leading-relaxed mb-4">
+              Our components are used in equipment produced by leading Chinese
+              manufacturers across construction, mining, and industrial sectors.
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {partners.map((partner) => (
+                <span
+                  key={partner}
+                  className="px-3 py-1.5 bg-[rgba(44,74,115,0.06)] text-[#2C4A73] text-xs font-medium rounded"
+                >
+                  {partner}
+                </span>
+              ))}
             </div>
           </div>
         </div>
@@ -300,7 +286,7 @@ export default function AboutPage() {
       <section className="border-b border-[rgba(44,74,115,0.10)]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
           <div className="max-w-2xl">
-            <p className="eyebrow mb-4">Our Approach</p>
+            <p className="eyebrow text-[#2C4A73] mb-4">OUR APPROACH</p>
             <h2 className="font-heading text-2xl md:text-3xl font-medium text-[#1B1E20] mb-4">
               Quality-first, always
             </h2>
@@ -414,7 +400,7 @@ export default function AboutPage() {
               Let&apos;s discuss your requirements
             </h2>
             <p className="text-[rgba(255,255,255,0.75)] leading-relaxed mb-6">
-              Whether you need a direct replacement for an existing component
+              Whether you need an alternative sourcing option for existing components
               or a custom solution for a new application, we&apos;re ready to
               help.
             </p>

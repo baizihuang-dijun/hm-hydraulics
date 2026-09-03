@@ -24,13 +24,14 @@ export default function ContactPage() {
       {/* Hero */}
       <section className="border-b border-[rgba(44,74,115,0.10)]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
-          <p className="eyebrow mb-4">Contact</p>
+          <p className="eyebrow text-[#2C4A73] mb-4">CONTACT</p>
           <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-medium text-[#1B1E20] mb-4">
-            Get in touch
+            Start a conversation
           </h1>
           <p className="text-lg text-[#4A4E54] leading-relaxed max-w-2xl">
-            Tell us about your requirements. Our team will respond within 24
-            hours with technical guidance and next steps.
+            Whether you&apos;re exploring alternative sourcing, need a replacement component,
+            or want to validate a technical specification &mdash; tell us what you need.
+            We&apos;ll respond within 24 hours.
           </p>
         </div>
       </section>
@@ -130,7 +131,7 @@ export default function ContactPage() {
                       htmlFor="product"
                       className="block text-sm font-medium text-[#1B1E20] mb-1.5"
                     >
-                      Product Interest
+                      Inquiry Type
                     </label>
                     <select
                       id="product"
@@ -140,11 +141,16 @@ export default function ContactPage() {
                       }
                       className="w-full px-3.5 py-2.5 border border-[rgba(44,74,115,0.15)] rounded text-sm text-[#1B1E20] bg-white focus:outline-none focus:ring-2 focus:ring-[#2C4A73]/20 focus:border-[#2C4A73] transition-colors"
                     >
-                      <option value="">Select a product category</option>
-                      <option value="tilt-actuators">Tilt Actuators (DTA/DTD)</option>
-                      <option value="rotary-actuators">Rotary Actuators (DKX/DT/TR/RT)</option>
-                      <option value="slew-drives">Slew Drives</option>
-                      <option value="other">Other / General Inquiry</option>
+                      <option value="">Select inquiry type</option>
+                      <option value="alternative-supplier">Alternative Supplier Evaluation</option>
+                      <option value="part-replacement">Existing Part Replacement</option>
+                      <option value="cost-reduction">Cost Reduction</option>
+                      <option value="new-sourcing">New Component Sourcing</option>
+                      <option value="supply-continuity">Supply Continuity</option>
+                      <option value="technical-validation">Technical Validation</option>
+                      <option value="small-batch">Small-Batch Sourcing</option>
+                      <option value="custom-component">Custom Component</option>
+                      <option value="other">Other</option>
                     </select>
                   </div>
 
@@ -208,14 +214,15 @@ export default function ContactPage() {
                 {/* What to Include */}
                 <div>
                   <p className="font-label text-xs text-[#62666C] uppercase tracking-wider mb-3">
-                    To help us respond faster
+                    Useful information to include
                   </p>
                   <ul className="space-y-2">
                     {[
-                      'Product model or cross-reference needed',
-                      'Quantity and delivery timeline',
-                      'Operating conditions (pressure, torque)',
-                      'Application details',
+                      'Target torque, pressure, or flow rate',
+                      'Existing part number or brand to compare',
+                      'Quantity and expected annual demand',
+                      'Operating environment (temperature, IP rating)',
+                      'Mounting dimensions or space constraints',
                     ].map((item) => (
                       <li
                         key={item}
@@ -226,6 +233,9 @@ export default function ContactPage() {
                       </li>
                     ))}
                   </ul>
+                  <p className="mt-4 text-xs text-[#62666C] italic">
+                    Don&apos;t have all the details? Send what you have &mdash; we&apos;ll help fill in the gaps.
+                  </p>
                 </div>
 
                 {/* Company */}

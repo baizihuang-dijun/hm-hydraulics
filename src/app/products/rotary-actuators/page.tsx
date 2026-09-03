@@ -3,9 +3,9 @@ import Link from 'next/link';
 import { RotaryGallery } from '@/components/products/rotary-gallery';
 
 export const metadata: Metadata = {
-  title: 'Rotary Actuators',
+  title: 'Rotary Actuators — HM Hydraulics',
   description:
-    '9 series, 72 specifications of hydraulic rotary actuators. DKX-A through DKX-F, DT, TR, RT series. Covering 20Nm to 200,000Nm.',
+    '9 series, 72 configurations of hydraulic rotary actuators. 20 Nm to 200,000 Nm torque range.',
 };
 
 const series = [
@@ -105,13 +105,13 @@ export default function RotaryActuatorsPage() {
       {/* Hero */}
       <section className="border-b border-[rgba(44,74,115,0.10)]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
-          <p className="eyebrow mb-4">Rotary Actuators</p>
+          <p className="eyebrow text-[#2C4A73] mb-4">ROTARY ACTUATORS</p>
           <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-medium text-[#1B1E20] mb-4">
-            9 Series, 72 Specifications
+            9 Series. 72 Configurations. One Sourcing Point.
           </h1>
           <p className="text-lg text-[#4A4E54] leading-relaxed max-w-2xl">
-            Comprehensive range covering 20Nm to 200,000Nm. Helical gear,
-            rack & pinion, and vane mechanisms for every torque requirement.
+            Rotary actuator solutions covering 20 Nm to 200,000 Nm, with multiple mechanisms,
+            torque ranges and rotation configurations for industrial applications.
           </p>
         </div>
       </section>
@@ -209,6 +209,56 @@ export default function RotaryActuatorsPage() {
               );
             })}
           </div>
+        </div>
+      </section>
+
+      {/* Need Help Selecting */}
+      <section className="border-t border-[rgba(44,74,115,0.10)]">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
+          <p className="eyebrow text-[#2C4A73] mb-4">MODEL SELECTION</p>
+          <h2 className="font-heading text-2xl md:text-3xl font-medium text-[#1B1E20] mb-4">
+            Need Help Selecting a Model?
+          </h2>
+          <p className="text-[#4A4E54] leading-relaxed mb-8 max-w-2xl">
+            To recommend the right series and configuration, we typically need the following information.
+            Provide what you can — even partial specifications help us narrow down options.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+            {[
+              { label: 'Required Torque', desc: 'Output torque in Nm' },
+              { label: 'Working Pressure', desc: 'Max system pressure (bar/MPa)' },
+              { label: 'Flow Rate', desc: 'Hydraulic flow (L/min)' },
+              { label: 'Rotation Angle', desc: 'Degrees of rotation required' },
+              { label: 'Rotation Speed', desc: 'RPM or cycle time' },
+              { label: 'Mounting Dimensions', desc: 'Space constraints' },
+              { label: 'Duty Cycle', desc: 'Continuous or intermittent operation' },
+              { label: 'Operating Environment', desc: 'Temperature, corrosion, IP rating' },
+              { label: 'Quantity / Annual Demand', desc: 'Helps us plan production' },
+            ].map((item) => (
+              <div
+                key={item.label}
+                className="border border-[rgba(44,74,115,0.10)] rounded-md p-4"
+              >
+                <p className="font-label text-xs uppercase tracking-wider text-[#2C4A73] mb-1">
+                  {item.label}
+                </p>
+                <p className="text-sm text-[#62666C]">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <p className="text-[#4A4E54] leading-relaxed mb-6">
+            <span className="font-medium text-[#1B1E20]">Don&apos;t have all the information?</span>{' '}
+            Send us what you have — application details, existing part numbers, or even a general description.
+            We&apos;ll help identify the right solution.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-flex items-center px-5 py-2.5 bg-[#2C4A73] text-white text-sm font-medium rounded no-underline hover:bg-[#1E3A5F] transition-colors duration-150"
+          >
+            Send Your Requirements
+          </Link>
         </div>
       </section>
 

@@ -2,46 +2,50 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Products',
+  title: 'Products — HM Hydraulics',
   description:
-    'Hydraulic rotary actuators, tilt actuators, and core hydraulic components. 9 series, 72 specifications covering 20Nm to 200,000Nm.',
+    'Hydraulic actuators and selected components. Technical sourcing solutions for demanding hydraulic applications.',
 };
 
 const products = [
+  {
+    name: 'Rotary Actuators',
+    slug: 'rotary-actuators',
+    badge: '9 Series · 72 Configurations',
+    description:
+      'Our core product. Rotary actuator solutions covering 20 Nm to 200,000 Nm, with multiple mechanisms, torque ranges and rotation configurations.',
+    specs: [
+      'DKX-A through DKX-F helical gear series',
+      'DT, TR, RT series',
+      '20 Nm to 200,000 Nm torque range',
+      'Multiple rotation configurations',
+    ],
+  },
   {
     name: 'Tilt Actuators',
     slug: 'tilt-actuators',
     badge: '19 Models',
     description:
-      'DTA Series: 12 models for excavator tilt couplers with HKS BVC/BVE cross-reference. DTD Series: 7 models with Helac PT compatibility.',
+      'Selected cross-reference solutions for excavator tilt and coupler applications, with application-specific verification before replacement.',
     specs: [
       'DTA Series — 12 models',
       'DTD Series — 7 models',
       'Cross-reference: HKS BVC/BVE, Helac PT',
-      'For excavator tilt couplers',
+      'Application verification recommended',
     ],
   },
   {
-    name: 'Rotary Actuators',
-    slug: 'rotary-actuators',
-    badge: '9 Series · 72 Specs',
+    name: 'Custom Hydraulic Components',
+    slug: '/contact',
+    badge: 'Custom Solutions',
     description:
-      'Comprehensive range from DKX-A through DKX-F, plus DT, TR, and RT series. Covering 20Nm to 200,000Nm for industrial, mining, marine, and defense applications.',
+      'Custom hydraulic components developed around existing drawings, components or application requirements through qualified manufacturing capabilities.',
     specs: [
-      'DKX-A, DKX-B, DKX-C, DKX-D, DKX-E, DKX-F',
-      'DT, TR, RT series',
-      '20 Nm to 200,000 Nm torque range',
-      'Helical gear & rack-pinion mechanisms',
+      'Based on your drawings or specifications',
+      'Technical validation before production',
+      'Qualified manufacturing network',
     ],
-  },
-  {
-    name: 'Slew Drives',
-    slug: 'slew-drives',
-    badge: 'Coming Soon',
-    description:
-      'Precision slew drives for rotational positioning applications. Expanding our product range to complement our actuator lineup.',
-    specs: ['Precision worm gear drives', 'High torque output', 'Compact design'],
-    comingSoon: true,
+    isLink: true,
   },
 ];
 
@@ -51,14 +55,13 @@ export default function ProductsPage() {
       {/* Hero */}
       <section className="border-b border-[rgba(44,74,115,0.10)]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
-          <p className="eyebrow mb-4">Product Catalog</p>
+          <p className="eyebrow text-[#2C4A73] mb-4">PRODUCT SOLUTIONS</p>
           <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-medium text-[#1B1E20] mb-4">
-            Hydraulic Actuators & Components
+            Hydraulic Actuators & Selected Components
           </h1>
           <p className="text-lg text-[#4A4E54] leading-relaxed max-w-2xl">
-            Engineered and manufactured for demanding industrial applications.
-            From compact tilt actuators to high-torque rotary units covering
-            20Nm to 200,000Nm.
+            Technical sourcing solutions for demanding hydraulic applications, supported by
+            qualified manufacturing capabilities and application-focused validation.
           </p>
         </div>
       </section>
@@ -71,8 +74,8 @@ export default function ProductsPage() {
               <div
                 key={product.slug}
                 className={`group relative p-8 border rounded-md transition-colors duration-150 ${
-                  product.comingSoon
-                    ? 'border-[rgba(44,74,115,0.08)] bg-[#FAFAF7] opacity-60'
+                  product.isLink
+                    ? 'border-[rgba(44,74,115,0.10)] bg-white hover:border-[rgba(44,74,115,0.25)]'
                     : 'border-[rgba(44,74,115,0.10)] bg-white hover:border-[rgba(44,74,115,0.25)]'
                 }`}
               >
@@ -99,7 +102,24 @@ export default function ProductsPage() {
                   ))}
                 </ul>
 
-                {!product.comingSoon ? (
+                {product.isLink ? (
+                  <Link
+                    href={product.slug}
+                    className="inline-flex items-center text-sm font-medium text-[#2C4A73] no-underline hover:underline"
+                  >
+                    Discuss a custom requirement
+                    <svg
+                      className="ml-1.5 w-3.5 h-3.5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      <path d="M5 12h14" />
+                      <path d="m12 5 7 7-7 7" />
+                    </svg>
+                  </Link>
+                ) : (
                   <Link
                     href={`/products/${product.slug}`}
                     className="inline-flex items-center text-sm font-medium text-[#2C4A73] no-underline hover:underline"
@@ -116,10 +136,6 @@ export default function ProductsPage() {
                       <path d="m12 5 7 7-7 7" />
                     </svg>
                   </Link>
-                ) : (
-                  <span className="text-sm text-[#62666C]">
-                    Coming soon
-                  </span>
                 )}
               </div>
             ))}
@@ -135,9 +151,9 @@ export default function ProductsPage() {
             Cross-Reference Guide
           </h2>
           <p className="text-[#4A4E54] leading-relaxed max-w-2xl mb-10">
-            Our products are designed as direct replacements for leading
-            international brands. Verify compatibility with your existing
-            systems.
+            Cross-reference information is provided for evaluation purposes.
+            Specifications are comparable to leading international brands &mdash; verify
+            mounting dimensions and performance parameters before ordering.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

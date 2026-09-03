@@ -50,10 +50,10 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/products/slew-drives"
+                  href="/products/tilt-actuators"
                   className="text-sm text-[#D1D5DB] hover:text-white no-underline transition-colors duration-150"
                 >
-                  Slew Drives
+                  Tilt Actuators
                 </Link>
               </li>
             </ul>
@@ -70,7 +70,7 @@ export function Footer() {
                   href="/quality"
                   className="text-sm text-[#D1D5DB] hover:text-white no-underline transition-colors duration-150"
                 >
-                  Quality & Validation
+                  Quality & Technical Validation
                 </Link>
               </li>
               <li>
@@ -78,7 +78,7 @@ export function Footer() {
                   href="/support"
                   className="text-sm text-[#D1D5DB] hover:text-white no-underline transition-colors duration-150"
                 >
-                  Support
+                  Technical & After-Sales Support
                 </Link>
               </li>
               <li>
