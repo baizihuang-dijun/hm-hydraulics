@@ -26,11 +26,10 @@ export default function ContactPage() {
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
           <p className="eyebrow text-[#2C4A73] mb-4">CONTACT</p>
           <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-medium text-[#1B1E20] mb-4">
-            Start a conversation
+            Tell us what you need
           </h1>
           <p className="text-lg text-[#4A4E54] leading-relaxed max-w-2xl">
-            Whether you&apos;re exploring alternative sourcing, need a replacement component,
-            or want to validate a technical specification &mdash; tell us what you need.
+            Share an existing part, drawing, or application requirement.
             We&apos;ll respond within 24 hours.
           </p>
         </div>

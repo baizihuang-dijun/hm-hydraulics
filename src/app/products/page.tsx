@@ -13,12 +13,11 @@ const products = [
     slug: 'rotary-actuators',
     badge: '9 Series · 72 Configurations',
     description:
-      'Our core product. Rotary actuator solutions covering 20 Nm to 200,000 Nm, with multiple mechanisms, torque ranges and rotation configurations.',
+      'Hydraulic rotary actuators covering 20 Nm to 200,000 Nm, with multiple mechanisms and rotation configurations.',
     specs: [
       'DKX-A through DKX-F helical gear series',
       'DT, TR, RT series',
       '20 Nm to 200,000 Nm torque range',
-      'Multiple rotation configurations',
     ],
   },
   {
@@ -26,12 +25,23 @@ const products = [
     slug: 'tilt-actuators',
     badge: '19 Models',
     description:
-      'Selected cross-reference solutions for excavator tilt and coupler applications, with application-specific verification before replacement.',
+      'Selected cross-reference solutions for excavator tilt and coupler applications.',
     specs: [
       'DTA Series — 12 models',
       'DTD Series — 7 models',
-      'Cross-reference: HKS BVC/BVE, Helac PT',
-      'Application verification recommended',
+      'Comparable to HKS BVC/BVE, Helac PT',
+    ],
+  },
+  {
+    name: 'Selected Components',
+    slug: 'rotary-actuators',
+    badge: 'Hydraulic Cylinders · Motors · Valves',
+    description:
+      'Selected hydraulic components sourced through qualified manufacturing capabilities.',
+    specs: [
+      'Hydraulic cylinders',
+      'Hydraulic motors',
+      'Hydraulic valves',
     ],
   },
   {
@@ -39,9 +49,9 @@ const products = [
     slug: '/contact',
     badge: 'Custom Solutions',
     description:
-      'Custom hydraulic components developed around existing drawings, components or application requirements through qualified manufacturing capabilities.',
+      'Custom hydraulic components based on drawings, specifications or application requirements.',
     specs: [
-      'Based on your drawings or specifications',
+      'Based on your drawings or specs',
       'Technical validation before production',
       'Qualified manufacturing network',
     ],
@@ -69,28 +79,23 @@ export default function ProductsPage() {
       {/* Product Grid */}
       <section>
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {products.map((product) => (
               <div
-                key={product.slug}
-                className={`group relative p-8 border rounded-md transition-colors duration-150 ${
-                  product.isLink
-                    ? 'border-[rgba(44,74,115,0.10)] bg-white hover:border-[rgba(44,74,115,0.25)]'
-                    : 'border-[rgba(44,74,115,0.10)] bg-white hover:border-[rgba(44,74,115,0.25)]'
-                }`}
+                key={product.name}
+                className="group relative p-6 border border-[rgba(44,74,115,0.10)] bg-white rounded-md hover:border-[rgba(44,74,115,0.25)] transition-colors duration-150"
               >
-                <p className="font-label text-xs text-[#62666C] uppercase tracking-wider mb-4">
+                <p className="font-label text-xs text-[#62666C] uppercase tracking-wider mb-3">
                   {product.badge}
                 </p>
-                <h2 className="font-heading text-xl font-medium text-[#1B1E20] mb-3">
+                <h2 className="font-heading text-lg font-medium text-[#1B1E20] mb-2">
                   {product.name}
                 </h2>
-                <p className="text-sm text-[#4A4E54] leading-relaxed mb-5">
+                <p className="text-sm text-[#4A4E54] leading-relaxed mb-4">
                   {product.description}
                 </p>
 
-                {/* Specs list */}
-                <ul className="space-y-2 mb-6">
+                <ul className="space-y-1.5 mb-5">
                   {product.specs.map((spec, i) => (
                     <li
                       key={i}
@@ -162,7 +167,7 @@ export default function ProductsPage() {
                 DTA Series &harr; HKS
               </h3>
               <p className="text-sm text-[#4A4E54] mb-3">
-                Direct cross-reference with HKS BVC and BVE series tilt
+                Comparable specifications to HKS BVC and BVE series tilt
                 cylinders for excavator couplers.
               </p>
               <Link
@@ -177,8 +182,8 @@ export default function ProductsPage() {
                 DTD Series &harr; Helac
               </h3>
               <p className="text-sm text-[#4A4E54] mb-3">
-                Compatible with Helac PT series tilt actuators. Drop-in
-                replacement for existing installations.
+                Comparable specifications to Helac PT series tilt actuators.
+                Verify dimensions before ordering.
               </p>
               <Link
                 href="/products/tilt-actuators"

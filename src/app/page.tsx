@@ -15,13 +15,12 @@ export default function HomePage() {
               <br />
               <span className="text-[#2C4A73]">for Hydraulic Components</span>
             </h1>
-            <p className="text-lg md:text-xl text-[#4A4E54] leading-relaxed max-w-2xl mb-4">
-              We handle the supplier search, technical matching, quality verification and supply
-              coordination — so you don't have to manage the sourcing process alone.
+            <p className="text-lg md:text-xl text-[#4A4E54] leading-relaxed max-w-2xl mb-3">
+              We handle the technical matching, sourcing, quality verification and supply
+              coordination behind your hydraulic component requirements.
             </p>
-            <p className="text-[#62666C] text-base leading-relaxed max-w-2xl mb-10">
-              Built around qualified manufacturing partners, with technical oversight from inquiry
-              to delivery.
+            <p className="text-[#62666C] text-base mb-10">
+              From technical requirement to reliable delivery.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
@@ -41,64 +40,42 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Section 02 — What We Actually Do */}
+      {/* Section 02 — What We Do */}
       <section className="border-b border-[rgba(44,74,115,0.10)]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-20 md:py-24">
           <p className="eyebrow text-[#2C4A73] mb-3">HOW WE WORK</p>
           <h2 className="font-heading text-[#1B1E20] text-3xl md:text-4xl font-medium mb-4">
-            What We Actually Do
+            What We Do
           </h2>
           <p className="text-[#4A4E54] text-lg leading-relaxed max-w-[680px] mb-12">
-            Finding a factory is easy. Finding the right one — and making sure it can reliably
-            deliver what you need — is the harder part.
+            We help turn hydraulic component requirements into workable sourcing solutions.
           </p>
 
-          <div className="grid md:grid-cols-5 gap-6">
+          <div className="grid md:grid-cols-5 gap-4">
             {[
-              {
-                num: '01',
-                title: 'Understand',
-                desc: 'We clarify the application, technical requirements, quantities, delivery expectations and commercial priorities behind your requirement.',
-              },
-              {
-                num: '02',
-                title: 'Source',
-                desc: 'We identify suitable manufacturing capabilities based on technical requirements, quality expectations and commercial needs.',
-              },
-              {
-                num: '03',
-                title: 'Validate',
-                desc: 'We review specifications, drawings, dimensions, interfaces, materials and performance requirements before production.',
-              },
-              {
-                num: '04',
-                title: 'Control',
-                desc: 'We coordinate production, inspection, testing and documentation throughout the supply process.',
-              },
-              {
-                num: '05',
-                title: 'Deliver',
-                desc: 'We coordinate packaging, transportation and delivery so the process continues through to the customer\'s receiving point.',
-              },
+              { num: '01', title: 'Understand', desc: 'Clarify the requirement' },
+              { num: '02', title: 'Source', desc: 'Match manufacturing capability' },
+              { num: '03', title: 'Validate', desc: 'Check technical fit' },
+              { num: '04', title: 'Control', desc: 'Coordinate quality & production' },
+              { num: '05', title: 'Deliver', desc: 'Coordinate shipment & supply' },
             ].map((step) => (
               <div
                 key={step.num}
-                className="bg-white border border-[rgba(44,74,115,0.10)] rounded-lg p-6"
+                className="bg-white border border-[rgba(44,74,115,0.10)] rounded-lg p-5"
               >
                 <span className="font-label text-[#2C4A73] text-xs font-medium mb-2 block">
                   {step.num}
                 </span>
-                <h3 className="font-heading text-[#1B1E20] text-base font-medium mb-2">
+                <h3 className="font-heading text-[#1B1E20] text-base font-medium mb-1">
                   {step.title}
                 </h3>
-                <p className="text-[#4A4E54] text-sm leading-relaxed">{step.desc}</p>
+                <p className="text-[#62666C] text-sm">{step.desc}</p>
               </div>
             ))}
           </div>
 
-          <p className="text-[#4A4E54] text-base leading-relaxed max-w-[680px] mt-10">
-            You don't need to manage multiple factories, verify every drawing yourself, or chase
-            production updates. We coordinate the process for you.
+          <p className="text-[#1B1E20] text-base font-medium mt-8">
+            One technical and commercial interface from requirement to delivery.
           </p>
         </div>
       </section>
@@ -111,119 +88,90 @@ export default function HomePage() {
             Our Solutions
           </h2>
           <p className="text-[#4A4E54] text-lg leading-relaxed max-w-[680px] mb-12">
-            Different sourcing requirements need different levels of support. From selecting an
-            existing component to developing a customized solution and coordinating ongoing supply,
-            we help manage the process from requirement to delivery.
+            Support that goes beyond finding a supplier.
           </p>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-6">
             {/* Engineering */}
             <div className="bg-white border border-[rgba(44,74,115,0.10)] rounded-lg p-8">
-              <p className="eyebrow text-[#2C4A73] mb-3">ENGINEERING SUPPORT</p>
+              <p className="eyebrow text-[#2C4A73] mb-3">ENGINEERING</p>
               <h3 className="font-heading text-[#1B1E20] text-xl font-medium mb-3">
                 Select. Adapt. Validate.
               </h3>
-              <p className="text-[#4A4E54] text-sm leading-relaxed mb-6">
-                The right component starts with the right specification. We support application
-                review, component selection, cross-reference and technical clarification before
-                production begins.
+              <p className="text-[#4A4E54] text-sm leading-relaxed mb-4">
+                Component selection, cross-reference and custom engineering based on your
+                application, existing part or drawings.
               </p>
-              <ul className="space-y-2">
-                {[
-                  'Component Selection',
-                  'Custom Engineering',
-                  'Technical Validation',
-                ].map((item) => (
-                  <li
-                    key={item}
-                    className="text-[#4A4E54] text-sm flex items-start gap-2"
-                  >
-                    <span className="text-[#2C4A73] mt-1.5 shrink-0">
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M5 12h14" />
-                      </svg>
-                    </span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
+              <p className="text-[#62666C] text-xs font-label uppercase tracking-wider">
+                Selection · Cross-reference · Customization · Validation
+              </p>
+              <div className="mt-6">
+                <Link
+                  href="/solutions#engineering"
+                  className="inline-flex items-center text-[#2C4A73] text-sm font-medium no-underline hover:text-[#1E3A5F] transition-colors duration-150"
+                >
+                  Explore Engineering Support
+                  <svg className="ml-1.5 w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M5 12h14" />
+                    <path d="m12 5 7 7-7 7" />
+                  </svg>
+                </Link>
+              </div>
             </div>
 
             {/* Supply */}
             <div className="bg-white border border-[rgba(44,74,115,0.10)] rounded-lg p-8">
-              <p className="eyebrow text-[#2C4A73] mb-3">SUPPLY PLANNING</p>
+              <p className="eyebrow text-[#2C4A73] mb-3">SUPPLY</p>
               <h3 className="font-heading text-[#1B1E20] text-xl font-medium mb-3">
                 Plan. Produce. Control.
               </h3>
-              <p className="text-[#4A4E54] text-sm leading-relaxed mb-6">
-                For recurring requirements, we can coordinate production planning, manufacturing,
-                inspection and replenishment schedules to improve delivery predictability and reduce
-                supply interruptions.
+              <p className="text-[#4A4E54] text-sm leading-relaxed mb-4">
+                Production planning, manufacturing coordination and quality control
+                for more predictable supply.
               </p>
-              <ul className="space-y-2">
-                {[
-                  'Production Planning',
-                  'Manufacturing Coordination',
-                  'Supply Continuity',
-                ].map((item) => (
-                  <li
-                    key={item}
-                    className="text-[#4A4E54] text-sm flex items-start gap-2"
-                  >
-                    <span className="text-[#2C4A73] mt-1.5 shrink-0">
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M5 12h14" />
-                      </svg>
-                    </span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
+              <p className="text-[#62666C] text-xs font-label uppercase tracking-wider">
+                Production Planning · Manufacturing · Inspection · Replenishment
+              </p>
+              <div className="mt-6">
+                <Link
+                  href="/solutions#supply"
+                  className="inline-flex items-center text-[#2C4A73] text-sm font-medium no-underline hover:text-[#1E3A5F] transition-colors duration-150"
+                >
+                  Explore Supply Planning
+                  <svg className="ml-1.5 w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M5 12h14" />
+                    <path d="m12 5 7 7-7 7" />
+                  </svg>
+                </Link>
+              </div>
             </div>
 
             {/* Delivery */}
             <div className="bg-white border border-[rgba(44,74,115,0.10)] rounded-lg p-8">
-              <p className="eyebrow text-[#2C4A73] mb-3">DELIVERY SOLUTIONS</p>
+              <p className="eyebrow text-[#2C4A73] mb-3">DELIVERY</p>
               <h3 className="font-heading text-[#1B1E20] text-xl font-medium mb-3">
                 Coordinate. Ship. Replenish.
               </h3>
-              <p className="text-[#4A4E54] text-sm leading-relaxed mb-6">
-                We coordinate transportation and delivery solutions based on shipment size, urgency,
+              <p className="text-[#4A4E54] text-sm leading-relaxed mb-4">
+                Transportation and delivery coordination based on your shipment,
                 destination and commercial requirements.
               </p>
-              <ul className="space-y-2">
-                {[
-                  'Shipping Options',
-                  'Delivery Terms',
-                  'Shipment Coordination',
-                ].map((item) => (
-                  <li
-                    key={item}
-                    className="text-[#4A4E54] text-sm flex items-start gap-2"
-                  >
-                    <span className="text-[#2C4A73] mt-1.5 shrink-0">
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M5 12h14" />
-                      </svg>
-                    </span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
+              <p className="text-[#62666C] text-xs font-label uppercase tracking-wider">
+                Shipping · Delivery Terms · Logistics · Replenishment
+              </p>
+              <div className="mt-6">
+                <Link
+                  href="/solutions#delivery"
+                  className="inline-flex items-center text-[#2C4A73] text-sm font-medium no-underline hover:text-[#1E3A5F] transition-colors duration-150"
+                >
+                  Explore Delivery Solutions
+                  <svg className="ml-1.5 w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M5 12h14" />
+                    <path d="m12 5 7 7-7 7" />
+                  </svg>
+                </Link>
+              </div>
             </div>
-          </div>
-
-          <div className="mt-10">
-            <Link
-              href="/solutions"
-              className="inline-flex items-center text-[#2C4A73] text-sm font-medium no-underline hover:text-[#1E3A5F] transition-colors duration-150"
-            >
-              Learn more about our solutions
-              <svg className="ml-1.5 w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M5 12h14" />
-                <path d="m12 5 7 7-7 7" />
-              </svg>
-            </Link>
           </div>
         </div>
       </section>
@@ -236,20 +184,18 @@ export default function HomePage() {
             Current Product Focus
           </h2>
           <p className="text-[#4A4E54] text-lg leading-relaxed max-w-[680px] mb-12">
-            Our current focus is hydraulic rotary actuators, supported by selected actuator and
-            hydraulic component solutions for demanding industrial applications.
+            Our current core product is hydraulic rotary actuators, supported by selected
+            actuator and hydraulic component solutions.
           </p>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white border border-[rgba(44,74,115,0.10)] rounded-lg p-8">
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="bg-white border border-[rgba(44,74,115,0.10)] rounded-lg p-6">
               <p className="eyebrow text-[#2C4A73] mb-2">CORE PRODUCT</p>
-              <h3 className="font-heading text-[#1B1E20] text-xl font-medium mb-3">
+              <h3 className="font-heading text-[#1B1E20] text-lg font-medium mb-2">
                 Rotary Actuators
               </h3>
-              <p className="text-[#4A4E54] text-sm leading-relaxed mb-6">
-                Rotary actuator solutions covering compact positioning applications through
-                high-torque industrial rotation, with multiple torque ranges, mechanisms and
-                rotation configurations.
+              <p className="text-[#4A4E54] text-sm leading-relaxed mb-4">
+                20 Nm–200,000 Nm across multiple series, mechanisms and application requirements.
               </p>
               <Link
                 href="/products/rotary-actuators"
@@ -263,20 +209,18 @@ export default function HomePage() {
               </Link>
             </div>
 
-            <div className="bg-white border border-[rgba(44,74,115,0.10)] rounded-lg p-8">
-              <p className="eyebrow text-[#2C4A73] mb-2">CROSS-REFERENCE</p>
-              <h3 className="font-heading text-[#1B1E20] text-xl font-medium mb-3">
+            <div className="bg-white border border-[rgba(44,74,115,0.10)] rounded-lg p-6">
+              <h3 className="font-heading text-[#1B1E20] text-lg font-medium mb-2">
                 Tilt Actuators
               </h3>
-              <p className="text-[#4A4E54] text-sm leading-relaxed mb-6">
-                Selected cross-reference solutions for excavator tilt and coupler applications, with
-                application-specific verification before replacement.
+              <p className="text-[#4A4E54] text-sm leading-relaxed mb-4">
+                Selected cross-reference solutions for excavator tilt and coupler applications.
               </p>
               <Link
                 href="/products/tilt-actuators"
                 className="inline-flex items-center text-[#2C4A73] text-sm font-medium no-underline hover:text-[#1E3A5F] transition-colors duration-150"
               >
-                View Tilt Actuators
+                View Products
                 <svg className="ml-1.5 w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M5 12h14" />
                   <path d="m12 5 7 7-7 7" />
@@ -284,14 +228,12 @@ export default function HomePage() {
               </Link>
             </div>
 
-            <div className="bg-white border border-[rgba(44,74,115,0.10)] rounded-lg p-8">
-              <p className="eyebrow text-[#2C4A73] mb-2">CUSTOM SOLUTIONS</p>
-              <h3 className="font-heading text-[#1B1E20] text-xl font-medium mb-3">
+            <div className="bg-white border border-[rgba(44,74,115,0.10)] rounded-lg p-6">
+              <h3 className="font-heading text-[#1B1E20] text-lg font-medium mb-2">
                 Custom Hydraulic Components
               </h3>
-              <p className="text-[#4A4E54] text-sm leading-relaxed mb-6">
-                Custom hydraulic components can be developed around existing drawings, components or
-                application requirements through qualified manufacturing capabilities.
+              <p className="text-[#4A4E54] text-sm leading-relaxed mb-4">
+                Custom solutions based on drawings, existing components or application requirements.
               </p>
               <Link
                 href="/contact"
@@ -308,7 +250,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Section 05 — Why Work With HM */}
+      {/* Section 05 — Why HM / Evidence */}
       <section className="border-b border-[rgba(44,74,115,0.10)]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-20 md:py-24">
           <p className="eyebrow text-[#2C4A73] mb-3">WHY HM</p>
@@ -316,85 +258,71 @@ export default function HomePage() {
             Why Work With HM
           </h2>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
             <div>
-              <h3 className="font-heading text-[#1B1E20] text-lg font-medium mb-3">
-                Lower Sourcing Risk
+              <h3 className="font-heading text-[#1B1E20] text-base font-medium mb-2">
+                Technical Fit
               </h3>
+              <p className="text-[#2C4A73] text-sm font-medium mb-1">
+                Validate before you commit.
+              </p>
               <p className="text-[#4A4E54] text-sm leading-relaxed">
-                Technical validation before you commit. We help verify specifications,
-                compatibility, manufacturing capability and quality requirements before production.
+                Application, specification and compatibility review before production.
               </p>
             </div>
             <div>
-              <h3 className="font-heading text-[#1B1E20] text-lg font-medium mb-3">
-                More Reliable Supply
+              <h3 className="font-heading text-[#1B1E20] text-base font-medium mb-2">
+                Supply Control
               </h3>
+              <p className="text-[#2C4A73] text-sm font-medium mb-1">
+                More than a factory contact.
+              </p>
               <p className="text-[#4A4E54] text-sm leading-relaxed">
-                A managed supply process, not just a factory contact. We coordinate production,
-                inspection, documentation and delivery through qualified manufacturing capabilities.
+                Production, inspection and delivery coordination through qualified
+                manufacturing capabilities.
               </p>
             </div>
             <div>
-              <h3 className="font-heading text-[#1B1E20] text-lg font-medium mb-3">
-                Better Total Cost
+              <h3 className="font-heading text-[#1B1E20] text-base font-medium mb-2">
+                Total Cost
               </h3>
+              <p className="text-[#2C4A73] text-sm font-medium mb-1">
+                Balance cost with capability.
+              </p>
               <p className="text-[#4A4E54] text-sm leading-relaxed">
-                Competitive sourcing without sacrificing technical control. We help balance
-                manufacturing cost, capability, quality and delivery requirements.
+                Competitive sourcing without sacrificing technical requirements or
+                supply reliability.
               </p>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* Section 06 — Quality & Technical Validation */}
-      <section className="border-b border-[rgba(44,74,115,0.10)]">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-20 md:py-24">
-          <p className="eyebrow text-[#2C4A73] mb-3">QUALITY EVIDENCE</p>
-          <h2 className="font-heading text-[#1B1E20] text-3xl md:text-4xl font-medium mb-4">
-            Quality & Technical Validation
-          </h2>
-          <p className="text-[#4A4E54] text-lg leading-relaxed max-w-[680px] mb-12">
-            Quality is not something we check only at the end. Technical requirements, manufacturing
-            coordination and pre-shipment verification are part of the sourcing process.
-          </p>
-
-          <div className="grid md:grid-cols-4 gap-6 mb-12">
+          {/* Evidence Strip */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { value: '1M+', label: 'Cycle Validation', note: 'Selected models' },
               { value: '72+', label: 'Configurations' },
-              { value: '200,000 Nm', label: 'Max Design Capability' },
-              { value: '100%', label: 'Pre-Shipment Testing' },
+              { value: '1M+', label: 'Cycle Validation*' },
+              { value: '200,000 Nm', label: 'Maximum Design Capability*' },
+              { value: '100%', label: 'Pre-Shipment Testing*' },
             ].map((metric) => (
               <div
                 key={metric.label}
-                className="bg-white border border-[rgba(44,74,115,0.10)] rounded-lg p-6"
+                className="bg-white border border-[rgba(44,74,115,0.10)] rounded-lg p-5 text-center"
               >
                 <div className="font-heading text-[#2C4A73] text-2xl md:text-3xl font-medium mb-1">
                   {metric.value}
                 </div>
-                <div className="text-[#1B1E20] text-sm font-medium mb-1">{metric.label}</div>
-                {metric.note && (
-                  <div className="text-[#62666C] text-xs">{metric.note}</div>
-                )}
+                <div className="text-[#4A4E54] text-xs">{metric.label}</div>
               </div>
             ))}
           </div>
-
-          <div className="bg-[#F5F5F0] border border-[rgba(44,74,115,0.10)] rounded-lg p-8 md:p-10">
-            <p className="text-[#4A4E54] leading-relaxed">
-              A selected actuator model completed an independently conducted full-load fatigue test
-              at 150 bar for 1,000,000 cycles, with zero actuator failures recorded.
-            </p>
-            <p className="text-[#62666C] text-sm mt-3">
-              Test documentation available upon request.
-            </p>
-          </div>
+          <p className="text-[#62666C] text-xs mt-4 leading-relaxed">
+            *Applies to selected models / capabilities where specified. Technical details and
+            supporting documentation available upon request.
+          </p>
         </div>
       </section>
 
-      {/* Section 07 — Where Our Components Are Used */}
+      {/* Section 06 — Applications */}
       <section className="border-b border-[rgba(44,74,115,0.10)]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-20 md:py-24">
           <p className="eyebrow text-[#2C4A73] mb-3">APPLICATIONS</p>
@@ -402,39 +330,38 @@ export default function HomePage() {
             Where Our Components Are Used
           </h2>
           <p className="text-[#4A4E54] text-lg leading-relaxed max-w-[680px] mb-12">
-            Hydraulic actuators are application-specific components. We focus on understanding the
-            equipment and operating conditions behind each requirement.
+            Application-specific hydraulic solutions for demanding equipment and machinery.
           </p>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {[
-              'Construction Equipment',
+              'Construction',
               'Mining & Heavy Equipment',
-              'Marine Equipment',
+              'Marine',
               'Industrial Machinery',
               'Material Handling',
               'Specialized Equipment',
             ].map((app) => (
               <div
                 key={app}
-                className="bg-white border border-[rgba(44,74,115,0.10)] rounded-lg p-6"
+                className="bg-white border border-[rgba(44,74,115,0.10)] rounded-lg p-5"
               >
-                <h3 className="font-heading text-[#1B1E20] text-base font-medium">{app}</h3>
+                <h3 className="font-heading text-[#1B1E20] text-sm font-medium">{app}</h3>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Section 08 — Final CTA */}
+      {/* Section 07 — Final CTA */}
       <section>
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-20 md:py-24">
           <h2 className="font-heading text-[#1B1E20] text-3xl md:text-4xl font-medium mb-4">
-            Tell Us What You're Trying to Source
+            Tell Us What You&apos;re Trying to Source
           </h2>
           <p className="text-[#4A4E54] text-lg leading-relaxed max-w-[680px] mb-8">
-            Share your existing component, drawing or application requirement. We'll help identify
-            the technical requirements, suitable sourcing options and next steps.
+            Share an existing part, drawing or application requirement. We&apos;ll help
+            identify the next step.
           </p>
           <div className="flex flex-wrap gap-4">
             <Link

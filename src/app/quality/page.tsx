@@ -51,11 +51,11 @@ export default function QualityPage() {
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
           <p className="eyebrow text-[#2C4A73] mb-4">QUALITY & TECHNICAL VALIDATION</p>
           <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-medium text-[#1B1E20] mb-4">
-            Proven at every stage
+            Built to Perform. Proven to Last.
           </h1>
           <p className="text-lg text-[#4A4E54] leading-relaxed max-w-2xl">
-            From production planning to independent customer validation. Our quality
-            system ensures every unit meets performance standards before shipment.
+            From production planning to independent customer validation. Every unit
+            tested before shipment, with full traceability and documented quality records.
           </p>
         </div>
       </section>

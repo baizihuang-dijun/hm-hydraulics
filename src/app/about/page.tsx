@@ -53,57 +53,50 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* What We Do */}
+      {/* How We Work */}
       <section className="border-b border-[rgba(44,74,115,0.10)] bg-white">
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
-            <div>
-              <p className="eyebrow text-[#2C4A73] mb-4">OUR ROLE</p>
-              <h2 className="font-heading text-2xl md:text-3xl font-medium text-[#1B1E20] mb-4">
-                We handle what you can&apos;t easily do yourself
-              </h2>
-              <p className="text-[#4A4E54] leading-relaxed mb-4">
-                Sourcing hydraulic components from China should be
-                straightforward. In practice, it requires technical validation,
-                quality assurance, supply chain management, and ongoing
-                communication that most overseas buyers simply don&apos;t have
-                the resources for.
-              </p>
-              <p className="text-[#4A4E54] leading-relaxed">
-                That&apos;s where we come in. We are engineers and sourcing
-                specialists who understand both the technical requirements and
-                the manufacturing landscape. We validate, test, and manage
-                quality so you can focus on your core business.
+          <p className="eyebrow text-[#2C4A73] mb-4">HOW WE WORK</p>
+          <h2 className="font-heading text-2xl md:text-3xl font-medium text-[#1B1E20] mb-10">
+            One sourcing process, end to end
+          </h2>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="p-5 border border-[rgba(44,74,115,0.10)] rounded-md">
+              <p className="font-label text-xs text-[#2C4A73] uppercase tracking-wider mb-2">Step 1</p>
+              <h3 className="font-heading text-base font-medium text-[#1B1E20] mb-1">
+                Technical Review
+              </h3>
+              <p className="text-sm text-[#4A4E54]">
+                Evaluate requirements, select components, cross-reference existing parts.
               </p>
             </div>
-            <div className="space-y-4">
-              <div className="p-5 border border-[rgba(44,74,115,0.10)] rounded-md">
-                <h3 className="font-heading text-base font-medium text-[#1B1E20] mb-1">
-                  Technical Validation
-                </h3>
-                <p className="text-sm text-[#4A4E54]">
-                  We verify specifications, test performance, and confirm
-                  compatibility before any order is placed.
-                </p>
-              </div>
-              <div className="p-5 border border-[rgba(44,74,115,0.10)] rounded-md">
-                <h3 className="font-heading text-base font-medium text-[#1B1E20] mb-1">
-                  Quality Assurance
-                </h3>
-                <p className="text-sm text-[#4A4E54]">
-                  ISO9001 certified production with full traceability. Every
-                  unit tested before shipment.
-                </p>
-              </div>
-              <div className="p-5 border border-[rgba(44,74,115,0.10)] rounded-md">
-                <h3 className="font-heading text-base font-medium text-[#1B1E20] mb-1">
-                  Supply Chain Management
-                </h3>
-                <p className="text-sm text-[#4A4E54]">
-                  Production planning and coordination to manage lead times.
-                  Proactive communication throughout your order cycle.
-                </p>
-              </div>
+            <div className="p-5 border border-[rgba(44,74,115,0.10)] rounded-md">
+              <p className="font-label text-xs text-[#2C4A73] uppercase tracking-wider mb-2">Step 2</p>
+              <h3 className="font-heading text-base font-medium text-[#1B1E20] mb-1">
+                Production Coordination
+              </h3>
+              <p className="text-sm text-[#4A4E54]">
+                Coordinate manufacturing through qualified capabilities with ISO9001 oversight.
+              </p>
+            </div>
+            <div className="p-5 border border-[rgba(44,74,115,0.10)] rounded-md">
+              <p className="font-label text-xs text-[#2C4A73] uppercase tracking-wider mb-2">Step 3</p>
+              <h3 className="font-heading text-base font-medium text-[#1B1E20] mb-1">
+                Quality & Testing
+              </h3>
+              <p className="text-sm text-[#4A4E54]">
+                Every unit tested before shipment. Full traceability and documentation.
+              </p>
+            </div>
+            <div className="p-5 border border-[rgba(44,74,115,0.10)] rounded-md">
+              <p className="font-label text-xs text-[#2C4A73] uppercase tracking-wider mb-2">Step 4</p>
+              <h3 className="font-heading text-base font-medium text-[#1B1E20] mb-1">
+                Delivery & Support
+              </h3>
+              <p className="text-sm text-[#4A4E54]">
+                Coordinate shipping, manage replenishment, provide ongoing technical support.
+              </p>
             </div>
           </div>
         </div>
@@ -290,15 +283,9 @@ export default function AboutPage() {
             <h2 className="font-heading text-2xl md:text-3xl font-medium text-[#1B1E20] mb-4">
               Quality-first, always
             </h2>
-            <p className="text-[#4A4E54] leading-relaxed mb-4">
-              Every decision we make starts with quality. From material
-              selection to final testing, we maintain full traceability and
-              refuse to compromise on standards.
-            </p>
             <p className="text-[#4A4E54] leading-relaxed mb-6">
               ISO9001 certified. 8+ patents. 1,000,000-cycle fatigue validated.
-              These aren&apos;t just credentials &mdash; they&apos;re the
-              foundation of every order we fulfill.
+              Every unit tested before shipment with full traceability.
             </p>
             <Link
               href="/quality"
