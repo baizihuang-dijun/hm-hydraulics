@@ -4,7 +4,7 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'About',
   description:
-    'HM Hydraulics — Technical sourcing partner bridging Chinese manufacturing capability with overseas OEM quality requirements. 20,000+ sqm facility, 80+ machines.',
+    'HM Hydraulics — Technical sourcing partner bridging Chinese manufacturing capability with overseas OEM quality requirements. Vetted production network, full quality oversight.',
 };
 
 const applications = [
@@ -99,45 +99,51 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Factory & Capability */}
+      {/* Manufacturing Network */}
       <section className="border-b border-[rgba(44,74,115,0.10)]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
-          <p className="eyebrow mb-4">Manufacturing</p>
-          <h2 className="font-heading text-2xl md:text-3xl font-medium text-[#1B1E20] mb-10">
-            Factory & capabilities
+          <p className="eyebrow mb-4">Manufacturing Network</p>
+          <h2 className="font-heading text-2xl md:text-3xl font-medium text-[#1B1E20] mb-4">
+            Vetted production capabilities we stand behind
           </h2>
+          <p className="text-[#4A4E54] leading-relaxed max-w-2xl mb-10">
+            We work with a select network of manufacturing partners and
+            maintain deep involvement in every stage of production. The
+            capabilities below represent the production system we manage and
+            validate on behalf of our customers.
+          </p>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
             <div>
               <p className="font-heading text-3xl md:text-4xl font-medium text-[#2C4A73] mb-2">
                 20,000+
               </p>
-              <p className="text-sm text-[#4A4E54]">sqm facility</p>
+              <p className="text-sm text-[#4A4E54]">sqm production area</p>
             </div>
             <div>
               <p className="font-heading text-3xl md:text-4xl font-medium text-[#2C4A73] mb-2">
                 80+
               </p>
-              <p className="text-sm text-[#4A4E54]">machines</p>
+              <p className="text-sm text-[#4A4E54]">CNC machines</p>
             </div>
             <div>
               <p className="font-heading text-3xl md:text-4xl font-medium text-[#2C4A73] mb-2">
                 80+
               </p>
-              <p className="text-sm text-[#4A4E54]">technical staff</p>
+              <p className="text-sm text-[#4A4E54]">technical personnel</p>
             </div>
             <div>
               <p className="font-heading text-3xl md:text-4xl font-medium text-[#2C4A73] mb-2">
                 200k
               </p>
-              <p className="text-sm text-[#4A4E54]">Nm max capability</p>
+              <p className="text-sm text-[#4A4E54]">Nm max torque capability</p>
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="p-6 border border-[rgba(44,74,115,0.10)] rounded-md">
               <h3 className="font-heading text-lg font-medium text-[#1B1E20] mb-3">
-                Manufacturing Range
+                Production Range
               </h3>
               <ul className="space-y-2">
                 <li className="flex items-start gap-2 text-sm text-[#4A4E54]">
@@ -146,7 +152,7 @@ export default function AboutPage() {
                 </li>
                 <li className="flex items-start gap-2 text-sm text-[#4A4E54]">
                   <span className="mt-1.5 w-1 h-1 rounded-full bg-[#2C4A73] shrink-0" />
-                  Largest batch production: 100,000 Nm
+                  Largest batch delivered: 100,000 Nm
                 </li>
                 <li className="flex items-start gap-2 text-sm text-[#4A4E54]">
                   <span className="mt-1.5 w-1 h-1 rounded-full bg-[#2C4A73] shrink-0" />
@@ -156,20 +162,20 @@ export default function AboutPage() {
             </div>
             <div className="p-6 border border-[rgba(44,74,115,0.10)] rounded-md">
               <h3 className="font-heading text-lg font-medium text-[#1B1E20] mb-3">
-                Core Processes
+                Our Quality Oversight
               </h3>
               <ul className="space-y-2">
                 <li className="flex items-start gap-2 text-sm text-[#4A4E54]">
                   <span className="mt-1.5 w-1 h-1 rounded-full bg-[#2C4A73] shrink-0" />
-                  Precision CNC machining (hobbing, shaping, grinding)
+                  On-site inspection at critical production stages
                 </li>
                 <li className="flex items-start gap-2 text-sm text-[#4A4E54]">
                   <span className="mt-1.5 w-1 h-1 rounded-full bg-[#2C4A73] shrink-0" />
-                  Helical gear mechanism manufacturing
+                  Pre-shipment testing witnessed and verified by our team
                 </li>
                 <li className="flex items-start gap-2 text-sm text-[#4A4E54]">
                   <span className="mt-1.5 w-1 h-1 rounded-full bg-[#2C4A73] shrink-0" />
-                  Complete assembly and testing lines
+                  Full traceability from raw material to final test report
                 </li>
               </ul>
             </div>
