@@ -26,16 +26,26 @@ const partners = [
 export default function AboutPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="border-b border-[rgba(44,74,115,0.10)]">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
-          <p className="eyebrow mb-4">About HM Hydraulics</p>
-          <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-medium text-[#1B1E20] mb-4">
+      {/* Hero with factory aerial */}
+      <section className="border-b border-[rgba(44,74,115,0.10)] relative overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="/images/factory/aerial.jpg"
+            alt="HM Hydraulics factory aerial view"
+            className="w-full h-full object-cover"
+            loading="eager"
+            fetchPriority="high"
+          />
+          <div className="absolute inset-0 bg-[#1B1E20]/60" />
+        </div>
+        <div className="relative max-w-[1200px] mx-auto px-6 md:px-8 py-20 md:py-28">
+          <p className="eyebrow mb-4 text-white/70">About HM Hydraulics</p>
+          <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-medium text-white mb-4">
             Technical sourcing partner,
             <br />
-            <span className="text-[#2C4A73]">not just a supplier</span>
+            <span className="text-white/90">not just a supplier</span>
           </h1>
-          <p className="text-lg text-[#4A4E54] leading-relaxed max-w-2xl">
+          <p className="text-lg text-white/80 leading-relaxed max-w-2xl">
             We bridge the gap between Chinese manufacturing capability and
             overseas OEM quality requirements. Our role is to do the technical
             sourcing work you&apos;d have to do yourself &mdash; already done.
@@ -99,6 +109,39 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* R&D Team */}
+      <section className="border-b border-[rgba(44,74,115,0.10)] bg-white">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+            <div>
+              <p className="eyebrow mb-4">Research & Development</p>
+              <h2 className="font-heading text-2xl md:text-3xl font-medium text-[#1B1E20] mb-4">
+                Engineering-led technical validation
+              </h2>
+              <p className="text-[#4A4E54] leading-relaxed">
+                Our engineering team reviews every specification, validates
+                design compatibility, and ensures manufacturability before
+                production begins. CAD-driven precision from concept to
+                finished component.
+              </p>
+            </div>
+            <div className="rounded-md overflow-hidden border border-[rgba(44,74,115,0.10)] group">
+              <img
+                src="/images/factory/rd-cad.jpg"
+                alt="Engineering team reviewing CAD drawings"
+                className="w-full h-[320px] object-cover transition-transform duration-200 ease-out group-hover:scale-[1.03]"
+                loading="lazy"
+              />
+              <div className="px-4 py-3 bg-[#FAFAF7] border-t border-[rgba(44,74,115,0.10)]">
+                <p className="text-xs text-[#62666C] font-label uppercase tracking-wider">
+                  CAD Design Review — Engineering Team
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Manufacturing Network */}
       <section className="border-b border-[rgba(44,74,115,0.10)]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
@@ -137,6 +180,21 @@ export default function AboutPage() {
                 200k
               </p>
               <p className="text-sm text-[#4A4E54]">Nm max torque capability</p>
+            </div>
+          </div>
+
+          {/* Precision Manufacturing Image */}
+          <div className="mb-10 rounded-md overflow-hidden border border-[rgba(44,74,115,0.10)] group">
+            <img
+              src="/images/factory/precision-part.jpg"
+              alt="Precision machined hydraulic component"
+              className="w-full h-[280px] md:h-[340px] object-cover transition-transform duration-200 ease-out group-hover:scale-[1.02]"
+              loading="lazy"
+            />
+            <div className="px-4 py-3 bg-[#FAFAF7] border-t border-[rgba(44,74,115,0.10)]">
+              <p className="text-xs text-[#62666C] font-label uppercase tracking-wider">
+                Precision Machined Component — Helical Gear Element
+              </p>
             </div>
           </div>
 

@@ -158,6 +158,62 @@ export default function QualityPage() {
         </div>
       </section>
 
+      {/* Manufacturing Equipment */}
+      <section className="border-b border-[rgba(44,74,115,0.10)] bg-white">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
+          <p className="eyebrow mb-4">Production Equipment</p>
+          <h2 className="font-heading text-2xl md:text-3xl font-medium text-[#1B1E20] mb-4">
+            Precision manufacturing capabilities
+          </h2>
+          <p className="text-[#4A4E54] leading-relaxed max-w-2xl mb-10">
+            Advanced CNC equipment ensures tight tolerances and consistent
+            quality across every production run.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="rounded-md overflow-hidden border border-[rgba(44,74,115,0.10)] group">
+              <img
+                src="/images/factory/cnc-machining.jpg"
+                alt="CNC precision machining"
+                className="w-full h-[240px] object-cover transition-transform duration-200 ease-out group-hover:scale-[1.03]"
+                loading="lazy"
+              />
+              <div className="px-4 py-3 bg-[#FAFAF7] border-t border-[rgba(44,74,115,0.10)]">
+                <p className="text-xs text-[#62666C] font-label uppercase tracking-wider">
+                  CNC Precision Machining
+                </p>
+              </div>
+            </div>
+            <div className="rounded-md overflow-hidden border border-[rgba(44,74,115,0.10)] group">
+              <img
+                src="/images/factory/cnc-lathe.jpg"
+                alt="CNC lathe turning operation"
+                className="w-full h-[240px] object-cover transition-transform duration-200 ease-out group-hover:scale-[1.03]"
+                loading="lazy"
+              />
+              <div className="px-4 py-3 bg-[#FAFAF7] border-t border-[rgba(44,74,115,0.10)]">
+                <p className="text-xs text-[#62666C] font-label uppercase tracking-wider">
+                  CNC Lathe Turning
+                </p>
+              </div>
+            </div>
+            <div className="rounded-md overflow-hidden border border-[rgba(44,74,115,0.10)] group">
+              <img
+                src="/images/factory/machining-center.jpg"
+                alt="Vertical machining center operation"
+                className="w-full h-[240px] object-cover transition-transform duration-200 ease-out group-hover:scale-[1.03]"
+                loading="lazy"
+              />
+              <div className="px-4 py-3 bg-[#FAFAF7] border-t border-[rgba(44,74,115,0.10)]">
+                <p className="text-xs text-[#62666C] font-label uppercase tracking-wider">
+                  Machining Center
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Pre-Shipment Testing */}
       <section className="border-b border-[rgba(44,74,115,0.10)] bg-white">
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
@@ -198,6 +254,49 @@ export default function QualityPage() {
                 </p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Quality Inspection & Production */}
+      <section className="border-b border-[rgba(44,74,115,0.10)]">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="rounded-md overflow-hidden border border-[rgba(44,74,115,0.10)] group">
+              <img
+                src="/images/factory/quality-inspection.jpg"
+                alt="Quality inspection with precision measuring tools"
+                className="w-full h-[300px] object-cover transition-transform duration-200 ease-out group-hover:scale-[1.02]"
+                loading="lazy"
+              />
+              <div className="px-4 py-3 bg-[#FAFAF7] border-t border-[rgba(44,74,115,0.10)]">
+                <p className="text-xs text-[#62666C] font-label uppercase tracking-wider">
+                  Precision Measurement — Quality Inspection
+                </p>
+              </div>
+            </div>
+            <div className="rounded-md overflow-hidden border border-[rgba(44,74,115,0.10)] group relative">
+              <img
+                src="/images/factory/batch-iso.jpg"
+                alt="Batch production with ISO9001:2015 certification"
+                className="w-full h-[300px] object-cover transition-transform duration-200 ease-out group-hover:scale-[1.02]"
+                loading="lazy"
+              />
+              <div className="absolute bottom-16 right-4 w-28 md:w-32 opacity-90 rounded shadow-lg border border-white/20">
+                <img
+                  src="/images/factory/batch-iso.jpg"
+                  alt="ISO9001:2015 Certificate"
+                  className="w-full h-auto"
+                  loading="lazy"
+                  style={{ clipPath: 'inset(30% 5% 5% 55%)' }}
+                />
+              </div>
+              <div className="px-4 py-3 bg-[#FAFAF7] border-t border-[rgba(44,74,115,0.10)]">
+                <p className="text-xs text-[#62666C] font-label uppercase tracking-wider">
+                  Batch Production — ISO9001:2015 Certified
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
