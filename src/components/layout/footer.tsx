@@ -7,15 +7,12 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-12">
           {/* Brand */}
           <div className="md:col-span-2">
-            <div className="flex items-center gap-2.5 mb-4">
-              <div className="w-8 h-8 bg-[#2C4A73] rounded flex items-center justify-center">
-                <span className="text-white font-heading font-semibold text-sm tracking-tight">
-                  HM
-                </span>
-              </div>
-              <span className="font-heading font-semibold text-lg tracking-tight">
-                HM Hydraulics
-              </span>
+            <div className="flex items-center mb-4">
+              <img
+                src="/images/hm-logo.png"
+                alt="HM Hydraulics"
+                className="h-9 w-auto object-contain"
+              />
             </div>
             <p className="text-[#9CA3AF] text-sm leading-relaxed max-w-sm">
               Technical sourcing partner for core hydraulic components.

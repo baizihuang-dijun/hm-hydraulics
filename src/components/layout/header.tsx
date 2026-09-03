@@ -23,17 +23,12 @@ export function Header() {
       <div className="max-w-[1200px] mx-auto px-6 md:px-8">
         <div className="flex items-center justify-between h-16 md:h-18">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5 no-underline">
-            <div className="w-8 h-8 bg-[#2C4A73] rounded flex items-center justify-center">
-              <span className="text-white font-heading font-semibold text-sm tracking-tight">
-                HM
-              </span>
-            </div>
-            <div className="hidden sm:block">
-              <span className="font-heading font-semibold text-[#1B1E20] text-base tracking-tight">
-                HM Hydraulics
-              </span>
-            </div>
+          <Link href="/" className="flex items-center no-underline">
+            <img
+              src="/images/hm-logo.png"
+              alt="HM Hydraulics"
+              className="h-8 w-auto object-contain"
+            />
           </Link>
 
           {/* Desktop Nav */}
