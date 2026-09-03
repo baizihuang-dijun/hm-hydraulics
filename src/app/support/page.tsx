@@ -36,11 +36,11 @@ export default function SupportPage() {
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
           <p className="eyebrow text-[#2C4A73] mb-4">TECHNICAL & AFTER-SALES SUPPORT</p>
           <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-medium text-[#1B1E20] mb-4">
-            Technical support, spare parts, supply continuity
+            Support Beyond the Purchase Order
           </h1>
           <p className="text-lg text-[#4A4E54] leading-relaxed max-w-2xl">
-            Warranty coverage, maintenance guidance and spare parts coordination
-            to keep your equipment running.
+            From warranty coverage to spare parts coordination — we stay with you
+            after the order is placed.
           </p>
         </div>
       </section>
