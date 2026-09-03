@@ -27,7 +27,7 @@ export function Header() {
             <img
               src="/images/hm-logo.png"
               alt="HM Hydraulics"
-              className="h-12 w-auto object-contain"
+              className="h-36 w-auto object-cover"
             />
           </Link>
 

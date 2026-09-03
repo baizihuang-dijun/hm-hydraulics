@@ -11,7 +11,7 @@ export function Footer() {
               <img
                 src="/images/hm-logo.png"
                 alt="HM Hydraulics"
-                className="h-14 w-auto object-contain"
+                className="h-[168px] w-auto object-cover"
               />
             </div>
             <p className="text-[#9CA3AF] text-sm leading-relaxed max-w-sm">
