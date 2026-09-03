@@ -334,6 +334,78 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Delivery & Products */}
+      <section className="border-b border-[rgba(44,74,115,0.10)]">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-20 md:py-24">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-12">
+            <div>
+              <p className="eyebrow mb-4">Delivery & Products</p>
+              <h2 className="font-heading text-3xl md:text-4xl font-medium text-[#1B1E20]">
+                Ready to ship
+              </h2>
+            </div>
+            <p className="mt-4 md:mt-0 text-sm text-[#4A4E54] max-w-md">
+              Finished products inspected, packaged, and prepared for global delivery.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                src: "/images/delivery/batch-shipment.jpg",
+                label: "Batch Shipment",
+                desc: "Ready for global delivery",
+              },
+              {
+                src: "/images/delivery/finished-cylinder.jpg",
+                label: "Finished Actuator",
+                desc: "Final inspection complete",
+              },
+              {
+                src: "/images/delivery/packaged-product.jpg",
+                label: "Export Packaging",
+                desc: "Foam-lined wooden crate",
+              },
+              {
+                src: "/images/delivery/batch-products.jpg",
+                label: "Batch Production",
+                desc: "Quality-controlled output",
+              },
+              {
+                src: "/images/delivery/product-closeup.jpg",
+                label: "Product Detail",
+                desc: "Precision finish",
+              },
+              {
+                src: "/images/delivery/product-display.jpg",
+                label: "Product Lineup",
+                desc: "Series consistency",
+              },
+            ].map((item) => (
+              <div
+                key={item.label}
+                className="group rounded-md overflow-hidden border border-[rgba(44,74,115,0.10)] bg-white"
+              >
+                <div className="overflow-hidden">
+                  <img
+                    src={item.src}
+                    alt={item.label}
+                    className="w-full h-[220px] object-cover transition-transform duration-200 ease-out group-hover:scale-[1.03]"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="px-4 py-3 border-t border-[rgba(44,74,115,0.10)]">
+                  <p className="text-sm font-medium text-[#1B1E20] mb-0.5">
+                    {item.label}
+                  </p>
+                  <p className="text-xs text-[#62666C]">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="border-t border-[rgba(44,74,115,0.10)] bg-[#2C4A73]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">

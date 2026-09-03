@@ -242,6 +242,99 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Applications */}
+      <section className="border-t border-[rgba(44,74,115,0.10)]">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-20 md:py-24">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-12">
+            <div>
+              <p className="eyebrow mb-4">In the Field</p>
+              <h2 className="font-heading text-3xl md:text-4xl font-medium text-[#1B1E20]">
+                Real-world applications
+              </h2>
+            </div>
+            <p className="mt-4 md:mt-0 text-sm text-[#4A4E54] max-w-md">
+              Our actuators power demanding equipment across marine, construction, and industrial sectors.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="group relative rounded-md overflow-hidden border border-[rgba(44,74,115,0.10)]">
+              <img
+                src="/images/applications/water-weed-down.jpg"
+                alt="Water weed harvester - boom down position"
+                className="w-full h-[280px] object-cover transition-transform duration-200 ease-out group-hover:scale-[1.03]"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1B1E20]/70 via-transparent to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-4">
+                <p className="font-label text-[10px] text-[rgba(255,255,255,0.7)] uppercase tracking-wider mb-1">
+                  Marine — DTD Series
+                </p>
+                <p className="text-sm text-white font-medium">
+                  Water Weed Harvester — Boom Down
+                </p>
+              </div>
+            </div>
+
+            <div className="group relative rounded-md overflow-hidden border border-[rgba(44,74,115,0.10)]">
+              <img
+                src="/images/applications/water-weed-side.jpg"
+                alt="Water weed harvester - side view"
+                className="w-full h-[280px] object-cover transition-transform duration-200 ease-out group-hover:scale-[1.03]"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1B1E20]/70 via-transparent to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-4">
+                <p className="font-label text-[10px] text-[rgba(255,255,255,0.7)] uppercase tracking-wider mb-1">
+                  Marine — DTD Series
+                </p>
+                <p className="text-sm text-white font-medium">
+                  Water Weed Harvester — Side View
+                </p>
+              </div>
+            </div>
+
+            <div className="group relative rounded-md overflow-hidden border border-[rgba(44,74,115,0.10)]">
+              <img
+                src="/images/applications/water-weed-up.jpg"
+                alt="Water weed harvester - boom raised position"
+                className="w-full h-[280px] object-cover transition-transform duration-200 ease-out group-hover:scale-[1.03]"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1B1E20]/70 via-transparent to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-4">
+                <p className="font-label text-[10px] text-[rgba(255,255,255,0.7)] uppercase tracking-wider mb-1">
+                  Marine — DTD Series
+                </p>
+                <p className="text-sm text-white font-medium">
+                  Water Weed Harvester — Boom Raised
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-1 gap-6">
+            <div className="group relative rounded-md overflow-hidden border border-[rgba(44,74,115,0.10)]">
+              <img
+                src="/images/applications/application-1.jpg"
+                alt="Heavy-duty industrial application"
+                className="w-full h-[320px] object-cover transition-transform duration-200 ease-out group-hover:scale-[1.02]"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1B1E20]/70 via-transparent to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-4">
+                <p className="font-label text-[10px] text-[rgba(255,255,255,0.7)] uppercase tracking-wider mb-1">
+                  Industrial — DKX Series
+                </p>
+                <p className="text-sm text-white font-medium">
+                  Heavy-Duty Rotary Actuator Installation
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Trust Indicators */}
       <section className="border-t border-[rgba(44,74,115,0.10)]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-20 md:py-24">
