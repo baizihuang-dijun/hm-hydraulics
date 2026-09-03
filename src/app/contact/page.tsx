@@ -1,0 +1,249 @@
+'use client';
+
+import { useState } from 'react';
+import type { FormEvent } from 'react';
+
+export default function ContactPage() {
+  const [formState, setFormState] = useState({
+    name: '',
+    company: '',
+    email: '',
+    product: '',
+    message: '',
+  });
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    // In production, this would send to a backend
+    setSubmitted(true);
+  };
+
+  return (
+    <>
+      {/* Hero */}
+      <section className="border-b border-[rgba(44,74,115,0.10)]">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
+          <p className="eyebrow mb-4">Contact</p>
+          <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-medium text-[#1B1E20] mb-4">
+            Get in touch
+          </h1>
+          <p className="text-lg text-[#4A4E54] leading-relaxed max-w-2xl">
+            Tell us about your requirements. Our team will respond within 24
+            hours with technical guidance and next steps.
+          </p>
+        </div>
+      </section>
+
+      {/* Contact Content */}
+      <section>
+        <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
+            {/* Form */}
+            <div className="lg:col-span-3">
+              {submitted ? (
+                <div className="p-8 border border-[rgba(44,74,115,0.10)] rounded-md bg-white text-center">
+                  <div className="w-12 h-12 rounded-full bg-[rgba(44,74,115,0.08)] flex items-center justify-center mx-auto mb-4">
+                    <svg
+                      className="w-6 h-6 text-[#2C4A73]"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      <path d="m9 12 2 2 4-4" />
+                      <circle cx="12" cy="12" r="10" />
+                    </svg>
+                  </div>
+                  <h2 className="font-heading text-xl font-medium text-[#1B1E20] mb-2">
+                    Message received
+                  </h2>
+                  <p className="text-sm text-[#4A4E54] leading-relaxed">
+                    Thank you for your inquiry. Our team will review your
+                    requirements and respond within 24 hours.
+                  </p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                      <label
+                        htmlFor="name"
+                        className="block text-sm font-medium text-[#1B1E20] mb-1.5"
+                      >
+                        Name <span className="text-red-500">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        id="name"
+                        required
+                        value={formState.name}
+                        onChange={(e) =>
+                          setFormState({ ...formState, name: e.target.value })
+                        }
+                        className="w-full px-3.5 py-2.5 border border-[rgba(44,74,115,0.15)] rounded text-sm text-[#1B1E20] bg-white placeholder:text-[#9CA3AF] focus:outline-none focus:ring-2 focus:ring-[#2C4A73]/20 focus:border-[#2C4A73] transition-colors"
+                        placeholder="Your name"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        htmlFor="company"
+                        className="block text-sm font-medium text-[#1B1E20] mb-1.5"
+                      >
+                        Company
+                      </label>
+                      <input
+                        type="text"
+                        id="company"
+                        value={formState.company}
+                        onChange={(e) =>
+                          setFormState({ ...formState, company: e.target.value })
+                        }
+                        className="w-full px-3.5 py-2.5 border border-[rgba(44,74,115,0.15)] rounded text-sm text-[#1B1E20] bg-white placeholder:text-[#9CA3AF] focus:outline-none focus:ring-2 focus:ring-[#2C4A73]/20 focus:border-[#2C4A73] transition-colors"
+                        placeholder="Company name"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium text-[#1B1E20] mb-1.5"
+                    >
+                      Email <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      required
+                      value={formState.email}
+                      onChange={(e) =>
+                        setFormState({ ...formState, email: e.target.value })
+                      }
+                      className="w-full px-3.5 py-2.5 border border-[rgba(44,74,115,0.15)] rounded text-sm text-[#1B1E20] bg-white placeholder:text-[#9CA3AF] focus:outline-none focus:ring-2 focus:ring-[#2C4A73]/20 focus:border-[#2C4A73] transition-colors"
+                      placeholder="your@email.com"
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="product"
+                      className="block text-sm font-medium text-[#1B1E20] mb-1.5"
+                    >
+                      Product Interest
+                    </label>
+                    <select
+                      id="product"
+                      value={formState.product}
+                      onChange={(e) =>
+                        setFormState({ ...formState, product: e.target.value })
+                      }
+                      className="w-full px-3.5 py-2.5 border border-[rgba(44,74,115,0.15)] rounded text-sm text-[#1B1E20] bg-white focus:outline-none focus:ring-2 focus:ring-[#2C4A73]/20 focus:border-[#2C4A73] transition-colors"
+                    >
+                      <option value="">Select a product category</option>
+                      <option value="tilt-actuators">Tilt Actuators (DTA/DTD)</option>
+                      <option value="rotary-actuators">Rotary Actuators (DKX/DT/TR/RT)</option>
+                      <option value="slew-drives">Slew Drives</option>
+                      <option value="other">Other / General Inquiry</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-medium text-[#1B1E20] mb-1.5"
+                    >
+                      Message <span className="text-red-500">*</span>
+                    </label>
+                    <textarea
+                      id="message"
+                      required
+                      rows={5}
+                      value={formState.message}
+                      onChange={(e) =>
+                        setFormState({ ...formState, message: e.target.value })
+                      }
+                      className="w-full px-3.5 py-2.5 border border-[rgba(44,74,115,0.15)] rounded text-sm text-[#1B1E20] bg-white placeholder:text-[#9CA3AF] focus:outline-none focus:ring-2 focus:ring-[#2C4A73]/20 focus:border-[#2C4A73] transition-colors resize-y"
+                      placeholder="Describe your requirements, specifications needed, or any questions..."
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="inline-flex items-center px-6 py-3 bg-[#2C4A73] text-white text-sm font-medium rounded hover:bg-[#1E3A5F] transition-colors duration-150 cursor-pointer"
+                  >
+                    Send Inquiry
+                  </button>
+                </form>
+              )}
+            </div>
+
+            {/* Sidebar */}
+            <div className="lg:col-span-2">
+              <div className="space-y-8">
+                {/* Email */}
+                <div>
+                  <p className="font-label text-xs text-[#62666C] uppercase tracking-wider mb-2">
+                    Email
+                  </p>
+                  <a
+                    href="mailto:bai@hmhydraulics.com"
+                    className="text-base text-[#2C4A73] font-medium no-underline hover:underline"
+                  >
+                    bai@hmhydraulics.com
+                  </a>
+                </div>
+
+                {/* Response Time */}
+                <div>
+                  <p className="font-label text-xs text-[#62666C] uppercase tracking-wider mb-2">
+                    Response Time
+                  </p>
+                  <p className="text-sm text-[#4A4E54] leading-relaxed">
+                    We respond to all inquiries within 24 hours. For urgent
+                    matters, please indicate in your message.
+                  </p>
+                </div>
+
+                {/* What to Include */}
+                <div>
+                  <p className="font-label text-xs text-[#62666C] uppercase tracking-wider mb-3">
+                    To help us respond faster
+                  </p>
+                  <ul className="space-y-2">
+                    {[
+                      'Product model or cross-reference needed',
+                      'Quantity and delivery timeline',
+                      'Operating conditions (pressure, torque)',
+                      'Application details',
+                    ].map((item) => (
+                      <li
+                        key={item}
+                        className="flex items-start gap-2 text-sm text-[#4A4E54]"
+                      >
+                        <span className="mt-1.5 w-1 h-1 rounded-full bg-[#2C4A73] shrink-0" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Company */}
+                <div className="pt-6 border-t border-[rgba(44,74,115,0.10)]">
+                  <p className="font-label text-xs text-[#62666C] uppercase tracking-wider mb-2">
+                    Company
+                  </p>
+                  <p className="text-sm text-[#4A4E54]">
+                    HM Hydraulics
+                    <br />
+                    Qingdao Hydraulic Machinery Co., Ltd.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}

@@ -1,0 +1,296 @@
+import type { Metadata } from 'next';
+import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'About',
+  description:
+    'HM Hydraulics — Technical sourcing partner bridging Chinese manufacturing capability with overseas OEM quality requirements. 20,000+ sqm facility, 80+ machines.',
+};
+
+const applications = [
+  'Mining',
+  'Construction',
+  'Defense',
+  'Energy',
+  'Marine',
+  'Industrial',
+];
+
+const partners = [
+  'XCMG',
+  'Liugong',
+  'Hangcha',
+  'Zoomlion',
+];
+
+export default function AboutPage() {
+  return (
+    <>
+      {/* Hero */}
+      <section className="border-b border-[rgba(44,74,115,0.10)]">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
+          <p className="eyebrow mb-4">About HM Hydraulics</p>
+          <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-medium text-[#1B1E20] mb-4">
+            Technical sourcing partner,
+            <br />
+            <span className="text-[#2C4A73]">not just a supplier</span>
+          </h1>
+          <p className="text-lg text-[#4A4E54] leading-relaxed max-w-2xl">
+            We bridge the gap between Chinese manufacturing capability and
+            overseas OEM quality requirements. Our role is to do the technical
+            sourcing work you&apos;d have to do yourself &mdash; already done.
+          </p>
+        </div>
+      </section>
+
+      {/* What We Do */}
+      <section className="border-b border-[rgba(44,74,115,0.10)] bg-white">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
+            <div>
+              <p className="eyebrow mb-4">Our Role</p>
+              <h2 className="font-heading text-2xl md:text-3xl font-medium text-[#1B1E20] mb-4">
+                We handle what you can&apos;t easily do yourself
+              </h2>
+              <p className="text-[#4A4E54] leading-relaxed mb-4">
+                Sourcing hydraulic components from China should be
+                straightforward. In practice, it requires technical validation,
+                quality assurance, supply chain management, and ongoing
+                communication that most overseas buyers simply don&apos;t have
+                the resources for.
+              </p>
+              <p className="text-[#4A4E54] leading-relaxed">
+                That&apos;s where we come in. We are engineers and sourcing
+                specialists who understand both the technical requirements and
+                the manufacturing landscape. We validate, test, and manage
+                quality so you can focus on your core business.
+              </p>
+            </div>
+            <div className="space-y-4">
+              <div className="p-5 border border-[rgba(44,74,115,0.10)] rounded-md">
+                <h3 className="font-heading text-base font-medium text-[#1B1E20] mb-1">
+                  Technical Validation
+                </h3>
+                <p className="text-sm text-[#4A4E54]">
+                  We verify specifications, test performance, and confirm
+                  compatibility before any order is placed.
+                </p>
+              </div>
+              <div className="p-5 border border-[rgba(44,74,115,0.10)] rounded-md">
+                <h3 className="font-heading text-base font-medium text-[#1B1E20] mb-1">
+                  Quality Assurance
+                </h3>
+                <p className="text-sm text-[#4A4E54]">
+                  ISO9001 certified production with full traceability. Every
+                  unit tested before shipment.
+                </p>
+              </div>
+              <div className="p-5 border border-[rgba(44,74,115,0.10)] rounded-md">
+                <h3 className="font-heading text-base font-medium text-[#1B1E20] mb-1">
+                  Supply Chain Management
+                </h3>
+                <p className="text-sm text-[#4A4E54]">
+                  3-tier inventory model ensuring parts availability. 24-hour
+                  response, 48-hour dispatch.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Factory & Capability */}
+      <section className="border-b border-[rgba(44,74,115,0.10)]">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
+          <p className="eyebrow mb-4">Manufacturing</p>
+          <h2 className="font-heading text-2xl md:text-3xl font-medium text-[#1B1E20] mb-10">
+            Factory & capabilities
+          </h2>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+            <div>
+              <p className="font-heading text-3xl md:text-4xl font-medium text-[#2C4A73] mb-2">
+                20,000+
+              </p>
+              <p className="text-sm text-[#4A4E54]">sqm facility</p>
+            </div>
+            <div>
+              <p className="font-heading text-3xl md:text-4xl font-medium text-[#2C4A73] mb-2">
+                80+
+              </p>
+              <p className="text-sm text-[#4A4E54]">machines</p>
+            </div>
+            <div>
+              <p className="font-heading text-3xl md:text-4xl font-medium text-[#2C4A73] mb-2">
+                80+
+              </p>
+              <p className="text-sm text-[#4A4E54]">technical staff</p>
+            </div>
+            <div>
+              <p className="font-heading text-3xl md:text-4xl font-medium text-[#2C4A73] mb-2">
+                200k
+              </p>
+              <p className="text-sm text-[#4A4E54]">Nm max capability</p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="p-6 border border-[rgba(44,74,115,0.10)] rounded-md">
+              <h3 className="font-heading text-lg font-medium text-[#1B1E20] mb-3">
+                Manufacturing Range
+              </h3>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2 text-sm text-[#4A4E54]">
+                  <span className="mt-1.5 w-1 h-1 rounded-full bg-[#2C4A73] shrink-0" />
+                  Standard range: 12,000 – 25,000 Nm
+                </li>
+                <li className="flex items-start gap-2 text-sm text-[#4A4E54]">
+                  <span className="mt-1.5 w-1 h-1 rounded-full bg-[#2C4A73] shrink-0" />
+                  Largest batch production: 100,000 Nm
+                </li>
+                <li className="flex items-start gap-2 text-sm text-[#4A4E54]">
+                  <span className="mt-1.5 w-1 h-1 rounded-full bg-[#2C4A73] shrink-0" />
+                  Capability envelope: up to 200,000 Nm
+                </li>
+              </ul>
+            </div>
+            <div className="p-6 border border-[rgba(44,74,115,0.10)] rounded-md">
+              <h3 className="font-heading text-lg font-medium text-[#1B1E20] mb-3">
+                Core Processes
+              </h3>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2 text-sm text-[#4A4E54]">
+                  <span className="mt-1.5 w-1 h-1 rounded-full bg-[#2C4A73] shrink-0" />
+                  Precision CNC machining (hobbing, shaping, grinding)
+                </li>
+                <li className="flex items-start gap-2 text-sm text-[#4A4E54]">
+                  <span className="mt-1.5 w-1 h-1 rounded-full bg-[#2C4A73] shrink-0" />
+                  Helical gear mechanism manufacturing
+                </li>
+                <li className="flex items-start gap-2 text-sm text-[#4A4E54]">
+                  <span className="mt-1.5 w-1 h-1 rounded-full bg-[#2C4A73] shrink-0" />
+                  Complete assembly and testing lines
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Applications */}
+      <section className="border-b border-[rgba(44,74,115,0.10)] bg-white">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
+          <p className="eyebrow mb-4">Applications</p>
+          <h2 className="font-heading text-2xl md:text-3xl font-medium text-[#1B1E20] mb-10">
+            Trusted across industries
+          </h2>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 mb-12">
+            {applications.map((app) => (
+              <div
+                key={app}
+                className="p-4 border border-[rgba(44,74,115,0.10)] rounded-md text-center"
+              >
+                <p className="text-sm font-medium text-[#1B1E20]">{app}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 className="font-heading text-lg font-medium text-[#1B1E20] mb-3">
+                Military-Grade Applications
+              </h3>
+              <p className="text-sm text-[#4A4E54] leading-relaxed">
+                Our actuators have been deployed in demanding defense
+                applications including fighter aircraft refueling systems,
+                missile radar positioning, and nuclear submarine valve
+                control. These applications demand the highest levels of
+                reliability and precision.
+              </p>
+            </div>
+            <div>
+              <h3 className="font-heading text-lg font-medium text-[#1B1E20] mb-3">
+                Civilian Partners
+              </h3>
+              <p className="text-sm text-[#4A4E54] leading-relaxed mb-4">
+                Leading Chinese equipment manufacturers trust our components
+                for their most demanding product lines.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {partners.map((partner) => (
+                  <span
+                    key={partner}
+                    className="px-3 py-1.5 bg-[rgba(44,74,115,0.06)] text-[#2C4A73] text-xs font-medium rounded"
+                  >
+                    {partner}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Quality-First */}
+      <section className="border-b border-[rgba(44,74,115,0.10)]">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
+          <div className="max-w-2xl">
+            <p className="eyebrow mb-4">Our Approach</p>
+            <h2 className="font-heading text-2xl md:text-3xl font-medium text-[#1B1E20] mb-4">
+              Quality-first, always
+            </h2>
+            <p className="text-[#4A4E54] leading-relaxed mb-4">
+              Every decision we make starts with quality. From material
+              selection to final testing, we maintain full traceability and
+              refuse to compromise on standards.
+            </p>
+            <p className="text-[#4A4E54] leading-relaxed mb-6">
+              ISO9001 certified. 8+ patents. 1,000,000-cycle fatigue validated.
+              These aren&apos;t just credentials &mdash; they&apos;re the
+              foundation of every order we fulfill.
+            </p>
+            <Link
+              href="/quality"
+              className="inline-flex items-center text-sm font-medium text-[#2C4A73] no-underline hover:underline"
+            >
+              View quality details
+              <svg
+                className="ml-1.5 w-4 h-4"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="border-t border-[rgba(44,74,115,0.10)] bg-[#2C4A73]">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
+          <div className="max-w-xl">
+            <h2 className="font-heading text-2xl md:text-3xl font-medium text-white mb-4">
+              Let&apos;s discuss your requirements
+            </h2>
+            <p className="text-[rgba(255,255,255,0.75)] leading-relaxed mb-6">
+              Whether you need a direct replacement for an existing component
+              or a custom solution for a new application, we&apos;re ready to
+              help.
+            </p>
+            <Link
+              href="/contact"
+              className="inline-flex items-center px-6 py-3 bg-white text-[#2C4A73] text-sm font-medium rounded no-underline hover:bg-[rgba(255,255,255,0.9)] transition-colors duration-150"
+            >
+              Get in Touch
+            </Link>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}

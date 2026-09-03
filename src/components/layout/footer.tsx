@@ -1,0 +1,121 @@
+import Link from 'next/link';
+
+export function Footer() {
+  return (
+    <footer className="bg-[#1B1E20] text-white">
+      <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-12">
+          {/* Brand */}
+          <div className="md:col-span-2">
+            <div className="flex items-center gap-2.5 mb-4">
+              <div className="w-8 h-8 bg-[#2C4A73] rounded flex items-center justify-center">
+                <span className="text-white font-heading font-semibold text-sm tracking-tight">
+                  HM
+                </span>
+              </div>
+              <span className="font-heading font-semibold text-lg tracking-tight">
+                HM Hydraulics
+              </span>
+            </div>
+            <p className="text-[#9CA3AF] text-sm leading-relaxed max-w-sm">
+              Technical sourcing partner for core hydraulic components.
+              Lower risk, reliable delivery, meaningful cost savings.
+            </p>
+            <p className="text-[#6B7280] text-xs mt-4 font-label">
+              Qingdao Hydraulic Machinery Co., Ltd.
+            </p>
+          </div>
+
+          {/* Products */}
+          <div>
+            <h4 className="font-label text-xs uppercase tracking-widest text-[#9CA3AF] mb-4">
+              Products
+            </h4>
+            <ul className="space-y-2.5">
+              <li>
+                <Link
+                  href="/products/tilt-actuators"
+                  className="text-sm text-[#D1D5DB] hover:text-white no-underline transition-colors duration-150"
+                >
+                  Tilt Actuators
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/products/rotary-actuators"
+                  className="text-sm text-[#D1D5DB] hover:text-white no-underline transition-colors duration-150"
+                >
+                  Rotary Actuators
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/products/slew-drives"
+                  className="text-sm text-[#D1D5DB] hover:text-white no-underline transition-colors duration-150"
+                >
+                  Slew Drives
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Company */}
+          <div>
+            <h4 className="font-label text-xs uppercase tracking-widest text-[#9CA3AF] mb-4">
+              Company
+            </h4>
+            <ul className="space-y-2.5">
+              <li>
+                <Link
+                  href="/quality"
+                  className="text-sm text-[#D1D5DB] hover:text-white no-underline transition-colors duration-150"
+                >
+                  Quality & Validation
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/support"
+                  className="text-sm text-[#D1D5DB] hover:text-white no-underline transition-colors duration-150"
+                >
+                  Support
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/about"
+                  className="text-sm text-[#D1D5DB] hover:text-white no-underline transition-colors duration-150"
+                >
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/contact"
+                  className="text-sm text-[#D1D5DB] hover:text-white no-underline transition-colors duration-150"
+                >
+                  Contact
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Bottom */}
+        <div className="mt-14 pt-8 border-t border-[rgba(255,255,255,0.08)] flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+          <p className="text-xs text-[#6B7280]">
+            &copy; {new Date().getFullYear()} HM Hydraulics. All rights reserved.
+          </p>
+          <div className="flex items-center gap-6">
+            <a
+              href="mailto:bai@hmhydraulics.com"
+              className="text-xs text-[#9CA3AF] hover:text-white no-underline transition-colors duration-150"
+            >
+              bai@hmhydraulics.com
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
