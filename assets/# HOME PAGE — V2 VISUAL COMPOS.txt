@@ -1,0 +1,554 @@
+# HOME PAGE — V2 VISUAL COMPOSITION REDESIGN
+
+This is a **visual composition redesign**, NOT a content rewrite and NOT a website architecture redesign.
+
+The current Home page business positioning and information architecture have already been approved.
+
+Your job is to make the Home page **visually distinctive and substantially different from a generic AI-generated industrial B2B website**.
+
+## 1. NON-NEGOTIABLE RULE
+
+KEEP the existing Home page information architecture:
+
+1. Hero
+2. What We Do
+3. Our Solutions
+4. Current Product Focus
+5. Evidence / Why Work With HM
+6. Applications
+7. Final CTA
+
+Do NOT:
+
+* create a new sitemap
+* change navigation
+* redesign other pages
+* modify Solutions, Products, Quality, About, Support or Contact
+* change shared Header/Footer
+* rewrite the business positioning
+* invent new services
+* remove important approved content
+
+The commercial logic stays the same.
+
+Only the **visual composition, layout hierarchy and presentation** should change.
+
+---
+
+# 2. THIS IS NOT A STYLING PASS
+
+IMPORTANT:
+
+Do NOT simply:
+
+* change colors
+* change fonts
+* change border radius
+* change shadows
+* change spacing
+* make existing cards prettier
+* add animations
+* add gradients
+
+That is NOT sufficient.
+
+The current design already received a styling pass, but the page still feels structurally similar to a generic B2B template.
+
+### The required change is:
+
+**RECOMPOSE THE PAGE.**
+
+At least **4 major sections must receive a fundamentally different layout composition**.
+
+The user should be able to visually notice that the page has been redesigned even without reading the text.
+
+---
+
+# 3. DESIGN OBJECTIVE
+
+The visual identity should communicate:
+
+**TECHNICAL**
+**ENGINEERING**
+**PRECISE**
+**CONFIDENT**
+**RESTRAINED**
+**INDUSTRIAL**
+
+But NOT:
+
+* generic corporate
+* generic factory website
+* generic SaaS landing page
+* futuristic
+* flashy
+* AI-generated
+* overly decorative
+
+Think:
+
+**technical engineering interface + sophisticated industrial editorial design**
+
+rather than:
+
+**industrial company template**
+
+---
+
+# 4. REDUCE TEMPLATE-LIKE COMPONENTS
+
+Significantly reduce the repeated use of:
+
+* identical rounded cards
+* repeated 3-column cards
+* icon + heading + paragraph cards
+* large centered headings followed by identical boxes
+* excessive CTA buttons
+* decorative gradient backgrounds
+* generic industrial imagery
+* excessive shadows
+* excessive rounded containers
+
+Do not replace every card with another type of card.
+
+Use:
+
+* typography
+* numbering
+* rules
+* grids
+* asymmetry
+* large technical numbers
+* scale
+* whitespace
+* technical labels
+* visual relationships
+
+to create hierarchy.
+
+---
+
+# 5. HERO — MAKE IT MORE DISTINCTIVE
+
+Keep the existing positioning and core message.
+
+But do NOT use a standard centered SaaS-style Hero.
+
+Create a stronger editorial / engineering composition.
+
+Preferred direction:
+
+Large typography with an asymmetrical composition.
+
+For example:
+
+TECHNICAL SOURCING
+PARTNER
+
+FOR HYDRAULIC
+COMPONENTS
+
+with supporting text positioned separately rather than directly underneath in a standard centered stack.
+
+Use technical labeling / numbering / rules where appropriate.
+
+The Hero should immediately establish that this is a **technical sourcing business**, not a generic hydraulic manufacturer.
+
+Do not use a generic stock factory image.
+
+If a real product image is available in the existing project assets, use it intelligently.
+
+If no suitable image exists, prioritize typography and composition instead of inventing imagery.
+
+---
+
+# 6. WHAT WE DO — TURN IT INTO A PROCESS
+
+Keep:
+
+Understand
+Source
+Validate
+Control
+Deliver
+
+But DO NOT render them as five cards.
+
+This must visually read as a **process**.
+
+Use a strong horizontal or vertical sequence with:
+
+01
+UNDERSTAND
+
+02
+SOURCE
+
+03
+VALIDATE
+
+04
+CONTROL
+
+05
+DELIVER
+
+Connect the steps visually using:
+
+* lines
+* directional relationships
+* numbering
+* spacing
+* typography
+
+The user should understand that HM connects the customer requirement to delivery.
+
+It should feel like an engineering workflow, not a feature list.
+
+---
+
+# 7. OUR SOLUTIONS — DO NOT USE THREE IDENTICAL CARDS
+
+Keep:
+
+ENGINEERING
+Select. Adapt. Validate.
+
+SUPPLY
+Plan. Produce. Control.
+
+DELIVERY
+Coordinate. Ship. Replenish.
+
+But change the composition completely.
+
+Do NOT use:
+
+[Engineering Card] [Supply Card] [Delivery Card]
+
+Instead, create an integrated visual relationship.
+
+For example:
+
+ENGINEERING
+───────────────→
+SUPPLY
+───────────────→
+DELIVERY
+
+Or use an asymmetric editorial layout where Engineering is the primary element and Supply / Delivery support it.
+
+The three capabilities should feel like **one connected system**.
+
+---
+
+# 8. CURRENT PRODUCT FOCUS — MAKE THIS THE VISUAL ANCHOR
+
+This is one of the most important changes.
+
+The current core product is:
+
+**HYDRAULIC ROTARY ACTUATORS**
+
+The torque range:
+
+**20 Nm — 200,000 Nm**
+
+must become a major visual element.
+
+Do NOT treat this as another ordinary product card.
+
+Create a technical product-focused composition.
+
+Possible direction:
+
+HYDRAULIC
+ROTARY
+ACTUATORS
+
+20 Nm
+──────────────
+200,000 Nm
+
+with the product visual / technical information arranged around it.
+
+The exact layout is up to you, but the result should make the user remember:
+
+**HM → Hydraulic Rotary Actuators → 20 Nm–200,000 Nm**
+
+Secondary products such as Tilt Actuators and Custom Hydraulic Components should have clearly less visual weight.
+
+Do not invent technical specifications.
+
+Do not invent product capabilities.
+
+---
+
+# 9. EVIDENCE — MAKE IT LOOK LIKE TECHNICAL EVIDENCE
+
+Keep the existing evidence:
+
+72+ Configurations
+1M+ Cycle Validation*
+200,000 Nm Maximum Design Capability*
+100% Pre-Shipment Testing*
+
+Do NOT create another three-card marketing section.
+
+Use large technical numbers and a data-oriented composition.
+
+For example:
+
+72+
+CONFIGURATIONS
+
+1M+
+CYCLE VALIDATION
+
+200,000 Nm
+MAXIMUM DESIGN CAPABILITY*
+
+100%
+PRE-SHIPMENT TESTING*
+
+The section should feel like **technical evidence**, not "Why choose us".
+
+Keep the existing qualification footnotes.
+
+Do not exaggerate or add unsupported claims.
+
+---
+
+# 10. APPLICATIONS — MAKE IT AN INDEX, NOT IMAGE CARDS
+
+Keep the existing application categories.
+
+Do not turn them into another set of generic cards with stock images.
+
+Use a clean technical index / list / grid.
+
+For example:
+
+01 Construction
+02 Mining & Heavy Equipment
+03 Marine
+04 Industrial Machinery
+05 Material Handling
+06 Specialized Equipment
+
+Use typography, numbering and spacing.
+
+This section should feel more like an engineering reference index.
+
+---
+
+# 11. FINAL CTA — SIMPLE AND CONFIDENT
+
+Keep:
+
+Tell Us What You're Trying to Source
+
+Do not create another complicated card.
+
+Use a strong final typographic statement with one clear CTA.
+
+The ending should feel confident and quiet.
+
+---
+
+# 12. BRAND COLOR — USE THE HM LOGO
+
+The official HM Hydraulics logo will be provided as a reference.
+
+Use the actual logo colors to establish the page's visual identity.
+
+Do NOT simply make the entire website the logo color.
+
+Instead:
+
+* identify the primary logo color
+* establish a restrained brand palette
+* use the primary color selectively
+* use it for important technical highlights
+* use it for key numbers / section markers / CTA states where appropriate
+* keep the majority of the interface restrained
+
+The logo itself must not be changed, distorted or recolored.
+
+Do not invent a new brand identity.
+
+**Derive the visual system from the existing HM logo.**
+
+---
+
+# 13. TYPOGRAPHY
+
+Typography should do more of the design work.
+
+Use clear contrast between:
+
+* section labels
+* major headings
+* technical numbers
+* supporting text
+* metadata
+
+Use large technical numbers where appropriate.
+
+Avoid making every section visually identical.
+
+---
+
+# 14. COLOR AND DECORATION
+
+Keep the visual system restrained.
+
+Do NOT use:
+
+* excessive gradients
+* glowing effects
+* glassmorphism
+* excessive shadows
+* 3D decorative elements
+* unnecessary background shapes
+* excessive animation
+
+The design should look strong even if all animations are disabled.
+
+---
+
+# 15. IMAGERY
+
+Prefer real technical/product imagery already available in the project.
+
+Priority:
+
+1. Hydraulic rotary actuator
+2. Technical/product detail
+3. Engineering drawing / technical visual
+4. Real application imagery
+5. No image
+
+Do NOT use generic stock photos simply to fill space.
+
+If a section does not need an image, leave it clean.
+
+---
+
+# 16. IMPORTANT — PRESERVE CONTENT
+
+Do not change approved technical facts.
+
+Do not invent:
+
+* product specifications
+* certifications
+* customers
+* factories
+* warehouses
+* inventory
+* response guarantees
+* delivery guarantees
+* manufacturing ownership
+* testing results
+* application claims
+
+HM remains:
+
+**Technical Sourcing Partner for Hydraulic Components**
+
+The core promise remains:
+
+**From Technical Requirement to Reliable Delivery.**
+
+---
+
+# 17. RESPONSIVE DESIGN
+
+The redesign must work properly on:
+
+* desktop
+* tablet
+* mobile
+
+Do not simply stack desktop sections vertically on mobile.
+
+Preserve the intended hierarchy and process relationships on small screens.
+
+---
+
+# 18. IMPLEMENTATION
+
+First inspect:
+
+`/workspace/projects/src/app/page.tsx`
+
+and the existing shared components/styles.
+
+Then implement the redesign directly.
+
+Do not only provide recommendations.
+
+Do not explain what you plan to do before implementation.
+
+MAKE THE CHANGES.
+
+After implementation:
+
+1. Run the application.
+2. Inspect the actual rendered Home page.
+3. Compare the new composition with the previous version.
+4. Verify desktop.
+5. Verify mobile.
+6. Confirm the approved information architecture is still present.
+7. Confirm no other route was modified.
+8. Confirm no unsupported claims were introduced.
+
+---
+
+# 19. ACCEPTANCE TEST
+
+The redesign is NOT accepted if it still looks like:
+
+Heading
+→ paragraph
+→ three cards
+→ heading
+→ three cards
+→ heading
+→ four cards
+
+The redesign IS accepted only if:
+
+* the page composition is visibly different
+* repeated card patterns are significantly reduced
+* What We Do clearly reads as a process
+* Our Solutions clearly reads as one integrated system
+* Rotary Actuators become the visual product anchor
+* 20 Nm–200,000 Nm becomes visually memorable
+* Evidence feels like technical data
+* Applications feel like a technical index
+* typography and composition create a recognizable HM visual language
+* the page feels technical and editorial rather than generic B2B
+* the existing information architecture remains intact
+
+## FINAL INSTRUCTION
+
+**DO NOT POLISH THE EXISTING DESIGN.**
+
+**RECOMPOSE THE HOME PAGE.**
+
+Keep the business architecture.
+
+Change the visual language.
+
+Make the result visibly and substantially different from the current page.
+
+After completion, report:
+
+A. Files changed
+B. Layout/composition changes made
+C. Whether content was changed
+D. Whether other routes were changed
+E. Rendered desktop verification
+F. Rendered mobile verification
