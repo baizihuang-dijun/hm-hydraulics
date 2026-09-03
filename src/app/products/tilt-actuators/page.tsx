@@ -78,6 +78,21 @@ export default function TiltActuatorsPage() {
             </p>
           </div>
 
+          {/* DTA Product Image */}
+          <div className="mb-10 border border-[rgba(44,74,115,0.10)] rounded-lg bg-white p-8 flex items-center justify-center min-h-[320px]">
+            <div className="text-center">
+              <div className="w-64 h-64 mx-auto bg-[#F5F5F2] rounded-lg flex items-center justify-center mb-4 transition-transform duration-200 hover:scale-105">
+                <img
+                  src="/images/products/dta.png"
+                  alt="DTA Series Tilt Actuator - Tilt Motor V2"
+                  className="max-w-full max-h-full object-contain"
+                  loading="lazy"
+                />
+              </div>
+              <p className="font-label text-sm text-[#62666C]">DTA Series — Tilt Motor V2</p>
+            </div>
+          </div>
+
           {/* DTA Table */}
           <div className="overflow-x-auto -mx-6 md:mx-0">
             <div className="inline-block min-w-full px-6 md:px-0">
@@ -145,6 +160,21 @@ export default function TiltActuatorsPage() {
               7 models with Helac PT series compatibility. Drop-in replacement
               for existing installations with identical mounting patterns.
             </p>
+          </div>
+
+          {/* DTD Product Image */}
+          <div className="mb-10 border border-[rgba(44,74,115,0.10)] rounded-lg bg-[#FAFAF7] p-8 flex items-center justify-center min-h-[320px]">
+            <div className="text-center">
+              <div className="w-64 h-64 mx-auto bg-[#F5F5F2] rounded-lg flex items-center justify-center mb-4 transition-transform duration-200 hover:scale-105">
+                <img
+                  src="/images/products/dtd.png"
+                  alt="DTD Series Tilt Actuator - Tilt Motor V1"
+                  className="max-w-full max-h-full object-contain"
+                  loading="lazy"
+                />
+              </div>
+              <p className="font-label text-sm text-[#62666C]">DTD Series — Tilt Motor V1</p>
+            </div>
           </div>
 
           {/* DTD Table */}
