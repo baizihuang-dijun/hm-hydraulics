@@ -4,34 +4,34 @@ export default function HomePage() {
   return (
     <main className="min-h-screen bg-[#FAFAF7]">
       {/* Section 01 — Hero */}
-      <section className="border-b border-[rgba(44,74,115,0.10)]">
+      <section className="border-b border-[rgba(15,15,15,0.08)]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-20 md:py-28">
           <div className="max-w-3xl">
-            <p className="eyebrow text-[#2C4A73] mb-6">
+            <p className="home-eyebrow mb-6">
               TECHNICAL SOURCING FOR HYDRAULIC COMPONENTS
             </p>
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-[3.5rem] font-medium leading-[1.1] tracking-tight text-[#1B1E20] mb-6">
+            <h1 className="font-heading text-4xl md:text-5xl lg:text-[3.5rem] font-medium leading-[1.1] tracking-tight text-[#0F0F0F] mb-6">
               Your Technical Sourcing Partner
               <br />
-              <span className="text-[#2C4A73]">for Hydraulic Components</span>
+              <span className="home-accent">for Hydraulic Components</span>
             </h1>
-            <p className="text-lg md:text-xl text-[#4A4E54] leading-relaxed max-w-2xl mb-3">
+            <p className="text-lg md:text-xl home-text-secondary leading-relaxed max-w-2xl mb-3">
               We handle the technical matching, sourcing, quality verification and supply
               coordination behind your hydraulic component requirements.
             </p>
-            <p className="text-[#62666C] text-base mb-10">
+            <p className="home-text-secondary text-base mb-10">
               From technical requirement to reliable delivery.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center px-6 py-3 bg-[#2C4A73] text-white text-sm font-medium rounded no-underline hover:bg-[#1E3A5F] transition-colors duration-150"
+                className="inline-flex items-center justify-center px-6 py-3 home-bg-accent text-white text-sm font-medium rounded no-underline hover:home-bg-accent-deep transition-colors duration-150"
               >
                 Discuss Your Requirement
               </Link>
               <Link
                 href="/solutions"
-                className="inline-flex items-center justify-center px-6 py-3 border border-[rgba(44,74,115,0.30)] text-[#2C4A73] text-sm font-medium rounded no-underline hover:bg-[rgba(44,74,115,0.05)] transition-colors duration-150"
+                className="inline-flex items-center justify-center px-6 py-3 border border-[rgba(15,15,15,0.20)] home-accent text-sm font-medium rounded no-underline hover:home-bg-tint transition-colors duration-150"
               >
                 Explore Solutions
               </Link>
@@ -41,13 +41,13 @@ export default function HomePage() {
       </section>
 
       {/* Section 02 — What We Do */}
-      <section className="border-b border-[rgba(44,74,115,0.10)]">
+      <section className="border-b border-[rgba(15,15,15,0.08)]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-20 md:py-24">
-          <p className="eyebrow text-[#2C4A73] mb-3">HOW WE WORK</p>
-          <h2 className="font-heading text-[#1B1E20] text-3xl md:text-4xl font-medium mb-4">
+          <p className="home-eyebrow mb-3">HOW WE WORK</p>
+          <h2 className="font-heading text-[#0F0F0F] text-3xl md:text-4xl font-medium mb-4">
             What We Do
           </h2>
-          <p className="text-[#4A4E54] text-lg leading-relaxed max-w-[680px] mb-12">
+          <p className="home-text-secondary text-lg leading-relaxed max-w-[680px] mb-12">
             We help turn hydraulic component requirements into workable sourcing solutions.
           </p>
 
@@ -61,54 +61,54 @@ export default function HomePage() {
             ].map((step) => (
               <div
                 key={step.num}
-                className="bg-white border border-[rgba(44,74,115,0.10)] rounded-lg p-5"
+                className="bg-white border border-[rgba(15,15,15,0.08)] rounded-lg p-5"
               >
-                <span className="font-label text-[#2C4A73] text-xs font-medium mb-2 block">
+                <span className="font-label home-accent text-xs font-medium mb-2 block">
                   {step.num}
                 </span>
-                <h3 className="font-heading text-[#1B1E20] text-base font-medium mb-1">
+                <h3 className="font-heading text-[#0F0F0F] text-base font-medium mb-1">
                   {step.title}
                 </h3>
-                <p className="text-[#62666C] text-sm">{step.desc}</p>
+                <p className="home-text-secondary text-sm">{step.desc}</p>
               </div>
             ))}
           </div>
 
-          <p className="text-[#1B1E20] text-base font-medium mt-8">
+          <p className="text-[#0F0F0F] text-base font-medium mt-8">
             One technical and commercial interface from requirement to delivery.
           </p>
         </div>
       </section>
 
       {/* Section 03 — Our Solutions */}
-      <section className="border-b border-[rgba(44,74,115,0.10)]">
+      <section className="border-b border-[rgba(15,15,15,0.08)]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-20 md:py-24">
-          <p className="eyebrow text-[#2C4A73] mb-3">OUR SOLUTIONS</p>
-          <h2 className="font-heading text-[#1B1E20] text-3xl md:text-4xl font-medium mb-4">
+          <p className="home-eyebrow mb-3">OUR SOLUTIONS</p>
+          <h2 className="font-heading text-[#0F0F0F] text-3xl md:text-4xl font-medium mb-4">
             Our Solutions
           </h2>
-          <p className="text-[#4A4E54] text-lg leading-relaxed max-w-[680px] mb-12">
+          <p className="home-text-secondary text-lg leading-relaxed max-w-[680px] mb-12">
             Support that goes beyond finding a supplier.
           </p>
 
           <div className="grid md:grid-cols-3 gap-6">
             {/* Engineering */}
-            <div className="bg-white border border-[rgba(44,74,115,0.10)] rounded-lg p-8">
-              <p className="eyebrow text-[#2C4A73] mb-3">ENGINEERING</p>
-              <h3 className="font-heading text-[#1B1E20] text-xl font-medium mb-3">
+            <div className="bg-white border border-[rgba(15,15,15,0.08)] rounded-lg p-8">
+              <p className="home-eyebrow mb-3">ENGINEERING</p>
+              <h3 className="font-heading text-[#0F0F0F] text-xl font-medium mb-3">
                 Select. Adapt. Validate.
               </h3>
-              <p className="text-[#4A4E54] text-sm leading-relaxed mb-4">
+              <p className="home-text-secondary text-sm leading-relaxed mb-4">
                 Component selection, cross-reference and custom engineering based on your
                 application, existing part or drawings.
               </p>
-              <p className="text-[#62666C] text-xs font-label uppercase tracking-wider">
+              <p className="home-text-secondary text-xs font-label uppercase tracking-wider">
                 Selection · Cross-reference · Customization · Validation
               </p>
               <div className="mt-6">
                 <Link
                   href="/solutions#engineering"
-                  className="inline-flex items-center text-[#2C4A73] text-sm font-medium no-underline hover:text-[#1E3A5F] transition-colors duration-150"
+                  className="inline-flex items-center home-accent text-sm font-medium no-underline hover:text-[#8A1515] transition-colors duration-150"
                 >
                   Explore Engineering Support
                   <svg className="ml-1.5 w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -120,22 +120,22 @@ export default function HomePage() {
             </div>
 
             {/* Supply */}
-            <div className="bg-white border border-[rgba(44,74,115,0.10)] rounded-lg p-8">
-              <p className="eyebrow text-[#2C4A73] mb-3">SUPPLY</p>
-              <h3 className="font-heading text-[#1B1E20] text-xl font-medium mb-3">
+            <div className="bg-white border border-[rgba(15,15,15,0.08)] rounded-lg p-8">
+              <p className="home-eyebrow mb-3">SUPPLY</p>
+              <h3 className="font-heading text-[#0F0F0F] text-xl font-medium mb-3">
                 Plan. Produce. Control.
               </h3>
-              <p className="text-[#4A4E54] text-sm leading-relaxed mb-4">
+              <p className="home-text-secondary text-sm leading-relaxed mb-4">
                 Production planning, manufacturing coordination and quality control
                 for more predictable supply.
               </p>
-              <p className="text-[#62666C] text-xs font-label uppercase tracking-wider">
+              <p className="home-text-secondary text-xs font-label uppercase tracking-wider">
                 Production Planning · Manufacturing · Inspection · Replenishment
               </p>
               <div className="mt-6">
                 <Link
                   href="/solutions#supply"
-                  className="inline-flex items-center text-[#2C4A73] text-sm font-medium no-underline hover:text-[#1E3A5F] transition-colors duration-150"
+                  className="inline-flex items-center home-accent text-sm font-medium no-underline hover:text-[#8A1515] transition-colors duration-150"
                 >
                   Explore Supply Planning
                   <svg className="ml-1.5 w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -147,22 +147,22 @@ export default function HomePage() {
             </div>
 
             {/* Delivery */}
-            <div className="bg-white border border-[rgba(44,74,115,0.10)] rounded-lg p-8">
-              <p className="eyebrow text-[#2C4A73] mb-3">DELIVERY</p>
-              <h3 className="font-heading text-[#1B1E20] text-xl font-medium mb-3">
+            <div className="bg-white border border-[rgba(15,15,15,0.08)] rounded-lg p-8">
+              <p className="home-eyebrow mb-3">DELIVERY</p>
+              <h3 className="font-heading text-[#0F0F0F] text-xl font-medium mb-3">
                 Coordinate. Ship. Replenish.
               </h3>
-              <p className="text-[#4A4E54] text-sm leading-relaxed mb-4">
+              <p className="home-text-secondary text-sm leading-relaxed mb-4">
                 Transportation and delivery coordination based on your shipment,
                 destination and commercial requirements.
               </p>
-              <p className="text-[#62666C] text-xs font-label uppercase tracking-wider">
+              <p className="home-text-secondary text-xs font-label uppercase tracking-wider">
                 Shipping · Delivery Terms · Logistics · Replenishment
               </p>
               <div className="mt-6">
                 <Link
                   href="/solutions#delivery"
-                  className="inline-flex items-center text-[#2C4A73] text-sm font-medium no-underline hover:text-[#1E3A5F] transition-colors duration-150"
+                  className="inline-flex items-center home-accent text-sm font-medium no-underline hover:text-[#8A1515] transition-colors duration-150"
                 >
                   Explore Delivery Solutions
                   <svg className="ml-1.5 w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -177,29 +177,29 @@ export default function HomePage() {
       </section>
 
       {/* Section 04 — Current Product Focus */}
-      <section className="border-b border-[rgba(44,74,115,0.10)]">
+      <section className="border-b border-[rgba(15,15,15,0.08)]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-20 md:py-24">
-          <p className="eyebrow text-[#2C4A73] mb-3">PRODUCT FOCUS</p>
-          <h2 className="font-heading text-[#1B1E20] text-3xl md:text-4xl font-medium mb-4">
+          <p className="home-eyebrow mb-3">PRODUCT FOCUS</p>
+          <h2 className="font-heading text-[#0F0F0F] text-3xl md:text-4xl font-medium mb-4">
             Current Product Focus
           </h2>
-          <p className="text-[#4A4E54] text-lg leading-relaxed max-w-[680px] mb-12">
+          <p className="home-text-secondary text-lg leading-relaxed max-w-[680px] mb-12">
             Our current core product is hydraulic rotary actuators, supported by selected
             actuator and hydraulic component solutions.
           </p>
 
           <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-white border border-[rgba(44,74,115,0.10)] rounded-lg p-6">
-              <p className="eyebrow text-[#2C4A73] mb-2">CORE PRODUCT</p>
-              <h3 className="font-heading text-[#1B1E20] text-lg font-medium mb-2">
+            <div className="bg-white border border-[rgba(15,15,15,0.08)] rounded-lg p-6">
+              <p className="home-eyebrow mb-2">CORE PRODUCT</p>
+              <h3 className="font-heading text-[#0F0F0F] text-lg font-medium mb-2">
                 Rotary Actuators
               </h3>
-              <p className="text-[#4A4E54] text-sm leading-relaxed mb-4">
+              <p className="home-text-secondary text-sm leading-relaxed mb-4">
                 20 Nm–200,000 Nm across multiple series, mechanisms and application requirements.
               </p>
               <Link
                 href="/products/rotary-actuators"
-                className="inline-flex items-center text-[#2C4A73] text-sm font-medium no-underline hover:text-[#1E3A5F] transition-colors duration-150"
+                className="inline-flex items-center home-accent text-sm font-medium no-underline hover:text-[#8A1515] transition-colors duration-150"
               >
                 Explore Rotary Actuators
                 <svg className="ml-1.5 w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -209,16 +209,16 @@ export default function HomePage() {
               </Link>
             </div>
 
-            <div className="bg-white border border-[rgba(44,74,115,0.10)] rounded-lg p-6">
-              <h3 className="font-heading text-[#1B1E20] text-lg font-medium mb-2">
+            <div className="bg-white border border-[rgba(15,15,15,0.08)] rounded-lg p-6">
+              <h3 className="font-heading text-[#0F0F0F] text-lg font-medium mb-2">
                 Tilt Actuators
               </h3>
-              <p className="text-[#4A4E54] text-sm leading-relaxed mb-4">
+              <p className="home-text-secondary text-sm leading-relaxed mb-4">
                 Selected cross-reference solutions for excavator tilt and coupler applications.
               </p>
               <Link
                 href="/products/tilt-actuators"
-                className="inline-flex items-center text-[#2C4A73] text-sm font-medium no-underline hover:text-[#1E3A5F] transition-colors duration-150"
+                className="inline-flex items-center home-accent text-sm font-medium no-underline hover:text-[#8A1515] transition-colors duration-150"
               >
                 View Products
                 <svg className="ml-1.5 w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -228,16 +228,16 @@ export default function HomePage() {
               </Link>
             </div>
 
-            <div className="bg-white border border-[rgba(44,74,115,0.10)] rounded-lg p-6">
-              <h3 className="font-heading text-[#1B1E20] text-lg font-medium mb-2">
+            <div className="bg-white border border-[rgba(15,15,15,0.08)] rounded-lg p-6">
+              <h3 className="font-heading text-[#0F0F0F] text-lg font-medium mb-2">
                 Custom Hydraulic Components
               </h3>
-              <p className="text-[#4A4E54] text-sm leading-relaxed mb-4">
+              <p className="home-text-secondary text-sm leading-relaxed mb-4">
                 Custom solutions based on drawings, existing components or application requirements.
               </p>
               <Link
                 href="/contact"
-                className="inline-flex items-center text-[#2C4A73] text-sm font-medium no-underline hover:text-[#1E3A5F] transition-colors duration-150"
+                className="inline-flex items-center home-accent text-sm font-medium no-underline hover:text-[#8A1515] transition-colors duration-150"
               >
                 Discuss a Custom Requirement
                 <svg className="ml-1.5 w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -251,45 +251,45 @@ export default function HomePage() {
       </section>
 
       {/* Section 05 — Why HM / Evidence */}
-      <section className="border-b border-[rgba(44,74,115,0.10)]">
+      <section className="border-b border-[rgba(15,15,15,0.08)]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-20 md:py-24">
-          <p className="eyebrow text-[#2C4A73] mb-3">WHY HM</p>
-          <h2 className="font-heading text-[#1B1E20] text-3xl md:text-4xl font-medium mb-12">
+          <p className="home-eyebrow mb-3">WHY HM</p>
+          <h2 className="font-heading text-[#0F0F0F] text-3xl md:text-4xl font-medium mb-12">
             Why Work With HM
           </h2>
 
           <div className="grid md:grid-cols-3 gap-8 mb-16">
             <div>
-              <h3 className="font-heading text-[#1B1E20] text-base font-medium mb-2">
+              <h3 className="font-heading text-[#0F0F0F] text-base font-medium mb-2">
                 Technical Fit
               </h3>
-              <p className="text-[#2C4A73] text-sm font-medium mb-1">
+              <p className="home-accent text-sm font-medium mb-1">
                 Validate before you commit.
               </p>
-              <p className="text-[#4A4E54] text-sm leading-relaxed">
+              <p className="home-text-secondary text-sm leading-relaxed">
                 Application, specification and compatibility review before production.
               </p>
             </div>
             <div>
-              <h3 className="font-heading text-[#1B1E20] text-base font-medium mb-2">
+              <h3 className="font-heading text-[#0F0F0F] text-base font-medium mb-2">
                 Supply Control
               </h3>
-              <p className="text-[#2C4A73] text-sm font-medium mb-1">
+              <p className="home-accent text-sm font-medium mb-1">
                 More than a factory contact.
               </p>
-              <p className="text-[#4A4E54] text-sm leading-relaxed">
+              <p className="home-text-secondary text-sm leading-relaxed">
                 Production, inspection and delivery coordination through qualified
                 manufacturing capabilities.
               </p>
             </div>
             <div>
-              <h3 className="font-heading text-[#1B1E20] text-base font-medium mb-2">
+              <h3 className="font-heading text-[#0F0F0F] text-base font-medium mb-2">
                 Total Cost
               </h3>
-              <p className="text-[#2C4A73] text-sm font-medium mb-1">
+              <p className="home-accent text-sm font-medium mb-1">
                 Balance cost with capability.
               </p>
-              <p className="text-[#4A4E54] text-sm leading-relaxed">
+              <p className="home-text-secondary text-sm leading-relaxed">
                 Competitive sourcing without sacrificing technical requirements or
                 supply reliability.
               </p>
@@ -306,16 +306,16 @@ export default function HomePage() {
             ].map((metric) => (
               <div
                 key={metric.label}
-                className="bg-white border border-[rgba(44,74,115,0.10)] rounded-lg p-5 text-center"
+                className="bg-white border border-[rgba(15,15,15,0.08)] rounded-lg p-5 text-center"
               >
-                <div className="font-heading text-[#2C4A73] text-2xl md:text-3xl font-medium mb-1">
+                <div className="font-heading home-accent text-2xl md:text-3xl font-medium mb-1">
                   {metric.value}
                 </div>
-                <div className="text-[#4A4E54] text-xs">{metric.label}</div>
+                <div className="home-text-secondary text-xs">{metric.label}</div>
               </div>
             ))}
           </div>
-          <p className="text-[#62666C] text-xs mt-4 leading-relaxed">
+          <p className="home-text-secondary text-xs mt-4 leading-relaxed">
             *Applies to selected models / capabilities where specified. Technical details and
             supporting documentation available upon request.
           </p>
@@ -323,13 +323,13 @@ export default function HomePage() {
       </section>
 
       {/* Section 06 — Applications */}
-      <section className="border-b border-[rgba(44,74,115,0.10)]">
+      <section className="border-b border-[rgba(15,15,15,0.08)]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-20 md:py-24">
-          <p className="eyebrow text-[#2C4A73] mb-3">APPLICATIONS</p>
-          <h2 className="font-heading text-[#1B1E20] text-3xl md:text-4xl font-medium mb-4">
+          <p className="home-eyebrow mb-3">APPLICATIONS</p>
+          <h2 className="font-heading text-[#0F0F0F] text-3xl md:text-4xl font-medium mb-4">
             Where Our Components Are Used
           </h2>
-          <p className="text-[#4A4E54] text-lg leading-relaxed max-w-[680px] mb-12">
+          <p className="home-text-secondary text-lg leading-relaxed max-w-[680px] mb-12">
             Application-specific hydraulic solutions for demanding equipment and machinery.
           </p>
 
@@ -344,9 +344,9 @@ export default function HomePage() {
             ].map((app) => (
               <div
                 key={app}
-                className="bg-white border border-[rgba(44,74,115,0.10)] rounded-lg p-5"
+                className="bg-white border border-[rgba(15,15,15,0.08)] rounded-lg p-5"
               >
-                <h3 className="font-heading text-[#1B1E20] text-sm font-medium">{app}</h3>
+                <h3 className="font-heading text-[#0F0F0F] text-sm font-medium">{app}</h3>
               </div>
             ))}
           </div>
@@ -356,23 +356,23 @@ export default function HomePage() {
       {/* Section 07 — Final CTA */}
       <section>
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-20 md:py-24">
-          <h2 className="font-heading text-[#1B1E20] text-3xl md:text-4xl font-medium mb-4">
+          <h2 className="font-heading text-[#0F0F0F] text-3xl md:text-4xl font-medium mb-4">
             Tell Us What You&apos;re Trying to Source
           </h2>
-          <p className="text-[#4A4E54] text-lg leading-relaxed max-w-[680px] mb-8">
+          <p className="home-text-secondary text-lg leading-relaxed max-w-[680px] mb-8">
             Share an existing part, drawing or application requirement. We&apos;ll help
             identify the next step.
           </p>
           <div className="flex flex-wrap gap-4">
             <Link
               href="/contact"
-              className="inline-block bg-[#2C4A73] text-white text-sm font-medium px-6 py-3 rounded hover:bg-[#1E3A5F] transition-colors duration-150 no-underline"
+              className="inline-block home-bg-accent text-white text-sm font-medium px-6 py-3 rounded hover:home-bg-accent-deep transition-colors duration-150 no-underline"
             >
               Discuss Your Requirement
             </Link>
             <Link
               href="/products"
-              className="inline-block border border-[rgba(44,74,115,0.30)] text-[#2C4A73] text-sm font-medium px-6 py-3 rounded hover:bg-[rgba(44,74,115,0.05)] transition-colors duration-150 no-underline"
+              className="inline-block border border-[rgba(15,15,15,0.20)] home-accent text-sm font-medium px-6 py-3 rounded hover:home-bg-tint transition-colors duration-150 no-underline"
             >
               Explore Products
             </Link>
