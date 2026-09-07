@@ -28,9 +28,9 @@ const milestones = [
   },
   {
     phase: 'Phase 4',
-    title: 'Customer Benchmark Comparison',
+    title: 'Field Validation',
     description:
-      'Customer teardown inspection and benchmark comparison against Helac products. Customer confirmed quality satisfaction across all critical dimensions.',
+      'Field performance review helps confirm that products meet expected operational requirements under real application conditions.',
   },
 ];
 
@@ -54,7 +54,7 @@ export default function QualityPage() {
             Built to Perform. Proven to Last.
           </h1>
           <p className="text-lg text-[#4A4E54] leading-relaxed max-w-2xl">
-            From production planning to independent customer validation. Every unit
+            From production planning to field validation. Every unit
             tested before shipment, with full traceability and documented quality records.
           </p>
         </div>
@@ -218,11 +218,11 @@ export default function QualityPage() {
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
           <p className="eyebrow text-[#2C4A73] mb-4">PRE-SHIPMENT TESTING</p>
           <h2 className="font-heading text-2xl md:text-3xl font-medium text-[#1B1E20] mb-4">
-            Every unit, every time
+            Standard Protocol for Every Shipped Unit
           </h2>
           <p className="text-[#4A4E54] leading-relaxed max-w-2xl mb-10">
             Each actuator undergoes a comprehensive 6-point test protocol
-            before leaving our facility. No exceptions.
+            before leaving our facility.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
