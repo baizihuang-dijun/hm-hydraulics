@@ -47,7 +47,7 @@ const series = [
     torque: '15,000 – 60,000 Nm',
     pressure: 'Up to 300 bar',
     rotation: 'Up to 270° / 360°',
-    applications: 'Large excavator rotation, marine deck machinery, defense systems',
+    applications: 'Large excavator rotation, marine deck machinery.',
   },
   {
     name: 'DKX-F',

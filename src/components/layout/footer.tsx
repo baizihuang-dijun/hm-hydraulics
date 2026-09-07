@@ -31,14 +31,6 @@ export function Footer() {
             <ul className="space-y-2.5">
               <li>
                 <Link
-                  href="/products/tilt-actuators"
-                  className="text-sm text-[#D1D5DB] hover:text-white no-underline transition-colors duration-150"
-                >
-                  Tilt Actuators
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/products/rotary-actuators"
                   className="text-sm text-[#D1D5DB] hover:text-white no-underline transition-colors duration-150"
                 >
