@@ -255,7 +255,7 @@ export default function AboutPage() {
 
           <div className="max-w-2xl">
             <h3 className="font-heading text-lg font-medium text-[#1B1E20] mb-3">
-              Industry Partners
+              Industry Application References
             </h3>
             <p className="text-sm text-[#4A4E54] leading-relaxed mb-4">
               Our components are used in equipment produced by leading Chinese
