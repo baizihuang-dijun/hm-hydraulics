@@ -33,27 +33,15 @@ const products = [
     ],
   },
   {
-    name: 'Selected Components',
-    slug: 'rotary-actuators',
+    name: 'Other Hydraulic Components',
+    slug: '/contact',
     badge: 'Hydraulic Cylinders · Motors · Valves',
     description:
-      'Selected hydraulic components sourced through qualified manufacturing capabilities.',
+      'Hydraulic cylinders, motors, and valves available through our component sourcing network.',
     specs: [
       'Hydraulic cylinders',
       'Hydraulic motors',
       'Hydraulic valves',
-    ],
-  },
-  {
-    name: 'Custom Hydraulic Components',
-    slug: '/contact',
-    badge: 'Custom Solutions',
-    description:
-      'Custom hydraulic components based on drawings, specifications or application requirements.',
-    specs: [
-      'Based on your drawings or specs',
-      'Technical validation before production',
-      'Qualified manufacturing network',
     ],
     isLink: true,
   },
@@ -79,7 +67,7 @@ export default function ProductsPage() {
       {/* Product Grid */}
       <section>
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {products.map((product) => (
               <div
                 key={product.name}
@@ -112,7 +100,7 @@ export default function ProductsPage() {
                     href={product.slug}
                     className="inline-flex items-center text-sm font-medium text-[#2C4A73] no-underline hover:underline"
                   >
-                    Discuss a custom requirement
+                    Discuss your requirement
                     <svg
                       className="ml-1.5 w-3.5 h-3.5"
                       viewBox="0 0 24 24"
