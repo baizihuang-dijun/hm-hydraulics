@@ -20,7 +20,7 @@ export default function HomePage() {
               coordination behind your hydraulic component requirements.
             </p>
             <p className="home-text-secondary text-base mb-10">
-              From technical requirement to reliable delivery.
+              From technical requirement to delivery.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
@@ -91,87 +91,26 @@ export default function HomePage() {
             Support that goes beyond finding a supplier.
           </p>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {/* Engineering */}
-            <div className="bg-white border border-[rgba(15,15,15,0.08)] rounded-lg p-8">
-              <p className="home-eyebrow mb-3">ENGINEERING</p>
-              <h3 className="font-heading text-[#0F0F0F] text-xl font-medium mb-3">
-                Select. Adapt. Validate.
-              </h3>
-              <p className="home-text-secondary text-sm leading-relaxed mb-4">
-                Component selection, cross-reference and custom engineering based on your
-                application, existing part or drawings.
-              </p>
-              <p className="home-text-secondary text-xs font-label uppercase tracking-wider">
-                Selection · Cross-reference · Customization · Validation
-              </p>
-              <div className="mt-6">
-                <Link
-                  href="/solutions#engineering"
-                  className="inline-flex items-center home-accent text-sm font-medium no-underline hover:text-[#8A1515] transition-colors duration-150"
-                >
-                  Explore Engineering Support
-                  <svg className="ml-1.5 w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M5 12h14" />
-                    <path d="m12 5 7 7-7 7" />
-                  </svg>
-                </Link>
-              </div>
-            </div>
-
-            {/* Supply */}
-            <div className="bg-white border border-[rgba(15,15,15,0.08)] rounded-lg p-8">
-              <p className="home-eyebrow mb-3">SUPPLY</p>
-              <h3 className="font-heading text-[#0F0F0F] text-xl font-medium mb-3">
-                Plan. Produce. Control.
-              </h3>
-              <p className="home-text-secondary text-sm leading-relaxed mb-4">
-                Production planning, manufacturing coordination and quality control
-                for more predictable supply.
-              </p>
-              <p className="home-text-secondary text-xs font-label uppercase tracking-wider">
-                Production Planning · Manufacturing · Inspection · Replenishment
-              </p>
-              <div className="mt-6">
-                <Link
-                  href="/solutions#supply"
-                  className="inline-flex items-center home-accent text-sm font-medium no-underline hover:text-[#8A1515] transition-colors duration-150"
-                >
-                  Explore Supply Planning
-                  <svg className="ml-1.5 w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M5 12h14" />
-                    <path d="m12 5 7 7-7 7" />
-                  </svg>
-                </Link>
-              </div>
-            </div>
-
-            {/* Delivery */}
-            <div className="bg-white border border-[rgba(15,15,15,0.08)] rounded-lg p-8">
-              <p className="home-eyebrow mb-3">DELIVERY</p>
-              <h3 className="font-heading text-[#0F0F0F] text-xl font-medium mb-3">
-                Coordinate. Ship. Replenish.
-              </h3>
-              <p className="home-text-secondary text-sm leading-relaxed mb-4">
-                Transportation and delivery coordination based on your shipment,
-                destination and commercial requirements.
-              </p>
-              <p className="home-text-secondary text-xs font-label uppercase tracking-wider">
-                Shipping · Delivery Terms · Logistics · Replenishment
-              </p>
-              <div className="mt-6">
-                <Link
-                  href="/solutions#delivery"
-                  className="inline-flex items-center home-accent text-sm font-medium no-underline hover:text-[#8A1515] transition-colors duration-150"
-                >
-                  Explore Delivery Solutions
-                  <svg className="ml-1.5 w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M5 12h14" />
-                    <path d="m12 5 7 7-7 7" />
-                  </svg>
-                </Link>
-              </div>
-            </div>
+          <div className="bg-white border border-[rgba(15,15,15,0.08)] rounded-lg p-8 max-w-[680px]">
+            <p className="home-eyebrow mb-3">OUR CAPABILITIES</p>
+            <h3 className="font-heading text-[#0F0F0F] text-xl font-medium mb-3">
+              Engineering, Supply Planning &amp; Delivery Coordination
+            </h3>
+            <p className="home-text-secondary text-sm leading-relaxed mb-4">
+              Component selection, cross-reference, production planning, manufacturing
+              coordination, quality control and delivery coordination — managed as one
+              interface.
+            </p>
+            <Link
+              href="/solutions"
+              className="inline-flex items-center home-accent text-sm font-medium no-underline hover:text-[#8A1515] transition-colors duration-150"
+            >
+              Explore Solutions
+              <svg className="ml-1.5 w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg>
+            </Link>
           </div>
         </div>
       </section>
