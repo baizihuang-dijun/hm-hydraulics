@@ -91,16 +91,39 @@ export default function HomePage() {
             Support that goes beyond finding a supplier.
           </p>
 
-          <div className="bg-white border border-[rgba(15,15,15,0.08)] rounded-lg p-8 max-w-[680px]">
-            <p className="home-eyebrow mb-3">OUR CAPABILITIES</p>
-            <h3 className="font-heading text-[#0F0F0F] text-xl font-medium mb-3">
-              Engineering, Supply Planning &amp; Delivery Coordination
-            </h3>
-            <p className="home-text-secondary text-sm leading-relaxed mb-4">
-              Component selection, cross-reference, production planning, manufacturing
-              coordination, quality control and delivery coordination — managed as one
-              interface.
-            </p>
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="bg-white border border-[rgba(15,15,15,0.08)] rounded-lg p-6">
+              <p className="home-eyebrow mb-3">01</p>
+              <h3 className="font-heading text-[#0F0F0F] text-lg font-medium mb-2">
+                Engineering
+              </h3>
+              <p className="home-text-secondary text-sm leading-relaxed mb-4">
+                Component selection, cross-reference review, and technical validation for new and existing requirements.
+              </p>
+            </div>
+
+            <div className="bg-white border border-[rgba(15,15,15,0.08)] rounded-lg p-6">
+              <p className="home-eyebrow mb-3">02</p>
+              <h3 className="font-heading text-[#0F0F0F] text-lg font-medium mb-2">
+                Supply Planning
+              </h3>
+              <p className="home-text-secondary text-sm leading-relaxed mb-4">
+                Production planning, manufacturing coordination, and quality oversight across the supply chain.
+              </p>
+            </div>
+
+            <div className="bg-white border border-[rgba(15,15,15,0.08)] rounded-lg p-6">
+              <p className="home-eyebrow mb-3">03</p>
+              <h3 className="font-heading text-[#0F0F0F] text-lg font-medium mb-2">
+                Delivery Coordination
+              </h3>
+              <p className="home-text-secondary text-sm leading-relaxed mb-4">
+                Shipping coordination, delivery scheduling, and terms management for your project timeline.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-10">
             <Link
               href="/solutions"
               className="inline-flex items-center home-accent text-sm font-medium no-underline hover:text-[#8A1515] transition-colors duration-150"
@@ -127,7 +150,7 @@ export default function HomePage() {
             actuator and hydraulic component solutions.
           </p>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-white border border-[rgba(15,15,15,0.08)] rounded-lg p-6">
               <p className="home-eyebrow mb-2">CORE PRODUCT</p>
               <h3 className="font-heading text-[#0F0F0F] text-lg font-medium mb-2">
@@ -167,24 +190,6 @@ export default function HomePage() {
               </Link>
             </div>
 
-            <div className="bg-white border border-[rgba(15,15,15,0.08)] rounded-lg p-6">
-              <h3 className="font-heading text-[#0F0F0F] text-lg font-medium mb-2">
-                Custom Hydraulic Components
-              </h3>
-              <p className="home-text-secondary text-sm leading-relaxed mb-4">
-                Custom solutions based on drawings, existing components or application requirements.
-              </p>
-              <Link
-                href="/contact"
-                className="inline-flex items-center home-accent text-sm font-medium no-underline hover:text-[#8A1515] transition-colors duration-150"
-              >
-                Discuss a Custom Requirement
-                <svg className="ml-1.5 w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M5 12h14" />
-                  <path d="m12 5 7 7-7 7" />
-                </svg>
-              </Link>
-            </div>
           </div>
         </div>
       </section>
@@ -240,7 +245,7 @@ export default function HomePage() {
             {[
               { value: '72+', label: 'Configurations' },
               { value: '1M+', label: 'Cycle Validation*' },
-              { value: '200,000 Nm', label: 'Maximum Design Capability*' },
+              { value: '200,000 Nm', label: 'Manufacturing Envelope*' },
               { value: '100%', label: 'Pre-Shipment Testing*' },
             ].map((metric) => (
               <div
