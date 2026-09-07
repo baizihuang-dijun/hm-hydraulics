@@ -30,7 +30,6 @@ export default function ContactPage() {
           </h1>
           <p className="text-lg text-[#4A4E54] leading-relaxed max-w-2xl">
             Share an existing part, drawing, or application requirement.
-            We&apos;ll respond within 24 hours.
           </p>
         </div>
       </section>
@@ -60,7 +59,7 @@ export default function ContactPage() {
                   </h2>
                   <p className="text-sm text-[#4A4E54] leading-relaxed">
                     Thank you for your inquiry. Our team will review your
-                    requirements and respond within 24 hours.
+                    requirements.
                   </p>
                 </div>
               ) : (
@@ -197,17 +196,6 @@ export default function ContactPage() {
                   >
                     bai@hmhydraulics.com
                   </a>
-                </div>
-
-                {/* Response Time */}
-                <div>
-                  <p className="font-label text-xs text-[#62666C] uppercase tracking-wider mb-2">
-                    Response Time
-                  </p>
-                  <p className="text-sm text-[#4A4E54] leading-relaxed">
-                    We respond to all inquiries within 24 hours. For urgent
-                    matters, please indicate in your message.
-                  </p>
                 </div>
 
                 {/* What to Include */}
