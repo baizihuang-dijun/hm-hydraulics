@@ -151,43 +151,59 @@ export default function HomePage() {
           </p>
 
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-white border border-[rgba(15,15,15,0.08)] rounded-lg p-6">
-              <p className="home-eyebrow mb-2">CORE PRODUCT</p>
-              <h3 className="font-heading text-[#0F0F0F] text-lg font-medium mb-2">
-                Rotary Actuators
-              </h3>
-              <p className="home-text-secondary text-sm leading-relaxed mb-4">
-                20 Nm–200,000 Nm across multiple series, mechanisms and application requirements.
-              </p>
-              <Link
-                href="/products/rotary-actuators"
-                className="inline-flex items-center home-accent text-sm font-medium no-underline hover:text-[#8A1515] transition-colors duration-150"
-              >
-                Explore Rotary Actuators
-                <svg className="ml-1.5 w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M5 12h14" />
-                  <path d="m12 5 7 7-7 7" />
-                </svg>
-              </Link>
+            <div className="bg-white border border-[rgba(15,15,15,0.08)] rounded-lg overflow-hidden">
+              <img
+                src="/images/products/rotary-actuator.png"
+                alt="Hydraulic rotary actuator DKX series"
+                className="w-full h-[200px] object-cover bg-[#F5F5F0]"
+                loading="lazy"
+              />
+              <div className="p-6">
+                <p className="home-eyebrow mb-2">CORE PRODUCT</p>
+                <h3 className="font-heading text-[#0F0F0F] text-lg font-medium mb-2">
+                  Rotary Actuators
+                </h3>
+                <p className="home-text-secondary text-sm leading-relaxed mb-4">
+                  20 Nm–200,000 Nm across multiple series, mechanisms and application requirements.
+                </p>
+                <Link
+                  href="/products/rotary-actuators"
+                  className="inline-flex items-center home-accent text-sm font-medium no-underline hover:text-[#8A1515] transition-colors duration-150"
+                >
+                  Explore Rotary Actuators
+                  <svg className="ml-1.5 w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M5 12h14" />
+                    <path d="m12 5 7 7-7 7" />
+                  </svg>
+                </Link>
+              </div>
             </div>
 
-            <div className="bg-white border border-[rgba(15,15,15,0.08)] rounded-lg p-6">
-              <h3 className="font-heading text-[#0F0F0F] text-lg font-medium mb-2">
-                Tilt Actuators
-              </h3>
-              <p className="home-text-secondary text-sm leading-relaxed mb-4">
-                Selected cross-reference solutions for excavator tilt and coupler applications.
-              </p>
-              <Link
-                href="/products/tilt-actuators"
-                className="inline-flex items-center home-accent text-sm font-medium no-underline hover:text-[#8A1515] transition-colors duration-150"
-              >
-                View Products
-                <svg className="ml-1.5 w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M5 12h14" />
-                  <path d="m12 5 7 7-7 7" />
-                </svg>
-              </Link>
+            <div className="bg-white border border-[rgba(15,15,15,0.08)] rounded-lg overflow-hidden">
+              <img
+                src="/images/products/tilt-actuator.png"
+                alt="Hydraulic tilt actuator DTA/DTD series"
+                className="w-full h-[200px] object-cover bg-[#F5F5F0]"
+                loading="lazy"
+              />
+              <div className="p-6">
+                <h3 className="font-heading text-[#0F0F0F] text-lg font-medium mb-2">
+                  Tilt Actuators
+                </h3>
+                <p className="home-text-secondary text-sm leading-relaxed mb-4">
+                  Selected cross-reference solutions for excavator tilt and coupler applications.
+                </p>
+                <Link
+                  href="/products/tilt-actuators"
+                  className="inline-flex items-center home-accent text-sm font-medium no-underline hover:text-[#8A1515] transition-colors duration-150"
+                >
+                  View Products
+                  <svg className="ml-1.5 w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M5 12h14" />
+                    <path d="m12 5 7 7-7 7" />
+                  </svg>
+                </Link>
+              </div>
             </div>
 
           </div>
@@ -279,18 +295,28 @@ export default function HomePage() {
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {[
-              'Construction',
-              'Mining & Heavy Equipment',
-              'Marine',
-              'Industrial Machinery',
-              'Material Handling',
-              'Specialized Equipment',
+              { name: 'Construction', image: '/images/applications/application-construction.jpg', alt: 'Construction equipment application' },
+              { name: 'Mining & Heavy Equipment' },
+              { name: 'Marine' },
+              { name: 'Industrial Machinery', image: '/images/applications/application-industrial.jpg', alt: 'Industrial machinery application' },
+              { name: 'Material Handling' },
+              { name: 'Specialized Equipment', image: '/images/applications/application-specialized.jpg', alt: 'Specialized airport equipment application' },
             ].map((app) => (
               <div
-                key={app}
-                className="bg-white border border-[rgba(15,15,15,0.08)] rounded-lg p-5"
+                key={app.name}
+                className="bg-white border border-[rgba(15,15,15,0.08)] rounded-lg overflow-hidden"
               >
-                <h3 className="font-heading text-[#0F0F0F] text-sm font-medium">{app}</h3>
+                {app.image && (
+                  <img
+                    src={app.image}
+                    alt={app.alt}
+                    className="w-full h-[140px] object-cover"
+                    loading="lazy"
+                  />
+                )}
+                <div className={app.image ? 'p-4' : 'p-5'}>
+                  <h3 className="font-heading text-[#0F0F0F] text-sm font-medium">{app.name}</h3>
+                </div>
               </div>
             ))}
           </div>

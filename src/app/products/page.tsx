@@ -19,6 +19,8 @@ const products = [
       'DT, TR, RT series',
       '20 Nm to 200,000 Nm torque range',
     ],
+    image: '/images/products/rotary-actuator.png',
+    imageAlt: 'Hydraulic rotary actuator DKX series',
   },
   {
     name: 'Tilt Actuators',
@@ -31,6 +33,8 @@ const products = [
       'DTD Series — 7 models',
       'Comparable to HKS BVC/BVE, Helac PT',
     ],
+    image: '/images/products/tilt-actuator.png',
+    imageAlt: 'Hydraulic tilt actuator DTA/DTD series',
   },
   {
     name: 'Other Hydraulic Components',
@@ -71,14 +75,23 @@ export default function ProductsPage() {
             {products.map((product) => (
               <div
                 key={product.name}
-                className="group relative p-6 border border-[rgba(44,74,115,0.10)] bg-white rounded-md hover:border-[rgba(44,74,115,0.25)] transition-colors duration-150"
+                className="group relative border border-[rgba(44,74,115,0.10)] bg-white rounded-md hover:border-[rgba(44,74,115,0.25)] transition-colors duration-150 overflow-hidden"
               >
-                <p className="font-label text-xs text-[#62666C] uppercase tracking-wider mb-3">
-                  {product.badge}
-                </p>
-                <h2 className="font-heading text-lg font-medium text-[#1B1E20] mb-2">
-                  {product.name}
-                </h2>
+                {product.image && (
+                  <img
+                    src={product.image}
+                    alt={product.imageAlt}
+                    className="w-full h-[180px] object-cover bg-[#F5F5F0]"
+                    loading="lazy"
+                  />
+                )}
+                <div className="p-6">
+                  <p className="font-label text-xs text-[#62666C] uppercase tracking-wider mb-3">
+                    {product.badge}
+                  </p>
+                  <h2 className="font-heading text-lg font-medium text-[#1B1E20] mb-2">
+                    {product.name}
+                  </h2>
                 <p className="text-sm text-[#4A4E54] leading-relaxed mb-4">
                   {product.description}
                 </p>
@@ -130,6 +143,7 @@ export default function ProductsPage() {
                     </svg>
                   </Link>
                 )}
+                </div>
               </div>
             ))}
           </div>

@@ -49,14 +49,26 @@ export default function QualityPage() {
       {/* Hero */}
       <section className="border-b border-[rgba(44,74,115,0.10)]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
-          <p className="eyebrow text-[#2C4A73] mb-4">QUALITY & TECHNICAL VALIDATION</p>
-          <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-medium text-[#1B1E20] mb-4">
-            Built to Perform. Proven to Last.
-          </h1>
-          <p className="text-lg text-[#4A4E54] leading-relaxed max-w-2xl">
-            From production planning to field validation. Every unit
-            tested before shipment, with full traceability and documented quality records.
-          </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div>
+              <p className="eyebrow text-[#2C4A73] mb-4">QUALITY & TECHNICAL VALIDATION</p>
+              <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-medium text-[#1B1E20] mb-4">
+                Built to Perform. Proven to Last.
+              </h1>
+              <p className="text-lg text-[#4A4E54] leading-relaxed max-w-2xl">
+                From production planning to field validation. Every unit
+                tested before shipment, with full traceability and documented quality records.
+              </p>
+            </div>
+            <div className="rounded-md overflow-hidden border border-[rgba(44,74,115,0.10)]">
+              <img
+                src="/images/quality/hero.png"
+                alt="Quality inspection of a hydraulic actuator"
+                className="w-full h-[300px] md:h-[360px] object-cover"
+                loading="eager"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -87,6 +99,14 @@ export default function QualityPage() {
             </div>
 
             <div className="space-y-4">
+              <div className="rounded-md overflow-hidden border border-[rgba(44,74,115,0.10)]">
+                <img
+                  src="/images/quality/fatigue-test.jpg"
+                  alt="1,000,000-cycle fatigue test equipment"
+                  className="w-full h-[220px] object-cover"
+                  loading="lazy"
+                />
+              </div>
               <div className="p-5 border border-[rgba(44,74,115,0.10)] rounded-md">
                 <p className="font-label text-xs text-[#62666C] uppercase tracking-wider mb-1">
                   Test Duration
@@ -169,12 +189,12 @@ export default function QualityPage() {
             quality across every production run.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="rounded-md overflow-hidden border border-[rgba(44,74,115,0.10)] group">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="rounded-md overflow-hidden border border-[rgba(44,74,115,0.10)] group md:row-span-2">
               <img
-                src="/images/factory/cnc-machining.jpg"
+                src="/images/quality/cnc-machining.png"
                 alt="CNC precision machining"
-                className="w-full h-[240px] object-cover transition-transform duration-200 ease-out group-hover:scale-[1.03]"
+                className="w-full h-[240px] md:h-full min-h-[320px] object-cover transition-transform duration-200 ease-out group-hover:scale-[1.02]"
                 loading="lazy"
               />
               <div className="px-4 py-3 bg-[#FAFAF7] border-t border-[rgba(44,74,115,0.10)]">
@@ -185,9 +205,9 @@ export default function QualityPage() {
             </div>
             <div className="rounded-md overflow-hidden border border-[rgba(44,74,115,0.10)] group">
               <img
-                src="/images/factory/cnc-lathe.jpg"
+                src="/images/quality/cnc-lathe.png"
                 alt="CNC lathe turning operation"
-                className="w-full h-[240px] object-cover transition-transform duration-200 ease-out group-hover:scale-[1.03]"
+                className="w-full h-[240px] object-cover transition-transform duration-200 ease-out group-hover:scale-[1.02]"
                 loading="lazy"
               />
               <div className="px-4 py-3 bg-[#FAFAF7] border-t border-[rgba(44,74,115,0.10)]">
@@ -198,9 +218,9 @@ export default function QualityPage() {
             </div>
             <div className="rounded-md overflow-hidden border border-[rgba(44,74,115,0.10)] group">
               <img
-                src="/images/factory/machining-center.jpg"
+                src="/images/quality/machining-center.png"
                 alt="Vertical machining center operation"
-                className="w-full h-[240px] object-cover transition-transform duration-200 ease-out group-hover:scale-[1.03]"
+                className="w-full h-[240px] object-cover transition-transform duration-200 ease-out group-hover:scale-[1.02]"
                 loading="lazy"
               />
               <div className="px-4 py-3 bg-[#FAFAF7] border-t border-[rgba(44,74,115,0.10)]">
@@ -216,84 +236,64 @@ export default function QualityPage() {
       {/* Pre-Shipment Testing */}
       <section className="border-b border-[rgba(44,74,115,0.10)] bg-white">
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
-          <p className="eyebrow text-[#2C4A73] mb-4">PRE-SHIPMENT TESTING</p>
-          <h2 className="font-heading text-2xl md:text-3xl font-medium text-[#1B1E20] mb-4">
-            Standard Protocol for Every Shipped Unit
-          </h2>
-          <p className="text-[#4A4E54] leading-relaxed max-w-2xl mb-10">
-            Each actuator undergoes a comprehensive 6-point test protocol
-            before leaving our facility.
-          </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-start">
+            <div>
+              <p className="eyebrow text-[#2C4A73] mb-4">PRE-SHIPMENT TESTING</p>
+              <h2 className="font-heading text-2xl md:text-3xl font-medium text-[#1B1E20] mb-4">
+                Standard Protocol for Every Shipped Unit
+              </h2>
+              <p className="text-[#4A4E54] leading-relaxed max-w-2xl mb-10">
+                Each actuator undergoes a comprehensive 6-point test protocol
+                before leaving our facility.
+              </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {testItems.map((item) => (
-              <div
-                key={item.name}
-                className="p-5 border border-[rgba(44,74,115,0.10)] rounded-md"
-              >
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="w-6 h-6 rounded-full bg-[rgba(44,74,115,0.08)] flex items-center justify-center">
-                    <svg
-                      className="w-3.5 h-3.5 text-[#2C4A73]"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                    >
-                      <path d="m9 12 2 2 4-4" />
-                      <circle cx="12" cy="12" r="10" />
-                    </svg>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {testItems.map((item) => (
+                  <div
+                    key={item.name}
+                    className="p-5 border border-[rgba(44,74,115,0.10)] rounded-md"
+                  >
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="w-6 h-6 rounded-full bg-[rgba(44,74,115,0.08)] flex items-center justify-center">
+                        <svg
+                          className="w-3.5 h-3.5 text-[#2C4A73]"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        >
+                          <path d="m9 12 2 2 4-4" />
+                          <circle cx="12" cy="12" r="10" />
+                        </svg>
+                      </div>
+                      <h3 className="font-medium text-sm text-[#1B1E20]">
+                        {item.name}
+                      </h3>
+                    </div>
+                    <p className="text-xs text-[#62666C] leading-relaxed pl-9">
+                      {item.desc}
+                    </p>
                   </div>
-                  <h3 className="font-medium text-sm text-[#1B1E20]">
-                    {item.name}
-                  </h3>
-                </div>
-                <p className="text-xs text-[#62666C] leading-relaxed pl-9">
-                  {item.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Quality Inspection & Production */}
-      <section className="border-b border-[rgba(44,74,115,0.10)]">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="rounded-md overflow-hidden border border-[rgba(44,74,115,0.10)] group">
-              <img
-                src="/images/factory/quality-inspection.jpg"
-                alt="Quality inspection with precision measuring tools"
-                className="w-full h-[300px] object-cover transition-transform duration-200 ease-out group-hover:scale-[1.02]"
-                loading="lazy"
-              />
-              <div className="px-4 py-3 bg-[#FAFAF7] border-t border-[rgba(44,74,115,0.10)]">
-                <p className="text-xs text-[#62666C] font-label uppercase tracking-wider">
-                  Precision Measurement — Quality Inspection
-                </p>
+                ))}
               </div>
             </div>
-            <div className="rounded-md overflow-hidden border border-[rgba(44,74,115,0.10)] group relative">
-              <img
-                src="/images/factory/batch-iso.jpg"
-                alt="Batch production with ISO9001:2015 certification"
-                className="w-full h-[300px] object-cover transition-transform duration-200 ease-out group-hover:scale-[1.02]"
-                loading="lazy"
-              />
-              <div className="absolute bottom-16 right-4 w-28 md:w-32 opacity-90 rounded shadow-lg border border-white/20">
+
+            <div className="flex flex-col gap-6 lg:pt-10">
+              <div className="rounded-md overflow-hidden border border-[rgba(44,74,115,0.10)] group">
                 <img
-                  src="/images/factory/batch-iso.jpg"
-                  alt="ISO9001:2015 Certificate"
-                  className="w-full h-auto"
+                  src="/images/quality/quality-inspection.png"
+                  alt="Quality inspection of actuator components"
+                  className="w-full h-[260px] object-cover transition-transform duration-200 ease-out group-hover:scale-[1.02]"
                   loading="lazy"
-                  style={{ clipPath: 'inset(30% 5% 5% 55%)' }}
                 />
               </div>
-              <div className="px-4 py-3 bg-[#FAFAF7] border-t border-[rgba(44,74,115,0.10)]">
-                <p className="text-xs text-[#62666C] font-label uppercase tracking-wider">
-                  Batch Production — ISO9001:2015 Certified
-                </p>
+              <div className="rounded-md overflow-hidden border border-[rgba(44,74,115,0.10)] group">
+                <img
+                  src="/images/quality/batch-production.png"
+                  alt="Batch production inspection"
+                  className="w-full h-[260px] object-cover transition-transform duration-200 ease-out group-hover:scale-[1.02]"
+                  loading="lazy"
+                />
               </div>
             </div>
           </div>

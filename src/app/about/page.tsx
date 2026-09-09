@@ -120,7 +120,7 @@ export default function AboutPage() {
             </div>
             <div className="rounded-md overflow-hidden border border-[rgba(44,74,115,0.10)] group">
               <img
-                src="/images/factory/rd-cad.jpg"
+                src="/images/about/engineering.png"
                 alt="Engineering team reviewing CAD drawings"
                 className="w-full h-[320px] object-cover transition-transform duration-200 ease-out group-hover:scale-[1.03]"
                 loading="lazy"
@@ -179,7 +179,7 @@ export default function AboutPage() {
           {/* Precision Manufacturing Image */}
           <div className="mb-10 rounded-md overflow-hidden border border-[rgba(44,74,115,0.10)] group">
             <img
-              src="/images/factory/precision-part.jpg"
+              src="/images/about/manufacturing.png"
               alt="Precision machined hydraulic component"
               className="w-full h-[280px] md:h-[340px] object-cover transition-transform duration-200 ease-out group-hover:scale-[1.02]"
               loading="lazy"
