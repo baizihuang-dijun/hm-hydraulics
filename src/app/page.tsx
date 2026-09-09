@@ -4,22 +4,32 @@ export default function HomePage() {
   return (
     <main className="min-h-screen bg-[#FAFAF7]">
       {/* Section 01 — Hero */}
-      <section className="border-b border-[rgba(15,15,15,0.08)]">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-20 md:py-28">
+      <section className="border-b border-[rgba(15,15,15,0.08)] relative overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="/images/H10.2.jpg"
+            alt="Hydraulic actuator on heavy equipment"
+            className="w-full h-full object-cover"
+            loading="eager"
+            fetchPriority="high"
+          />
+          <div className="absolute inset-0 bg-[#0F0F0F]/60" />
+        </div>
+        <div className="relative max-w-[1200px] mx-auto px-6 md:px-8 py-20 md:py-28">
           <div className="max-w-3xl">
-            <p className="home-eyebrow mb-6">
+            <p className="home-eyebrow mb-6 text-white/70">
               TECHNICAL SOURCING FOR HYDRAULIC COMPONENTS
             </p>
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-[3.5rem] font-medium leading-[1.1] tracking-tight text-[#0F0F0F] mb-6">
+            <h1 className="font-heading text-4xl md:text-5xl lg:text-[3.5rem] font-medium leading-[1.1] tracking-tight text-white mb-6">
               Your Technical Sourcing Partner
               <br />
-              <span className="home-accent">for Hydraulic Components</span>
+              <span className="text-white/90">for Hydraulic Components</span>
             </h1>
-            <p className="text-lg md:text-xl home-text-secondary leading-relaxed max-w-2xl mb-3">
+            <p className="text-lg md:text-xl text-white/80 leading-relaxed max-w-2xl mb-3">
               We handle the technical matching, sourcing, quality verification and supply
               coordination behind your hydraulic component requirements.
             </p>
-            <p className="home-text-secondary text-base mb-10">
+            <p className="text-white/70 text-base mb-10">
               From technical requirement to delivery.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
@@ -31,7 +41,7 @@ export default function HomePage() {
               </Link>
               <Link
                 href="/solutions"
-                className="inline-flex items-center justify-center px-6 py-3 border border-[rgba(15,15,15,0.20)] home-accent text-sm font-medium rounded no-underline hover:home-bg-tint transition-colors duration-150"
+                className="inline-flex items-center justify-center px-6 py-3 border border-white/30 text-white text-sm font-medium rounded no-underline hover:bg-white/10 transition-colors duration-150"
               >
                 Explore Solutions
               </Link>
@@ -276,6 +286,25 @@ export default function HomePage() {
           <p className="home-text-secondary text-lg leading-relaxed max-w-[680px] mb-12">
             Application-specific hydraulic solutions for demanding equipment and machinery.
           </p>
+
+          <div className="grid md:grid-cols-2 gap-4 mb-8">
+            <div className="rounded-lg overflow-hidden border border-[rgba(15,15,15,0.08)]">
+              <img
+                src="/images/H10.3.jpg"
+                alt="Hydraulic machinery in industrial application"
+                className="w-full h-64 object-cover"
+                loading="lazy"
+              />
+            </div>
+            <div className="rounded-lg overflow-hidden border border-[rgba(15,15,15,0.08)]">
+              <img
+                src="/images/H10.4.jpg"
+                alt="Specialized equipment with hydraulic systems"
+                className="w-full h-64 object-cover"
+                loading="lazy"
+              />
+            </div>
+          </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {[
