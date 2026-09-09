@@ -93,7 +93,7 @@ export default function TiltActuatorsPage() {
             <div className="text-center">
               <div className="w-64 h-64 mx-auto bg-[#F5F5F2] rounded-lg flex items-center justify-center mb-4 transition-transform duration-200 hover:scale-105">
                 <img
-                  src="/images/products/dta.png"
+                  src="/images/H5.png"
                   alt="DTA Series Tilt Actuator - Tilt Motor V2"
                   className="max-w-full max-h-full object-contain"
                   loading="lazy"
@@ -177,7 +177,7 @@ export default function TiltActuatorsPage() {
             <div className="text-center">
               <div className="w-64 h-64 mx-auto bg-[#F5F5F2] rounded-lg flex items-center justify-center mb-4 transition-transform duration-200 hover:scale-105">
                 <img
-                  src="/images/products/dtd.png"
+                  src="/images/H5.png"
                   alt="DTD Series Tilt Actuator - Tilt Motor V1"
                   className="max-w-full max-h-full object-contain"
                   loading="lazy"
