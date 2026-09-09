@@ -11,15 +11,25 @@ export default function SolutionsPage() {
   return (
     <main className="min-h-screen bg-[#FAFAF7]">
       {/* Hero */}
-      <section className="border-b border-[rgba(44,74,115,0.10)]">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-20 md:py-28">
-          <p className="eyebrow text-[#2C4A73] mb-4">OUR SOLUTIONS</p>
-          <h1 className="font-heading text-[#1B1E20] text-4xl md:text-[56px] font-medium leading-tight max-w-[800px] mb-6">
+      <section className="border-b border-[rgba(44,74,115,0.10)] relative overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="/images/S1.png"
+            alt="Engineering review and component selection"
+            className="w-full h-full object-cover"
+            loading="eager"
+            fetchPriority="high"
+          />
+          <div className="absolute inset-0 bg-[#1B1E20]/60" />
+        </div>
+        <div className="relative max-w-[1200px] mx-auto px-6 md:px-8 py-20 md:py-28">
+          <p className="eyebrow text-white/70 mb-4">OUR SOLUTIONS</p>
+          <h1 className="font-heading text-white text-4xl md:text-[56px] font-medium leading-tight max-w-[800px] mb-6">
             From Technical Requirement
             <br />
             to Reliable Delivery
           </h1>
-          <p className="text-[#4A4E54] text-lg md:text-xl leading-relaxed max-w-[680px]">
+          <p className="text-white/80 text-lg md:text-xl leading-relaxed max-w-[680px]">
             Engineering support, manufacturing sourcing, quality coordination and delivery
             management — connected in one sourcing process.
           </p>
