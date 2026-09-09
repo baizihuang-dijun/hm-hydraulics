@@ -49,13 +49,23 @@ export default function TiltActuatorsPage() {
       </section>
 
       {/* Hero */}
-      <section className="border-b border-[rgba(44,74,115,0.10)]">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
-          <p className="eyebrow text-[#2C4A73] mb-4">TILT ACTUATORS</p>
-          <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-medium text-[#1B1E20] mb-4">
+      <section className="border-b border-[rgba(44,74,115,0.10)] relative overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="/images/TA1.jpg"
+            alt="Tilt actuator in manufacturing facility"
+            className="w-full h-full object-cover"
+            loading="eager"
+            fetchPriority="high"
+          />
+          <div className="absolute inset-0 bg-[#1B1E20]/60" />
+        </div>
+        <div className="relative max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
+          <p className="eyebrow text-white/70 mb-4">TILT ACTUATORS</p>
+          <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-medium text-white mb-4">
             For Excavator Tilt Couplers
           </h1>
-          <p className="text-lg text-[#4A4E54] leading-relaxed max-w-2xl">
+          <p className="text-lg text-white/80 leading-relaxed max-w-2xl">
             19 models across two series, with specifications comparable to leading international brands.
             Final model selection should be verified against your existing mounting dimensions and operating parameters.
           </p>
