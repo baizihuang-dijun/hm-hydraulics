@@ -13,28 +13,16 @@ export default function SolutionsPage() {
       {/* Hero */}
       <section className="border-b border-[rgba(44,74,115,0.10)]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-20 md:py-28">
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-            <div>
-              <p className="eyebrow text-[#2C4A73] mb-4">OUR SOLUTIONS</p>
-              <h1 className="font-heading text-[#1B1E20] text-4xl md:text-[56px] font-medium leading-tight max-w-[800px] mb-6">
-                From Technical Requirement
-                <br />
-                to Reliable Delivery
-              </h1>
-              <p className="text-[#4A4E54] text-lg md:text-xl leading-relaxed max-w-[680px]">
-                Engineering support, manufacturing sourcing, quality coordination and delivery
-                management — connected in one sourcing process.
-              </p>
-            </div>
-            <div className="rounded-md overflow-hidden border border-[rgba(44,74,115,0.10)]">
-              <img
-                src="/images/solutions/hero.png"
-                alt="Engineering team reviewing technical drawings"
-                className="w-full h-[280px] md:h-[360px] object-cover"
-                loading="eager"
-              />
-            </div>
-          </div>
+          <p className="eyebrow text-[#2C4A73] mb-4">OUR SOLUTIONS</p>
+          <h1 className="font-heading text-[#1B1E20] text-4xl md:text-[56px] font-medium leading-tight max-w-[800px] mb-6">
+            From Technical Requirement
+            <br />
+            to Reliable Delivery
+          </h1>
+          <p className="text-[#4A4E54] text-lg md:text-xl leading-relaxed max-w-[680px]">
+            Engineering support, manufacturing sourcing, quality coordination and delivery
+            management — connected in one sourcing process.
+          </p>
         </div>
       </section>
 
