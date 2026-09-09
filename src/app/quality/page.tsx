@@ -208,36 +208,18 @@ export default function QualityPage() {
             Each actuator undergoes a comprehensive 6-point test protocol before leaving our facility.
           </p>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 mb-10">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {testItems.map((item) => (
-                <div
-                  key={item.name}
-                  className="p-5 border border-[rgba(44,74,115,0.10)] rounded-md bg-white"
-                >
-                  <h3 className="font-heading text-base font-medium text-[#1B1E20] mb-1">
-                    {item.name}
-                  </h3>
-                  <p className="text-sm text-[#4A4E54]">{item.description}</p>
-                </div>
-              ))}
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="aspect-[4/3] rounded-md overflow-hidden border border-[rgba(44,74,115,0.10)]">
-                <img
-                  src="/images/quality/Q4.1.png"
-                  alt="Internal leakage test on a hydraulic actuator"
-                  className="w-full h-full object-cover hover:scale-[1.02] transition-transform duration-300"
-                />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
+            {testItems.map((item) => (
+              <div
+                key={item.name}
+                className="p-5 border border-[rgba(44,74,115,0.10)] rounded-md bg-white"
+              >
+                <h3 className="font-heading text-base font-medium text-[#1B1E20] mb-1">
+                  {item.name}
+                </h3>
+                <p className="text-sm text-[#4A4E54]">{item.description}</p>
               </div>
-              <div className="aspect-[4/3] rounded-md overflow-hidden border border-[rgba(44,74,115,0.10)]">
-                <img
-                  src="/images/quality/Q4.2.png"
-                  alt="Dimensional inspection of a machined part"
-                  className="w-full h-full object-cover hover:scale-[1.02] transition-transform duration-300"
-                />
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
