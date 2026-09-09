@@ -73,6 +73,22 @@ export default function ProductsPage() {
                 key={product.name}
                 className="group relative p-6 border border-[rgba(44,74,115,0.10)] bg-white rounded-md hover:border-[rgba(44,74,115,0.25)] transition-colors duration-150"
               >
+                {product.name === 'Rotary Actuators' && (
+                  <img
+                    src="/images/H4.png"
+                    alt="Rotary actuator"
+                    className="w-full h-48 object-contain mb-4 bg-[#FAFAF7] rounded"
+                    loading="lazy"
+                  />
+                )}
+                {product.name === 'Tilt Actuators' && (
+                  <img
+                    src="/images/H5.png"
+                    alt="Tilt actuator"
+                    className="w-full h-48 object-contain mb-4 bg-[#FAFAF7] rounded"
+                    loading="lazy"
+                  />
+                )}
                 <p className="font-label text-xs text-[#62666C] uppercase tracking-wider mb-3">
                   {product.badge}
                 </p>
