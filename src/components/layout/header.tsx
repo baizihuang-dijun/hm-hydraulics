@@ -43,7 +43,7 @@ export function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center shrink-0">
             <img
-              src="/images/hm-logo.png"
+              src="/hm-hydraulics/images/hm-logo.png"
               alt="HM Hydraulics"
               className="h-10 w-auto"
             />
