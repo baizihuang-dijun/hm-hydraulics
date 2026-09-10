@@ -186,11 +186,10 @@ export default function RotaryActuatorsPage() {
 
           <div className="space-y-3">
             {series.map((item) => {
-              const torqueMin = parseInt(
-                item.torque.replace(/[^0-9]/g, '').split('–')[0].trim()
-              );
+              const torqueParts = item.torque.replace(/,/g, '').match(/([0-9]+)\s*[–-]\s*([0-9]+)/);
+              const torqueMax = torqueParts ? parseInt(torqueParts[2]) : 200000;
               const maxScale = 200000;
-              const widthPercent = Math.max(3, (torqueMin / maxScale) * 100);
+              const widthPercent = Math.max(3, (torqueMax / maxScale) * 100);
               return (
                 <div key={item.name} className="flex items-center gap-4">
                   <span className="font-label text-xs text-[#62666C] w-16 shrink-0 text-right">
