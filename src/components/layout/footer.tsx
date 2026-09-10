@@ -9,7 +9,7 @@ export function Footer() {
           <div className="md:col-span-2">
             <div className="flex items-center mb-4">
               <img
-                src="/images/hm-logo-white.png"
+                src="/hm-hydraulics/images/hm-logo-white.png"
                 alt="HM Hydraulics"
                 className="h-10 w-auto object-contain"
               />
