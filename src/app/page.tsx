@@ -162,6 +162,14 @@ export default function HomePage() {
 
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-white border border-[rgba(15,15,15,0.08)] rounded-lg p-6">
+              <div className="mb-4 rounded-md bg-[#FAFAF7] border border-[rgba(15,15,15,0.06)] overflow-hidden">
+                <img
+                  src="/images/H4.png"
+                  alt="Rotary actuator product render"
+                  className="w-full h-48 object-contain"
+                  loading="lazy"
+                />
+              </div>
               <p className="home-eyebrow mb-2">CORE PRODUCT</p>
               <h3 className="font-heading text-[#0F0F0F] text-lg font-medium mb-2">
                 Rotary Actuators
@@ -182,6 +190,14 @@ export default function HomePage() {
             </div>
 
             <div className="bg-white border border-[rgba(15,15,15,0.08)] rounded-lg p-6">
+              <div className="mb-4 rounded-md bg-[#FAFAF7] border border-[rgba(15,15,15,0.06)] overflow-hidden">
+                <img
+                  src="/images/H5.png"
+                  alt="Tilt actuator product render"
+                  className="w-full h-48 object-contain"
+                  loading="lazy"
+                />
+              </div>
               <h3 className="font-heading text-[#0F0F0F] text-lg font-medium mb-2">
                 Tilt Actuators
               </h3>
