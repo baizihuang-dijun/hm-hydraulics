@@ -26,10 +26,10 @@ export default function HomePage() {
         </div>
         <div className="home-container home-section-padding relative">
           <div className="max-w-3xl">
-            <p className="home-eyebrow-v2 mb-6 home-eyebrow-light">
+            <p className="home-eyebrow mb-6 home-eyebrow-light">
               Technical Sourcing for Hydraulic Components
             </p>
-            <h1 className="home-hero-title text-4xl md:text-5xl lg:text-6xl mb-6">
+            <h1 className="home-hero-title home-hero-title-xl mb-6">
               Your Technical Sourcing Partner
               <br />
               <span className="home-hero-subtitle">for Hydraulic Components</span>
@@ -56,7 +56,7 @@ export default function HomePage() {
       {/* Section 02 — What We Do */}
       <section className="home-section">
         <div className="home-container home-section-padding">
-          <p className="home-eyebrow-v2 mb-3">How We Work</p>
+          <p className="home-eyebrow mb-3">How We Work</p>
           <h2 className="home-title home-title-lg mb-4">
             What We Do
           </h2>
@@ -76,18 +76,16 @@ export default function HomePage() {
                 key={step.num}
                 className="home-card home-card-hover home-process-step home-card-inner"
               >
-                <span className="font-label home-accent text-xs font-medium mb-3 block">
-                  {step.num}
-                </span>
-                <h3 className="font-heading text-[#0F0F0F] text-base font-medium mb-2">
+                <span className="home-process-number block">{step.num}</span>
+                <h3 className="home-title home-title-md mb-2">
                   {step.title}
                 </h3>
-                <p className="home-text-secondary text-sm leading-relaxed">{step.desc}</p>
+                <p className="home-body">{step.desc}</p>
               </div>
             ))}
           </div>
 
-          <p className="text-[#0F0F0F] text-base font-medium mt-10">
+          <p className="home-body text-[#0F0F0F] font-medium mt-10">
             One technical and commercial interface from requirement to delivery.
           </p>
         </div>
@@ -96,7 +94,7 @@ export default function HomePage() {
       {/* Section 03 — Our Solutions */}
       <section className="home-section home-section-alt">
         <div className="home-container home-section-padding">
-          <p className="home-eyebrow-v2 mb-3">Our Solutions</p>
+          <p className="home-eyebrow mb-3">Our Solutions</p>
           <h2 className="home-title home-title-lg mb-4">
             Our Solutions
           </h2>
@@ -106,31 +104,31 @@ export default function HomePage() {
 
           <div className="grid md:grid-cols-3 gap-6">
             <div className="home-card home-card-hover home-card-inner">
-              <p className="home-eyebrow-v2 mb-4">01</p>
-              <h3 className="font-heading text-[#0F0F0F] text-lg font-medium mb-3">
+              <p className="home-eyebrow mb-4">01</p>
+              <h3 className="home-title home-title-md mb-3">
                 Engineering
               </h3>
-              <p className="home-text-secondary text-sm leading-relaxed mb-5">
+              <p className="home-body mb-5">
                 Component selection, cross-reference review, and technical validation for new and existing requirements.
               </p>
             </div>
 
             <div className="home-card home-card-hover home-card-inner">
-              <p className="home-eyebrow-v2 mb-4">02</p>
-              <h3 className="font-heading text-[#0F0F0F] text-lg font-medium mb-3">
+              <p className="home-eyebrow mb-4">02</p>
+              <h3 className="home-title home-title-md mb-3">
                 Supply Planning
               </h3>
-              <p className="home-text-secondary text-sm leading-relaxed mb-5">
+              <p className="home-body mb-5">
                 Production planning, manufacturing coordination, and quality oversight across the supply chain.
               </p>
             </div>
 
             <div className="home-card home-card-hover home-card-inner">
-              <p className="home-eyebrow-v2 mb-4">03</p>
-              <h3 className="font-heading text-[#0F0F0F] text-lg font-medium mb-3">
+              <p className="home-eyebrow mb-4">03</p>
+              <h3 className="home-title home-title-md mb-3">
                 Delivery Coordination
               </h3>
-              <p className="home-text-secondary text-sm leading-relaxed mb-5">
+              <p className="home-body mb-5">
                 Shipping coordination, delivery scheduling, and terms management for your project timeline.
               </p>
             </div>
@@ -148,7 +146,7 @@ export default function HomePage() {
       {/* Section 04 — Current Product Focus */}
       <section className="home-section">
         <div className="home-container home-section-padding">
-          <p className="home-eyebrow-v2 mb-3">Product Focus</p>
+          <p className="home-eyebrow mb-3">Product Focus</p>
           <h2 className="home-title home-title-lg mb-4">
             Current Product Focus
           </h2>
@@ -168,11 +166,11 @@ export default function HomePage() {
                 />
               </div>
               <div className="home-card-inner">
-                <p className="home-eyebrow-v2 mb-3">Core Product</p>
-                <h3 className="font-heading text-[#0F0F0F] text-lg font-medium mb-3">
+                <p className="home-eyebrow mb-3">Core Product</p>
+                <h3 className="home-title home-title-md mb-3">
                   Rotary Actuators
                 </h3>
-                <p className="home-text-secondary text-sm leading-relaxed mb-5">
+                <p className="home-body mb-5">
                   20 Nm–200,000 Nm across multiple series, mechanisms and application requirements.
                 </p>
                 <Link href="/products/rotary-actuators" className="home-link">
@@ -192,10 +190,10 @@ export default function HomePage() {
                 />
               </div>
               <div className="home-card-inner">
-                <h3 className="font-heading text-[#0F0F0F] text-lg font-medium mb-3">
+                <h3 className="home-title home-title-md mb-3">
                   Tilt Actuators
                 </h3>
-                <p className="home-text-secondary text-sm leading-relaxed mb-5">
+                <p className="home-body mb-5">
                   Selected cross-reference solutions for excavator tilt and coupler applications.
                 </p>
                 <Link href="/products/tilt-actuators" className="home-link">
@@ -211,43 +209,43 @@ export default function HomePage() {
       {/* Section 05 — Why HM / Evidence */}
       <section className="home-section home-section-alt">
         <div className="home-container home-section-padding">
-          <p className="home-eyebrow-v2 mb-3">Why HM</p>
+          <p className="home-eyebrow mb-3">Why HM</p>
           <h2 className="home-title home-title-lg mb-14">
             Why Work With HM
           </h2>
 
           <div className="grid md:grid-cols-3 gap-10 mb-16">
             <div>
-              <h3 className="font-heading text-[#0F0F0F] text-base font-medium mb-3">
+              <h3 className="home-title home-title-md mb-3">
                 Technical Fit
               </h3>
-              <p className="home-accent text-sm font-medium mb-2">
+              <p className="home-body text-[#A31919] font-medium mb-2">
                 Validate before you commit.
               </p>
-              <p className="home-text-secondary text-sm leading-relaxed">
+              <p className="home-body">
                 Application, specification and compatibility review before production.
               </p>
             </div>
             <div>
-              <h3 className="font-heading text-[#0F0F0F] text-base font-medium mb-3">
+              <h3 className="home-title home-title-md mb-3">
                 Supply Control
               </h3>
-              <p className="home-accent text-sm font-medium mb-2">
+              <p className="home-body text-[#A31919] font-medium mb-2">
                 More than a factory contact.
               </p>
-              <p className="home-text-secondary text-sm leading-relaxed">
+              <p className="home-body">
                 Production, inspection and delivery coordination through qualified
                 manufacturing capabilities.
               </p>
             </div>
             <div>
-              <h3 className="font-heading text-[#0F0F0F] text-base font-medium mb-3">
+              <h3 className="home-title home-title-md mb-3">
                 Total Cost
               </h3>
-              <p className="home-accent text-sm font-medium mb-2">
+              <p className="home-body text-[#A31919] font-medium mb-2">
                 Balance cost with capability.
               </p>
-              <p className="home-text-secondary text-sm leading-relaxed">
+              <p className="home-body">
                 Competitive sourcing without sacrificing technical requirements or
                 supply reliability.
               </p>
@@ -269,11 +267,11 @@ export default function HomePage() {
                 <div className="home-metric-value mb-2">
                   {metric.value}
                 </div>
-                <div className="home-text-secondary text-xs">{metric.label}</div>
+                <div className="home-caption">{metric.label}</div>
               </div>
             ))}
           </div>
-          <p className="home-text-secondary text-xs mt-5 leading-relaxed">
+          <p className="home-caption mt-5 leading-relaxed">
             *Applies to selected models / capabilities where specified. Technical details and
             supporting documentation available upon request.
           </p>
@@ -283,7 +281,7 @@ export default function HomePage() {
       {/* Section 06 — Applications */}
       <section className="home-section">
         <div className="home-container home-section-padding">
-          <p className="home-eyebrow-v2 mb-3">Applications</p>
+          <p className="home-eyebrow mb-3">Applications</p>
           <h2 className="home-title home-title-lg mb-4">
             Where Our Components Are Used
           </h2>
@@ -323,7 +321,7 @@ export default function HomePage() {
                 key={app}
                 className="home-app-card"
               >
-                <h3 className="font-heading text-[#0F0F0F] text-sm font-medium">{app}</h3>
+                <h3 className="home-title home-title-md">{app}</h3>
               </div>
             ))}
           </div>

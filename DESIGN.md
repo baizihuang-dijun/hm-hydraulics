@@ -64,51 +64,88 @@ Logo 主色为深红 #A31919 与黑色 #000000。首页以此为基础建立独�
 
 ---
 
-## Home 页视觉升级 v2（Visual & UX Refresh）
+## Home 页 Design System v3（Industrial / Premium / Clean / Technical / Restrained）
 
-> 目标：Industrial / Premium / Clean / Technical / Restrained。参考 Bosch Rexroth（工程导向、真实工业摄影、清晰结构）、Parker（工程伙伴定位）、SKF（留白、粗体字层级、工业高级感）。
+> 目标：从「完整网站」提升为「专业工业 OEM 技术供应商网站」。参考 Bosch Rexroth（工程信息层级）、Parker（工程伙伴定位）、SKF（留白与粗体字层级），但比三者更简洁克制。
 
 ### 视觉策略
-- 以 Logo 红黑系统为锚点，不做二次品牌色，只把红色用得更加克制、精确
-- 通过字重、字号、留白建立层级，不靠颜色堆叠
-- 卡片使用极浅阴影 + 边框，悬浮时通过微抬升和阴影加深传递品质感
-- 全页保持温暖白底，关键 section 用极淡暖灰（#F8F8F5）做呼吸节奏
+- 以 Logo 红黑系统为唯一品牌锚点，红色仅用于按钮、链接、眉线、关键数字
+- 通过字重与字号对比建立层级，不靠颜色堆叠
+- 大量留白 + 克制边框 + 微阴影，传递精密工业感
+- 白色背景配深色文字保证 4.5:1 以上对比度；Hero 深色遮罩配纯白文字与白色 Logo
+- 关键 section 用极淡暖灰（#F8F8F5）制造呼吸节奏
 - 所有交互 150–200ms ease，无弹跳、无弹性
 
-### 升级后的 Tokens
+### 设计原则
+- Design System 先行，页面落地在后
+- 组件化样式：颜色、字体、间距、卡片、按钮、链接全部通过 token/utility 管理
+- 不是「设计页面」，而是「应用系统」
 
-#### 字体层级
-- H1 Hero：Space Grotesk, 40–64px, weight 500, letter-spacing -0.03em, line-height 1.05
-- H2 Section：Space Grotesk, 32–44px, weight 500, letter-spacing -0.02em, line-height 1.1
-- H3 Card：Space Grotesk, 17–18px, weight 500
-- Lead：Inter, 18px, line-height 1.65, color #6B6863
-- Body：Inter, 15–16px, line-height 1.6
+### 颜色系统
+
+#### 背景
+- 页面底：#FAFAF7
+- Alt section 底：#F8F8F5
+- 卡片底：#FFFFFF
+
+#### 文字
+- 标题/主要文字：#0F0F0F（Brand Black）
+- 正文：#4A4E54（深灰，确保白底可读）
+- 辅助文字：#6B6863（Brand Gray，14px 层级）
+- Hero 遮罩上文字：#FFFFFF（纯白，保证深色背景可见）
+
+#### 强调
+- 品牌红（Brand Red）：#A31919 — 仅用于按钮、链接、眉线、关键数字、强调线
+- 深红（Brand Red Deep）：#8A1515 — Primary Button hover
+- 红色淡底：rgba(163, 25, 25, 0.06) — 悬停态背景
+- 红色浅边：rgba(163, 25, 25, 0.10) — 高亮边框
+
+#### 边框/分割
+- 卡片边框：#E5E5E5（rgba(15,15,15,0.10)）
+- Section 分隔：rgba(15, 15, 15, 0.08)
+- Hover 边框加深：rgba(15, 15, 15, 0.18)
+
+### 字体层级
+- H1 Hero：Space Grotesk, 2.5–3rem（40–48px）, weight 700, letter-spacing -0.02em, line-height 1.1
+- H2 Section：Space Grotesk, 1.5–2rem（24–32px）, weight 700, letter-spacing -0.01em, line-height 1.15
+- H3 Card/子标题：Space Grotesk, 1.125–1.25rem（18–20px）, weight 600, line-height 1.25
+- Lead：Inter, 18px, weight 400, line-height 1.65, color #6B6863
+- Body：Inter, 16px（底线）, weight 400, line-height 1.6, color #4A4E54
+- Small/辅助：Inter, 14px, weight 400, line-height 1.5, color #6B6863
 - Eyebrow：IBM Plex Mono, 11px, weight 500, letter-spacing 0.14em, uppercase, color #A31919
 
-#### 间距
-- Section padding：80–128px vertical（移动端 80px，桌面 128px）
-- Section 内部标题区与内容区间距：40–48px
+> 标题与正文形成明确粗细对比：标题 600–800，正文 400。
+
+### 间距系统（4px 基准）
+- 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 96px
+- Section padding：80–120px vertical（移动端 80px，桌面 96–120px）
+- Section 标题区与内容区间距：32–48px
 - Card padding：24–32px
 - Grid gap：16–24px
-- Card image 与文字间距：20px
+- Card image 与文字间距：16–20px
 
-#### 卡片
+### 卡片系统
 - 背景：#FFFFFF
-- 边框：1px solid rgba(15, 15, 15, 0.08)
-- 圆角：8px
-- 静态阴影：0 1px 2px rgba(15, 15, 15, 0.04)
-- Hover：border rgba(15,15,15,0.14)、阴影 0 12px 32px rgba(15,15,15,0.07)、translateY(-2px)
+- 边框：1px solid #E5E5E5
+- 圆角：6px
+- 静态阴影：0 1px 3px rgba(15, 15, 15, 0.04)
+- Hover：border #D4D4D4、阴影 0 12px 24px rgba(15,15,15,0.06)、translateY(-2px)
 - 过渡：200ms ease
 
-#### 按钮
-- Primary：bg #A31919, text white, radius 4px, padding 14px 28px, 静态阴影 0 1px 2px rgba(163,25,25,0.2)
+### 按钮系统
+- Primary：bg #A31919, text white, radius 4px, padding 14px 28px, font-weight 500, 静态阴影 0 1px 2px rgba(163,25,25,0.2)
 - Primary Hover：bg #8A1515, 阴影 0 4px 12px rgba(163,25,25,0.25)
-- Secondary：透明底、深色边框、深色文字；Hover：bg rgba(15,15,15,0.04), border 加深
-- 链接箭头：Hover 时箭头右移 3px
+- Secondary：透明底、#0F0F0F 边框、#0F0F0F 文字；Hover：bg rgba(15,15,15,0.04), border 加深
+- 链接箭头：Hover 时箭头右移 3px，transition 200ms ease
 
-#### Section 节奏
+### Logo 场景适配
+- 白色背景 Header：使用 `/images/hm-logo.png`（深色版本）
+- Hero 深色遮罩：使用 `/images/hm-logo-white.png`（白色版本）
+- 深色 Footer：使用 `/images/hm-logo-white.png`（白色版本）
+
+### Section 节奏
 - 默认 section：#FAFAF7 背景
-- Alt section：#F8F8F5 背景，制造视觉呼吸
+- Alt section：#F8F8F5 背景
 - 分隔线：1px rgba(15, 15, 15, 0.08)
 
 ### 交互原则
@@ -123,8 +160,10 @@ Logo 主色为深红 #A31919 与黑色 #000000。首页以此为基础建立独�
 - 字体族（Space Grotesk / Inter / IBM Plex Mono）
 - 工业克制的整体气质
 
-### 新增禁忌
+### 设计禁忌
 - 不在 Home 页引入 Navy 蓝或其他品牌色
 - 不使用渐变背景或装饰性图形
 - 不使用图标库图标，保持纯文字/功能性标记
 - 不增加新的图片素材或改变图片裁切比例
+- 不做大面积红色色块
+- 不在浅色背景上使用浅色文字
