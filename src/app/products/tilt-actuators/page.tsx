@@ -52,7 +52,7 @@ export default function TiltActuatorsPage() {
       <section className="border-b border-[rgba(44,74,115,0.10)] relative overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/hm-hydraulics/images/TA1.jpg"
+            src="/images/TA1.jpg"
             alt="Tilt actuator in manufacturing facility"
             className="w-full h-full object-cover"
             loading="eager"
@@ -93,7 +93,7 @@ export default function TiltActuatorsPage() {
             <div className="text-center">
               <div className="w-64 h-64 mx-auto bg-[#F5F5F2] rounded-lg flex items-center justify-center mb-4 transition-transform duration-200 hover:scale-105">
                 <img
-                  src="/hm-hydraulics/images/H5.png"
+                  src="/images/H5.png"
                   alt="DTA Series Tilt Actuator - Tilt Motor V2"
                   className="max-w-full max-h-full object-contain"
                   loading="lazy"
@@ -177,7 +177,7 @@ export default function TiltActuatorsPage() {
             <div className="text-center">
               <div className="w-64 h-64 mx-auto bg-[#F5F5F2] rounded-lg flex items-center justify-center mb-4 transition-transform duration-200 hover:scale-105">
                 <img
-                  src="/hm-hydraulics/images/H5.png"
+                  src="/images/H5.png"
                   alt="DTD Series Tilt Actuator - Tilt Motor V1"
                   className="max-w-full max-h-full object-contain"
                   loading="lazy"
