@@ -16,7 +16,7 @@ export default function HomePage() {
       <section className="home-section relative overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/images/H10.2.jpg"
+            src="/hm-hydraulics/images/H10.2.jpg"
             alt="Hydraulic actuator on heavy equipment"
             className="w-full h-full object-cover"
             loading="eager"
@@ -159,7 +159,7 @@ export default function HomePage() {
             <div className="home-card home-card-hover overflow-hidden">
               <div className="home-image-container border-0 border-b rounded-none">
                 <img
-                  src="/images/H4.png"
+                  src="/hm-hydraulics/images/H4.png"
                   alt="Rotary actuator product render"
                   className="w-full h-56 object-contain"
                   loading="lazy"
@@ -183,7 +183,7 @@ export default function HomePage() {
             <div className="home-card home-card-hover overflow-hidden">
               <div className="home-image-container border-0 border-b rounded-none">
                 <img
-                  src="/images/H5.png"
+                  src="/hm-hydraulics/images/H5.png"
                   alt="Tilt actuator product render"
                   className="w-full h-56 object-contain"
                   loading="lazy"
@@ -292,7 +292,7 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2 gap-4 mb-8">
             <div className="home-image-container overflow-hidden">
               <img
-                src="/images/H10.3.jpg"
+                src="/hm-hydraulics/images/H10.3.jpg"
                 alt="Hydraulic machinery in industrial application"
                 className="w-full h-64 object-cover"
                 loading="lazy"
@@ -300,7 +300,7 @@ export default function HomePage() {
             </div>
             <div className="home-image-container overflow-hidden">
               <img
-                src="/images/H10.4.jpg"
+                src="/hm-hydraulics/images/H10.4.jpg"
                 alt="Specialized equipment with hydraulic systems"
                 className="w-full h-64 object-cover"
                 loading="lazy"
