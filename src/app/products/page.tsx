@@ -75,7 +75,7 @@ export default function ProductsPage() {
               >
                 {product.name === 'Rotary Actuators' && (
                   <img
-                    src="/images/H4.png"
+                    src="/hm-hydraulics/images/H4.png"
                     alt="Rotary actuator"
                     className="w-full h-48 object-contain mb-4 bg-[#FAFAF7] rounded"
                     loading="lazy"
@@ -83,7 +83,7 @@ export default function ProductsPage() {
                 )}
                 {product.name === 'Tilt Actuators' && (
                   <img
-                    src="/images/H5.png"
+                    src="/hm-hydraulics/images/H5.png"
                     alt="Tilt actuator"
                     className="w-full h-48 object-contain mb-4 bg-[#FAFAF7] rounded"
                     loading="lazy"
