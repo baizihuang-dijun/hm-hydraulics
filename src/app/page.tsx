@@ -22,14 +22,13 @@ export default function HomePage() {
             loading="eager"
             fetchPriority="high"
           />
-          <div className="home-hero-overlay" />
+          <div className="absolute inset-0 bg-[#0F0F0F]/60" />
         </div>
         <div className="home-container home-section-padding relative">
           <div className="max-w-3xl">
             <p className="home-eyebrow mb-6 home-eyebrow-light">
               Technical Sourcing for Hydraulic Components
             </p>
-            <div className="home-hero-rule" />
             <h1 className="home-hero-title home-hero-title-xl mb-6">
               Your Technical Sourcing Partner
               <br />
@@ -65,7 +64,7 @@ export default function HomePage() {
             We help turn hydraulic component requirements into workable sourcing solutions.
           </p>
 
-          <div className="home-process-grid">
+          <div className="grid md:grid-cols-5 gap-4">
             {[
               { num: '01', title: 'Understand', desc: 'Clarify the requirement' },
               { num: '02', title: 'Source', desc: 'Match manufacturing capability' },
@@ -73,17 +72,20 @@ export default function HomePage() {
               { num: '04', title: 'Control', desc: 'Coordinate quality & production' },
               { num: '05', title: 'Deliver', desc: 'Coordinate shipment & supply' },
             ].map((step) => (
-              <div key={step.num} className="home-step">
-                <span className="home-step-number">{step.num}</span>
-                <h3 className="home-step-title">
+              <div
+                key={step.num}
+                className="home-card home-card-hover home-process-step home-card-inner"
+              >
+                <span className="home-process-number block">{step.num}</span>
+                <h3 className="home-title home-title-md mb-2">
                   {step.title}
                 </h3>
-                <p className="home-step-desc">{step.desc}</p>
+                <p className="home-body">{step.desc}</p>
               </div>
             ))}
           </div>
 
-          <p className="home-body text-[#0F0F0F] font-medium mt-12">
+          <p className="home-body text-[#0F0F0F] font-medium mt-10">
             One technical and commercial interface from requirement to delivery.
           </p>
         </div>
@@ -101,8 +103,8 @@ export default function HomePage() {
           </p>
 
           <div className="grid md:grid-cols-3 gap-6">
-            <div className="home-solution-card">
-              <div className="home-solution-number">01</div>
+            <div className="home-card home-card-hover home-card-inner">
+              <p className="home-eyebrow mb-4">01</p>
               <h3 className="home-title home-title-md mb-3">
                 Engineering
               </h3>
@@ -111,8 +113,8 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="home-solution-card">
-              <div className="home-solution-number">02</div>
+            <div className="home-card home-card-hover home-card-inner">
+              <p className="home-eyebrow mb-4">02</p>
               <h3 className="home-title home-title-md mb-3">
                 Supply Planning
               </h3>
@@ -121,8 +123,8 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="home-solution-card">
-              <div className="home-solution-number">03</div>
+            <div className="home-card home-card-hover home-card-inner">
+              <p className="home-eyebrow mb-4">03</p>
               <h3 className="home-title home-title-md mb-3">
                 Delivery Coordination
               </h3>
@@ -154,47 +156,48 @@ export default function HomePage() {
           </p>
 
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="home-product-card">
-              <img
-                src="/images/H4.png"
-                alt="Rotary actuator product render"
-                className="home-product-image"
-                loading="lazy"
-              />
-              <div className="home-product-body">
+            <div className="home-card home-card-hover overflow-hidden">
+              <div className="home-image-container border-0 border-b rounded-none">
+                <img
+                  src="/images/H4.png"
+                  alt="Rotary actuator product render"
+                  className="w-full h-56 object-contain"
+                  loading="lazy"
+                />
+              </div>
+              <div className="home-card-inner">
                 <p className="home-eyebrow mb-3">Core Product</p>
                 <h3 className="home-title home-title-md mb-3">
                   Rotary Actuators
                 </h3>
                 <p className="home-body mb-5">
-                  Helical and rack-and-pinion rotary actuators for medium- and heavy-duty
-                  applications from 1,000 Nm to 200,000 Nm.
+                  20 Nm–200,000 Nm across multiple series, mechanisms and application requirements.
                 </p>
                 <Link href="/products/rotary-actuators" className="home-link">
-                  View Rotary Actuators
+                  Explore Rotary Actuators
                   <ArrowRight />
                 </Link>
               </div>
             </div>
 
-            <div className="home-product-card">
-              <img
-                src="/images/H5.png"
-                alt="Tilt actuator product render"
-                className="home-product-image"
-                loading="lazy"
-              />
-              <div className="home-product-body">
-                <p className="home-eyebrow mb-3">Actuator Family</p>
+            <div className="home-card home-card-hover overflow-hidden">
+              <div className="home-image-container border-0 border-b rounded-none">
+                <img
+                  src="/images/H5.png"
+                  alt="Tilt actuator product render"
+                  className="w-full h-56 object-contain"
+                  loading="lazy"
+                />
+              </div>
+              <div className="home-card-inner">
                 <h3 className="home-title home-title-md mb-3">
                   Tilt Actuators
                 </h3>
                 <p className="home-body mb-5">
-                  DTA and DTD series tilt motors for excavator buckets, loader arms and
-                  material handling attachments.
+                  Selected cross-reference solutions for excavator tilt and coupler applications.
                 </p>
                 <Link href="/products/tilt-actuators" className="home-link">
-                  View Tilt Actuators
+                  View Products
                   <ArrowRight />
                 </Link>
               </div>
@@ -203,7 +206,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Section 05 — Why HM + Evidence */}
+      {/* Section 05 — Why HM / Evidence */}
       <section className="home-section home-section-alt">
         <div className="home-container home-section-padding">
           <p className="home-eyebrow mb-3">Why HM</p>
@@ -212,65 +215,59 @@ export default function HomePage() {
           </h2>
 
           <div className="grid md:grid-cols-3 gap-10 mb-16">
-            <div className="home-reason">
-              <div className="home-reason-marker" />
-              <div>
-                <h3 className="home-title home-title-md mb-3">
-                  Technical Fit
-                </h3>
-                <p className="home-body text-[#A31919] font-medium mb-2">
-                  Validate before you commit.
-                </p>
-                <p className="home-body">
-                  Application, specification and compatibility review before production.
-                </p>
-              </div>
+            <div>
+              <h3 className="home-title home-title-md mb-3">
+                Technical Fit
+              </h3>
+              <p className="home-body text-[#A31919] font-medium mb-2">
+                Validate before you commit.
+              </p>
+              <p className="home-body">
+                Application, specification and compatibility review before production.
+              </p>
             </div>
-            <div className="home-reason">
-              <div className="home-reason-marker" />
-              <div>
-                <h3 className="home-title home-title-md mb-3">
-                  Supply Control
-                </h3>
-                <p className="home-body text-[#A31919] font-medium mb-2">
-                  More than a factory contact.
-                </p>
-                <p className="home-body">
-                  Production, inspection and delivery coordination through qualified
-                  manufacturing capabilities.
-                </p>
-              </div>
+            <div>
+              <h3 className="home-title home-title-md mb-3">
+                Supply Control
+              </h3>
+              <p className="home-body text-[#A31919] font-medium mb-2">
+                More than a factory contact.
+              </p>
+              <p className="home-body">
+                Production, inspection and delivery coordination through qualified
+                manufacturing capabilities.
+              </p>
             </div>
-            <div className="home-reason">
-              <div className="home-reason-marker" />
-              <div>
-                <h3 className="home-title home-title-md mb-3">
-                  Total Cost
-                </h3>
-                <p className="home-body text-[#A31919] font-medium mb-2">
-                  Balance cost with capability.
-                </p>
-                <p className="home-body">
-                  Competitive sourcing without sacrificing technical requirements or
-                  supply reliability.
-                </p>
-              </div>
+            <div>
+              <h3 className="home-title home-title-md mb-3">
+                Total Cost
+              </h3>
+              <p className="home-body text-[#A31919] font-medium mb-2">
+                Balance cost with capability.
+              </p>
+              <p className="home-body">
+                Competitive sourcing without sacrificing technical requirements or
+                supply reliability.
+              </p>
             </div>
           </div>
 
-          {/* Evidence Bar */}
-          <div className="home-metric-bar">
+          {/* Evidence Strip */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
               { value: '72+', label: 'Configurations' },
               { value: '1M+', label: 'Cycle Validation*' },
               { value: '200,000 Nm', label: 'Manufacturing Envelope*' },
               { value: '100%', label: 'Pre-Shipment Testing*' },
             ].map((metric) => (
-              <div key={metric.label} className="home-metric-item">
-                <div className="home-metric-value">
+              <div
+                key={metric.label}
+                className="home-card home-card-inner text-center"
+              >
+                <div className="home-metric-value mb-2">
                   {metric.value}
                 </div>
-                <div className="home-metric-label">{metric.label}</div>
+                <div className="home-caption">{metric.label}</div>
               </div>
             ))}
           </div>
@@ -293,18 +290,22 @@ export default function HomePage() {
           </p>
 
           <div className="grid md:grid-cols-2 gap-4 mb-8">
-            <img
-              src="/images/H10.3.jpg"
-              alt="Hydraulic machinery in industrial application"
-              className="home-image-hard"
-              loading="lazy"
-            />
-            <img
-              src="/images/H10.4.jpg"
-              alt="Specialized equipment with hydraulic systems"
-              className="home-image-hard"
-              loading="lazy"
-            />
+            <div className="home-image-container overflow-hidden">
+              <img
+                src="/images/H10.3.jpg"
+                alt="Hydraulic machinery in industrial application"
+                className="w-full h-64 object-cover"
+                loading="lazy"
+              />
+            </div>
+            <div className="home-image-container overflow-hidden">
+              <img
+                src="/images/H10.4.jpg"
+                alt="Specialized equipment with hydraulic systems"
+                className="w-full h-64 object-cover"
+                loading="lazy"
+              />
+            </div>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -328,13 +329,13 @@ export default function HomePage() {
       </section>
 
       {/* Section 07 — Final CTA */}
-      <section className="home-section-dark">
+      <section className="home-section-alt">
         <div className="home-container home-section-padding">
           <div className="max-w-3xl">
-            <h2 className="home-title home-title-lg home-title-light mb-5">
+            <h2 className="home-title home-title-lg mb-5">
               Tell Us What You&apos;re Trying to Source
             </h2>
-            <p className="home-lead home-lead-light mb-10">
+            <p className="home-lead mb-10">
               Share an existing part, drawing or application requirement. We&apos;ll help
               identify the next step.
             </p>
@@ -342,7 +343,7 @@ export default function HomePage() {
               <Link href="/contact" className="home-button home-button-primary">
                 Discuss Your Requirement
               </Link>
-              <Link href="/products" className="home-button home-button-secondary-light">
+              <Link href="/products" className="home-button home-button-secondary">
                 Explore Products
               </Link>
             </div>
