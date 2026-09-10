@@ -191,10 +191,10 @@ export default function ContactPage() {
                     Email
                   </p>
                   <a
-                    href="mailto:bai@hmhydraulics.com"
+                    href="mailto:hm@hmhydraulics.com"
                     className="text-base text-[#2C4A73] font-medium no-underline hover:underline"
                   >
-                    bai@hmhydraulics.com
+                    hm@hmhydraulics.com
                   </a>
                 </div>
 

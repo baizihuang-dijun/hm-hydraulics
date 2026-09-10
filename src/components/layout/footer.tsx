@@ -97,10 +97,10 @@ export function Footer() {
           </p>
           <div className="flex items-center gap-6">
             <a
-              href="mailto:bai@hmhydraulics.com"
+              href="mailto:hm@hmhydraulics.com"
               className="text-xs text-[#9CA3AF] hover:text-white no-underline transition-colors duration-150"
             >
-              bai@hmhydraulics.com
+              hm@hmhydraulics.com
             </a>
           </div>
         </div>
