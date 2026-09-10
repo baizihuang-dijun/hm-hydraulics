@@ -6,50 +6,50 @@ const imageGroups = [
   {
     id: 'dkx-a',
     label: 'DKX-A',
-    images: [{ src: '/images/products/dkx-a.png', name: 'DKX-A' }],
+    images: [{ src: '/hm-hydraulics/images/products/dkx-a.png', name: 'DKX-A' }],
   },
   {
     id: 'dkx-b',
     label: 'DKX-B',
     images: [
-      { src: '/images/products/dkx-b1.png', name: 'DKX-B1' },
-      { src: '/images/products/dkx-b2.png', name: 'DKX-B2' },
-      { src: '/images/products/dkx-b3.png', name: 'DKX-B3' },
+      { src: '/hm-hydraulics/images/products/dkx-b1.png', name: 'DKX-B1' },
+      { src: '/hm-hydraulics/images/products/dkx-b2.png', name: 'DKX-B2' },
+      { src: '/hm-hydraulics/images/products/dkx-b3.png', name: 'DKX-B3' },
     ],
   },
   {
     id: 'dkx-c',
     label: 'DKX-C',
     images: [
-      { src: '/images/products/dkx-c1.png', name: 'DKX-C1' },
-      { src: '/images/products/dkx-c2.png', name: 'DKX-C2' },
+      { src: '/hm-hydraulics/images/products/dkx-c1.png', name: 'DKX-C1' },
+      { src: '/hm-hydraulics/images/products/dkx-c2.png', name: 'DKX-C2' },
     ],
   },
   {
     id: 'dkx-d',
     label: 'DKX-D',
     images: [
-      { src: '/images/products/dkx-d1.png', name: 'DKX-D1' },
-      { src: '/images/products/dkx-d2.png', name: 'DKX-D2' },
+      { src: '/hm-hydraulics/images/products/dkx-d1.png', name: 'DKX-D1' },
+      { src: '/hm-hydraulics/images/products/dkx-d2.png', name: 'DKX-D2' },
     ],
   },
   {
     id: 'dkx-e',
     label: 'DKX-E',
     images: [
-      { src: '/images/products/dkx-e1.png', name: 'DKX-E1' },
-      { src: '/images/products/dkx-e3.png', name: 'DKX-E3' },
+      { src: '/hm-hydraulics/images/products/dkx-e1.png', name: 'DKX-E1' },
+      { src: '/hm-hydraulics/images/products/dkx-e3.png', name: 'DKX-E3' },
     ],
   },
   {
     id: 'dkx-f',
     label: 'DKX-F',
-    images: [{ src: '/images/products/dkx-f.png', name: 'DKX-F' }],
+    images: [{ src: '/hm-hydraulics/images/products/dkx-f.png', name: 'DKX-F' }],
   },
   {
     id: 'dkx-tr',
     label: 'DKX-TR',
-    images: [{ src: '/images/products/dkx-tr.png', name: 'DKX-TR' }],
+    images: [{ src: '/hm-hydraulics/images/products/dkx-tr.png', name: 'DKX-TR' }],
   },
 ];
 
