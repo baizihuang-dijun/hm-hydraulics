@@ -49,7 +49,7 @@ export default function QualityPage() {
       {/* Hero */}
       <section className="relative h-[60vh] min-h-[420px] max-h-[620px] overflow-hidden">
         <img
-          src="/images/quality/Q1.png"
+          src="/hm-hydraulics/images/quality/Q1.png"
           alt="Quality inspection of a precision hydraulic component"
           className="absolute inset-0 w-full h-full object-cover"
         />
@@ -103,7 +103,7 @@ export default function QualityPage() {
             </div>
             <div className="relative aspect-[4/3] rounded-md overflow-hidden border border-[rgba(44,74,115,0.10)]">
               <img
-                src="/images/quality/Q2.jpg"
+                src="/hm-hydraulics/images/quality/Q2.jpg"
                 alt="Hydraulic actuator on fatigue test bench"
                 className="w-full h-full object-cover"
               />
@@ -155,21 +155,21 @@ export default function QualityPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
             <div className="aspect-[4/3] rounded-md overflow-hidden border border-[rgba(44,74,115,0.10)]">
               <img
-                src="/images/quality/Q3.1.png"
+                src="/hm-hydraulics/images/quality/Q3.1.png"
                 alt="CNC precision machining of a hydraulic component"
                 className="w-full h-full object-cover hover:scale-[1.02] transition-transform duration-300"
               />
             </div>
             <div className="aspect-[4/3] rounded-md overflow-hidden border border-[rgba(44,74,115,0.10)]">
               <img
-                src="/images/quality/Q3.2.png"
+                src="/hm-hydraulics/images/quality/Q3.2.png"
                 alt="Machining a large precision cylinder"
                 className="w-full h-full object-cover hover:scale-[1.02] transition-transform duration-300"
               />
             </div>
             <div className="aspect-[4/3] rounded-md overflow-hidden border border-[rgba(44,74,115,0.10)]">
               <img
-                src="/images/quality/Q3.3.png"
+                src="/hm-hydraulics/images/quality/Q3.3.png"
                 alt="Five-axis CNC machining of a rotary actuator part"
                 className="w-full h-full object-cover hover:scale-[1.02] transition-transform duration-300"
               />
@@ -238,14 +238,14 @@ export default function QualityPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="relative aspect-[4/3] rounded-md overflow-hidden border border-[rgba(44,74,115,0.10)]">
               <img
-                src="/images/factory/quality-inspection.jpg"
+                src="/hm-hydraulics/images/factory/quality-inspection.jpg"
                 alt="Quality inspection with measuring tools"
                 className="w-full h-full object-cover"
               />
             </div>
             <div className="relative aspect-[4/3] rounded-md overflow-hidden border border-[rgba(44,74,115,0.10)]">
               <img
-                src="/images/factory/batch-iso.jpg"
+                src="/hm-hydraulics/images/factory/batch-iso.jpg"
                 alt="Batch finished products with ISO9001 certification"
                 className="w-full h-full object-cover"
               />
