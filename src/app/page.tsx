@@ -1,10 +1,19 @@
 import Link from 'next/link';
 
+function ArrowRight({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M5 12h14" />
+      <path d="m12 5 7 7-7 7" />
+    </svg>
+  );
+}
+
 export default function HomePage() {
   return (
     <main className="min-h-screen bg-[#FAFAF7]">
       {/* Section 01 — Hero */}
-      <section className="border-b border-[rgba(15,15,15,0.08)] relative overflow-hidden">
+      <section className="home-section relative overflow-hidden">
         <div className="absolute inset-0">
           <img
             src="/images/H10.2.jpg"
@@ -15,34 +24,28 @@ export default function HomePage() {
           />
           <div className="absolute inset-0 bg-[#0F0F0F]/60" />
         </div>
-        <div className="relative max-w-[1200px] mx-auto px-6 md:px-8 py-20 md:py-28">
+        <div className="home-container home-section-padding relative">
           <div className="max-w-3xl">
-            <p className="home-eyebrow mb-6 text-white/70">
-              TECHNICAL SOURCING FOR HYDRAULIC COMPONENTS
+            <p className="home-eyebrow-v2 mb-6 home-eyebrow-light">
+              Technical Sourcing for Hydraulic Components
             </p>
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-[3.5rem] font-medium leading-[1.1] tracking-tight text-white mb-6">
+            <h1 className="home-hero-title text-4xl md:text-5xl lg:text-6xl mb-6">
               Your Technical Sourcing Partner
               <br />
-              <span className="text-white/90">for Hydraulic Components</span>
+              <span className="home-hero-subtitle">for Hydraulic Components</span>
             </h1>
-            <p className="text-lg md:text-xl text-white/80 leading-relaxed max-w-2xl mb-3">
+            <p className="home-hero-lead text-lg md:text-xl leading-relaxed max-w-2xl mb-3">
               We handle the technical matching, sourcing, quality verification and supply
               coordination behind your hydraulic component requirements.
             </p>
-            <p className="text-white/70 text-base mb-10">
+            <p className="home-hero-caption text-base mb-10">
               From technical requirement to delivery.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center px-6 py-3 home-bg-accent text-white text-sm font-medium rounded no-underline hover:home-bg-accent-deep transition-colors duration-150"
-              >
+              <Link href="/contact" className="home-button home-button-primary">
                 Discuss Your Requirement
               </Link>
-              <Link
-                href="/solutions"
-                className="inline-flex items-center justify-center px-6 py-3 border border-white/30 text-white text-sm font-medium rounded no-underline hover:bg-white/10 transition-colors duration-150"
-              >
+              <Link href="/solutions" className="home-button home-button-secondary-light">
                 Explore Solutions
               </Link>
             </div>
@@ -51,13 +54,13 @@ export default function HomePage() {
       </section>
 
       {/* Section 02 — What We Do */}
-      <section className="border-b border-[rgba(15,15,15,0.08)]">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-20 md:py-24">
-          <p className="home-eyebrow mb-3">HOW WE WORK</p>
-          <h2 className="font-heading text-[#0F0F0F] text-3xl md:text-4xl font-medium mb-4">
+      <section className="home-section">
+        <div className="home-container home-section-padding">
+          <p className="home-eyebrow-v2 mb-3">How We Work</p>
+          <h2 className="home-title home-title-lg mb-4">
             What We Do
           </h2>
-          <p className="home-text-secondary text-lg leading-relaxed max-w-[680px] mb-12">
+          <p className="home-lead max-w-[680px] mb-12">
             We help turn hydraulic component requirements into workable sourcing solutions.
           </p>
 
@@ -71,169 +74,154 @@ export default function HomePage() {
             ].map((step) => (
               <div
                 key={step.num}
-                className="bg-white border border-[rgba(15,15,15,0.08)] rounded-lg p-5"
+                className="home-card home-card-hover home-process-step home-card-inner"
               >
-                <span className="font-label home-accent text-xs font-medium mb-2 block">
+                <span className="font-label home-accent text-xs font-medium mb-3 block">
                   {step.num}
                 </span>
-                <h3 className="font-heading text-[#0F0F0F] text-base font-medium mb-1">
+                <h3 className="font-heading text-[#0F0F0F] text-base font-medium mb-2">
                   {step.title}
                 </h3>
-                <p className="home-text-secondary text-sm">{step.desc}</p>
+                <p className="home-text-secondary text-sm leading-relaxed">{step.desc}</p>
               </div>
             ))}
           </div>
 
-          <p className="text-[#0F0F0F] text-base font-medium mt-8">
+          <p className="text-[#0F0F0F] text-base font-medium mt-10">
             One technical and commercial interface from requirement to delivery.
           </p>
         </div>
       </section>
 
       {/* Section 03 — Our Solutions */}
-      <section className="border-b border-[rgba(15,15,15,0.08)]">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-20 md:py-24">
-          <p className="home-eyebrow mb-3">OUR SOLUTIONS</p>
-          <h2 className="font-heading text-[#0F0F0F] text-3xl md:text-4xl font-medium mb-4">
+      <section className="home-section home-section-alt">
+        <div className="home-container home-section-padding">
+          <p className="home-eyebrow-v2 mb-3">Our Solutions</p>
+          <h2 className="home-title home-title-lg mb-4">
             Our Solutions
           </h2>
-          <p className="home-text-secondary text-lg leading-relaxed max-w-[680px] mb-12">
+          <p className="home-lead max-w-[680px] mb-12">
             Support that goes beyond finding a supplier.
           </p>
 
           <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-white border border-[rgba(15,15,15,0.08)] rounded-lg p-6">
-              <p className="home-eyebrow mb-3">01</p>
-              <h3 className="font-heading text-[#0F0F0F] text-lg font-medium mb-2">
+            <div className="home-card home-card-hover home-card-inner">
+              <p className="home-eyebrow-v2 mb-4">01</p>
+              <h3 className="font-heading text-[#0F0F0F] text-lg font-medium mb-3">
                 Engineering
               </h3>
-              <p className="home-text-secondary text-sm leading-relaxed mb-4">
+              <p className="home-text-secondary text-sm leading-relaxed mb-5">
                 Component selection, cross-reference review, and technical validation for new and existing requirements.
               </p>
             </div>
 
-            <div className="bg-white border border-[rgba(15,15,15,0.08)] rounded-lg p-6">
-              <p className="home-eyebrow mb-3">02</p>
-              <h3 className="font-heading text-[#0F0F0F] text-lg font-medium mb-2">
+            <div className="home-card home-card-hover home-card-inner">
+              <p className="home-eyebrow-v2 mb-4">02</p>
+              <h3 className="font-heading text-[#0F0F0F] text-lg font-medium mb-3">
                 Supply Planning
               </h3>
-              <p className="home-text-secondary text-sm leading-relaxed mb-4">
+              <p className="home-text-secondary text-sm leading-relaxed mb-5">
                 Production planning, manufacturing coordination, and quality oversight across the supply chain.
               </p>
             </div>
 
-            <div className="bg-white border border-[rgba(15,15,15,0.08)] rounded-lg p-6">
-              <p className="home-eyebrow mb-3">03</p>
-              <h3 className="font-heading text-[#0F0F0F] text-lg font-medium mb-2">
+            <div className="home-card home-card-hover home-card-inner">
+              <p className="home-eyebrow-v2 mb-4">03</p>
+              <h3 className="font-heading text-[#0F0F0F] text-lg font-medium mb-3">
                 Delivery Coordination
               </h3>
-              <p className="home-text-secondary text-sm leading-relaxed mb-4">
+              <p className="home-text-secondary text-sm leading-relaxed mb-5">
                 Shipping coordination, delivery scheduling, and terms management for your project timeline.
               </p>
             </div>
           </div>
 
-          <div className="mt-10">
-            <Link
-              href="/solutions"
-              className="inline-flex items-center home-accent text-sm font-medium no-underline hover:text-[#8A1515] transition-colors duration-150"
-            >
+          <div className="mt-12">
+            <Link href="/solutions" className="home-link">
               Explore Solutions
-              <svg className="ml-1.5 w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M5 12h14" />
-                <path d="m12 5 7 7-7 7" />
-              </svg>
+              <ArrowRight />
             </Link>
           </div>
         </div>
       </section>
 
       {/* Section 04 — Current Product Focus */}
-      <section className="border-b border-[rgba(15,15,15,0.08)]">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-20 md:py-24">
-          <p className="home-eyebrow mb-3">PRODUCT FOCUS</p>
-          <h2 className="font-heading text-[#0F0F0F] text-3xl md:text-4xl font-medium mb-4">
+      <section className="home-section">
+        <div className="home-container home-section-padding">
+          <p className="home-eyebrow-v2 mb-3">Product Focus</p>
+          <h2 className="home-title home-title-lg mb-4">
             Current Product Focus
           </h2>
-          <p className="home-text-secondary text-lg leading-relaxed max-w-[680px] mb-12">
+          <p className="home-lead max-w-[680px] mb-12">
             Our current core product is hydraulic rotary actuators, supported by selected
             actuator and hydraulic component solutions.
           </p>
 
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-white border border-[rgba(15,15,15,0.08)] rounded-lg p-6">
-              <div className="mb-4 rounded-md bg-[#FAFAF7] border border-[rgba(15,15,15,0.06)] overflow-hidden">
+            <div className="home-card home-card-hover overflow-hidden">
+              <div className="home-image-container border-0 border-b rounded-none">
                 <img
                   src="/images/H4.png"
                   alt="Rotary actuator product render"
-                  className="w-full h-48 object-contain"
+                  className="w-full h-56 object-contain"
                   loading="lazy"
                 />
               </div>
-              <p className="home-eyebrow mb-2">CORE PRODUCT</p>
-              <h3 className="font-heading text-[#0F0F0F] text-lg font-medium mb-2">
-                Rotary Actuators
-              </h3>
-              <p className="home-text-secondary text-sm leading-relaxed mb-4">
-                20 Nm–200,000 Nm across multiple series, mechanisms and application requirements.
-              </p>
-              <Link
-                href="/products/rotary-actuators"
-                className="inline-flex items-center home-accent text-sm font-medium no-underline hover:text-[#8A1515] transition-colors duration-150"
-              >
-                Explore Rotary Actuators
-                <svg className="ml-1.5 w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M5 12h14" />
-                  <path d="m12 5 7 7-7 7" />
-                </svg>
-              </Link>
+              <div className="home-card-inner">
+                <p className="home-eyebrow-v2 mb-3">Core Product</p>
+                <h3 className="font-heading text-[#0F0F0F] text-lg font-medium mb-3">
+                  Rotary Actuators
+                </h3>
+                <p className="home-text-secondary text-sm leading-relaxed mb-5">
+                  20 Nm–200,000 Nm across multiple series, mechanisms and application requirements.
+                </p>
+                <Link href="/products/rotary-actuators" className="home-link">
+                  Explore Rotary Actuators
+                  <ArrowRight />
+                </Link>
+              </div>
             </div>
 
-            <div className="bg-white border border-[rgba(15,15,15,0.08)] rounded-lg p-6">
-              <div className="mb-4 rounded-md bg-[#FAFAF7] border border-[rgba(15,15,15,0.06)] overflow-hidden">
+            <div className="home-card home-card-hover overflow-hidden">
+              <div className="home-image-container border-0 border-b rounded-none">
                 <img
                   src="/images/H5.png"
                   alt="Tilt actuator product render"
-                  className="w-full h-48 object-contain"
+                  className="w-full h-56 object-contain"
                   loading="lazy"
                 />
               </div>
-              <h3 className="font-heading text-[#0F0F0F] text-lg font-medium mb-2">
-                Tilt Actuators
-              </h3>
-              <p className="home-text-secondary text-sm leading-relaxed mb-4">
-                Selected cross-reference solutions for excavator tilt and coupler applications.
-              </p>
-              <Link
-                href="/products/tilt-actuators"
-                className="inline-flex items-center home-accent text-sm font-medium no-underline hover:text-[#8A1515] transition-colors duration-150"
-              >
-                View Products
-                <svg className="ml-1.5 w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M5 12h14" />
-                  <path d="m12 5 7 7-7 7" />
-                </svg>
-              </Link>
+              <div className="home-card-inner">
+                <h3 className="font-heading text-[#0F0F0F] text-lg font-medium mb-3">
+                  Tilt Actuators
+                </h3>
+                <p className="home-text-secondary text-sm leading-relaxed mb-5">
+                  Selected cross-reference solutions for excavator tilt and coupler applications.
+                </p>
+                <Link href="/products/tilt-actuators" className="home-link">
+                  View Products
+                  <ArrowRight />
+                </Link>
+              </div>
             </div>
-
           </div>
         </div>
       </section>
 
       {/* Section 05 — Why HM / Evidence */}
-      <section className="border-b border-[rgba(15,15,15,0.08)]">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-20 md:py-24">
-          <p className="home-eyebrow mb-3">WHY HM</p>
-          <h2 className="font-heading text-[#0F0F0F] text-3xl md:text-4xl font-medium mb-12">
+      <section className="home-section home-section-alt">
+        <div className="home-container home-section-padding">
+          <p className="home-eyebrow-v2 mb-3">Why HM</p>
+          <h2 className="home-title home-title-lg mb-14">
             Why Work With HM
           </h2>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
+          <div className="grid md:grid-cols-3 gap-10 mb-16">
             <div>
-              <h3 className="font-heading text-[#0F0F0F] text-base font-medium mb-2">
+              <h3 className="font-heading text-[#0F0F0F] text-base font-medium mb-3">
                 Technical Fit
               </h3>
-              <p className="home-accent text-sm font-medium mb-1">
+              <p className="home-accent text-sm font-medium mb-2">
                 Validate before you commit.
               </p>
               <p className="home-text-secondary text-sm leading-relaxed">
@@ -241,10 +229,10 @@ export default function HomePage() {
               </p>
             </div>
             <div>
-              <h3 className="font-heading text-[#0F0F0F] text-base font-medium mb-2">
+              <h3 className="font-heading text-[#0F0F0F] text-base font-medium mb-3">
                 Supply Control
               </h3>
-              <p className="home-accent text-sm font-medium mb-1">
+              <p className="home-accent text-sm font-medium mb-2">
                 More than a factory contact.
               </p>
               <p className="home-text-secondary text-sm leading-relaxed">
@@ -253,10 +241,10 @@ export default function HomePage() {
               </p>
             </div>
             <div>
-              <h3 className="font-heading text-[#0F0F0F] text-base font-medium mb-2">
+              <h3 className="font-heading text-[#0F0F0F] text-base font-medium mb-3">
                 Total Cost
               </h3>
-              <p className="home-accent text-sm font-medium mb-1">
+              <p className="home-accent text-sm font-medium mb-2">
                 Balance cost with capability.
               </p>
               <p className="home-text-secondary text-sm leading-relaxed">
@@ -276,16 +264,16 @@ export default function HomePage() {
             ].map((metric) => (
               <div
                 key={metric.label}
-                className="bg-white border border-[rgba(15,15,15,0.08)] rounded-lg p-5 text-center"
+                className="home-card home-card-inner text-center"
               >
-                <div className="font-heading home-accent text-2xl md:text-3xl font-medium mb-1">
+                <div className="home-metric-value mb-2">
                   {metric.value}
                 </div>
                 <div className="home-text-secondary text-xs">{metric.label}</div>
               </div>
             ))}
           </div>
-          <p className="home-text-secondary text-xs mt-4 leading-relaxed">
+          <p className="home-text-secondary text-xs mt-5 leading-relaxed">
             *Applies to selected models / capabilities where specified. Technical details and
             supporting documentation available upon request.
           </p>
@@ -293,18 +281,18 @@ export default function HomePage() {
       </section>
 
       {/* Section 06 — Applications */}
-      <section className="border-b border-[rgba(15,15,15,0.08)]">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-20 md:py-24">
-          <p className="home-eyebrow mb-3">APPLICATIONS</p>
-          <h2 className="font-heading text-[#0F0F0F] text-3xl md:text-4xl font-medium mb-4">
+      <section className="home-section">
+        <div className="home-container home-section-padding">
+          <p className="home-eyebrow-v2 mb-3">Applications</p>
+          <h2 className="home-title home-title-lg mb-4">
             Where Our Components Are Used
           </h2>
-          <p className="home-text-secondary text-lg leading-relaxed max-w-[680px] mb-12">
+          <p className="home-lead max-w-[680px] mb-12">
             Application-specific hydraulic solutions for demanding equipment and machinery.
           </p>
 
           <div className="grid md:grid-cols-2 gap-4 mb-8">
-            <div className="rounded-lg overflow-hidden border border-[rgba(15,15,15,0.08)]">
+            <div className="home-image-container overflow-hidden">
               <img
                 src="/images/H10.3.jpg"
                 alt="Hydraulic machinery in industrial application"
@@ -312,7 +300,7 @@ export default function HomePage() {
                 loading="lazy"
               />
             </div>
-            <div className="rounded-lg overflow-hidden border border-[rgba(15,15,15,0.08)]">
+            <div className="home-image-container overflow-hidden">
               <img
                 src="/images/H10.4.jpg"
                 alt="Specialized equipment with hydraulic systems"
@@ -333,7 +321,7 @@ export default function HomePage() {
             ].map((app) => (
               <div
                 key={app}
-                className="bg-white border border-[rgba(15,15,15,0.08)] rounded-lg p-5"
+                className="home-app-card"
               >
                 <h3 className="font-heading text-[#0F0F0F] text-sm font-medium">{app}</h3>
               </div>
@@ -343,28 +331,24 @@ export default function HomePage() {
       </section>
 
       {/* Section 07 — Final CTA */}
-      <section>
-        <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-20 md:py-24">
-          <h2 className="font-heading text-[#0F0F0F] text-3xl md:text-4xl font-medium mb-4">
-            Tell Us What You&apos;re Trying to Source
-          </h2>
-          <p className="home-text-secondary text-lg leading-relaxed max-w-[680px] mb-8">
-            Share an existing part, drawing or application requirement. We&apos;ll help
-            identify the next step.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <Link
-              href="/contact"
-              className="inline-block home-bg-accent text-white text-sm font-medium px-6 py-3 rounded hover:home-bg-accent-deep transition-colors duration-150 no-underline"
-            >
-              Discuss Your Requirement
-            </Link>
-            <Link
-              href="/products"
-              className="inline-block border border-[rgba(15,15,15,0.20)] home-accent text-sm font-medium px-6 py-3 rounded hover:home-bg-tint transition-colors duration-150 no-underline"
-            >
-              Explore Products
-            </Link>
+      <section className="home-section-alt">
+        <div className="home-container home-section-padding">
+          <div className="max-w-3xl">
+            <h2 className="home-title home-title-lg mb-5">
+              Tell Us What You&apos;re Trying to Source
+            </h2>
+            <p className="home-lead mb-10">
+              Share an existing part, drawing or application requirement. We&apos;ll help
+              identify the next step.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <Link href="/contact" className="home-button home-button-primary">
+                Discuss Your Requirement
+              </Link>
+              <Link href="/products" className="home-button home-button-secondary">
+                Explore Products
+              </Link>
+            </div>
           </div>
         </div>
       </section>
