@@ -30,7 +30,7 @@ export default function AboutPage() {
       <section className="border-b border-[rgba(44,74,115,0.10)] relative overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/images/factory/aerial.jpg"
+            src="/hm-hydraulics/images/factory/aerial.jpg"
             alt="HM Hydraulics factory aerial view"
             className="w-full h-full object-cover"
             loading="eager"
@@ -120,7 +120,7 @@ export default function AboutPage() {
             </div>
             <div className="rounded-md overflow-hidden border border-[rgba(44,74,115,0.10)] group">
               <img
-                src="/images/S1.png"
+                src="/hm-hydraulics/images/S1.png"
                 alt="Engineering team reviewing CAD drawings"
                 className="w-full h-[320px] object-cover transition-transform duration-200 ease-out group-hover:scale-[1.03]"
                 loading="lazy"
@@ -179,7 +179,7 @@ export default function AboutPage() {
           {/* Precision Manufacturing Image */}
           <div className="mb-10 rounded-md overflow-hidden border border-[rgba(44,74,115,0.10)] group">
             <img
-              src="/images/A2.png"
+              src="/hm-hydraulics/images/A2.png"
               alt="Precision machined hydraulic component"
               className="w-full h-[280px] md:h-[340px] object-cover transition-transform duration-200 ease-out group-hover:scale-[1.02]"
               loading="lazy"
