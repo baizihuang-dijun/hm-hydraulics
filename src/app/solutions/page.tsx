@@ -14,7 +14,7 @@ export default function SolutionsPage() {
       <section className="border-b border-[rgba(44,74,115,0.10)] relative overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/hm-hydraulics/images/S1.png"
+            src="/images/S1.png"
             alt="Engineering review and component selection"
             className="w-full h-full object-cover"
             loading="eager"
