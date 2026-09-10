@@ -1,0 +1,996 @@
+HM Hydraulics Website V3 — Final Implementation Brief
+0. EXECUTION INSTRUCTION
+
+You are revising the existing HM Hydraulics website.
+
+Do NOT treat this as a simple copywriting exercise.
+
+The goal is to restructure the website so that the business is clearly positioned as a:
+
+Technical Sourcing Partner for Hydraulic Components
+
+rather than a generic Chinese hydraulic manufacturer, factory, or trading company.
+
+The website must communicate one clear business model:
+
+Customer Requirement → Engineering Support → Sourcing & Manufacturing Coordination → Quality Verification → Delivery
+
+The core promise is:
+
+From Technical Requirement to Reliable Delivery.
+
+Before changing the website, review the existing pages and preserve useful existing technical information, product data, images and visual assets where they support the new positioning.
+
+Do not invent capabilities, customers, factories, certifications, warehouses, partnerships, test results or performance claims.
+
+1. CORE POSITIONING — LOCK THIS
+Brand Positioning
+
+Technical Sourcing Partner for Hydraulic Components
+
+Core Promise
+
+From Technical Requirement to Reliable Delivery.
+
+Core Capabilities
+
+ENGINEERING → SUPPLY → DELIVERY
+
+Engineering
+
+Select → Adapt → Validate
+
+Supply
+
+Plan → Produce → Control
+
+Delivery
+
+Coordinate → Ship → Replenish
+
+Current Product Entry Point
+
+Hydraulic Rotary Actuators
+
+Rotary actuators are the current core product line and the primary market entry point.
+
+The business can expand into:
+
+Tilt actuators
+Custom hydraulic cylinders
+Other engineered hydraulic components
+Selected hydraulic components where technical sourcing capability exists
+
+Do NOT make the website look like a huge general hydraulic catalog.
+
+The product range can expand, but the commercial positioning should remain focused.
+
+2. MOST IMPORTANT POSITIONING RULE
+
+HM Hydraulics should NOT look like a factory website.
+
+Do not repeatedly use:
+
+We manufacture
+Our factory
+Our manufacturing facility
+Factory-direct
+Direct factory pricing
+No middlemen
+Our production line
+Our 80 CNC machines
+We manufacture everything
+
+Instead use:
+
+Technical sourcing
+Technical validation
+Manufacturing matching
+Qualified manufacturing partners
+Manufacturing capabilities
+Supply coordination
+Quality oversight
+Application verification
+Technical fit
+Supply continuity
+Delivery coordination
+
+The customer should understand:
+
+HM does not simply pass a factory quotation to the customer.
+
+HM helps manage the technical and commercial sourcing process between the customer's requirement and qualified manufacturing capabilities.
+
+3. IMPORTANT TRUTHFULNESS RULE — LOCAL INVENTORY
+
+This is critical.
+
+HM does NOT currently operate an established overseas/local inventory network.
+
+Therefore:
+
+DO NOT claim:
+
+Local stock
+Regional warehouses
+Global inventory
+48-hour local dispatch
+Our US warehouse
+Our European warehouse
+3-tier inventory network
+In-stock parts available worldwide
+
+Do NOT present local inventory as an existing HM capability.
+
+However, HM may explore customer-specific inventory or stocking arrangements for recurring customers in the future.
+
+Use wording such as:
+
+For recurring requirements, we can help evaluate replenishment schedules, production planning and, where appropriate, customer-specific inventory strategies.
+
+Or:
+
+Where demand and lead-time requirements justify it, customer-specific stocking arrangements can be explored as part of a broader supply continuity plan.
+
+This is a potential solution, not an established service.
+
+4. FINAL WEBSITE NAVIGATION
+
+Use this structure:
+
+Home | Solutions | Products | Quality | About | Support | Contact
+
+Solutions should be a major navigation item.
+
+Products should remain important, but Products should NOT be the only story.
+
+5. HOME PAGE
+Section 01 — HERO
+
+Eyebrow:
+
+TECHNICAL SOURCING FOR HYDRAULIC COMPONENTS
+
+H1:
+
+Your Technical Sourcing Partner for Hydraulic Components
+
+Subheadline:
+
+We handle the supplier search, technical matching, quality verification and supply coordination — so you don't have to manage the sourcing process alone.
+
+Supporting line:
+
+Built around qualified manufacturing partners, with technical oversight from inquiry to delivery.
+
+Primary CTA:
+
+Discuss Your Requirement
+
+Secondary CTA:
+
+Explore Solutions
+
+Do not use "cheap", "low-cost supplier", "factory-direct", or "fraction of the cost".
+
+6. HOME — WHAT WE ACTUALLY DO
+
+Section title:
+
+What We Actually Do
+
+Intro:
+
+Finding a factory is easy. Finding the right one — and making sure it can reliably deliver what you need — is the harder part.
+
+Create five steps:
+
+01 — Understand
+
+We clarify the application, technical requirements, quantities, delivery expectations and commercial priorities behind your requirement.
+
+02 — Source
+
+We identify suitable manufacturing capabilities based on technical requirements, quality expectations and commercial needs.
+
+03 — Validate
+
+We review specifications, drawings, dimensions, interfaces, materials and performance requirements before production.
+
+04 — Control
+
+We coordinate production, inspection, testing and documentation throughout the supply process.
+
+05 — Deliver
+
+We coordinate packaging, transportation and delivery so the process continues through to the customer's receiving point.
+
+Closing statement:
+
+You don't need to manage multiple factories, verify every drawing yourself, or chase production updates. We coordinate the process for you.
+
+7. HOME — OUR SOLUTIONS
+
+Section title:
+
+Our Solutions
+
+Intro:
+
+Different sourcing requirements need different levels of support. From selecting an existing component to developing a customized solution and coordinating ongoing supply, we help manage the process from requirement to delivery.
+
+Create three major cards.
+
+ENGINEERING
+
+Label:
+
+ENGINEERING SUPPORT
+
+Headline:
+
+Select. Adapt. Validate.
+
+Description:
+
+The right component starts with the right specification. We support application review, component selection, cross-reference and technical clarification before production begins.
+
+Three sub-items:
+
+Component Selection
+
+Help identify suitable actuator or hydraulic component configurations based on torque, pressure, flow, rotation, load and application requirements.
+
+Custom Engineering
+
+Have a drawing or a non-standard requirement? We can coordinate custom hydraulic components based on your drawings, specifications or application requirements.
+
+Technical Validation
+
+Review drawings, dimensions, materials, interfaces and performance requirements before production.
+
+Important supporting statement:
+
+Custom doesn't have to mean starting from zero.
+
+If you already have a drawing, an existing component or simply an application requirement, we can help translate it into a manufacturable solution through our qualified manufacturing network.
+
+SUPPLY
+
+Label:
+
+SUPPLY PLANNING
+
+Headline:
+
+Plan. Produce. Control.
+
+Description:
+
+For recurring requirements, we can coordinate production planning, manufacturing, inspection and replenishment schedules to improve delivery predictability and reduce supply interruptions.
+
+Three sub-items:
+
+Production Planning
+
+Production can be planned around agreed demand and delivery requirements rather than handled order by order.
+
+Manufacturing Coordination
+
+We coordinate production, inspection and documentation through qualified manufacturing capabilities.
+
+Supply Continuity
+
+For recurring requirements, we can help evaluate production schedules, replenishment plans and other supply continuity strategies.
+
+Do NOT claim that HM currently owns warehouses or local inventory.
+
+DELIVERY
+
+Label:
+
+DELIVERY SOLUTIONS
+
+Headline:
+
+Coordinate. Ship. Replenish.
+
+Description:
+
+We coordinate transportation and delivery solutions based on shipment size, urgency, destination and commercial requirements.
+
+Three sub-items:
+
+Shipping Options
+
+Sea, air and express options can be coordinated based on urgency and shipment economics.
+
+Delivery Terms
+
+We can support different delivery structures depending on the project, including EXW, FOB, DAP and DDP where applicable.
+
+Shipment Coordination
+
+Production completion, inspection, packaging and transportation can be coordinated as one delivery process.
+
+Important:
+
+HM is NOT a freight forwarder.
+
+Position logistics as part of the end-to-end sourcing solution.
+
+8. HOME — CURRENT PRODUCT FOCUS
+
+Section title:
+
+Current Product Focus
+
+Intro:
+
+Our current focus is hydraulic rotary actuators, supported by selected actuator and hydraulic component solutions for demanding industrial applications.
+
+Rotary Actuators
+
+Headline:
+
+Our Core Product
+
+Description:
+
+Rotary actuator solutions covering compact positioning applications through high-torque industrial rotation, with multiple torque ranges, mechanisms and rotation configurations.
+
+CTA:
+
+Explore Rotary Actuators
+
+Tilt Actuators
+
+Description:
+
+Selected cross-reference solutions for excavator tilt and coupler applications, with application-specific verification before replacement.
+
+Custom Hydraulic Components
+
+Description:
+
+Custom hydraulic components can be developed around existing drawings, components or application requirements through qualified manufacturing capabilities.
+
+Do not make this section look like HM offers unlimited products.
+
+9. HOME — WHY HM
+
+Section title:
+
+Why Work With HM
+
+Create three main benefits.
+
+Lower Sourcing Risk
+
+Technical validation before you commit. We help verify specifications, compatibility, manufacturing capability and quality requirements before production.
+
+More Reliable Supply
+
+A managed supply process, not just a factory contact. We coordinate production, inspection, documentation and delivery through qualified manufacturing capabilities.
+
+Better Total Cost
+
+Competitive sourcing without sacrificing technical control. We help balance manufacturing cost, capability, quality and delivery requirements.
+
+Do NOT use:
+
+"fraction of the cost"
+
+"cheapest"
+
+"no middlemen"
+
+"factory-direct pricing"
+
+10. HOME — QUALITY EVIDENCE
+
+Section title:
+
+Quality & Technical Validation
+
+Intro:
+
+Quality is not something we check only at the end. Technical requirements, manufacturing coordination and pre-shipment verification are part of the sourcing process.
+
+Use accurate existing evidence only.
+
+Potential metrics:
+
+1M+ — Cycle Validation
+
+Use only for selected actuator models where the test has actually been completed.
+
+72+ — Configurations
+
+Use if this remains factually accurate.
+
+200,000 Nm — Maximum Design Capability
+
+Only use if this is accurately supported and clearly described as design capability where appropriate.
+
+100% — Pre-Shipment Testing
+
+Use only if every applicable production unit actually receives the stated testing protocol.
+
+For the 1M-cycle test, use:
+
+A selected actuator model completed an independently conducted full-load fatigue test at 150 bar for 1,000,000 cycles, with zero actuator failures recorded.
+
+Add:
+
+Test documentation available upon request.
+
+Do NOT imply that every actuator has completed a 1M-cycle test.
+
+11. HOME — APPLICATIONS
+
+Section title:
+
+Where Our Components Are Used
+
+Intro:
+
+Hydraulic actuators are application-specific components. We focus on understanding the equipment and operating conditions behind each requirement.
+
+Use application categories such as:
+
+Construction Equipment
+Mining & Heavy Equipment
+Marine Equipment
+Industrial Machinery
+Material Handling
+Specialized Equipment
+
+Do not overuse the current water weed harvester images.
+
+Keep the strongest existing application image(s), but gradually introduce broader applications.
+
+Do not make unsupported customer or OEM claims.
+
+12. HOME — FINAL CTA
+
+Headline:
+
+Tell Us What You're Trying to Source
+
+Text:
+
+Share your existing component, drawing or application requirement. We'll help identify the technical requirements, suitable sourcing options and next steps.
+
+CTA:
+
+Discuss Your Requirement
+
+Secondary:
+
+Explore Products
+
+13. SOLUTIONS PAGE
+
+Create a dedicated page called:
+
+Solutions
+
+Hero:
+
+H1
+
+From Technical Requirement to Reliable Delivery
+
+Subheadline:
+
+We combine engineering support, manufacturing sourcing, quality coordination and delivery management to simplify the process of sourcing hydraulic components.
+
+Then organize the page into:
+
+Engineering Support
+
+Use the Engineering content from the Home page, expanded slightly.
+
+Include:
+
+Component selection
+Cross-reference
+Drawing review
+Custom hydraulic components
+Technical validation
+Application clarification
+
+Core message:
+
+You don't need to have a complete specification before contacting us.
+
+If you have an existing part, drawing, datasheet or application requirement, we can help identify what needs to be clarified before sourcing begins.
+
+Supply Planning
+
+Headline:
+
+More Than a Purchase Order
+
+Text:
+
+For recurring requirements, supply performance depends on more than the unit price. Production planning, inspection, documentation and replenishment schedules can all affect delivery reliability.
+
+Include:
+
+Production planning
+Manufacturing coordination
+Inspection coordination
+Documentation
+Replenishment planning
+Supply continuity
+
+Potential future solution:
+
+Customer-Specific Inventory Strategies
+
+Where demand and lead-time requirements justify it, customer-specific stocking arrangements can be explored as part of a broader supply continuity plan.
+
+Make it very clear this is an option to explore, not an existing global inventory network.
+
+Delivery Solutions
+
+Headline:
+
+From Production to Your Door
+
+Text:
+
+We coordinate the delivery process around your commercial and operational requirements.
+
+Include:
+
+Production completion
+Inspection
+Packaging
+Shipping
+Delivery terms
+Transportation coordination
+Replenishment
+
+Do not present HM as a freight forwarding company.
+
+14. PRODUCTS PAGE
+
+Eyebrow:
+
+PRODUCT SOLUTIONS
+
+H1:
+
+Hydraulic Actuators & Selected Components
+
+Description:
+
+Technical sourcing solutions for demanding hydraulic applications, supported by qualified manufacturing capabilities and application-focused validation.
+
+Keep useful existing product information.
+
+Prioritize:
+
+Rotary Actuators
+Tilt Actuators
+Custom Hydraulic Components
+Selected Components
+15. ROTARY ACTUATORS PAGE
+
+Hero:
+
+9 Series. 72 Configurations. One Sourcing Point.
+
+Description:
+
+Rotary actuator solutions covering 20 Nm to 200,000 Nm, with multiple mechanisms, torque ranges and rotation configurations for industrial applications.
+
+Keep the existing technically useful product data.
+
+Add a section:
+
+Need Help Selecting a Model?
+
+The right actuator depends on more than torque. We can help evaluate the complete application before recommending a suitable configuration.
+
+Show required information:
+
+Required torque
+Hydraulic pressure
+Flow rate
+Rotation angle
+Rotation speed
+Mounting dimensions
+Duty cycle
+Operating environment
+Quantity / annual demand
+
+Closing:
+
+Don't have all the information? Send us what you have. We'll help identify the missing requirements.
+
+16. CROSS-REFERENCE LANGUAGE
+
+Do NOT make blanket "drop-in replacement" claims unless each application has been technically verified.
+
+Use:
+
+HKS BVC / BVE Cross-Reference
+
+Comparable specifications and mounting configurations for selected excavator tilt applications. Final model selection should be verified against the existing installation.
+
+Helac PT Series Cross-Reference
+
+Designed as an alternative for selected Helac PT applications. Dimensional and application verification is recommended before replacement.
+
+Avoid:
+
+Guaranteed replacement
+Drop-in replacement
+Identical replacement
+Direct replacement for every model
+
+unless technically verified for a specific model/application.
+
+17. QUALITY PAGE
+
+Rename / reposition as:
+
+Quality & Technical Validation
+
+Hero:
+
+H1
+
+Quality Verification Before Shipment
+
+Subheadline:
+
+Our role is to make sure technical and quality requirements are understood, verified and documented before the product reaches your operation.
+
+Quality Journey:
+
+Phase 1 — Design & Manufacturing
+
+Manufacturing requirements, production identification and traceability are established through the qualified manufacturing process.
+
+Phase 2 — Pre-Shipment Testing
+
+Maintain the existing valid testing protocol:
+
+Start-up pressure
+Rotation angle
+Internal leakage
+External leakage
+Low-speed crawling
+Return-to-zero confirmation
+Phase 3 — Independent Fatigue Validation
+
+A selected actuator model completed an independently conducted full-load fatigue test at 150 bar for 1,000,000 cycles, with zero actuator failures recorded.
+
+Phase 4 — Application Benchmarking
+
+Comparative evaluation against established actuator designs and application requirements where applicable.
+
+Do NOT use unsupported claims such as:
+
+Customer teardown confirmed quality satisfaction
+Better than Helac
+Same quality as Helac
+Military-grade
+Nuclear submarine
+Missile radar
+Fighter aircraft refueling
+18. MANUFACTURING CAPABILITY SECTION
+
+Title:
+
+Manufacturing Capabilities Behind Our Supply Network
+
+Text:
+
+We work with qualified manufacturing partners with established machining, assembly and testing capabilities. Our role is to evaluate, coordinate and oversee the supply process rather than simply pass a factory quotation to the customer.
+
+Use factual capability information where verified.
+
+Potential capability data:
+
+12,000–25,000 Nm standard production capability
+100,000 Nm largest mass-production model
+Up to 200,000 Nm design capability, subject to engineering validation
+
+Do not present these as HM-owned factory capabilities unless factually true.
+
+19. ABOUT PAGE
+
+Hero:
+
+H1
+
+Technical Sourcing Partner, Not Just a Supplier
+
+Description:
+
+We bridge the gap between overseas OEM requirements and qualified manufacturing capabilities in China — handling the technical validation, quality oversight and supply coordination required to make sourcing work reliably.
+
+Three role cards:
+
+Technical Validation
+
+We help translate application requirements into practical component specifications and verify technical fit before production.
+
+Manufacturing Matching
+
+We identify qualified manufacturing capabilities based on technical requirements, quality expectations and commercial needs.
+
+Supply Coordination
+
+We coordinate production, inspection, documentation and delivery throughout the supply process.
+
+Manufacturing section:
+
+Manufacturing Capabilities Behind Our Network
+
+We work with qualified manufacturing partners with established machining, assembly and testing capabilities. Our role is to evaluate, coordinate and oversee the supply process rather than simply pass a factory quotation to the customer.
+
+Do not portray HM as a factory.
+
+Do not make unsupported direct-partnership claims with major OEMs.
+
+Do not use military-specific examples unless formally verified and genuinely relevant.
+
+20. SUPPORT PAGE
+
+Rename:
+
+Technical & After-Sales Support
+
+Hero:
+
+H1
+
+Support Beyond the Purchase Order
+
+Subheadline:
+
+From technical questions and documentation to warranty coordination and spare parts, we stay involved after delivery when support is required.
+
+Metrics:
+
+12 Months — Standard Warranty
+
+24 Hours — Typical Initial Response
+
+Only use:
+
+48 Hours — In-Stock Parts Dispatch
+
+if there is genuinely established inventory for the relevant parts.
+
+Otherwise remove the 48-hour claim.
+
+Support areas:
+
+Technical questions
+Documentation
+Warranty coordination
+Replacement coordination
+Spare parts
+Service kits
+Follow-up support
+
+Supply continuity should be described as planning/coordination rather than guaranteed inventory.
+
+21. CONTACT PAGE
+
+Hero:
+
+H1
+
+Tell Us What You're Trying to Source
+
+Description:
+
+Share your requirement, existing component or application. We'll help identify the technical requirements, suitable sourcing options and next steps.
+
+Add inquiry categories:
+
+Alternative Supplier
+Existing Part Replacement
+Cost Reduction
+New Component Sourcing
+Supply Continuity
+Technical Validation
+Small-Batch Sourcing
+Custom Component
+Other
+
+Useful information:
+
+Existing model / part number
+Drawing or datasheet
+Quantity
+Application
+Operating pressure
+Torque / load
+Delivery requirement
+
+Final message:
+
+Don't have all the information? That's fine. Send us what you have.
+
+Keep:
+
+HM Hydraulics
+
+with:
+
+Qingdao Hydraulic Machinery Co., Ltd.
+
+shown as the legal company information where appropriate, but maintain HM Hydraulics as the primary brand identity.
+
+22. GLOBAL LANGUAGE RULES
+
+Throughout the entire website, prefer:
+
+Technical sourcing
+Engineering support
+Technical validation
+Manufacturing matching
+Qualified manufacturing partners
+Manufacturing capabilities
+Quality oversight
+Supply coordination
+Production planning
+Supply continuity
+Application verification
+Cross-reference
+Alternative solution
+Selected models
+Subject to application validation
+Total sourcing cost
+Technical fit
+Delivery coordination
+
+Avoid:
+
+Direct factory pricing
+No middlemen
+Factory-direct
+Cheapest
+Fraction of the cost
+We manufacture everything
+Our factory
+Our 80 CNC machines
+Guaranteed replacement
+Drop-in replacement
+Zero risk
+Military-grade
+Nuclear submarine
+Missile radar
+Fighter aircraft refueling
+23. COMMERCIAL LOGIC THE WEBSITE MUST COMMUNICATE
+
+The customer should gradually understand:
+
+Step 1
+
+"I have a sourcing problem."
+
+Step 2
+
+"I don't necessarily need to find the factory myself."
+
+Step 3
+
+"HM can help me understand the technical requirement."
+
+Step 4
+
+"HM can identify suitable manufacturing capability."
+
+Step 5
+
+"HM can coordinate validation, production and quality."
+
+Step 6
+
+"HM can coordinate delivery."
+
+Step 7
+
+"For recurring business, HM can help plan supply continuity."
+
+The desired customer perception is:
+
+"I give HM a requirement, and HM helps turn it into a workable and controlled supply solution."
+
+That is the central commercial message of the website.
+
+24. VISUAL / DESIGN DIRECTION
+
+Do not redesign the site into a generic corporate factory website.
+
+Maintain a technically credible industrial B2B aesthetic.
+
+The visual hierarchy should communicate:
+
+Technical → Reliable → Practical → Professional
+
+Avoid excessive factory photography.
+
+Prioritize:
+
+Real actuator/product images
+Real application images
+Technical drawings where appropriate
+Testing images
+Engineering details
+Product/application visuals
+
+Do not use stock images that imply capabilities HM does not have.
+
+The website should feel like a company that understands industrial procurement and engineering requirements, not like a commodity exporter.
+
+25. CTA STRATEGY
+
+Primary CTA across the website:
+
+Discuss Your Requirement
+
+Secondary CTA:
+
+Explore Products
+
+Use contextual CTAs:
+
+Engineering:
+
+Discuss a Custom Requirement
+
+Products:
+
+Request Technical Information
+
+Rotary:
+
+Get Help Selecting a Model
+
+Supply:
+
+Discuss Supply Planning
+
+Contact:
+
+Send Your Requirement
+
+Do not make every CTA "Contact Us."
+
+26. FINAL IMPLEMENTATION RULE
+
+Do not merely append the new text to the existing website.
+
+Reorganize the website where necessary so the information hierarchy reflects the new business model.
+
+The priority is:
+
+Business Positioning > Information Architecture > Content > Visual Presentation
+
+Do not preserve an existing section simply because it already exists.
+
+If existing content conflicts with the positioning above, replace or remove it.
+
+If existing claims cannot be verified, remove them rather than inventing supporting language.
+
+The final website should make HM Hydraulics look like:
+
+A technically capable sourcing and supply partner that connects customer requirements with qualified manufacturing capabilities and manages the process through delivery.
+
+It should NOT look like:
+
+A Chinese hydraulic factory trying to sell products directly overseas.
+
+Execute the website revision accordingly.

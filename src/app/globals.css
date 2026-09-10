@@ -1,0 +1,549 @@
+/* Google Fonts — CN domain for performance */
+@import url('https://fonts.googleapis.cn/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  /* HM Hydraulics Design Tokens */
+  --color-navy: #2C4A73;
+  --color-navy-deep: #1E3A5F;
+  --color-navy-light: rgba(44, 74, 115, 0.10);
+  --color-navy-lighter: rgba(44, 74, 115, 0.05);
+  --color-warm-white: #FAFAF7;
+  --color-text-primary: #1B1E20;
+  --color-text-secondary: #4A4E54;
+  --color-text-tertiary: #62666C;
+  --color-border-subtle: rgba(44, 74, 115, 0.10);
+
+  --font-heading: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  /* Home page brand palette — derived from HM Hydraulics logo */
+  --color-brand-red: #A31919;
+  --color-brand-red-deep: #8A1515;
+  --color-brand-red-tint: rgba(163, 25, 25, 0.06);
+  --color-brand-red-light: rgba(163, 25, 25, 0.10);
+  --color-brand-black: #0F0F0F;
+  --color-brand-gray: #6B6863;
+  --color-home-border: rgba(15, 15, 15, 0.10);
+}
+
+:root {
+  --radius: 0.375rem;
+  --background: #FAFAF7;
+  --foreground: #1B1E20;
+  --card: #FFFFFF;
+  --card-foreground: #1B1E20;
+  --popover: #FFFFFF;
+  --popover-foreground: #1B1E20;
+  --primary: #2C4A73;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F0F0EC;
+  --secondary-foreground: #1B1E20;
+  --muted: #F5F5F2;
+  --muted-foreground: #62666C;
+  --accent: #F0F0EC;
+  --accent-foreground: #1B1E20;
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: rgba(44, 74, 115, 0.10);
+  --input: rgba(44, 74, 115, 0.10);
+  --ring: #2C4A73;
+  --chart-1: #2C4A73;
+  --chart-2: #4A7FB5;
+  --chart-3: #1E3A5F;
+  --chart-4: #6B9DC8;
+  --chart-5: #93B8D9;
+  --sidebar: #FAFAF7;
+  --sidebar-foreground: #1B1E20;
+  --sidebar-primary: #2C4A73;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #F0F0EC;
+  --sidebar-accent-foreground: #1B1E20;
+  --sidebar-border: rgba(44, 74, 115, 0.10);
+  --sidebar-ring: #2C4A73;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text-primary);
+  background-color: var(--color-warm-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography utilities */
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+.font-label {
+  font-family: var(--font-mono);
+}
+
+/* Eyebrow label style */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-navy);
+}
+
+/* Section container */
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .section-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Subtle border */
+.border-subtle {
+  border-color: var(--color-border-subtle);
+}
+
+/* Nav link hover effect */
+.nav-link {
+  position: relative;
+  transition: color 150ms ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--color-navy);
+  transition: width 200ms ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* Home page brand utilities — derived from logo */
+.home-text {
+  color: var(--color-brand-black);
+}
+
+.home-text-secondary {
+  color: var(--color-brand-gray);
+}
+
+.home-accent {
+  color: var(--color-brand-red);
+}
+
+.home-bg-accent {
+  background-color: var(--color-brand-red);
+}
+
+.home-bg-accent-deep {
+  background-color: var(--color-brand-red-deep);
+}
+
+.home-bg-tint {
+  background-color: var(--color-brand-red-tint);
+}
+
+.home-border {
+  border-color: var(--color-home-border);
+}
+
+.home-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-brand-red);
+}
+
+.home-marker {
+  color: var(--color-brand-red);
+  font-family: var(--font-heading);
+  font-weight: 600;
+}
+
+/* Home page Design System — v3 (Industrial / Premium / Clean / Technical / Restrained) */
+
+/* Section layout */
+.home-section {
+  border-bottom: 1px solid var(--color-home-border);
+}
+
+.home-section-alt {
+  background-color: #F8F8F5;
+}
+
+.home-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .home-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.home-section-padding {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+@media (min-width: 768px) {
+  .home-section-padding {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+}
+
+/* Typography */
+.home-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-brand-red);
+}
+
+.home-title {
+  font-family: var(--font-heading);
+  color: var(--color-brand-black);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.home-title-xl {
+  font-size: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .home-title-xl {
+    font-size: 3rem;
+  }
+}
+
+.home-title-lg {
+  font-size: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .home-title-lg {
+    font-size: 2rem;
+  }
+}
+
+.home-title-md {
+  font-size: 1.125rem;
+}
+
+@media (min-width: 768px) {
+  .home-title-md {
+    font-size: 1.25rem;
+  }
+}
+
+.home-lead {
+  font-family: var(--font-body);
+  color: var(--color-brand-gray);
+  font-size: 1.125rem;
+  line-height: 1.65;
+}
+
+.home-body {
+  font-family: var(--font-body);
+  color: var(--color-brand-gray);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.home-caption {
+  font-family: var(--font-body);
+  color: var(--color-brand-gray);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/* Cards */
+.home-card {
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-home-border);
+  border-radius: 0.375rem;
+  box-shadow: 0 1px 3px rgba(15, 15, 15, 0.04), 0 1px 2px rgba(15, 15, 15, 0.02);
+  transition: border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease;
+}
+
+.home-card-hover:hover {
+  border-color: rgba(15, 15, 15, 0.16);
+  box-shadow: 0 12px 32px rgba(15, 15, 15, 0.07), 0 4px 8px rgba(15, 15, 15, 0.03);
+  transform: translateY(-2px);
+}
+
+.home-card-inner {
+  padding: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .home-card-inner {
+    padding: 2rem;
+  }
+}
+
+/* Links */
+.home-link {
+  display: inline-flex;
+  align-items: center;
+  color: var(--color-brand-red);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 150ms ease;
+}
+
+.home-link:hover {
+  color: var(--color-brand-red-deep);
+}
+
+.home-link svg {
+  margin-left: 0.375rem;
+  width: 1rem;
+  height: 1rem;
+  transition: transform 200ms ease;
+}
+
+.home-link:hover svg {
+  transform: translateX(3px);
+}
+
+/* Buttons */
+.home-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.875rem 1.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 0.25rem;
+  text-decoration: none;
+  transition: all 150ms ease;
+}
+
+.home-button-primary {
+  background-color: var(--color-brand-red);
+  color: #FFFFFF;
+  box-shadow: 0 1px 2px rgba(163, 25, 25, 0.2);
+}
+
+.home-button-primary:hover {
+  background-color: var(--color-brand-red-deep);
+  box-shadow: 0 4px 12px rgba(163, 25, 25, 0.25);
+}
+
+.home-button-secondary {
+  background-color: transparent;
+  color: var(--color-brand-black);
+  border: 1px solid rgba(15, 15, 15, 0.16);
+}
+
+.home-button-secondary:hover {
+  background-color: rgba(15, 15, 15, 0.04);
+  border-color: rgba(15, 15, 15, 0.24);
+}
+
+.home-button-secondary-light {
+  background-color: transparent;
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.home-button-secondary-light:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.45);
+}
+
+/* Metrics */
+.home-metric-value {
+  font-family: var(--font-heading);
+  color: var(--color-brand-red);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  font-size: 1.75rem;
+}
+
+@media (min-width: 768px) {
+  .home-metric-value {
+    font-size: 2.25rem;
+  }
+}
+
+.home-metric-label {
+  font-family: var(--font-body);
+  color: var(--color-brand-gray);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/* Images */
+.home-image-container {
+  background-color: #FAFAF7;
+  border: 1px solid rgba(15, 15, 15, 0.06);
+  border-radius: 0.375rem;
+  overflow: hidden;
+}
+
+.home-image-container img {
+  transition: transform 300ms ease;
+}
+
+.home-image-container:hover img {
+  transform: scale(1.02);
+}
+
+/* Process */
+.home-process-step {
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .home-process-step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 1.25rem;
+    right: -0.75rem;
+    width: 1.5rem;
+    height: 1px;
+    background-color: rgba(15, 15, 15, 0.08);
+  }
+}
+
+.home-process-number {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-brand-red);
+  margin-bottom: 0.75rem;
+}
+
+/* Application cards */
+.home-app-card {
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-home-border);
+  border-radius: 0.375rem;
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 1px 3px rgba(15, 15, 15, 0.04), 0 1px 2px rgba(15, 15, 15, 0.02);
+  transition: border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease;
+}
+
+.home-app-card:hover {
+  border-color: rgba(15, 15, 15, 0.14);
+  box-shadow: 0 8px 24px rgba(15, 15, 15, 0.06);
+  transform: translateY(-2px);
+}
+
+/* Hero */
+.home-hero-title {
+  font-family: var(--font-heading);
+  color: #FFFFFF;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+}
+
+.home-hero-title-xl {
+  font-size: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .home-hero-title-xl {
+    font-size: 3rem;
+  }
+}
+
+.home-hero-subtitle {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.home-hero-lead {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.home-hero-caption {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.home-eyebrow-light {
+  color: rgba(255, 255, 255, 0.72);
+}

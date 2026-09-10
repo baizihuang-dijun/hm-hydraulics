@@ -1,0 +1,1115 @@
+# HM Hydraulics Website V3.1 — Final Content & UX Execution
+
+## OBJECTIVE
+
+Revise the existing HM Hydraulics website based on the structure and content below.
+
+This is a **content hierarchy and visual density optimization**, not a complete redesign.
+
+The previous version established the correct commercial positioning. This version must make the website:
+
+* Less text-heavy
+* Faster to scan
+* More visually confident
+* More commercially focused
+* More technically credible
+* Easier for an overseas OEM / engineering / purchasing manager to understand
+
+Do NOT weaken the positioning or remove important capabilities.
+
+The goal is:
+
+> **Less explanation. More information density. More visual hierarchy.**
+
+The website should feel like a strong industrial B2B company, not a brochure or business proposal.
+
+---
+
+# 1. CORE POSITIONING — DO NOT CHANGE
+
+Primary positioning:
+
+**Technical Sourcing Partner for Hydraulic Components**
+
+Core promise:
+
+**From Technical Requirement to Reliable Delivery.**
+
+Three core capabilities:
+
+**ENGINEERING → SUPPLY → DELIVERY**
+
+Current primary product:
+
+**Hydraulic Rotary Actuators**
+
+Business model:
+
+Customer Requirement
+→ Engineering Support
+→ Manufacturing Sourcing
+→ Technical / Quality Validation
+→ Supply Coordination
+→ Delivery
+
+HM is NOT positioned as a generic manufacturer.
+
+HM should be understood as the company that manages the technical and supply process between the customer's requirement and qualified manufacturing capabilities.
+
+---
+
+# 2. GLOBAL CONTENT RULE
+
+The previous version contains too much explanatory copy.
+
+Apply this rule to every page:
+
+### SHOW FIRST. EXPLAIN SECOND.
+
+Prefer:
+
+**Short headline + short explanation + visual/card/data**
+
+Avoid:
+
+**Long headline + paragraph + second paragraph + multiple supporting paragraphs**
+
+General rule:
+
+* Most supporting text should be 1–2 sentences.
+* Do not explain the same concept twice.
+* Do not repeat the same value proposition throughout every section.
+* Do not use a paragraph when a short phrase will communicate the idea.
+* Use numbers, cards, labels and visual structure wherever possible.
+* Preserve commercial meaning while aggressively removing repetition.
+
+The website should be easy to scan without reading every word.
+
+---
+
+# 3. HOME PAGE — MAJOR REDUCTION
+
+The Home page should NOT contain the full explanation of HM's capabilities.
+
+Home's job is:
+
+**Positioning → How We Help → Core Capabilities → Product Entry → Evidence → CTA**
+
+Detailed explanations belong on Solutions, Quality and About.
+
+The final Home page should contain ONLY these 7 sections:
+
+1. Hero
+2. What We Do
+3. Our Solutions
+4. Current Product Focus
+5. Why HM / Evidence
+6. Applications
+7. Final CTA
+
+Remove or merge any other Home sections that duplicate these messages.
+
+---
+
+# 4. HOME — SECTION 01 HERO
+
+Eyebrow:
+
+**TECHNICAL SOURCING FOR HYDRAULIC COMPONENTS**
+
+H1:
+
+**Your Technical Sourcing Partner for Hydraulic Components**
+
+Supporting copy:
+
+> We handle the technical matching, sourcing, quality verification and supply coordination behind your hydraulic component requirements.
+
+Small supporting line:
+
+> From technical requirement to reliable delivery.
+
+Primary CTA:
+
+**Discuss Your Requirement**
+
+Secondary CTA:
+
+**Explore Solutions**
+
+Keep this section visually strong.
+
+Do NOT add another long paragraph.
+
+---
+
+# 5. HOME — SECTION 02 WHAT WE DO
+
+Title:
+
+**What We Do**
+
+Short introduction:
+
+> We help turn hydraulic component requirements into workable sourcing solutions.
+
+Use a simple 5-step visual process.
+
+### 01 Understand
+
+**Clarify the requirement**
+
+### 02 Source
+
+**Match manufacturing capability**
+
+### 03 Validate
+
+**Check technical fit**
+
+### 04 Control
+
+**Coordinate quality & production**
+
+### 05 Deliver
+
+**Coordinate shipment & supply**
+
+Do NOT add long descriptions underneath each step.
+
+The five-step process should be visually dominant.
+
+Add one short statement below:
+
+> **One technical and commercial interface from requirement to delivery.**
+
+This replaces the previous long "What We Actually Do" explanation.
+
+---
+
+# 6. HOME — SECTION 03 OUR SOLUTIONS
+
+Title:
+
+**Our Solutions**
+
+Short intro:
+
+> Support that goes beyond finding a supplier.
+
+Use exactly three major visual cards.
+
+---
+
+## ENGINEERING
+
+Label:
+
+**ENGINEERING**
+
+Headline:
+
+**Select. Adapt. Validate.**
+
+Short copy:
+
+> Component selection, cross-reference and custom engineering based on your application, existing part or drawings.
+
+Small keywords:
+
+**Selection · Cross-reference · Customization · Validation**
+
+CTA:
+
+**Explore Engineering Support**
+
+---
+
+## SUPPLY
+
+Label:
+
+**SUPPLY**
+
+Headline:
+
+**Plan. Produce. Control.**
+
+Short copy:
+
+> Production planning, manufacturing coordination and quality control for more predictable supply.
+
+Small keywords:
+
+**Production Planning · Manufacturing · Inspection · Replenishment**
+
+CTA:
+
+**Explore Supply Planning**
+
+---
+
+## DELIVERY
+
+Label:
+
+**DELIVERY**
+
+Headline:
+
+**Coordinate. Ship. Replenish.**
+
+Short copy:
+
+> Transportation and delivery coordination based on your shipment, destination and commercial requirements.
+
+Small keywords:
+
+**Shipping · Delivery Terms · Logistics · Replenishment**
+
+CTA:
+
+**Explore Delivery Solutions**
+
+IMPORTANT:
+
+Do NOT mention local inventory as an existing capability here.
+
+Do NOT claim HM has warehouses.
+
+Do NOT claim global stock.
+
+---
+
+# 7. HOME — SECTION 04 CURRENT PRODUCT FOCUS
+
+Title:
+
+**Current Product Focus**
+
+Short introduction:
+
+> Our current core product is hydraulic rotary actuators, supported by selected actuator and hydraulic component solutions.
+
+Use three compact product cards.
+
+---
+
+## ROTARY ACTUATORS
+
+Badge:
+
+**CORE PRODUCT**
+
+Copy:
+
+> 20 Nm–200,000 Nm across multiple series, mechanisms and application requirements.
+
+CTA:
+
+**Explore Rotary Actuators**
+
+---
+
+## TILT ACTUATORS
+
+Copy:
+
+> Selected cross-reference solutions for excavator tilt and coupler applications.
+
+CTA:
+
+**View Products**
+
+---
+
+## CUSTOM HYDRAULIC COMPONENTS
+
+Copy:
+
+> Custom solutions based on drawings, existing components or application requirements.
+
+CTA:
+
+**Discuss a Custom Requirement**
+
+Do NOT turn this into a large product catalog on the Home page.
+
+---
+
+# 8. HOME — SECTION 05 WHY HM / EVIDENCE
+
+Instead of a large text-heavy "Why HM" section, combine value proposition and evidence.
+
+Title:
+
+**Why Work With HM**
+
+Use three concise value cards:
+
+### Technical Fit
+
+**Validate before you commit.**
+
+Application, specification and compatibility review before production.
+
+### Supply Control
+
+**More than a factory contact.**
+
+Production, inspection and delivery coordination through qualified manufacturing capabilities.
+
+### Total Cost
+
+**Balance cost with capability.**
+
+Competitive sourcing without sacrificing technical requirements or supply reliability.
+
+Then show a compact evidence strip underneath.
+
+Use only verified figures:
+
+**72+**
+Configurations
+
+**1M+**
+Cycle Validation*
+
+**200,000 Nm**
+Maximum Design Capability*
+
+**100%**
+Pre-Shipment Testing*
+
+Footnote:
+
+> *Applies to selected models / capabilities where specified. Technical details and supporting documentation available upon request.
+
+Do NOT imply that all products have completed 1M-cycle testing.
+
+Do NOT use "8+ patents & copyrights" as a primary commercial proof point.
+
+---
+
+# 9. HOME — SECTION 06 APPLICATIONS
+
+Title:
+
+**Where Our Components Are Used**
+
+One short sentence:
+
+> Application-specific hydraulic solutions for demanding equipment and machinery.
+
+Use visual application cards with minimal text:
+
+**Construction**
+
+**Mining & Heavy Equipment**
+
+**Marine**
+
+**Industrial Machinery**
+
+**Material Handling**
+
+**Specialized Equipment**
+
+Use real application/product images where available.
+
+Do NOT add long application descriptions.
+
+Do NOT make unsupported customer claims.
+
+---
+
+# 10. HOME — SECTION 07 FINAL CTA
+
+Title:
+
+**Tell Us What You're Trying to Source**
+
+Short copy:
+
+> Share an existing part, drawing or application requirement. We'll help identify the next step.
+
+Primary CTA:
+
+**Discuss Your Requirement**
+
+Secondary CTA:
+
+**Explore Products**
+
+That's it.
+
+Do not add another explanatory paragraph.
+
+---
+
+# 11. SOLUTIONS PAGE — KEEP MORE DETAIL HERE
+
+The Solutions page is where the detailed capabilities belong.
+
+Hero:
+
+### H1
+
+**From Technical Requirement to Reliable Delivery**
+
+Short copy:
+
+> Engineering support, manufacturing sourcing, quality coordination and delivery management — connected in one sourcing process.
+
+Then three major sections.
+
+---
+
+## ENGINEERING SUPPORT
+
+Headline:
+
+**Select. Adapt. Validate.**
+
+Copy:
+
+> The right component starts with the right specification. We help evaluate applications, select suitable components, review existing designs and coordinate customized solutions.
+
+Use four concise cards:
+
+### Component Selection
+
+> Match torque, pressure, flow, rotation, load and application requirements to a suitable configuration.
+
+### Cross-Reference
+
+> Evaluate existing components and identify suitable alternative configurations.
+
+### Custom Engineering
+
+> Coordinate custom hydraulic components based on drawings, specifications or application requirements.
+
+### Technical Validation
+
+> Review dimensions, interfaces, materials and performance requirements before production.
+
+Callout:
+
+**Custom doesn't have to mean starting from zero.**
+
+> If you have an existing part, drawing or application requirement, we can help turn it into a manufacturable sourcing solution.
+
+---
+
+# 12. SOLUTIONS — SUPPLY
+
+Headline:
+
+**Plan. Produce. Control.**
+
+Copy:
+
+> For recurring requirements, we coordinate production planning, manufacturing, inspection and replenishment to improve delivery predictability.
+
+Cards:
+
+### Production Planning
+
+> Plan production around agreed demand and delivery requirements.
+
+### Manufacturing Coordination
+
+> Coordinate production through qualified manufacturing capabilities.
+
+### Quality Coordination
+
+> Coordinate inspection, testing and documentation before shipment.
+
+### Replenishment Planning
+
+> Establish planned replenishment schedules for recurring requirements.
+
+---
+
+## FUTURE / OPTIONAL SUPPLY SOLUTION
+
+Use a visually secondary block:
+
+### Customer-Specific Inventory Strategies
+
+Copy:
+
+> Where demand and lead-time requirements justify it, customer-specific stocking arrangements can be explored as part of a broader supply continuity plan.
+
+IMPORTANT:
+
+This is an **option that can be explored**, not an existing HM warehouse or inventory network.
+
+Never write:
+
+"Our local inventory"
+
+"Our warehouses"
+
+"Global stock"
+
+"48-hour local dispatch"
+
+---
+
+# 13. SOLUTIONS — DELIVERY
+
+Headline:
+
+**Coordinate. Ship. Replenish.**
+
+Copy:
+
+> We coordinate transportation and delivery around shipment size, urgency, destination and commercial requirements.
+
+Cards:
+
+### Shipping Options
+
+> Sea, air and express options can be coordinated according to urgency and shipment economics.
+
+### Delivery Terms
+
+> EXW, FOB, DAP and DDP structures can be supported where applicable.
+
+### Shipment Coordination
+
+> Production completion, inspection, packaging and transportation can be coordinated as one process.
+
+### Replenishment
+
+> Recurring shipments can be planned around agreed demand and production lead times.
+
+Do not position HM as a freight forwarder.
+
+---
+
+# 14. PRODUCTS PAGE
+
+Eyebrow:
+
+**PRODUCT SOLUTIONS**
+
+H1:
+
+**Hydraulic Actuators & Selected Components**
+
+Short copy:
+
+> Technical sourcing solutions for demanding hydraulic applications.
+
+Product hierarchy:
+
+### 01 Rotary Actuators
+
+**Core Product**
+
+### 02 Tilt Actuators
+
+**Selected Applications**
+
+### 03 Custom Hydraulic Components
+
+**Application-Based Solutions**
+
+### 04 Selected Components
+
+Only include products that are commercially relevant.
+
+Keep technical information available, but improve visual scanning.
+
+Avoid large blocks of descriptive copy.
+
+---
+
+# 15. ROTARY ACTUATORS PAGE
+
+Hero:
+
+**9 Series. 72 Configurations. One Sourcing Point.**
+
+Short copy:
+
+> Rotary actuator solutions from 20 Nm to 200,000 Nm across multiple mechanisms and configurations.
+
+Keep existing technical product tables/specifications.
+
+Do not add unnecessary marketing paragraphs.
+
+Add:
+
+### Need Help Selecting a Model?
+
+> The right actuator depends on more than torque. Share your application and we can help identify the key requirements.
+
+Show the requirement list visually:
+
+**Torque**
+
+**Pressure**
+
+**Flow**
+
+**Rotation Angle**
+
+**Rotation Speed**
+
+**Mounting**
+
+**Duty Cycle**
+
+**Environment**
+
+**Quantity**
+
+CTA:
+
+**Get Help Selecting a Model**
+
+---
+
+# 16. CROSS-REFERENCE LANGUAGE
+
+Use conservative technical language.
+
+### HKS BVC / BVE Cross-Reference
+
+> Comparable specifications and mounting configurations for selected excavator tilt applications. Final model selection should be verified against the existing installation.
+
+### Helac PT Series Cross-Reference
+
+> Designed as an alternative for selected Helac PT applications. Dimensional and application verification is recommended before replacement.
+
+Do NOT use blanket:
+
+* Drop-in replacement
+* Guaranteed replacement
+* Identical replacement
+* Direct replacement
+
+unless specifically technically verified.
+
+---
+
+# 17. QUALITY PAGE
+
+Title:
+
+**Quality & Technical Validation**
+
+Hero:
+
+### H1
+
+**Quality Verification Before Shipment**
+
+Short copy:
+
+> We verify technical and quality requirements throughout the sourcing process — before the product reaches your operation.
+
+Use a visual four-stage process.
+
+### 01 Design & Manufacturing
+
+> Requirements, production identification and traceability.
+
+### 02 Pre-Shipment Testing
+
+> Functional and performance checks before shipment.
+
+### 03 Independent Validation
+
+> Selected models have completed independently conducted fatigue validation.
+
+### 04 Application Benchmarking
+
+> Comparative evaluation against established designs and application requirements where applicable.
+
+Keep detailed test information available below, but do not put large paragraphs at the top of the page.
+
+1M-cycle statement:
+
+> A selected actuator model completed an independently conducted full-load fatigue test at 150 bar for 1,000,000 cycles, with zero actuator failures recorded.
+
+Add:
+
+> Test documentation available upon request.
+
+Keep the existing six-point pre-shipment testing protocol if accurate:
+
+* Start-up pressure
+* Rotation angle
+* Internal leakage
+* External leakage
+* Low-speed crawling
+* Return-to-zero confirmation
+
+---
+
+# 18. QUALITY — MANUFACTURING CAPABILITIES
+
+Title:
+
+**Manufacturing Capabilities Behind Our Supply Network**
+
+Short copy:
+
+> We work with qualified manufacturing partners with established machining, assembly and testing capabilities.
+
+Then:
+
+> Our role is to evaluate, coordinate and oversee the supply process rather than simply pass a factory quotation to the customer.
+
+Keep verified capability figures in a visual format.
+
+Potential figures:
+
+**12,000–25,000 Nm**
+Standard Production Capability
+
+**100,000 Nm**
+Largest Mass-Production Model
+
+**Up to 200,000 Nm**
+Design Capability*
+
+Footnote:
+
+> *Subject to engineering validation.
+
+Do not present these as HM-owned factory assets unless factually true.
+
+---
+
+# 19. ABOUT PAGE
+
+Hero:
+
+### H1
+
+**Technical Sourcing Partner, Not Just a Supplier**
+
+Short copy:
+
+> We bridge overseas OEM requirements with qualified manufacturing capabilities in China — handling technical validation, quality oversight and supply coordination.
+
+Use three compact role cards.
+
+### Technical Validation
+
+> Translate application requirements into practical component specifications.
+
+### Manufacturing Matching
+
+> Identify suitable manufacturing capabilities based on technical and commercial requirements.
+
+### Supply Coordination
+
+> Coordinate production, inspection, documentation and delivery.
+
+Then one short section:
+
+### How We Work
+
+> We are the technical and commercial interface between the customer requirement and qualified manufacturing capabilities.
+
+Show a simple visual:
+
+**Customer Requirement**
+→ **HM**
+→ **Qualified Manufacturing**
+→ **Quality Verification**
+→ **Delivery**
+
+Do not create a long corporate history section unless there is genuinely important information.
+
+---
+
+# 20. SUPPORT PAGE
+
+Title:
+
+**Technical & After-Sales Support**
+
+Hero:
+
+**Support Beyond the Purchase Order**
+
+Short copy:
+
+> From technical questions and documentation to warranty coordination and replacement support, we stay involved when support is required.
+
+Use compact cards:
+
+**Technical Support**
+
+**Documentation**
+
+**Warranty Coordination**
+
+**Replacement Support**
+
+**Spare Parts**
+
+**Service Kits**
+
+Metrics:
+
+**12 Months**
+Standard Warranty
+
+**24 Hours**
+Typical Initial Response
+
+Do NOT use "48-hour in-stock dispatch" unless actual relevant inventory exists.
+
+Do not make Support a major page competing with Solutions.
+
+---
+
+# 21. CONTACT PAGE — SIGNIFICANTLY SIMPLIFY
+
+The Contact page should be one of the cleanest pages on the website.
+
+Hero:
+
+### H1
+
+**Tell Us What You're Trying to Source**
+
+One sentence:
+
+> Share your requirement, drawing, existing part or application.
+
+Second short line:
+
+> Don't have all the details? Send us what you have.
+
+Then the form.
+
+Form fields:
+
+**Name**
+
+**Company**
+
+**Email**
+
+**What do you need help with?**
+
+Options:
+
+* Alternative Supplier
+* Existing Part Replacement
+* Cost Reduction
+* New Component Sourcing
+* Supply Continuity
+* Technical Validation
+* Small-Batch Sourcing
+* Custom Component
+* Other
+
+**Message**
+
+Below the form:
+
+### Helpful Information
+
+Use compact labels rather than paragraphs:
+
+**Part / Model**
+
+**Drawing / Datasheet**
+
+**Quantity**
+
+**Application**
+
+**Pressure / Torque**
+
+**Delivery Requirement**
+
+Then:
+
+**Typical response: within 24 hours**
+
+Do not add long explanations about why customers should contact HM.
+
+Do not fill the Contact page with company descriptions.
+
+Keep legal company information in a visually secondary footer/contact-information area.
+
+---
+
+# 22. IMPORTANT: WHAT TO REMOVE FROM THE CURRENT WEBSITE
+
+Across the website, remove or substantially reduce:
+
+* Repeated explanations of technical sourcing
+* Repeated explanations of qualified manufacturing partners
+* Repeated explanations of quality control
+* Long paragraphs under every card
+* Repeated "from requirement to delivery" statements
+* Repeated "you don't need to manage factories" statements
+* Excessive corporate explanations
+* Excessive manufacturing/factory descriptions
+* Long descriptions of basic logistics options
+
+Keep the concept.
+
+Reduce the words.
+
+---
+
+# 23. CONTENT HIERARCHY
+
+Every page should have:
+
+### Level 1
+
+One clear message.
+
+### Level 2
+
+3–5 supporting concepts.
+
+### Level 3
+
+Technical detail for users who want more information.
+
+Do NOT expose Level 3 information everywhere.
+
+For example:
+
+Home:
+**Very concise**
+
+Solutions:
+**Moderate detail**
+
+Products:
+**Technical detail**
+
+Quality:
+**Evidence / technical detail**
+
+About:
+**Business model**
+
+Contact:
+**Extremely concise**
+
+---
+
+# 24. VISUAL HIERARCHY
+
+Use:
+
+* Large headings
+* Short text
+* Cards
+* Numbers
+* Icons
+* Diagrams
+* Process flows
+* Product images
+* Technical imagery
+* Whitespace
+
+Do not make every section a text block.
+
+Where possible, replace explanatory paragraphs with:
+
+**3–5 word labels**
+
+For example:
+
+Instead of:
+
+> We coordinate production, inspection and documentation through qualified manufacturing capabilities.
+
+Use:
+
+**Production · Inspection · Documentation**
+
+with one short supporting sentence.
+
+---
+
+# 25. IMPORTANT BUSINESS TRUTHFULNESS RULES
+
+Never claim:
+
+* HM owns manufacturing facilities unless true
+* HM owns overseas warehouses unless true
+* HM has global inventory
+* HM has local inventory
+* HM has regional warehouses
+* HM provides guaranteed 48-hour dispatch
+* HM has direct relationships with major OEMs unless verified
+* Every model completed 1M-cycle testing
+* Every product is a drop-in replacement
+* Zero risk
+* Guaranteed replacement
+
+Local inventory should ONLY be presented as:
+
+**A customer-specific supply continuity option that can be explored when commercially and operationally appropriate.**
+
+---
+
+# 26. FINAL DESIGN TEST
+
+After implementation, review the entire website as if you are:
+
+**A purchasing manager at a US / European OEM who has never heard of HM Hydraulics.**
+
+Within 10–20 seconds, the visitor should understand:
+
+1. HM works with hydraulic components.
+2. HM is a technical sourcing partner.
+3. HM can help with engineering / selection / customization.
+4. HM can coordinate manufacturing and quality.
+5. HM can coordinate delivery.
+6. Rotary actuators are the current core product.
+7. The customer can send an existing part, drawing or requirement.
+
+If the visitor has to read long paragraphs to understand these points, the page is still too dense.
+
+---
+
+# 27. FINAL QUALITY CHECK BEFORE COMPLETION
+
+After implementation:
+
+1. Review every page for duplicated content.
+2. Remove unnecessary paragraphs.
+3. Check desktop visual density.
+4. Check mobile visual density.
+5. Check that headings and cards are visually dominant over body text.
+6. Check CTA consistency.
+7. Check that Home is substantially shorter than the previous version.
+8. Check that Solutions contains the detailed capability explanation moved out of Home.
+9. Check that Local Inventory is NOT presented as an existing HM capability.
+10. Check that HM is not visually or verbally presented as a factory.
+11. Check all technical and numerical claims for accuracy.
+12. Check all cross-reference claims for appropriate qualification.
+13. Check that no unsupported customer/OEM claims remain.
+
+Do not simply report what should be changed.
+
+**Implement the changes directly on the existing website.**
+
+When finished, provide a concise summary of:
+
+* Home sections removed
+* Content compressed
+* Content moved to Solutions / other pages
+* Claims removed or corrected
+* Visual improvements made
+* Any remaining items requiring confirmation
