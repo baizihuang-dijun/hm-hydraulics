@@ -11,7 +11,6 @@ export const metadata: Metadata = {
 const series = [
   {
     name: 'DKX-A',
-    type: 'Helical Gear',
     torque: '210 – 22,200 Nm',
     pressure: 'Up to 210 bar',
     rotation: '90° / 180° / 360°',
@@ -19,7 +18,6 @@ const series = [
   },
   {
     name: 'DKX-B',
-    type: 'Helical Gear',
     torque: '508 – 5,870 Nm',
     pressure: 'Up to 210 bar',
     rotation: '180°',
@@ -27,7 +25,6 @@ const series = [
   },
   {
     name: 'DKX-C',
-    type: 'Helical Gear',
     torque: '190 – 2,825 Nm',
     pressure: 'Up to 210 bar',
     rotation: '180° / 360°',
@@ -35,7 +32,6 @@ const series = [
   },
   {
     name: 'DKX-D',
-    type: 'Helical Gear',
     torque: '1,920 – 42,900 Nm',
     pressure: 'Up to 210 bar',
     rotation: '180° / 360°',
@@ -43,7 +39,6 @@ const series = [
   },
   {
     name: 'DKX-E',
-    type: 'Valve Actuator',
     torque: '125 – 32,000 Nm',
     pressure: 'Up to 135 bar',
     rotation: '90°',
@@ -51,7 +46,6 @@ const series = [
   },
   {
     name: 'DKX-F',
-    type: 'Helical Gear',
     torque: '2,830 – 6,780 Nm',
     pressure: 'Up to 210 bar',
     rotation: '220°',
@@ -59,7 +53,6 @@ const series = [
   },
   {
     name: 'DT',
-    type: 'Rack & Pinion',
     torque: '500 – 10,000 Nm',
     pressure: 'Up to 210 bar',
     rotation: 'Up to 360° (multi-turn available)',
@@ -67,7 +60,6 @@ const series = [
   },
   {
     name: 'TR',
-    type: 'Vane Type',
     torque: '100 – 5,000 Nm',
     pressure: 'Up to 210 bar',
     rotation: '90° / 180° / 270°',
@@ -75,7 +67,6 @@ const series = [
   },
   {
     name: 'RT',
-    type: 'Rack & Pinion',
     torque: '2,000 – 20,000 Nm',
     pressure: 'Up to 250 bar',
     rotation: 'Up to 360° (multi-turn available)',
@@ -130,7 +121,6 @@ export default function RotaryActuatorsPage() {
                   <h3 className="font-heading text-lg font-medium text-[#1B1E20]">
                     {item.name}
                   </h3>
-                  <p className="text-xs text-[#62666C] mt-1">{item.type}</p>
                 </div>
 
                 {/* Specs */}
