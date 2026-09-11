@@ -5,57 +5,57 @@ import { RotaryGallery } from '@/components/products/rotary-gallery';
 export const metadata: Metadata = {
   title: 'Rotary Actuators — HM Hydraulics',
   description:
-    '9 series, 72 configurations of hydraulic rotary actuators. 20 Nm to 200,000 Nm torque range.',
+    '9 series, 72 configurations of hydraulic rotary actuators. 125 Nm to 42,900 Nm torque range.',
 };
 
 const series = [
   {
     name: 'DKX-A',
     type: 'Helical Gear',
-    torque: '20 – 800 Nm',
+    torque: '210 – 22,200 Nm',
     pressure: 'Up to 210 bar',
-    rotation: 'Up to 360°',
-    applications: 'Light-duty positioning, valve actuation, small manipulators',
+    rotation: '90° / 180° / 360°',
+    applications: 'Robotic arms, horizontal & vertical moving tools, door/hatch actuation',
   },
   {
     name: 'DKX-B',
     type: 'Helical Gear',
-    torque: '200 – 3,000 Nm',
+    torque: '508 – 5,870 Nm',
     pressure: 'Up to 210 bar',
-    rotation: 'Up to 270° / 360°',
-    applications: 'Medium-duty rotation, indexing tables, material handling',
+    rotation: '180°',
+    applications: 'Aerial work platforms, straight-arm & knuckle-arm swing mechanisms',
   },
   {
     name: 'DKX-C',
     type: 'Helical Gear',
-    torque: '1,000 – 12,000 Nm',
-    pressure: 'Up to 250 bar',
-    rotation: 'Up to 270° / 360°',
-    applications: 'Heavy-duty positioning, crane rotation, conveyor diverters',
+    torque: '190 – 2,825 Nm',
+    pressure: 'Up to 210 bar',
+    rotation: '180° / 360°',
+    applications: 'Steering mechanisms, mechanical arms, manipulators',
   },
   {
     name: 'DKX-D',
     type: 'Helical Gear',
-    torque: '5,000 – 25,000 Nm',
-    pressure: 'Up to 280 bar',
-    rotation: 'Up to 270° / 360°',
-    applications: 'Mining equipment, excavator attachments, industrial mixers',
+    torque: '1,920 – 42,900 Nm',
+    pressure: 'Up to 210 bar',
+    rotation: '180° / 360°',
+    applications: 'Tunnel drills, mining equipment, heavy-duty machinery rotation',
   },
   {
     name: 'DKX-E',
-    type: 'Helical Gear',
-    torque: '15,000 – 60,000 Nm',
-    pressure: 'Up to 300 bar',
-    rotation: 'Up to 270° / 360°',
-    applications: 'Large excavator rotation, marine deck machinery.',
+    type: 'Valve Actuator',
+    torque: '125 – 32,000 Nm',
+    pressure: 'Up to 135 bar',
+    rotation: '90°',
+    applications: 'Valve actuation — petrochemical, marine, industrial valves',
   },
   {
     name: 'DKX-F',
     type: 'Helical Gear',
-    torque: '40,000 – 200,000 Nm',
-    pressure: 'Up to 350 bar',
-    rotation: 'Up to 270° / 360°',
-    applications: 'Extreme-duty applications, offshore equipment, heavy industrial',
+    torque: '2,830 – 6,780 Nm',
+    pressure: 'Up to 210 bar',
+    rotation: '220°',
+    applications: 'Sanitation truck lifter systems, waste container tipping mechanisms',
   },
   {
     name: 'DT',
@@ -110,7 +110,7 @@ export default function RotaryActuatorsPage() {
             9 Series. 72 Configurations. One Sourcing Point.
           </h1>
           <p className="text-lg text-[#4A4E54] leading-relaxed max-w-2xl">
-            Rotary actuator solutions covering 20 Nm to 200,000 Nm, with multiple mechanisms,
+            Rotary actuator solutions covering 125 Nm to 42,900 Nm, with multiple mechanisms,
             torque ranges and rotation configurations for industrial applications.
           </p>
         </div>
@@ -188,7 +188,7 @@ export default function RotaryActuatorsPage() {
             {series.map((item) => {
               const torqueParts = item.torque.replace(/,/g, '').match(/([0-9]+)\s*[–-]\s*([0-9]+)/);
               const torqueMax = torqueParts ? parseInt(torqueParts[2]) : 200000;
-              const maxScale = 200000;
+              const maxScale = 42900;
               const widthPercent = Math.max(3, (torqueMax / maxScale) * 100);
               return (
                 <div key={item.name} className="flex items-center gap-4">
