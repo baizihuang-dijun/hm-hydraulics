@@ -310,12 +310,11 @@ export default function HomePage() {
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {[
-              'Construction',
-              'Mining & Heavy Equipment',
-              'Marine',
-              'Industrial Machinery',
+              'Excavator',
+              'Attachment',
               'Material Handling',
-              'Specialized Equipment',
+              'Agricultural',
+              'Mining machinery',
             ].map((app) => (
               <div
                 key={app}
