@@ -201,6 +201,34 @@ export default function RotaryActuatorsPage() {
         </div>
       </section>
 
+      {/* Applications */ }
+      <section className="border-t border-[rgba(44,74,115,0.10)]">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
+          <p className="eyebrow text-[#2C4A73] mb-4">APPLICATIONS</p>
+          <h2 className="font-heading text-2xl md:text-3xl font-medium text-[#1B1E20] mb-8">
+            Industries We Serve
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            {[
+              'Excavator',
+              'Attachment',
+              'Material Handling',
+              'Agricultural',
+              'Mining machinery',
+            ].map((industry) => (
+              <div
+                key={industry}
+                className="bg-white border border-[rgba(44,74,115,0.10)] rounded-lg p-5 text-center hover:border-[#2C4A73] transition-colors duration-200"
+              >
+                <h3 className="font-heading text-[#1B1E20] text-sm font-medium">
+                  {industry}
+                </h3>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Need Help Selecting */}
       <section className="border-t border-[rgba(44,74,115,0.10)]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
