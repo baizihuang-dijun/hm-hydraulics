@@ -13,11 +13,11 @@ const products = [
     slug: 'rotary-actuators',
     badge: '9 Series · 72 Configurations',
     description:
-      'Hydraulic rotary actuators covering 20 Nm to 200,000 Nm, with multiple mechanisms and rotation configurations.',
+      'Hydraulic rotary actuators covering 100 Nm to 42,900 Nm, with multiple mechanisms and rotation configurations.',
     specs: [
       'DKX-A through DKX-F helical gear series',
       'DT, TR, RT series',
-      '20 Nm to 200,000 Nm torque range',
+      '100 Nm to 42,900 Nm standard torque range',
     ],
   },
   {

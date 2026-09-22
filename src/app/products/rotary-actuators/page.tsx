@@ -5,61 +5,61 @@ import { RotaryGallery } from '@/components/products/rotary-gallery';
 export const metadata: Metadata = {
   title: 'Rotary Actuators — HM Hydraulics',
   description:
-    '9 series, 72 configurations of hydraulic rotary actuators. 20 Nm to 200,000 Nm torque range.',
+    '9 series, 72 configurations of hydraulic rotary actuators. 100 Nm to 42,900 Nm standard torque range.',
 };
 
 const series = [
   {
     name: 'DKX-A',
-    type: 'Helical Gear',
-    torque: '20 – 800 Nm',
+    torqueMax: 22200,
+    torque: '210 – 22,200 Nm',
     pressure: 'Up to 210 bar',
-    rotation: 'Up to 360°',
-    applications: 'Light-duty positioning, valve actuation, small manipulators',
+    rotation: '90° / 180° / 360°',
+    applications: 'Robotic arms, horizontal & vertical moving tools, door/hatch actuation',
   },
   {
     name: 'DKX-B',
-    type: 'Helical Gear',
-    torque: '200 – 3,000 Nm',
+    torqueMax: 5870,
+    torque: '508 – 5,870 Nm',
     pressure: 'Up to 210 bar',
-    rotation: 'Up to 270° / 360°',
-    applications: 'Medium-duty rotation, indexing tables, material handling',
+    rotation: '180°',
+    applications: 'Aerial work platforms, straight-arm & knuckle-arm swing mechanisms',
   },
   {
     name: 'DKX-C',
-    type: 'Helical Gear',
-    torque: '1,000 – 12,000 Nm',
-    pressure: 'Up to 250 bar',
-    rotation: 'Up to 270° / 360°',
-    applications: 'Heavy-duty positioning, crane rotation, conveyor diverters',
+    torqueMax: 2825,
+    torque: '190 – 2,825 Nm',
+    pressure: 'Up to 210 bar',
+    rotation: '180° / 360°',
+    applications: 'Steering mechanisms, mechanical arms, manipulators',
   },
   {
     name: 'DKX-D',
-    type: 'Helical Gear',
-    torque: '5,000 – 25,000 Nm',
-    pressure: 'Up to 280 bar',
-    rotation: 'Up to 270° / 360°',
-    applications: 'Mining equipment, excavator attachments, industrial mixers',
+    torqueMax: 42900,
+    torque: '1,920 – 42,900 Nm',
+    pressure: 'Up to 210 bar',
+    rotation: '180° / 360°',
+    applications: 'Tunnel drills, mining equipment, heavy-duty machinery rotation',
   },
   {
     name: 'DKX-E',
-    type: 'Helical Gear',
-    torque: '15,000 – 60,000 Nm',
-    pressure: 'Up to 300 bar',
-    rotation: 'Up to 270° / 360°',
-    applications: 'Large excavator rotation, marine deck machinery.',
+    torqueMax: 32000,
+    torque: '125 – 32,000 Nm',
+    pressure: 'Up to 135 bar',
+    rotation: '90°',
+    applications: 'Valve actuation — petrochemical, marine, industrial valves',
   },
   {
     name: 'DKX-F',
-    type: 'Helical Gear',
-    torque: '40,000 – 200,000 Nm',
-    pressure: 'Up to 350 bar',
-    rotation: 'Up to 270° / 360°',
-    applications: 'Extreme-duty applications, offshore equipment, heavy industrial',
+    torqueMax: 6780,
+    torque: '2,830 – 6,780 Nm',
+    pressure: 'Up to 210 bar',
+    rotation: '220°',
+    applications: 'Sanitation truck lifter systems, waste container tipping mechanisms',
   },
   {
     name: 'DT',
-    type: 'Rack & Pinion',
+    torqueMax: 10000,
     torque: '500 – 10,000 Nm',
     pressure: 'Up to 210 bar',
     rotation: 'Up to 360° (multi-turn available)',
@@ -67,7 +67,7 @@ const series = [
   },
   {
     name: 'TR',
-    type: 'Vane Type',
+    torqueMax: 5000,
     torque: '100 – 5,000 Nm',
     pressure: 'Up to 210 bar',
     rotation: '90° / 180° / 270°',
@@ -75,13 +75,15 @@ const series = [
   },
   {
     name: 'RT',
-    type: 'Rack & Pinion',
+    torqueMax: 20000,
     torque: '2,000 – 20,000 Nm',
     pressure: 'Up to 250 bar',
     rotation: 'Up to 360° (multi-turn available)',
     applications: 'Medium-duty multi-turn, damper controls, gate valves',
   },
 ];
+
+const maxScale = Math.max(...series.map(s => s.torqueMax));
 
 export default function RotaryActuatorsPage() {
   return (
@@ -110,8 +112,8 @@ export default function RotaryActuatorsPage() {
             9 Series. 72 Configurations. One Sourcing Point.
           </h1>
           <p className="text-lg text-[#4A4E54] leading-relaxed max-w-2xl">
-            Rotary actuator solutions covering 20 Nm to 200,000 Nm, with multiple mechanisms,
-            torque ranges and rotation configurations for industrial applications.
+            Rotary actuator solutions covering 100 Nm to 42,900 Nm across nine standard series,
+            with multiple mechanisms and rotation configurations for industrial applications.
           </p>
         </div>
       </section>
@@ -130,7 +132,6 @@ export default function RotaryActuatorsPage() {
                   <h3 className="font-heading text-lg font-medium text-[#1B1E20]">
                     {item.name}
                   </h3>
-                  <p className="text-xs text-[#62666C] mt-1">{item.type}</p>
                 </div>
 
                 {/* Specs */}
@@ -186,11 +187,7 @@ export default function RotaryActuatorsPage() {
 
           <div className="space-y-3">
             {series.map((item) => {
-              const torqueMin = parseInt(
-                item.torque.replace(/[^0-9]/g, '').split('–')[0].trim()
-              );
-              const maxScale = 200000;
-              const widthPercent = Math.max(3, (torqueMin / maxScale) * 100);
+              const widthPercent = Math.max(3, (item.torqueMax / maxScale) * 100);
               return (
                 <div key={item.name} className="flex items-center gap-4">
                   <span className="font-label text-xs text-[#62666C] w-16 shrink-0 text-right">
@@ -208,6 +205,39 @@ export default function RotaryActuatorsPage() {
                 </div>
               );
             })}
+          </div>
+          <p className="mt-8 text-sm text-[#62666C] max-w-3xl">
+            Standard series cover 100 Nm to 42,900 Nm. Our manufacturing envelope extends up to
+            200,000 Nm for engineered, non-standard builds — send the required torque and duty
+            cycle and we confirm the configuration.
+          </p>
+        </div>
+      </section>
+
+      {/* Applications */ }
+      <section className="border-t border-[rgba(44,74,115,0.10)]">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
+          <p className="eyebrow text-[#2C4A73] mb-4">APPLICATIONS</p>
+          <h2 className="font-heading text-2xl md:text-3xl font-medium text-[#1B1E20] mb-8">
+            Industries We Serve
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            {[
+              'Excavator',
+              'Attachment',
+              'Material Handling',
+              'Agricultural',
+              'Mining machinery',
+            ].map((industry) => (
+              <div
+                key={industry}
+                className="bg-white border border-[rgba(44,74,115,0.10)] rounded-lg p-5 text-center hover:border-[#2C4A73] transition-colors duration-200"
+              >
+                <h3 className="font-heading text-[#1B1E20] text-sm font-medium">
+                  {industry}
+                </h3>
+              </div>
+            ))}
           </div>
         </div>
       </section>

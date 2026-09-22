@@ -171,7 +171,7 @@ export default function HomePage() {
                   Rotary Actuators
                 </h3>
                 <p className="home-body mb-5">
-                  20 Nm–200,000 Nm across multiple series, mechanisms and application requirements.
+                  100 Nm–42,900 Nm across nine standard series, with custom builds engineered to higher torque on request.
                 </p>
                 <Link href="/products/rotary-actuators" className="home-link">
                   Explore Rotary Actuators
@@ -310,12 +310,11 @@ export default function HomePage() {
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {[
-              'Construction',
-              'Mining & Heavy Equipment',
-              'Marine',
-              'Industrial Machinery',
+              'Excavator',
+              'Attachment',
               'Material Handling',
-              'Specialized Equipment',
+              'Agricultural',
+              'Mining machinery',
             ].map((app) => (
               <div
                 key={app}
