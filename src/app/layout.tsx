@@ -4,6 +4,7 @@ import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.hmhydraulics.com'),
   title: {
     default: 'HM Hydraulics — Technical Sourcing Partner for Core Hydraulic Components',
     template: '%s | HM Hydraulics',
