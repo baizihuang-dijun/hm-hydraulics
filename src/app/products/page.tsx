@@ -165,7 +165,22 @@ export default function ProductsPage() {
             mounting dimensions and performance parameters before ordering.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+            <div className="p-6 border border-[rgba(44,74,115,0.10)] rounded-md">
+              <h3 className="font-heading text-lg font-medium text-[#1B1E20] mb-2">
+                L10 / L20 / L30 / HP125 &harr; Helac
+              </h3>
+              <p className="text-sm text-[#4A4E54] mb-3">
+                Replacement guide for Helac rotary actuators on Atlas Boomer and
+                Sandvik rigs, with OEM part numbers and confirmed mounting interfaces.
+              </p>
+              <Link
+                href="/alternatives"
+                className="text-sm font-medium text-[#2C4A73] no-underline hover:underline"
+              >
+                Open the Helac replacement guide &rarr;
+              </Link>
+            </div>
             <div className="p-6 border border-[rgba(44,74,115,0.10)] rounded-md">
               <h3 className="font-heading text-lg font-medium text-[#1B1E20] mb-2">
                 DTA Series &harr; HKS
