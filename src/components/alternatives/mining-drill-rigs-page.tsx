@@ -240,17 +240,29 @@ export function MiningDrillRigsPage() {
       {/* Hero */}
       <section className="border-b border-[rgba(44,74,115,0.10)]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
-          <p className="eyebrow mb-4">MINING APPLICATION</p>
-          <h1 className="font-heading text-3xl md:text-4xl lg:text-[2.75rem] font-medium text-[#1B1E20] leading-tight mb-6">
-            Mining Drill Rig Rotary Actuator Replacement Selection
-          </h1>
-          <p className="text-lg text-[#4A4E54] leading-relaxed max-w-3xl mb-4">
-            This page is a cross-reference selection table for rotary actuators used on Atlas Copco /
-            Epiroc and Sandvik mining drill and bolting rigs. Use the OEM part number or machine
-            model to look up the corresponding Helac-compatible actuator, then send us the code for
-            engineering verification before ordering.
-          </p>
-          <p className="text-sm text-[#62666C]">Last reviewed: September 2026</p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+            <div>
+              <p className="eyebrow mb-4">MINING APPLICATION</p>
+              <h1 className="font-heading text-3xl md:text-4xl lg:text-[2.75rem] font-medium text-[#1B1E20] leading-tight mb-6">
+                Mining Drill Rig Rotary Actuator Replacement Selection
+              </h1>
+              <p className="text-lg text-[#4A4E54] leading-relaxed mb-4">
+                This page is a cross-reference selection table for rotary actuators used on Atlas Copco /
+                Epiroc and Sandvik mining drill and bolting rigs. Use the OEM part number or machine
+                model to look up the corresponding Helac-compatible actuator, then send us the code for
+                engineering verification before ordering.
+              </p>
+              <p className="text-sm text-[#62666C]">Last reviewed: September 2026</p>
+            </div>
+            <div className="relative h-56 md:h-72 lg:h-80 rounded-md overflow-hidden bg-[#F5F6F4]">
+              <img
+                src="/images/alternatives/helac-hp125.jpg"
+                alt="Helac-compatible HP125 rotary actuator used on Atlas Copco mining drill rigs"
+                className="w-full h-full object-contain"
+                loading="eager"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -292,6 +304,27 @@ export function MiningDrillRigsPage() {
               </tbody>
             </table>
           </div>
+        </div>
+      </section>
+
+      {/* Visual divider */}
+      <section className="border-b border-[rgba(44,74,115,0.10)] bg-white">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-10 md:py-12">
+          <figure className="m-0 grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+            <div className="md:col-span-1 h-44 md:h-52 rounded-md overflow-hidden bg-[#F5F6F4]">
+              <img
+                src="/images/alternatives/htx70-ms-rf-360.jpg"
+                alt="HTX70 splined rotary actuator installed on Atlas Copco Boomer mining drill rig"
+                className="w-full h-full object-contain"
+                loading="lazy"
+              />
+            </div>
+            <figcaption className="md:col-span-2 text-sm text-[#4A4E54] leading-relaxed">
+              The same helical rotary actuator platform is used across Atlas Copco / Epiroc and
+              Sandvik drill rigs. Matching the OEM part number or model code to the replacement is
+              the fastest way to confirm fit before ordering.
+            </figcaption>
+          </figure>
         </div>
       </section>
 
@@ -377,6 +410,27 @@ export function MiningDrillRigsPage() {
               </Link>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Visual divider */}
+      <section className="border-b border-[rgba(44,74,115,0.10)] bg-white">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-10 md:py-12">
+          <figure className="m-0 grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+            <figcaption className="md:col-span-2 order-2 md:order-1 text-sm text-[#4A4E54] leading-relaxed">
+              Before ordering, double-check the machine model, mounting flange, shaft type, and
+              rotation angle. These four details prevent mismatches when the same OEM part number is
+              shared across multiple drill or bolting rigs.
+            </figcaption>
+            <div className="md:col-span-1 order-1 md:order-2 h-44 md:h-52 rounded-md overflow-hidden bg-[#F5F6F4]">
+              <img
+                src="/images/alternatives/l20-15-e-cl-180-90.jpg"
+                alt="L20 helical rotary actuator for Sandvik mining drilling equipment"
+                className="w-full h-full object-contain"
+                loading="lazy"
+              />
+            </div>
+          </figure>
         </div>
       </section>
 
