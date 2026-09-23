@@ -192,6 +192,20 @@ export function SeriesPage({ code }: { code: string }) {
         </div>
       </section>
 
+      {/* Related applications */}
+      <section className="border-b border-[rgba(44,74,115,0.10)] bg-white">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-10 md:py-12">
+          <p className="text-sm text-[#62666C] leading-relaxed">
+            <span className="font-medium text-[#1B1E20]">Related application:</span>{' '}
+            See the{' '}
+            <Link href="/alternatives/mining-drill-rigs" className="text-[#2C4A73] no-underline hover:underline">
+              mining drill rigs
+            </Link>{' '}
+            selection page for Atlas Copco / Epiroc and Sandvik cross-references.
+          </p>
+        </div>
+      </section>
+
       {/* RFQ */}
       <section id="rfq" className="bg-white">
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">

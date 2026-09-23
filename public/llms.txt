@@ -10,6 +10,7 @@
 
 ## Applications
 - [JLG Aerial Work Platform](https://www.hmhydraulics.com/alternatives/jlg-aerial-work-platform): Replacement rotary actuators for JLG boom lifts and aerial platforms; cross-reference 14 JLG part numbers including GT and 10-digit codes.
+- [Mining Drill Rigs](https://www.hmhydraulics.com/alternatives/mining-drill-rigs): Cross-reference rotary actuators for Atlas Copco/Epiroc and Sandvik mining drill and bolting rigs by OEM part number or machine model.
 
 ## Series
 - [L10 Series](https://www.hmhydraulics.com/alternatives/helac-l10-series): Compact actuators, 12-26 kg, 180-360 deg

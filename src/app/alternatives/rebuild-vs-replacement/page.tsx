@@ -103,6 +103,18 @@ export default function RebuildVsReplacementPage() {
         </div>
       </section>
 
+      {/* Application context */}
+      <section className="border-b border-[rgba(44,74,115,0.10)] bg-white">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-4">
+          <p className="text-sm text-[#62666C]">
+            <span className="font-medium text-[#1B1E20]">Related application:</span>{' '}
+            <Link href="/alternatives/mining-drill-rigs" className="text-[#2C4A73] no-underline hover:underline">
+              Mining drill rigs
+            </Link>
+          </p>
+        </div>
+      </section>
+
       {/* Hero */}
       <section className="border-b border-[rgba(44,74,115,0.10)]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">

@@ -180,8 +180,44 @@ export default function AlternativesHubPage() {
         </div>
       </section>
 
-      {/* Series grid */}
+      {/* Applications */}
       <section>
+        <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
+          <p className="font-label text-xs text-[#62666C] uppercase tracking-wider mb-2">
+            Browse by application
+          </p>
+          <h2 className="font-heading text-2xl md:text-3xl font-medium text-[#1B1E20] mb-8">
+            Select your equipment type
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <Link
+              href="/alternatives/mining-drill-rigs"
+              className="block p-6 border border-[rgba(44,74,115,0.10)] rounded-md bg-white no-underline hover:border-[rgba(44,74,115,0.25)] transition-colors"
+            >
+              <h3 className="font-heading text-lg font-medium text-[#1B1E20] mb-2">
+                Mining drill rigs
+              </h3>
+              <p className="text-sm text-[#4A4E54] leading-relaxed">
+                Atlas Copco / Epiroc and Sandvik rotary actuators for Boltec, Boomer, Simba, and more.
+              </p>
+            </Link>
+            <Link
+              href="/alternatives/jlg-aerial-work-platform"
+              className="block p-6 border border-[rgba(44,74,115,0.10)] rounded-md bg-white no-underline hover:border-[rgba(44,74,115,0.25)] transition-colors"
+            >
+              <h3 className="font-heading text-lg font-medium text-[#1B1E20] mb-2">
+                JLG aerial work platforms
+              </h3>
+              <p className="text-sm text-[#4A4E54] leading-relaxed">
+                Replacement rotary actuators for JLG boom lifts and aerial platforms.
+              </p>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Series grid */}
+      <section className="border-t border-[rgba(44,74,115,0.10)]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
           <p className="font-label text-xs text-[#62666C] uppercase tracking-wider mb-2">
             Browse by series
