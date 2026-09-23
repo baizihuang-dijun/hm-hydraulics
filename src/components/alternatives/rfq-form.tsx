@@ -7,7 +7,7 @@ type RfqFormProps = {
   context: string;
 };
 
-type FieldKey = 'name' | 'email' | 'machine' | 'qty' | 'helacCode' | 'oemPn' | 'msg';
+type FieldKey = 'name' | 'email' | 'machine' | 'qty' | 'modelCode' | 'oemPn' | 'msg';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -25,7 +25,7 @@ export function RfqForm({ context }: RfqFormProps) {
     const email = String(data.get('f-email') ?? '').trim();
     const machine = String(data.get('f-machine') ?? '').trim();
     const qty = String(data.get('f-qty') ?? '').trim();
-    const helacCode = String(data.get('f-helac-code') ?? '').trim();
+    const modelCode = String(data.get('f-model-code') ?? '').trim();
     const oemPn = String(data.get('f-oem-pn') ?? '').trim();
     const msg = String(data.get('f-msg') ?? '').trim();
 
@@ -46,7 +46,7 @@ export function RfqForm({ context }: RfqFormProps) {
       `Original model / part number: ${context}`,
       machine ? `Machine / equipment model: ${machine}` : 'Machine / equipment model: -',
       qty ? `Quantity: ${qty}` : 'Quantity: -',
-      `Helac model code: ${helacCode || '-'}`,
+      `Model code or specification: ${modelCode || '-'}`,
       `OEM part number: ${oemPn || '-'}`,
       '',
       `Message: ${msg}`,
@@ -101,15 +101,15 @@ export function RfqForm({ context }: RfqFormProps) {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label htmlFor="f-helac-code" className="block font-label text-xs uppercase tracking-wider text-[#62666C] mb-1.5">
-            Helac model code
+          <label htmlFor="f-model-code" className="block font-label text-xs uppercase tracking-wider text-[#62666C] mb-1.5">
+            Model code or specification
           </label>
           <input
-            id="f-helac-code"
-            name="f-helac-code"
+            id="f-model-code"
+            name="f-model-code"
             type="text"
-            placeholder="e.g. L10-5-5-M-RF-360-S1-O-H"
-            className={fieldClass('helacCode')}
+            placeholder="e.g. L10-5-5-M-RF-360-S1-O-H or other brand model"
+            className={fieldClass('modelCode')}
           />
         </div>
         <div>
