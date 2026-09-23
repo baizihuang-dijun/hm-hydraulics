@@ -8,6 +8,9 @@
 - [Cross-Reference Guide](https://www.hmhydraulics.com/alternatives/cross-reference-guide): How to match OEM part numbers to the right Helac replacement.
 - [How to Identify Your Helac Actuator](https://www.hmhydraulics.com/alternatives/how-to-identify): Read model tags, decode model codes, and identify any Helac rotary actuator.
 
+## Applications
+- [JLG Aerial Work Platform](https://www.hmhydraulics.com/alternatives/jlg-aerial-work-platform): Replacement rotary actuators for JLG boom lifts and aerial platforms; cross-reference 14 JLG part numbers including GT and 10-digit codes.
+
 ## Series
 - [L10 Series](https://www.hmhydraulics.com/alternatives/helac-l10-series): Compact actuators, 12-26 kg, 180-360 deg
 - [L20 Series](https://www.hmhydraulics.com/alternatives/helac-l20-series): Mid-size actuators, 56 kg, compound angle

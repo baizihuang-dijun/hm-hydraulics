@@ -310,6 +310,17 @@ export default function AlternativesHubPage() {
                 Read model tags and decode model codes.
               </p>
             </Link>
+            <Link
+              href="/alternatives/jlg-aerial-work-platform"
+              className="block p-6 border border-[rgba(44,74,115,0.10)] rounded-md bg-white no-underline hover:border-[rgba(44,74,115,0.25)] transition-colors"
+            >
+              <h3 className="font-heading text-lg font-medium text-[#1B1E20] mb-2">
+                JLG Aerial Work Platform
+              </h3>
+              <p className="text-sm text-[#4A4E54] leading-relaxed">
+                Cross-reference JLG part numbers for boom lift replacements.
+              </p>
+            </Link>
           </div>
         </div>
       </section>

@@ -21,6 +21,7 @@ const staticRoutes = [
   '/alternatives/rebuild-vs-replacement',
   '/alternatives/cross-reference-guide',
   '/alternatives/how-to-identify',
+  '/alternatives/jlg-aerial-work-platform',
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
