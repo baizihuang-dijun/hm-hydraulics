@@ -15,7 +15,24 @@ export default function ContactPage() {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    // In production, this would send to a backend
+
+    const lines = [
+      `Name: ${formState.name || '-'}`,
+      `Company: ${formState.company || '-'}`,
+      `Email: ${formState.email || '-'}`,
+      `Product of interest: ${formState.product || '-'}`,
+      '',
+      `Message: ${formState.message || '-'}`,
+    ];
+
+    const subject = formState.name
+      ? `Website inquiry from ${formState.name}`
+      : 'Website inquiry';
+
+    window.location.href = `mailto:hm@hmhydraulics.com?subject=${encodeURIComponent(
+      subject,
+    )}&body=${encodeURIComponent(lines.join('\n'))}`;
+
     setSubmitted(true);
   };
 
@@ -55,11 +72,14 @@ export default function ContactPage() {
                     </svg>
                   </div>
                   <h2 className="font-heading text-xl font-medium text-[#1B1E20] mb-2">
-                    Message received
+                    Check your email application
                   </h2>
                   <p className="text-sm text-[#4A4E54] leading-relaxed">
-                    Thank you for your inquiry. Our team will review your
-                    requirements.
+                    Your email application should now be open. If nothing happened, write to{' '}
+                    <a href="mailto:hm@hmhydraulics.com" className="text-[#2C4A73] no-underline hover:underline">
+                      hm@hmhydraulics.com
+                    </a>{' '}
+                    directly.
                   </p>
                 </div>
               ) : (
@@ -129,7 +149,7 @@ export default function ContactPage() {
                       htmlFor="product"
                       className="block text-sm font-medium text-[#1B1E20] mb-1.5"
                     >
-                      Inquiry Type
+                      Product of interest
                     </label>
                     <select
                       id="product"
