@@ -7,7 +7,7 @@ type RfqFormProps = {
   context: string;
 };
 
-type FieldKey = 'name' | 'email' | 'machine' | 'qty' | 'msg';
+type FieldKey = 'name' | 'email' | 'machine' | 'qty' | 'helacCode' | 'oemPn' | 'msg';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -25,6 +25,8 @@ export function RfqForm({ context }: RfqFormProps) {
     const email = String(data.get('f-email') ?? '').trim();
     const machine = String(data.get('f-machine') ?? '').trim();
     const qty = String(data.get('f-qty') ?? '').trim();
+    const helacCode = String(data.get('f-helac-code') ?? '').trim();
+    const oemPn = String(data.get('f-oem-pn') ?? '').trim();
     const msg = String(data.get('f-msg') ?? '').trim();
 
     const nextInvalid: Partial<Record<FieldKey, boolean>> = {
@@ -44,6 +46,8 @@ export function RfqForm({ context }: RfqFormProps) {
       `Original model / part number: ${context}`,
       machine ? `Machine / equipment model: ${machine}` : 'Machine / equipment model: -',
       qty ? `Quantity: ${qty}` : 'Quantity: -',
+      `Helac model code: ${helacCode || '-'}`,
+      `OEM part number: ${oemPn || '-'}`,
       '',
       `Message: ${msg}`,
     ];
@@ -74,7 +78,7 @@ export function RfqForm({ context }: RfqFormProps) {
         </div>
         <div>
           <label htmlFor="f-email" className="block font-label text-xs uppercase tracking-wider text-[#62666C] mb-1.5">
-            Email
+            Email <span className="text-[#A31919]">*</span>
           </label>
           <input id="f-email" name="f-email" type="email" autoComplete="email" className={fieldClass('email')} />
         </div>
@@ -95,6 +99,27 @@ export function RfqForm({ context }: RfqFormProps) {
         </div>
       </div>
 
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label htmlFor="f-helac-code" className="block font-label text-xs uppercase tracking-wider text-[#62666C] mb-1.5">
+            Helac model code
+          </label>
+          <input
+            id="f-helac-code"
+            name="f-helac-code"
+            type="text"
+            placeholder="e.g. L10-5-5-M-RF-360-S1-O-H"
+            className={fieldClass('helacCode')}
+          />
+        </div>
+        <div>
+          <label htmlFor="f-oem-pn" className="block font-label text-xs uppercase tracking-wider text-[#62666C] mb-1.5">
+            OEM part number
+          </label>
+          <input id="f-oem-pn" name="f-oem-pn" type="text" placeholder="e.g. 3128312645" className={fieldClass('oemPn')} />
+        </div>
+      </div>
+
       <div>
         <label htmlFor="f-msg" className="block font-label text-xs uppercase tracking-wider text-[#62666C] mb-1.5">
           Your requirement <span className="text-[#A31919]">*</span>
@@ -103,7 +128,7 @@ export function RfqForm({ context }: RfqFormProps) {
           id="f-msg"
           name="f-msg"
           rows={4}
-          placeholder="Model on the unit, part number on the tag, and what you need."
+          placeholder="Model on the unit, part number on the tag, and what you need. Please also attach photos of the model tag, mounting face, shaft, and machine nameplate to your email."
           className={fieldClass('msg')}
         />
       </div>

@@ -18,6 +18,9 @@ const staticRoutes = [
   '/support',
   '/contact',
   '/alternatives',
+  '/alternatives/rebuild-vs-replacement',
+  '/alternatives/cross-reference-guide',
+  '/alternatives/how-to-identify',
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

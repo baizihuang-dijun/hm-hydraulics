@@ -1,0 +1,21 @@
+# HM Hydraulics
+
+> HM Hydraulics is a technical sourcing partner for hydraulic rotary actuators and core hydraulic components, supplying drop-in replacements for Helac series actuators used on mining and construction equipment.
+
+## Guides
+- [Helac Replacement Guide](https://www.hmhydraulics.com/alternatives): Find replacement rotary actuators for Helac L10, L20, L30, L40, HTX, and HP series.
+- [Rebuild vs Replacement](https://www.hmhydraulics.com/alternatives/rebuild-vs-replacement): Compare costs, downtime, and risk when deciding to rebuild or replace a rotary actuator.
+- [Cross-Reference Guide](https://www.hmhydraulics.com/alternatives/cross-reference-guide): How to match OEM part numbers to the right Helac replacement.
+- [How to Identify Your Helac Actuator](https://www.hmhydraulics.com/alternatives/how-to-identify): Read model tags, decode model codes, and identify any Helac rotary actuator.
+
+## Series
+- [L10 Series](https://www.hmhydraulics.com/alternatives/helac-l10-series): Compact actuators, 12-26 kg, 180-360 deg
+- [L20 Series](https://www.hmhydraulics.com/alternatives/helac-l20-series): Mid-size actuators, 56 kg, compound angle
+- [L30 Series](https://www.hmhydraulics.com/alternatives/helac-l30-series): Large flange actuators, 49-94 kg
+- [L40 Series](https://www.hmhydraulics.com/alternatives/helac-l40-series): Heavy-duty actuators, 140 kg, 360 deg
+- [HTX Series](https://www.hmhydraulics.com/alternatives/helac-htx-series): Splined-shaft actuators
+- [HP Series](https://www.hmhydraulics.com/alternatives/helac-hp-series): Flanged actuators, 27-208 kg
+
+## Contact
+- Email: hm@hmhydraulics.com
+- Send your Helac model code, OEM part number, and tag photos for free engineering verification.

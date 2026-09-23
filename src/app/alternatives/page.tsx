@@ -79,6 +79,27 @@ const faqs = [
     q: 'Is the HM replacement model number published online?',
     a: 'No. The exact HM model and price are confirmed per inquiry so we can verify mounting dimensions and operating parameters with you first, rather than risk a mismatched part.',
   },
+  {
+    q: 'What is the lead time for a replacement rotary actuator?',
+    a: 'Lead time depends on the model and quantity. Standard models are typically available within 2-4 weeks. Send your model code for an accurate timeline.',
+  },
+  {
+    q: 'Do you ship worldwide?',
+    a: 'Yes, we ship to mining and construction operations worldwide. Freight and customs arrangements are handled per shipment.',
+  },
+  {
+    q: 'Can you match actuators for machines not listed on your site?',
+    a: 'Yes. If your machine model is not listed, send the actuator model code and machine details — we check compatibility for models beyond our published catalog.',
+  },
+  {
+    q: 'What is the difference between Helac L10, L20, L30, and L40?',
+    a: 'The series indicate size and torque capacity. L10 is compact (12-26 kg), L20 is mid-size, L30 is large flange-mount, and L40 is heavy-duty for the largest rotation duties.',
+  },
+  {
+    q: 'How do I know if I need to rebuild or replace my actuator?',
+    a: 'If only seals are worn and the housing is intact, rebuild may work. If there is torque loss, shaft damage, or housing cracks, replacement is usually more reliable. See our rebuild vs replacement guide for details.',
+    link: { href: '/alternatives/rebuild-vs-replacement', label: 'rebuild vs replacement guide' },
+  },
 ];
 
 const breadcrumbJsonLd = {
@@ -96,7 +117,7 @@ const faqJsonLd = {
   mainEntity: faqs.map((f) => ({
     '@type': 'Question',
     name: f.q,
-    acceptedAnswer: { '@type': 'Answer', text: f.a },
+    acceptedAnswer: { '@type': 'Answer', text: f.link ? `${f.a.split(' See our')[0]}. See our ${f.link.label}: ${`https://www.hmhydraulics.com${f.link.href}`}` : f.a },
   })),
 };
 
@@ -128,12 +149,18 @@ export default function AlternativesHubPage() {
           <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-medium text-[#1B1E20] mb-5">
             Replacement Guide for Helac Rotary Actuators
           </h1>
+          <p className="text-lg text-[#4A4E54] leading-relaxed max-w-3xl mb-6">
+            Looking for a replacement for a Helac rotary actuator? We supply drop-in alternatives
+            matched to the original mounting interface, shaft, rotation angle, and torque specs
+            across all Helac series — L10, L20, L30, L40, HTX, and HP. Send us the model code or OEM
+            part number from the actuator tag, and our engineering team confirms the exact match
+            before you order.
+          </p>
           <p className="text-lg text-[#4A4E54] leading-relaxed max-w-3xl">
-            If the Helac actuator on your Atlas or Sandvik machine is worn, damaged or
-            past its service life, we supply an alternative matched to the original
-            interface. Browse by series, or send us the model code and part number on
-            the tag &mdash; our engineering team confirms the exact replacement before
-            you commit.
+            If the Helac actuator on your Atlas or Sandvik machine is worn, damaged or past its
+            service life, we supply an alternative matched to the original interface. Browse by
+            series, or send us the model code and part number on the tag — our engineering team
+            confirms the exact replacement before you commit.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
@@ -149,6 +176,7 @@ export default function AlternativesHubPage() {
               Ask us to check a model
             </a>
           </div>
+          <p className="mt-4 text-sm text-[#62666C]">Last reviewed: September 2026</p>
         </div>
       </section>
 
@@ -222,9 +250,66 @@ export default function AlternativesHubPage() {
                     +
                   </span>
                 </summary>
-                <p className="mt-3 text-[#4A4E54] leading-relaxed">{f.a}</p>
+                <p className="mt-3 text-[#4A4E54] leading-relaxed">
+                  {f.link ? (
+                    <>
+                      {f.a.split(' See our')[0]}. See our{' '}
+                      <Link href={f.link.href} className="text-[#2C4A73] no-underline hover:underline">
+                        {f.link.label}
+                      </Link>{' '}
+                      for details.
+                    </>
+                  ) : (
+                    f.a
+                  )}
+                </p>
               </details>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Related Guides */}
+      <section className="border-t border-[rgba(44,74,115,0.10)]">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
+          <p className="eyebrow mb-4">LEARN MORE</p>
+          <h2 className="font-heading text-2xl md:text-3xl font-medium text-[#1B1E20] mb-8">
+            Related Guides
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <Link
+              href="/alternatives/rebuild-vs-replacement"
+              className="block p-6 border border-[rgba(44,74,115,0.10)] rounded-md bg-white no-underline hover:border-[rgba(44,74,115,0.25)] transition-colors"
+            >
+              <h3 className="font-heading text-lg font-medium text-[#1B1E20] mb-2">
+                Rebuild vs Replacement Guide
+              </h3>
+              <p className="text-sm text-[#4A4E54] leading-relaxed">
+                Compare costs, downtime, and risk factors.
+              </p>
+            </Link>
+            <Link
+              href="/alternatives/cross-reference-guide"
+              className="block p-6 border border-[rgba(44,74,115,0.10)] rounded-md bg-white no-underline hover:border-[rgba(44,74,115,0.25)] transition-colors"
+            >
+              <h3 className="font-heading text-lg font-medium text-[#1B1E20] mb-2">
+                Cross-Reference Guide
+              </h3>
+              <p className="text-sm text-[#4A4E54] leading-relaxed">
+                Match OEM part numbers to the right replacement.
+              </p>
+            </Link>
+            <Link
+              href="/alternatives/how-to-identify"
+              className="block p-6 border border-[rgba(44,74,115,0.10)] rounded-md bg-white no-underline hover:border-[rgba(44,74,115,0.25)] transition-colors"
+            >
+              <h3 className="font-heading text-lg font-medium text-[#1B1E20] mb-2">
+                How to Identify Your Helac Actuator
+              </h3>
+              <p className="text-sm text-[#4A4E54] leading-relaxed">
+                Read model tags and decode model codes.
+              </p>
+            </Link>
           </div>
         </div>
       </section>
@@ -241,10 +326,13 @@ export default function AlternativesHubPage() {
               <p className="text-[#4A4E54] leading-relaxed mb-6">
                 Give us the model code, the part number on the tag and the machine it
                 is fitted to. We confirm the matching alternative, mounting interface
-                and availability &mdash; usually within one working day.
+                and availability — usually within one working day.
               </p>
               <p className="text-sm text-[#62666C]">
-                Or email directly: hm@hmhydraulics.com
+                Or email directly:{" "}
+                <a href="mailto:hm@hmhydraulics.com" className="text-[#2C4A73] no-underline hover:underline">
+                  hm@hmhydraulics.com
+                </a>
               </p>
             </div>
             <div className="p-6 md:p-8 bg-white border border-[rgba(44,74,115,0.10)] rounded-md">
