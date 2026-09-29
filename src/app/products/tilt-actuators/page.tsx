@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: 'Tilt Actuators — HM Hydraulics',
   description:
     'DTA Series (12 models) and DTD Series (7 models) tilt actuators for excavator tilt couplers. Comparable specifications to HKS BVC/BVE and Helac PT.',
+  alternates: { canonical: '/products/tilt-actuators' },
 };
 
 const dtaModels = [

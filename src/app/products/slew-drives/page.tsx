@@ -4,6 +4,7 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Slew Drives',
   description: 'Precision slew drives — coming soon to the HM Hydraulics product range.',
+  alternates: { canonical: '/products/slew-drives' },
 };
 
 export default function SlewDrivesPage() {

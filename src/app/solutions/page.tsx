@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: 'Solutions — HM Hydraulics',
   description:
     'From technical requirement to reliable delivery. Engineering support, manufacturing sourcing, quality coordination and delivery management for hydraulic components.',
+  alternates: { canonical: '/solutions' },
 };
 
 export default function SolutionsPage() {

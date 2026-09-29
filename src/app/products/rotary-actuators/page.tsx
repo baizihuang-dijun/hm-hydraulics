@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: 'Rotary Actuators — HM Hydraulics',
   description:
     '9 series, 72 configurations of hydraulic rotary actuators. 100 Nm to 42,900 Nm standard torque range.',
+  alternates: { canonical: '/products/rotary-actuators' },
 };
 
 const series = [

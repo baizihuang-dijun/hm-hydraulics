@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: 'About — HM Hydraulics',
   description:
     'HM Hydraulics — Technical sourcing partner for hydraulic rotary actuators and core hydraulic components. Engineering-led validation, quality oversight, supply coordination.',
+  alternates: { canonical: '/about' },
 };
 
 const applications = [

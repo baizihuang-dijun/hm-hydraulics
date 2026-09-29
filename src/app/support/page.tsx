@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: 'Technical & After-Sales Support — HM Hydraulics',
   description:
     'Technical support and after-sales service for hydraulic actuators. Documentation, warranty coordination, replacement support, and supply coordination.',
+  alternates: { canonical: '/support' },
 };
 
 const supportCapabilities = [

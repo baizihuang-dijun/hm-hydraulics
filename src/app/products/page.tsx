@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: 'Products — HM Hydraulics',
   description:
     'Hydraulic actuators and selected components. Technical sourcing solutions for demanding hydraulic applications.',
+  alternates: { canonical: '/products' },
 };
 
 const products = [

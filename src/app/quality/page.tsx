@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: 'Quality & Technical Validation — HM Hydraulics',
   description:
     'ISO9001 certified production. 1,000,000-cycle fatigue test passed. Full QA traceability. Every unit tested before shipment.',
+  alternates: { canonical: '/quality' },
 };
 
 const milestones = [
