@@ -12,28 +12,43 @@ export default function ContactPage() {
     message: '',
   });
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    const lines = [
-      `Name: ${formState.name || '-'}`,
-      `Company: ${formState.company || '-'}`,
-      `Email: ${formState.email || '-'}`,
-      `Product of interest: ${formState.product || '-'}`,
-      '',
-      `Message: ${formState.message || '-'}`,
-    ];
-
-    const subject = formState.name
-      ? `Website inquiry from ${formState.name}`
-      : 'Website inquiry';
-
-    window.location.href = `mailto:hm@hmhydraulics.com?subject=${encodeURIComponent(
-      subject,
-    )}&body=${encodeURIComponent(lines.join('\n'))}`;
-
-    setSubmitted(true);
+    setErrorMsg('');
+    setSending(true);
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: 'e9d0abd1-8bbf-4c81-b984-c76bc78b9b6b',
+          subject: formState.name
+            ? `Website inquiry from ${formState.name}`
+            : 'Website inquiry',
+          from_name: 'HM Hydraulics Website',
+          name: formState.name || '-',
+          company: formState.company || '-',
+          email: formState.email,
+          product_of_interest: formState.product || '-',
+          message: formState.message || '-',
+          source_page: typeof window !== 'undefined' ? window.location.href : '',
+          botcheck: '',
+        }),
+      });
+      const result = await res.json();
+      if (result.success) {
+        setSubmitted(true);
+      } else {
+        setErrorMsg(result.message || 'Sorry, the message could not be sent. Please try again.');
+      }
+    } catch {
+      setErrorMsg('Network error — please check your connection and try again.');
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -72,10 +87,11 @@ export default function ContactPage() {
                     </svg>
                   </div>
                   <h2 className="font-heading text-xl font-medium text-[#1B1E20] mb-2">
-                    Check your email application
+                    Message sent
                   </h2>
                   <p className="text-sm text-[#4A4E54] leading-relaxed">
-                    Your email application should now be open. If nothing happened, write to{' '}
+                    Thank you — your message has been sent. We will get back to you shortly.
+                    For anything urgent, write to{' '}
                     <a href="mailto:hm@hmhydraulics.com" className="text-[#2C4A73] no-underline hover:underline">
                       hm@hmhydraulics.com
                     </a>{' '}
@@ -192,12 +208,21 @@ export default function ContactPage() {
                     />
                   </div>
 
+                  <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" aria-hidden="true" />
+
                   <button
                     type="submit"
-                    className="inline-flex items-center px-6 py-3 bg-[#2C4A73] text-white text-sm font-medium rounded hover:bg-[#1E3A5F] transition-colors duration-150 cursor-pointer"
+                    disabled={sending}
+                    className="inline-flex items-center px-6 py-3 bg-[#2C4A73] text-white text-sm font-medium rounded hover:bg-[#1E3A5F] transition-colors duration-150 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
                   >
-                    Send Inquiry
+                    {sending ? 'Sending...' : 'Send Inquiry'}
                   </button>
+
+                  {errorMsg && (
+                    <p className="text-sm text-[#A31919] leading-relaxed" role="alert">
+                      {errorMsg}
+                    </p>
+                  )}
                 </form>
               )}
             </div>

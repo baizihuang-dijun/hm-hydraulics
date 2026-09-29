@@ -14,8 +14,10 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 export function RfqForm({ context }: RfqFormProps) {
   const [invalid, setInvalid] = useState<Partial<Record<FieldKey, boolean>>>({});
   const [status, setStatus] = useState<string>('');
+  const [sending, setSending] = useState(false);
+  const [sentOk, setSentOk] = useState(false);
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setStatus('');
 
@@ -28,6 +30,7 @@ export function RfqForm({ context }: RfqFormProps) {
     const modelCode = String(data.get('f-model-code') ?? '').trim();
     const oemPn = String(data.get('f-oem-pn') ?? '').trim();
     const msg = String(data.get('f-msg') ?? '').trim();
+    const botcheck = String(data.get('botcheck') ?? '').trim();
 
     const nextInvalid: Partial<Record<FieldKey, boolean>> = {
       email: !EMAIL_RE.test(email),
@@ -40,24 +43,40 @@ export function RfqForm({ context }: RfqFormProps) {
       return;
     }
 
-    const lines = [
-      `Name: ${name}`,
-      `Email: ${email}`,
-      `Original model / part number: ${context}`,
-      machine ? `Machine / equipment model: ${machine}` : 'Machine / equipment model: -',
-      qty ? `Quantity: ${qty}` : 'Quantity: -',
-      `Model code or specification: ${modelCode || '-'}`,
-      `OEM part number: ${oemPn || '-'}`,
-      '',
-      `Message: ${msg}`,
-    ];
-
-    const subject = `Replacement inquiry — ${context}`;
-    window.location.href = `mailto:hm@hmhydraulics.com?subject=${encodeURIComponent(
-      subject,
-    )}&body=${encodeURIComponent(lines.join('\n'))}`;
-
-    setStatus('Your email application should now be open. If nothing happened, write to hm@hmhydraulics.com directly.');
+    setSending(true);
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: 'e9d0abd1-8bbf-4c81-b984-c76bc78b9b6b',
+          subject: `Replacement inquiry — ${context}`,
+          from_name: 'HM Hydraulics Website',
+          name: name || '-',
+          email,
+          original_model_or_part_number: context,
+          machine_equipment_model: machine || '-',
+          quantity: qty || '-',
+          model_code_or_specification: modelCode || '-',
+          oem_part_number: oemPn || '-',
+          message: msg,
+          source_page: typeof window !== 'undefined' ? window.location.href : '',
+          botcheck,
+        }),
+      });
+      const result = await res.json();
+      if (result.success) {
+        setSentOk(true);
+        form.reset();
+        setStatus('Thank you, your message has been sent. We will get back to you shortly.');
+      } else {
+        setStatus(result.message || 'Sorry, the message could not be sent. Please try again.');
+      }
+    } catch {
+      setStatus('Network error — please check your connection and try again.');
+    } finally {
+      setSending(false);
+    }
   };
 
   const fieldClass = (key: FieldKey) =>
@@ -133,15 +152,18 @@ export function RfqForm({ context }: RfqFormProps) {
         />
       </div>
 
+      <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" aria-hidden="true" />
+
       <button
         type="submit"
-        className="inline-flex items-center px-5 py-2.5 bg-[#2C4A73] text-white text-sm font-medium rounded no-underline hover:bg-[#1E3A5F] transition-colors duration-150"
+        disabled={sending}
+        className="inline-flex items-center px-5 py-2.5 bg-[#2C4A73] text-white text-sm font-medium rounded no-underline hover:bg-[#1E3A5F] transition-colors duration-150 disabled:opacity-60 disabled:cursor-not-allowed"
       >
-        Check compatibility &amp; availability
+        {sending ? 'Sending...' : 'Check compatibility & availability'}
       </button>
 
       {status && (
-        <p className="text-sm text-[#4A4E54] leading-relaxed" role="status">
+        <p className={`text-sm leading-relaxed ${sentOk ? 'text-[#2C6B3F]' : 'text-[#4A4E54]'}`} role="status">
           {status}
         </p>
       )}
