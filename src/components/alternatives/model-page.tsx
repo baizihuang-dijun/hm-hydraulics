@@ -30,6 +30,9 @@ function buildFaqs(d: ModelData) {
     });
   }
 
+  // Model-specific FAQs (e.g. exact machine fit question)
+  if (d.extraFaqs?.length) faqs.push(...d.extraFaqs);
+
   // Q3 — why model/price hidden
   faqs.push({
     q: 'Why is the exact HM model and price not shown?',
@@ -48,6 +51,7 @@ export function ModelPage({ d }: { d: ModelData }) {
     { label: 'Original brand', value: 'Helac', mono: false },
     { label: 'Type', value: 'Rotary actuator', mono: false },
     { label: 'Rotation', value: d.rotation, mono: false },
+    ...(d.torque ? [{ label: 'Rated torque', value: d.torque, mono: false }] : []),
     ...(d.weight ? [{ label: 'Weight', value: d.weight, mono: false }] : []),
     ...(d.parts.length ? [{ label: 'Original part no.', value: listJoin(d.parts), mono: true }] : []),
   ];
@@ -88,6 +92,7 @@ export function ModelPage({ d }: { d: ModelData }) {
         ? [{ '@type': 'PropertyValue', name: 'OEM part number', value: listJoin(d.parts) }]
         : []),
       { '@type': 'PropertyValue', name: 'Rotation', value: d.rotation },
+      ...(d.torque ? [{ '@type': 'PropertyValue', name: 'Rated torque', value: d.torque }] : []),
       ...(d.weight ? [{ '@type': 'PropertyValue', name: 'Weight', value: d.weight }] : []),
     ],
   };
@@ -249,6 +254,7 @@ export function ModelPage({ d }: { d: ModelData }) {
                 {[
                   ['Product type', 'Hydraulic rotary actuator'],
                   ['Rotation angle', d.rotation],
+                  ...(d.torque ? ([['Rated torque', d.torque]] as [string, string][]) : []),
                   ...(d.weight ? ([['Unit weight', d.weight]] as [string, string][]) : []),
                 ].map(([k, v]) => (
                   <tr key={k} className="border-b border-[rgba(44,74,115,0.08)] last:border-b-0">
@@ -258,6 +264,14 @@ export function ModelPage({ d }: { d: ModelData }) {
                     <td className="py-3.5 px-5 text-[#4A4E54]">{v}</td>
                   </tr>
                 ))}
+                {d.crossNote && (
+                  <tr className="border-b border-[rgba(44,74,115,0.08)]">
+                    <th scope="row" className="text-left py-3.5 px-5 font-medium text-[#1B1E20] w-48 align-top">
+                      Cross reference
+                    </th>
+                    <td className="py-3.5 px-5 text-[#4A4E54]">{d.crossNote}</td>
+                  </tr>
+                )}
                 <tr>
                   <th scope="row" className="text-left py-3.5 px-5 font-medium text-[#1B1E20] w-48 align-top">
                     Further data

@@ -23,6 +23,12 @@ export interface ModelData {
   intro: string;
   /** Text used in the Known-applications block intro (optional). */
   applicationNote?: string;
+  /** Rated torque with unit, or '' when not confirmed (optional). */
+  torque?: string;
+  /** Free-text alternative cross-reference note, e.g. Parker series (optional). */
+  crossNote?: string;
+  /** Model-specific FAQ entries appended to the generated set (optional). */
+  extraFaqs?: { q: string; a: string }[];
 }
 
 const base = 'https://www.hmhydraulics.com';
@@ -35,15 +41,26 @@ export const modelPages: ModelData[] = [
     seriesSlug: 'helac-l10-series',
     rotation: '180°',
     weight: '12 kg',
-    brands: [],
-    parts: [],
-    machines: [],
+    brands: ['Husqvarna'],
+    parts: ['541 20 09-94'],
+    machines: ['RS8500D'],
     image: '/images/alternatives/l10-3-0-e-rf-180.jpg',
     imageW: 211,
     imageH: 212,
-    imageAlt: 'Replacement rotary actuator for Helac L10-3.0-E-RF-180, 180 degree compact helical unit',
+    imageAlt: 'Replacement steering rotary actuator for Helac L10-3.0-E-RF-180, Husqvarna RS8500D part 541 20 09-94',
     intro:
-      'Alternative rotary actuator for the Helac L10-3.0-E-RF-180-S1-O-H, a compact 180-degree helical rotary actuator in the 12 kg class, supplied for maintenance and aftermarket replacement.',
+      'Alternative steering rotary actuator for the Helac L10-3.0-E-RF-180-S1-O-H, a compact 180-degree helical rotary actuator in the 12 kg class rated at 3,000 in-lb. It is listed by Husqvarna as steering actuator part number 541 20 09-94 on the RS8500D ride-on concrete saw, supplied for maintenance and aftermarket replacement.',
+    applicationNote:
+      'Based on Husqvarna parts records, part number 541 20 09-94 is the steering (rotary) actuator in the hydraulic assembly of the RS8500D ride-on floor saw. Confirmation against your machine build plate and the actuator tag is recommended.',
+    torque: '3,000 in-lb',
+    crossNote:
+      'May also cross to the Parker 53905-P041 series (e.g. 53905-P041-D / P065-D); the final match is verified against the tag on your unit.',
+    extraFaqs: [
+      {
+        q: 'Will this fit a Husqvarna RS8500D?',
+        a: 'Yes. On the Husqvarna RS8500D ride-on concrete saw, the steering actuator in the hydraulic assembly is part number 541 20 09-94, the Helac L10-3.0-E-RF-180-S1-O-H. Before ordering we confirm the mounting face, port position and rotation against the tag and a drawing or photo of your unit.',
+      },
+    ],
   },
   {
     model: 'L10-3.0-S-RF-180-S1-0-H',
