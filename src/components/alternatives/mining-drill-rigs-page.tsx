@@ -16,6 +16,7 @@ const slugByModelCode: Record<string, string | undefined> = {
   'L40-110-M-RF-360-S1-C-H': 'l40-110-m-rf-360-s1-c-h',
   HKS: undefined,
   'HP125-S-RF-360-S1-C-H': 'hp125-s-rf-360-s1-c-h',
+  'L30-65-S-RF-360-S1-C-H': 'l30-65-s-rf-360-s1-c-h',
   'L10-3.0-E-RF-180-S1-O-H': 'l10-3-0-e-rf-180-s1-o-h',
   'L10-3.0-S-RF-180-S1-O-H': 'l10-3-0-s-rf-180-s1-0-h',
   'L20-15-E-CL-180/90-S1-O-H': 'l20-15-e-cl-180-90-s1-o-h',
@@ -73,6 +74,12 @@ const atlasRows = [
     oemNo: 'L3D, 3128312645',
     weight: '208',
     machines: 'Boomer M2d, Boomer Xl3, Boomer 353, Boomer L2c, Boomer L2d',
+  },
+  {
+    code: 'L30-65-S-RF-360-S1-C-H',
+    oemNo: '3128312644',
+    weight: '—',
+    machines: 'Boomer 282',
   },
 ];
 
@@ -252,7 +259,7 @@ export function MiningDrillRigsPage() {
                 model to look up the corresponding Helac-compatible actuator, then send us the code for
                 engineering verification before ordering.
               </p>
-              <p className="text-sm text-[#62666C]">Last reviewed: September 2026</p>
+              <p className="text-sm text-[#62666C]">Last reviewed: October 2026</p>
             </div>
             <div className="relative h-56 md:h-72 lg:h-80 rounded-md overflow-hidden bg-[#F5F6F4]">
               <img

@@ -203,6 +203,36 @@ export const modelPages: ModelData[] = [
       'Alternative rotary actuator for the Helac L30-42-M-FT-180-S1-C-H, a flanged 180-degree helical actuator in the 73 kg class, supplied for heavy-duty aftermarket replacement.',
   },
   {
+    model: 'L30-65-S-RF-360-S1-C-H',
+    slug: 'l30-65-s-rf-360-s1-c-h',
+    series: 'L30',
+    seriesSlug: 'helac-l30-series',
+    rotation: '360°',
+    weight: '',
+    brands: ['Atlas'],
+    parts: ['3128312644'],
+    machines: ['Boomer 282'],
+    image: '/images/alternatives/l30-65-s-rf-360.jpg',
+    imageW: 384,
+    imageH: 510,
+    imageAlt:
+      'Replacement rotary actuator for Helac L30-65-S-RF-360-S1-C-H, Atlas Copco Epiroc part 3128312644 on Boomer 282 mining drill rig',
+    intro:
+      'Alternative rotary actuator for the Helac L30-65-S-RF-360-S1-C-H, a large 360-degree helical rotary actuator with round-flange mount and integral counterbalance valve, supplied for heavy-duty mining use. It is listed by Atlas Copco / Epiroc under part number 3128312644 on the Boomer 282 underground face-drill rig.',
+    applicationNote:
+      'Based on equipment records, part number 3128312644 is the rotary actuator on the Atlas Copco / Epiroc Boomer 282 underground drilling rig, built to the Helac L30-65-S-RF-360-S1-C-H configuration. Confirmation against your machine build plate and the actuator tag is recommended.',
+    extraFaqs: [
+      {
+        q: 'Will this fit an Atlas Copco / Epiroc Boomer 282?',
+        a: 'Yes. On the Atlas Copco / Epiroc Boomer 282 face-drill rig the rotation actuator is supplied under part number 3128312644, corresponding to the Helac L30-65-S-RF-360-S1-C-H configuration (360-degree rotation, round-flange mount, integral counterbalance valve). Before ordering we confirm the mounting face, port position and rotation against the tag and a photo or drawing of your unit.',
+      },
+      {
+        q: 'What do the S-RF and C-H sections of the code mean?',
+        a: 'In this build RF denotes the round-flange mounting interface, C indicates an integral counterbalance valve, and H is the standard nitrile seal package. The S segment and the S1 shaft/end-cap code are part of the factory configuration for this Boomer 282 build; send the full code or a photo of the tag and we confirm the exact variant.',
+      },
+    ],
+  },
+  {
     model: 'L10-5.5-M-RF-360/240-S1-CH',
     slug: 'l10-5-5-m-rf-360-240-s1-ch',
     series: 'L10',
