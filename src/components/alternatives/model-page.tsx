@@ -173,6 +173,11 @@ export function ModelPage({ d }: { d: ModelData }) {
                   View specifications
                 </a>
               </div>
+              <p className="mt-4 mb-0 text-xs">
+                <a href="/solutions" className="text-[#2C4A73] no-underline hover:underline">
+                  Specifying a new program? Talk to our engineering team &rarr;
+                </a>
+              </p>
               <p className="mt-5 text-xs text-[#62666C] leading-relaxed">
                 Independently supplied alternative &mdash; not an original Helac
                 {d.brands.length ? ` or ${listJoin(d.brands)}` : ''} part. Compatibility is verified before ordering.

@@ -158,12 +158,14 @@ export default function ProductsPage() {
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
           <p className="eyebrow mb-4">Compatibility</p>
           <h2 className="font-heading text-2xl md:text-3xl font-medium text-[#1B1E20] mb-8">
-            Cross-Reference Guide
+            Cross-Reference &amp; Compatibility Data
           </h2>
           <p className="text-[#4A4E54] leading-relaxed max-w-2xl mb-10">
-            Cross-reference information is provided for evaluation purposes.
-            Specifications are comparable to leading international brands &mdash; verify
-            mounting dimensions and performance parameters before ordering.
+            Technical cross-reference and compatibility data for engineering
+            evaluation during component selection. Torque class, rotation angle and
+            mounting interfaces are comparable to leading international brands;
+            confirm final dimensions and performance parameters with our team before
+            release.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
@@ -172,14 +174,15 @@ export default function ProductsPage() {
                 L10 / L20 / L30 / HP125 &harr; Helac
               </h3>
               <p className="text-sm text-[#4A4E54] mb-3">
-                Replacement guide for Helac rotary actuators on Atlas Boomer and
-                Sandvik rigs, with OEM part numbers and confirmed mounting interfaces.
+                Equivalent-class data for Helac rotary actuators across common
+                torque and mounting interfaces, prepared for engineering comparison
+                and component selection.
               </p>
               <Link
                 href="/alternatives"
                 className="text-sm font-medium text-[#2C4A73] no-underline hover:underline"
               >
-                Open the Helac replacement guide &rarr;
+                View compatibility data &rarr;
               </Link>
             </div>
             <div className="p-6 border border-[rgba(44,74,115,0.10)] rounded-md">
