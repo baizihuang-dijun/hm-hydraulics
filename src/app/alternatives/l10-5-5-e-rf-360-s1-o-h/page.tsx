@@ -7,8 +7,8 @@ const model = getModel('l10-5-5-e-rf-360-s1-o-h');
 
 export const metadata: Metadata = model
   ? {
-      title: 'L10-5.5-E-RF-360-S1-O-H Replacement | Helac Alternative',
-      description: 'Replacement rotary actuator for the Helac L10-5.5-E-RF-360-S1-O-H, matched on rotation, weight and mounting interface. Send your model or part number to verify.',
+      title: 'L10-5.5-E-RF-360 Replacement | Atlas 3128309281 | HM Hydraulics',
+      description: 'Replacement rotary actuator for the Helac L10-5.5-E-RF-360-S1-O-H, Atlas Copco / Epiroc part 3128309281 on the Boltec 235, 235h, Lc and Md drill rigs. Verify by part number.',
       alternates: { canonical: '/alternatives/l10-5-5-e-rf-360-s1-o-h' },
     }
   : { title: 'Not found' };

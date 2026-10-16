@@ -97,6 +97,12 @@ export const modelPages: ModelData[] = [
       'Alternative rotary actuator for the Helac L10-5.5-E-RF-360-S1-O-H, a continuous 360-degree helical actuator listed by Atlas under part number 3128309281, in the 21 kg class.',
     applicationNote:
       'Based on equipment records, this actuator is associated with the following Atlas Boltec drill rigs. Confirmation against your machine build plate is recommended.',
+    extraFaqs: [
+      {
+        q: 'Is part number 3128309281 the same actuator on the Boltec 235?',
+        a: 'Yes. On the Atlas Copco / Epiroc Boltec 235, 235h, Lc and Md drill rigs the 360-degree rotary actuator is supplied under part number 3128309281, corresponding to the Helac L10-5.5-E-RF-360-S1-O-H configuration (360-degree rotation, round-flange mount). Before ordering we confirm the mounting face, port position and rotation against the tag and a photo or drawing of your unit.',
+      },
+    ],
   },
   {
     model: 'L10-5.5-M-RF-360-S1-O-H',
@@ -116,6 +122,12 @@ export const modelPages: ModelData[] = [
       'Alternative rotary actuator for the Helac L10-5.5-M-RF-360-S1-O-H, a 360-degree helical actuator cross-listed by Sandvik (76350015 / 76350006) and Atlas (3128309281), in the 20.5 kg class.',
     applicationNote:
       'This actuator is recorded on the following Sandvik and Atlas Boltec drill rigs. Confirmation against the machine build plate is recommended.',
+    extraFaqs: [
+      {
+        q: 'Which part numbers cross to the L10-5.5-M-RF-360 on the Boltec 235?',
+        a: 'This 360-degree build is cross-listed by Sandvik under 76350015 and 76350006 and by Atlas Copco / Epiroc under 3128309281 on the Boltec 235, 235h, Lc and Md rigs, matching the Helac L10-5.5-M-RF-360-S1-O-H configuration. Send the part number on your tag or a nameplate photo and we confirm the exact variant before quoting.',
+      },
+    ],
   },
   {
     model: 'L20-15-E-CL-180/90-S1-O-H',
@@ -269,6 +281,12 @@ export const modelPages: ModelData[] = [
       'Alternative rotary actuator for the Helac L10-9.5-M-RF-185-S-C-H, a 185-degree helical actuator listed by Atlas under part number 9106178448 and used on the Boomer 353, in the 26 kg class.',
     applicationNote:
       'This actuator is recorded on the Atlas Boomer 353 face-drill rig. Confirmation against your machine build plate is recommended.',
+    extraFaqs: [
+      {
+        q: 'Will part 9106178448 fit my Boomer 353?',
+        a: 'Yes. On the Atlas Copco / Epiroc Boomer 353 face-drill rig the rotation actuator is supplied under part number 9106178448, corresponding to the Helac L10-9.5-M-RF-185-S-C-H configuration (185-degree rotation with integral counterbalance valve). Before ordering we confirm the mounting face, port position and rotation against the tag and a photo of your unit.',
+      },
+    ],
   },
   {
     model: 'HTX70-MS-RF-360-SS-O-H',
@@ -288,6 +306,12 @@ export const modelPages: ModelData[] = [
       'Alternative rotary actuator for the Helac HTX70-MS-RF-360-SS-O-H, a splined-shaft 360-degree helical actuator listed by Atlas under part number 3128307978, supplied for aftermarket replacement.',
     applicationNote:
       'This actuator is associated with the following Atlas Boomer and Simba rigs. Confirmation against your machine build plate is recommended.',
+    extraFaqs: [
+      {
+        q: 'Which rigs use Atlas part number 3128307978?',
+        a: 'The splined-shaft 360-degree actuator under Atlas Copco / Epiroc part number 3128307978 is recorded on the Boomer 104, Boomer K41, Boomer K41x and Simba H157 rigs, corresponding to the Helac HTX70-MS-RF-360-SS-O-H configuration. Send the part number on your tag or a nameplate photo and we confirm mounting, shaft and ports before quoting.',
+      },
+    ],
   },
   {
     model: 'L40-110-M-RF-360-S1-C-H',
@@ -324,6 +348,12 @@ export const modelPages: ModelData[] = [
       'Alternative rotary actuator for the Helac HP125-S-RF-360-S1-C-H, supplied for maintenance and aftermarket replacement on Atlas Boomer face-drill rigs.',
     applicationNote:
       'Based on equipment records, this actuator is associated with the following Atlas Boomer face-drilling and development rigs. Confirmation against your machine build plate is recommended.',
+    extraFaqs: [
+      {
+        q: 'Is 3128312645 the heavy rotary actuator on the Boomer M2d and XL3?',
+        a: 'Yes. The heavy-duty 360-degree rotary actuator on the Atlas Copco / Epiroc Boomer M2d, XL3, 353, L2c and L2d rigs is supplied under part number 3128312645 (also referenced as L3D), corresponding to the Helac HP125-S-RF-360-S1-C-H configuration in the 208 kg class. Before ordering we confirm the mounting face, port position and rotation against the tag and a photo or drawing of your unit.',
+      },
+    ],
   },
 ];
 
