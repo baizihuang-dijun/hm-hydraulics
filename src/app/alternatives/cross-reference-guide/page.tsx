@@ -4,7 +4,7 @@ import { RfqForm } from '@/components/alternatives/rfq-form';
 import { SITE } from '@/components/alternatives/model-data';
 
 export const metadata: Metadata = {
-  title: 'Rotary Actuator Cross-Reference Guide: From OEM Part Number to Replacement | HM Hydraulics',
+  title: 'Rotary Actuator Cross-Reference Guide: From OEM Part Number to Replacement',
   description:
     'Cross-reference a Helac rotary actuator by matching mounting interface, shaft, rotation angle, torque, and valve configuration. Send us the code for free verification.',
   alternates: { canonical: '/alternatives/cross-reference-guide' },

@@ -4,7 +4,7 @@ import { RfqForm } from '@/components/alternatives/rfq-form';
 import { SITE } from '@/components/alternatives/model-data';
 
 export const metadata: Metadata = {
-  title: 'Rotary Actuator Rebuild vs Replacement: Costs, Downtime & Decision Guide | HM Hydraulics',
+  title: 'Rotary Actuator Rebuild vs Replacement: Costs, Downtime & Decision Guide',
   description:
     'Should you rebuild or replace your Helac rotary actuator? Compare seal kit costs, downtime, and risk factors. Free engineering assessment for replacement options.',
   alternates: { canonical: '/alternatives/rebuild-vs-replacement' },

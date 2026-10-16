@@ -7,7 +7,7 @@ const model = getModel('l10-9-5-m-rf-185-s-c-h');
 
 export const metadata: Metadata = model
   ? {
-      title: 'L10-9.5-M-RF-185 Replacement | Atlas 9106178448 | Boomer 353 | HM Hydraulics',
+      title: 'L10-9.5-M-RF-185 Replacement | Atlas 9106178448 | Boomer 353',
       description: 'Replacement rotary actuator for the Helac L10-9.5-M-RF-185-S-C-H, Atlas Copco / Epiroc part 9106178448 on the Boomer 353 face-drill rig. 185-degree, 26 kg class. Verify by part number.',
       alternates: { canonical: '/alternatives/l10-9-5-m-rf-185-s-c-h' },
     }

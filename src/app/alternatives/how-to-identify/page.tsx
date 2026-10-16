@@ -4,7 +4,7 @@ import { RfqForm } from '@/components/alternatives/rfq-form';
 import { SITE, modelPages } from '@/components/alternatives/model-data';
 
 export const metadata: Metadata = {
-  title: 'How to Identify Your Helac Actuator: Model Tag, Serial Number & Code Breakdown | HM Hydraulics',
+  title: 'How to Identify Your Helac Actuator: Model Tag, Serial Number & Code Breakdown',
   description:
     'Identify a Helac rotary actuator from the model tag, stamped numbers, or measurements. Decode the model code and send photos for free engineering verification.',
   alternates: { canonical: '/alternatives/how-to-identify' },
