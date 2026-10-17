@@ -58,9 +58,51 @@ function seriesModels(code: string): ModelData[] {
   return modelPages.filter((m) => m.series === code);
 }
 
+interface EquivRow {
+  nm: string;
+  helac: string;
+  hks: string;
+  sungji: string;
+  moveco: string;
+}
+
+interface EquivMatrix {
+  sungjiNote?: string;
+  rows: EquivRow[];
+}
+
+// Public-safe torque-class cross-reference only. Sourced from the internal v2.3 cross-reference
+// table (grade ① rows with a Helac anchor). COYO/DKX and ZY columns are intentionally excluded.
+// Same nominal torque class = independent designs, NOT drop-in interchangeable.
+const TORQUE_CLASS_MATRIX: Record<string, EquivMatrix> = {
+  L10: {
+    rows: [
+      { nm: '339', helac: 'L10-3.0', hks: 'M-DA-H 60', sungji: 'SRA-090', moveco: '—' },
+      { nm: '1,074', helac: 'L10-9.5', hks: 'M-DA-H 80', sungji: 'SRA-140', moveco: '—' },
+      { nm: '1,695', helac: 'L10-15', hks: 'M-DA-H 90', sungji: 'SRA-160', moveco: '—' },
+      { nm: '2,825', helac: 'L10-25', hks: 'M-DA-H 100', sungji: '—', moveco: '—' },
+    ],
+  },
+  L30: {
+    sungjiNote:
+      'Sungji SRC-115 is rated with roughly 32% higher cantilever moment capacity within the same torque class.',
+    rows: [
+      { nm: '1,921', helac: 'L30-17', hks: 'F10 / F5 115', sungji: 'SRC-115 *', moveco: 'RR34 †' },
+      { nm: '2,825', helac: 'L30-25', hks: 'F10 / F5 125', sungji: 'SRC-125', moveco: 'RR40 †' },
+      { nm: '4,746', helac: 'L30-42', hks: 'F10 / F5 150', sungji: 'SRC-150', moveco: 'RR46 †' },
+      { nm: '7,345', helac: 'L30-65', hks: 'F10 / F5 175', sungji: 'SRC-180', moveco: 'RR52 †' },
+      { nm: '10,735', helac: 'L30-95', hks: 'F10 / F5 200', sungji: '—', moveco: '—' },
+      { nm: '14,125', helac: 'L30-125', hks: 'F10 / F5 220', sungji: '—', moveco: 'RR58 / RR61 †' },
+      { nm: '18,645', helac: 'L30-165', hks: 'F10 / F5 245', sungji: '—', moveco: 'RR66 †' },
+      { nm: '24,295', helac: 'L30-215', hks: 'F10 / F5 265', sungji: '—', moveco: 'RR72 †' },
+    ],
+  },
+};
+
 export function SeriesPage({ code }: { code: string }) {
   const info = SERIES_INFO.find((s) => s.code === code)!;
   const models = seriesModels(code);
+  const equiv = TORQUE_CLASS_MATRIX[code];
   const path = `/alternatives/${info.slug}`;
 
   const breadcrumbJsonLd = {
@@ -171,6 +213,75 @@ export function SeriesPage({ code }: { code: string }) {
           </div>
         </div>
       </section>
+
+      {/* Cross-brand torque-class reference (L10 / L30 only) */}
+      {equiv && (
+        <section id="equivalents" className="border-b border-[rgba(44,74,115,0.10)]">
+          <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
+            <p className="font-label text-xs text-[#62666C] uppercase tracking-wider mb-2">
+              Cross-brand reference
+            </p>
+            <h2 className="font-heading text-2xl md:text-3xl font-medium text-[#1B1E20] mb-4">
+              {code} series &mdash; torque-class equivalents
+            </h2>
+            <p className="text-base text-[#4A4E54] leading-relaxed max-w-3xl mb-8">
+              Competing actuators in the same nominal torque class are listed below for engineering
+              comparison. These are potential equivalents, not drop-in replacements: each brand uses
+              its own housing and mount dimensions, so compatibility must be verified against drawings
+              and application requirements before ordering.
+            </p>
+            <div className="overflow-x-auto rounded-md border border-[rgba(44,74,115,0.14)]">
+              <table className="w-full min-w-[640px] border-collapse text-sm">
+                <thead>
+                  <tr className="bg-[#F2F5F9] text-left text-[#1B1E20]">
+                    <th className="px-4 py-3 font-medium">Nominal torque (Nm)</th>
+                    <th className="px-4 py-3 font-medium">Helac {code} size</th>
+                    <th className="px-4 py-3 font-medium">HKS</th>
+                    <th className="px-4 py-3 font-medium">Sungji (SJH)</th>
+                    <th className="px-4 py-3 font-medium">Moveco</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {equiv.rows.map((r) => (
+                    <tr
+                      key={r.helac}
+                      className="border-t border-[rgba(44,74,115,0.10)] text-[#4A4E54]"
+                    >
+                      <td className="px-4 py-3 whitespace-nowrap text-[#1B1E20] font-medium">{r.nm}</td>
+                      <td className="px-4 py-3 whitespace-nowrap">{r.helac}</td>
+                      <td className="px-4 py-3 whitespace-nowrap">{r.hks}</td>
+                      <td className="px-4 py-3 whitespace-nowrap">{r.sungji}</td>
+                      <td className="px-4 py-3 whitespace-nowrap">{r.moveco}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <ul className="mt-5 space-y-1.5 text-xs text-[#62666C] leading-relaxed m-0 pl-4">
+              <li>
+                Nominal torque figures are Helac published values at rated pressure. The numbers
+                inside HKS, Sungji and Moveco model codes are each manufacturer&rsquo;s own size or
+                bore designation, not torque values.
+              </li>
+              {equiv.sungjiNote && <li>* {equiv.sungjiNote}</li>}
+              {equiv.rows.some((r) => r.moveco !== '—') && (
+                <li>
+                  &dagger; Moveco RR models share a near torque class only and use independent
+                  structural dimensions; not drop-in.
+                </li>
+              )}
+            </ul>
+            <div className="mt-8">
+              <a
+                href="#rfq"
+                className="inline-flex items-center px-5 py-2.5 bg-[#2C4A73] text-white text-sm font-medium rounded no-underline hover:bg-[#1E3A5F] transition-colors duration-150"
+              >
+                Verify a specific equivalent &rarr;
+              </a>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* How it works */}
       <section className="border-b border-[rgba(44,74,115,0.10)]">

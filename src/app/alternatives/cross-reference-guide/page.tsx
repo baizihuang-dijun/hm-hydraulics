@@ -31,7 +31,7 @@ const faqs = [
   },
   {
     q: 'Which Helac series do you cover?',
-    a: 'We supply drop-in replacements for Helac L10, L20, L30, L40, HTX, and HP series actuators used on mining and construction equipment.',
+    a: 'We offer potential alternatives to Helac L10, L20, L30, L40, HTX, and HP series actuators used on mining and construction equipment. These are not drop-in replacements; compatibility must be verified against drawings and application requirements.',
   },
 ];
 
@@ -248,7 +248,7 @@ export default function CrossReferenceGuidePage() {
               <h3 className="font-heading text-lg font-medium text-[#1B1E20] mb-3">Allows equivalence</h3>
               <ul className="list-disc pl-5 space-y-2 text-[#4A4E54] leading-relaxed">
                 <li>Torque: replacement may exceed original rating</li>
-                <li>Weight: similar-class units are interchangeable</li>
+                <li>Weight: a useful comparison point, but not proof of interchangeability</li>
                 <li>Paint and minor cosmetic finish</li>
               </ul>
             </div>

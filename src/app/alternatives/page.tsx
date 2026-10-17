@@ -150,11 +150,11 @@ export default function AlternativesHubPage() {
             Replacement Guide for Helac Rotary Actuators
           </h1>
           <p className="text-lg text-[#4A4E54] leading-relaxed max-w-3xl mb-6">
-            Looking for a replacement for a Helac rotary actuator? We supply drop-in alternatives
-            matched to the original mounting interface, shaft, rotation angle, and torque specs
-            across all Helac series — L10, L20, L30, L40, HTX, and HP. Send us the model code or OEM
-            part number from the actuator tag, and our engineering team confirms the exact match
-            before you order.
+            Looking for a replacement for a Helac rotary actuator? We offer potential alternatives
+            matched by mounting interface, shaft, rotation angle and torque specs across all Helac
+            series — L10, L20, L30, L40, HTX, and HP. Compatibility must be verified against drawings
+            and application requirements. Send us the model code or OEM part number from the actuator
+            tag, and our engineering team verifies the configuration before you order.
           </p>
           <p className="text-lg text-[#4A4E54] leading-relaxed max-w-3xl">
             If the Helac actuator on your Atlas or Sandvik machine is worn, damaged or past its
