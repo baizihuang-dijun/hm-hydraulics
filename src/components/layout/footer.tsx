@@ -45,6 +45,14 @@ export function Footer() {
                   Tilt Actuators
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/alternatives"
+                  className="text-sm text-[#D1D5DB] hover:text-white no-underline transition-colors duration-150"
+                >
+                  Helac Replacements &amp; Cross-Reference
+                </Link>
+              </li>
             </ul>
           </div>
 

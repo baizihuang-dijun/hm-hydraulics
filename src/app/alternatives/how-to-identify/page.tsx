@@ -42,13 +42,18 @@ const seriesList = Object.values(
   }, {}),
 );
 
+// Segments per the Parker/Helac Series L & T ordering key (example: L10-5.5-M-RF-360-S1-0-H).
+// Official catalog HY34-1001 / L30 ordering information: field 3 E/M/ES-MS, field 5 special
+// rotation via stop tube, field 7 C/0/V (0 = digit zero, no valve), field 8 H/S seals & bearings.
 const codePositions = [
-  { position: '1–3', meaning: 'Series', example: 'L10, L20, L30, L40, HTX, HP' },
-  { position: '4', meaning: 'Size / gear set', example: '5, 7, 10 (varies by series)' },
-  { position: '5', meaning: 'Mounting type', example: 'M = foot mount; flange variants follow series convention' },
-  { position: '6', meaning: 'Shaft type', example: 'RF, S1, etc. (depends on series)' },
-  { position: '7', meaning: 'Rotation angle', example: '180, 360 (degrees)' },
-  { position: '8', meaning: 'Valve / port option', example: 'O = valve on one side; H = hose port variant' },
+  { position: '1 · Series', meaning: 'Actuator series', example: 'L10, L20, L30, L40, T20 (HP/T30 follow their own key)' },
+  { position: '2 · Model / torque', meaning: 'Model size = rated drive torque in thousand in-lb', example: '3.0, 5.5, 9.5, 17, 25, 42, 65, 110' },
+  { position: '3 · Measurement system', meaning: 'E = English system (SAE/UNF threads, SAE ports); M = Metric system (metric threads, BSPP ports); ES or MS = Custom Design (special OEM build — not a standard E/M unit)', example: 'E · M · ES / MS (older tags may use S for special)' },
+  { position: '4 · Housing / mounting', meaning: 'Housing mounting configuration (varies by series)', example: 'RF rear flange · FT foot mount · FF front flange (L30) · RM/RL rail (L40)' },
+  { position: '5 · Rotation', meaning: 'Standard 180 or 360 per HY34-1001. Older L30 catalogs list 210° only for the specific L30-380 model, not for the whole L30 series. Special rotations are written with a slash: base/final, e.g. 180/90, 180/120 — an internal stop tube sets the final angle, in 10° increments', example: '180 · 360 · 180/90 (special) · 210 (L30-380 only, older catalog)' },
+  { position: '6 · Shaft / flanges', meaning: 'Shaft & end-cap flange configuration for the load path', example: 'S1 = cantilever (shaft flange only) · S2 = straddle (shaft + end-cap flanges)' },
+  { position: '7 · Valve', meaning: 'Counterbalance-valve option (HY34-1001: C = counterbalance valve, 0 = no valve, V = valve ready)', example: 'C = counterbalance valve · 0 = no valve (digit zero; do not read as the letter O) · V = valve ready (pad machined, no valve fitted)' },
+  { position: '8 · Seals & bearings', meaning: 'Seal and bearing package', example: 'H = standard seals & bearings · S = special seals & bearings (exact compound per tag/drawing)' },
 ];
 
 const breadcrumbJsonLd = {
@@ -77,7 +82,7 @@ const articleJsonLd = {
     url: SITE,
   },
   datePublished: '2026-09-01',
-  dateModified: '2026-09-01',
+  dateModified: '2026-10-18',
 };
 
 const faqJsonLd = {
@@ -138,10 +143,10 @@ export default function HowToIdentifyPage() {
             A Helac rotary actuator is identified by the model code on its silver plastic tag,
             usually fixed to the housing. If the tag is missing or worn, read the stamped numbers on
             the body and measure the outside diameter, shaft, and mounting pattern. The model code
-            states the series, size, mounting type, rotation angle, and valve option in a fixed
-            order.
+            states the series, torque size, thread/port system, mounting, rotation angle, bearing
+            option, valve option and seal compound in a fixed order.
           </p>
-          <p className="text-sm text-[#62666C]">Last reviewed: September 2026</p>
+          <p className="text-sm text-[#62666C]">Last reviewed: October 2026</p>
         </div>
       </section>
 
@@ -187,8 +192,9 @@ export default function HowToIdentifyPage() {
             Helac Model Code Breakdown
           </h2>
           <p className="text-[#4A4E54] leading-relaxed max-w-3xl mb-6">
-            The code is read from left to right. Each segment tells us something about the
-            replacement we need to match.
+            The standard L- and T-series code is read from left to right. Each segment tells us
+            something about the replacement we need to match. Heavy-duty HP units and OEM-specific
+            tags can deviate from this layout, so the tag photo always takes priority.
           </p>
           <div className="overflow-x-auto">
             <table className="min-w-full text-left border-collapse">
@@ -211,9 +217,32 @@ export default function HowToIdentifyPage() {
             </table>
           </div>
           <div className="mt-6 p-5 bg-[#FAFAF7] border border-[rgba(44,74,115,0.10)] rounded-md max-w-3xl">
-            <p className="font-label text-xs uppercase tracking-wider text-[#62666C] mb-2">Example code</p>
-            <p className="font-mono text-sm text-[#1B1E20]">L10-5-5-M-RF-360-S1-O-H</p>
+            <p className="font-label text-xs uppercase tracking-wider text-[#62666C] mb-2">Example codes</p>
+            <p className="font-mono text-sm text-[#1B1E20]">L10-5.5-M-RF-360-S1-0-H</p>
+            <p className="text-xs text-[#62666C] mt-2 mb-3">
+              L10 series · 5.5 model (5,500 in-lb) · M metric system (BSPP ports) · RF rear flange ·
+              360° standard rotation · S1 cantilever shaft flange · <span className="font-mono">0</span> no valve
+              (the digit 0, not the letter O) · H standard seals &amp; bearings.
+            </p>
+            <p className="font-mono text-sm text-[#1B1E20]">L10-25-E-RF-180/90-S1-0-H</p>
+            <p className="text-xs text-[#62666C] mt-2 mb-0">
+              Same convention, but <span className="font-mono">180/90</span> is a <strong>special
+              rotation</strong>: a standard actuator fitted with an internal stop tube, where 90° is the
+              final limited angle. Special rotations are available in 10° increments and are confirmed
+              against the tag/drawing.
+            </p>
           </div>
+          <p className="mt-4 text-xs text-[#62666C] leading-relaxed max-w-3xl">
+            This is a simplified reading guide for the standard Parker-Helac L/T ordering convention
+            (catalog HY34-1001 and the series ordering pages). It is not a claim that every unit has
+            exactly eight segments: custom builds marked <span className="font-mono">ES</span> or
+            <span className="font-mono"> MS</span>, special seal/bearing packages marked
+            <span className="font-mono"> S</span>, and special rotations can differ; HP and other series
+            may use a different key. Final configuration and compatibility are confirmed against the
+            unit nameplate, the mounting drawing and the actual application &mdash; a similar torque
+            rating alone does not confirm a direct replacement. Send a tag photo and we verify the exact
+            build with you.
+          </p>
         </div>
       </section>
 

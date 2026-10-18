@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { RfqForm } from '@/components/alternatives/rfq-form';
+import { modelPages } from '@/components/alternatives/model-data';
 
 export const metadata: Metadata = {
   title: 'Helac Replacement & Cross-Reference Guide',
@@ -9,11 +10,18 @@ export const metadata: Metadata = {
   alternates: { canonical: '/alternatives' },
 };
 
+// Per-series model counts are derived from the canonical modelPages dataset so the
+// hub never drifts from the actual published model pages.
+const countBySeries = modelPages.reduce<Record<string, number>>((acc, m) => {
+  acc[m.series] = (acc[m.series] ?? 0) + 1;
+  return acc;
+}, {});
+
 const series = [
   {
     name: 'L10 Series',
+    seriesKey: 'L10',
     href: '/alternatives/helac-l10-series',
-    models: '7 models',
     range: '12–26 kg · 180–360°',
     description:
       'Compact L10 helical rotary actuators found on Sandvik and Atlas drilling and bolting rigs.',
@@ -21,8 +29,8 @@ const series = [
   },
   {
     name: 'L20 Series',
+    seriesKey: 'L20',
     href: '/alternatives/helac-l20-series',
-    models: '1 model',
     range: '56 kg · 180/90°',
     description:
       'Mid-size L20 helical actuators including compound-angle builds for mid-size equipment.',
@@ -30,8 +38,8 @@ const series = [
   },
   {
     name: 'L30 Series',
+    seriesKey: 'L30',
     href: '/alternatives/helac-l30-series',
-    models: '3 models',
     range: '49–94 kg · 180–360°',
     description:
       'Large L30 flange and round-flange actuators for heavy-duty rotation on larger rigs.',
@@ -39,8 +47,8 @@ const series = [
   },
   {
     name: 'L40 Series',
+    seriesKey: 'L40',
     href: '/alternatives/helac-l40-series',
-    models: '1 model',
     range: '140 kg · 360°',
     description:
       'Heavy-duty L40 helical actuators for the largest rotation duties.',
@@ -48,8 +56,8 @@ const series = [
   },
   {
     name: 'HTX Series',
+    seriesKey: 'HTX',
     href: '/alternatives/helac-htx-series',
-    models: '1 model',
     range: 'HTX70 · 360°',
     description:
       'Splined-shaft HTX70 actuators used on Atlas Boomer and Simba rigs.',
@@ -57,14 +65,16 @@ const series = [
   },
   {
     name: 'HP Series',
+    seriesKey: 'HP',
     href: '/alternatives/helac-hp-series',
-    models: '2 models',
     range: '27–208 kg · 180–360°',
     description:
       'Flanged helical actuators from the compact HP-15 to the large HP125, OEM part 3128312645 / L3D.',
     state: 'published',
   },
 ];
+
+const modelLabel = (n: number) => `${n} ${n === 1 ? 'model' : 'models'}`;
 
 const faqs = [
   {
@@ -233,7 +243,7 @@ export default function AlternativesHubPage() {
                 className="group relative p-6 border bg-white rounded-md transition-colors duration-150 border-[rgba(44,74,115,0.10)] hover:border-[rgba(44,74,115,0.25)]"
               >
                 <p className="font-label text-xs text-[#62666C] uppercase tracking-wider mb-3">
-                  {item.models}
+                  {modelLabel(countBySeries[item.seriesKey] ?? 0)}
                 </p>
                 <h3 className="font-heading text-lg font-medium text-[#1B1E20] mb-2">
                   {item.name}
@@ -263,8 +273,12 @@ export default function AlternativesHubPage() {
           </div>
 
           <p className="mt-8 text-sm text-[#62666C] leading-relaxed max-w-2xl">
-            This guide covers 14 confirmed Helac model codes across six series. If
-            your model is not listed, send the details and we will check the
+            These {modelPages.length} entries are the model-code records currently published on this
+            site across {series.length} series, kept here as search starting points. The count is a page
+            inventory, <strong>not</strong> a claim that {modelPages.length} complete order codes have each
+            been verified against a physical nameplate. Every build &mdash; standard, special (ES/MS),
+            or custom rotation &mdash; is confirmed against the unit nameplate and mounting drawing
+            before we quote. If your model is not listed, send the details and we will check the
             available option.
           </p>
         </div>

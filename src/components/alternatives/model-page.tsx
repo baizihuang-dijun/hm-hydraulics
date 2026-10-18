@@ -12,9 +12,13 @@ function buildFaqs(d: ModelData) {
 
   // Q1 — what it is / replaces
   const q1 = `What does the ${d.model} replace?`;
-  let a1 = `It is the model code for a Helac helical rotary actuator providing ${d.rotation} rotation${
-    d.weight ? ` in the ${d.weight} class` : ''
-  }.`;
+  let a1 = d.modelCodeUnverified
+    ? `Our supply records associate this ${d.rotation} rotary actuator${
+        d.weight ? ` (${d.weight} class)` : ''
+      } with the Helac HP-series build referenced as ${d.model}. The exact factory model code is confirmed against the unit's nameplate before order.`
+    : `It is the model code for a Helac helical rotary actuator providing ${d.rotation} rotation${
+        d.weight ? ` in the ${d.weight} class` : ''
+      }.`;
   if (brand) a1 += ` It is listed by ${brand}`;
   if (d.parts.length) a1 += ` under part number${d.parts.length > 1 ? 's' : ''} ${listJoin(d.parts)}`;
   a1 += brand || d.parts.length ? '. Our alternative is matched to the same rotation' : ' Our alternative is matched to the same rotation';
@@ -47,7 +51,7 @@ export function ModelPage({ d }: { d: ModelData }) {
   const path = `/alternatives/${d.slug}`;
 
   const quickRef = [
-    { label: 'Original model', value: d.model, mono: true },
+    { label: d.modelCodeUnverified ? 'Reference code (from supply records)' : 'Original model', value: d.model, mono: true },
     { label: 'Original brand', value: 'Helac', mono: false },
     { label: 'Type', value: 'Rotary actuator', mono: false },
     { label: 'Rotation', value: d.rotation, mono: false },
@@ -68,14 +72,16 @@ export function ModelPage({ d }: { d: ModelData }) {
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE}/` },
       { '@type': 'ListItem', position: 2, name: 'Helac Alternatives', item: `${SITE}/alternatives` },
-      { '@type': 'ListItem', position: 3, name: d.model, item: `${SITE}${path}` },
+      { '@type': 'ListItem', position: 3, name: d.modelCodeUnverified ? `${d.parts[0] ?? d.model} (recorded ref.)` : d.model, item: `${SITE}${path}` },
     ],
   };
 
   const productJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Product',
-    name: `Replacement rotary actuator for Helac ${d.model}`,
+    name: d.modelCodeUnverified
+      ? `Replacement rotary actuator for ${d.brands[0] ?? 'OEM'} ${d.parts[0] ?? d.model} (Helac HP-class)`
+      : `Replacement rotary actuator for Helac ${d.model}`,
     category: 'Hydraulic rotary actuator',
     image: `${SITE}${d.image}`,
     description: `${d.intro} Exact HM model confirmed on inquiry.`,
@@ -86,11 +92,19 @@ export function ModelPage({ d }: { d: ModelData }) {
       url: SITE,
     },
     additionalProperty: [
-      { '@type': 'PropertyValue', name: 'Original brand', value: 'Helac' },
-      { '@type': 'PropertyValue', name: 'Original model', value: d.model },
-      ...(d.parts.length
-        ? [{ '@type': 'PropertyValue', name: 'OEM part number', value: listJoin(d.parts) }]
-        : []),
+      ...(d.modelCodeUnverified
+        ? [
+            { '@type': 'PropertyValue', name: 'OEM part number', value: listJoin(d.parts) },
+            { '@type': 'PropertyValue', name: 'Recorded Helac reference code', value: d.model },
+            { '@type': 'PropertyValue', name: 'Reference-code status', value: 'From HM supply records; exact factory model code to be confirmed against the unit nameplate' },
+          ]
+        : [
+            { '@type': 'PropertyValue', name: 'Original brand', value: 'Helac' },
+            { '@type': 'PropertyValue', name: 'Original model', value: d.model },
+            ...(d.parts.length
+              ? [{ '@type': 'PropertyValue', name: 'OEM part number', value: listJoin(d.parts) }]
+              : []),
+          ]),
       { '@type': 'PropertyValue', name: 'Rotation', value: d.rotation },
       ...(d.torque ? [{ '@type': 'PropertyValue', name: 'Rated torque', value: d.torque }] : []),
       ...(d.weight ? [{ '@type': 'PropertyValue', name: 'Weight', value: d.weight }] : []),
@@ -126,7 +140,7 @@ export function ModelPage({ d }: { d: ModelData }) {
               Helac Alternatives
             </Link>
             <span>/</span>
-            <span className="text-[#1B1E20]">{d.model}</span>
+            <span className="text-[#1B1E20]">{d.modelCodeUnverified ? `${d.parts[0] ?? d.model} (recorded ref.)` : d.model}</span>
           </nav>
         </div>
       </section>
@@ -137,9 +151,22 @@ export function ModelPage({ d }: { d: ModelData }) {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <div>
               <p className="eyebrow mb-4">HELAC ALTERNATIVE</p>
-              <h1 className="font-heading text-3xl md:text-4xl lg:text-[2.75rem] font-medium text-[#1B1E20] leading-tight mb-4">
-                {d.model} Rotary Actuator
-              </h1>
+              {d.modelCodeUnverified ? (
+                <>
+                  <h1 className="font-heading text-3xl md:text-4xl lg:text-[2.75rem] font-medium text-[#1B1E20] leading-tight mb-3">
+                    {d.brands[0] ?? 'OEM'} {d.parts[0]} Replacement Rotary Actuator
+                  </h1>
+                  <p className="text-sm text-[#62666C] mb-4">
+                    Recorded Helac reference code&nbsp;
+                    <span className="font-label text-[#1B1E20]">{d.model}</span>
+                    &nbsp;· from HM supply records, to be confirmed against the unit nameplate
+                  </p>
+                </>
+              ) : (
+                <h1 className="font-heading text-3xl md:text-4xl lg:text-[2.75rem] font-medium text-[#1B1E20] leading-tight mb-4">
+                  {d.model} Rotary Actuator
+                </h1>
+              )}
               <p className="text-lg text-[#4A4E54] leading-relaxed mb-5">{d.intro}</p>
               {d.parts.length ? (
                 <div className="mb-7 border border-[rgba(44,74,115,0.18)] rounded-md overflow-hidden">
@@ -151,8 +178,12 @@ export function ModelPage({ d }: { d: ModelData }) {
                       <p className="m-0 text-xl font-label font-medium text-white leading-tight">{d.parts[0]}</p>
                     </div>
                     <p className="px-4 py-3 text-sm text-[#4A4E54] m-0">
-                      Alternative rotary actuator for Helac {d.model}
-                      {d.parts.length > 1 ? ` — also listed as ${listJoin(d.parts.slice(1))}` : ''}.
+                      {d.modelCodeUnverified
+                        ? `Replacement matched to ${d.brands[0] ?? 'OEM'} ${d.parts[0]}${
+                            d.parts.length > 1 ? ` (also listed as ${listJoin(d.parts.slice(1))})` : ''
+                          }; the supplied build is recorded as Helac HP-series code ${d.model}, to be confirmed against the nameplate.`
+                        : <>Alternative rotary actuator for Helac {d.model}
+                          {d.parts.length > 1 ? ` — also listed as ${listJoin(d.parts.slice(1))}` : ''}.</>}
                     </p>
                   </div>
                 </div>

@@ -196,7 +196,7 @@ export default function CrossReferenceGuidePage() {
           </p>
           <div className="p-5 bg-[#FAFAF7] border border-[rgba(44,74,115,0.10)] rounded-md max-w-3xl">
             <p className="font-label text-xs uppercase tracking-wider text-[#62666C] mb-2">Example</p>
-            <p className="font-mono text-sm text-[#1B1E20]">L10-5-5-M-RF-360-S1-O-H</p>
+            <p className="font-mono text-sm text-[#1B1E20]">L10-5.5-M-RF-360-S1-0-H</p>
           </div>
         </div>
       </section>

@@ -27,6 +27,12 @@ export interface ModelData {
   torque?: string;
   /** Free-text alternative cross-reference note, e.g. Parker series (optional). */
   crossNote?: string;
+  /**
+   * True when the exact Helac model code is reconstructed from supply records /
+   * configuration rather than read off the unit's nameplate. When set, the page keeps
+   * the code as a search anchor but avoids asserting an exact code=part identity.
+   */
+  modelCodeUnverified?: boolean;
   /** Model-specific FAQ entries appended to the generated set (optional). */
   extraFaqs?: { q: string; a: string }[];
 }
@@ -239,8 +245,8 @@ export const modelPages: ModelData[] = [
         a: 'Yes. On the Atlas Copco / Epiroc Boomer 282 face-drill rig the rotation actuator is supplied under part number 3128312644, corresponding to the Helac L30-65-S-RF-360-S1-C-H configuration (360-degree rotation, round-flange mount, integral counterbalance valve). Before ordering we confirm the mounting face, port position and rotation against the tag and a photo or drawing of your unit.',
       },
       {
-        q: 'What do the S-RF and C-H sections of the code mean?',
-        a: 'In this build RF denotes the round-flange mounting interface, C indicates an integral counterbalance valve, and H is the standard nitrile seal package. The S segment and the S1 shaft/end-cap code are part of the factory configuration for this Boomer 282 build; send the full code or a photo of the tag and we confirm the exact variant.',
+        q: 'What do the S, RF and C-H sections of the code mean?',
+        a: 'Reading the Parker-Helac ordering key: the first S is the measurement-system field and marks a special/custom design (standard keys are E for English/SAE and M for metric/BSPP; custom builds are also written ES or MS). RF is the rear-flange housing, the later S1 is the shaft/end-cap flange code (S1 cantilever, S2 straddle), C is the counterbalance-valve option (0 = no valve, the digit zero rather than the letter O; V = valve-ready), and the final H is the standard seals & bearings package (S = special seals & bearings) — the exact seal compound is read from the tag/drawing, not assumed from H. Send the full code or a tag photo and we confirm the exact variant.',
       },
     ],
   },
@@ -339,19 +345,22 @@ export const modelPages: ModelData[] = [
     weight: '208 kg',
     brands: ['Atlas'],
     parts: ['3128312645', 'L3D'],
+    modelCodeUnverified: true,
     machines: ['Boomer M2d', 'Boomer XL3', 'Boomer 353', 'Boomer L2c', 'Boomer L2d'],
     image: '/images/alternatives/helac-hp125.jpg',
     imageW: 467,
     imageH: 286,
     imageAlt: 'Replacement rotary actuator supplied for Helac HP125-S-RF-360-S1-C-H, flange and port view',
     intro:
-      'Alternative rotary actuator for the Helac HP125-S-RF-360-S1-C-H, supplied for maintenance and aftermarket replacement on Atlas Boomer face-drill rigs.',
+      'Heavy-duty 360-degree alternative rotary actuator for the Atlas Copco / Epiroc part number 3128312645 (also referenced as L3D) used on Boomer face-drill rigs. Our supply records associate this build with the Helac HP125 configuration; the exact tag model code is confirmed from your nameplate before quoting.',
     applicationNote:
-      'Based on equipment records, this actuator is associated with the following Atlas Boomer face-drilling and development rigs. Confirmation against your machine build plate is recommended.',
+      'Based on our supply records, the Atlas part 3128312645 / L3D actuator is associated with the following Atlas Boomer face-drilling and development rigs. Confirmation against your machine build plate and actuator tag is recommended.',
+    crossNote:
+      'Atlas Copco / Epiroc part 3128312645 (L3D) is matched to a Helac HP-series build (HP125 configuration, 208 kg class) from our supply records. The complete tag model code is not assumed &mdash; it is verified against the nameplate and mounting drawing before a replacement is confirmed.',
     extraFaqs: [
       {
         q: 'Is 3128312645 the heavy rotary actuator on the Boomer M2d and XL3?',
-        a: 'Yes. The heavy-duty 360-degree rotary actuator on the Atlas Copco / Epiroc Boomer M2d, XL3, 353, L2c and L2d rigs is supplied under part number 3128312645 (also referenced as L3D), corresponding to the Helac HP125-S-RF-360-S1-C-H configuration in the 208 kg class. Before ordering we confirm the mounting face, port position and rotation against the tag and a photo or drawing of your unit.',
+        a: 'Part number 3128312645 (also referenced as L3D) is the heavy-duty 360-degree rotary actuator recorded on the Atlas Copco / Epiroc Boomer M2d, XL3, 353, L2c and L2d rigs, in the 208 kg class. Our supply records associate it with a Helac HP125 build; the exact tag model code varies by machine configuration and is confirmed from your nameplate and a photo or drawing before ordering, along with the mounting face, port position and rotation.',
       },
     ],
   },
