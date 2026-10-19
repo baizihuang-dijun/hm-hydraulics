@@ -1462,8 +1462,138 @@ export const modelPages: ModelData[] = [
         a: 'This page covers the E-FT-180-S1-C-H build. Send your tag code or a mounting drawing and we confirm the matching housing, flange and port arrangement against the available L20 mounting options.',
       }
     ],
+  },
+  {
+    model: 'L30-125-M-FT-360-S1-C-H',
+    slug: 'l30-125-m-ft-360-s1-c-h',
+    series: 'L30',
+    seriesSlug: 'helac-l30-series',
+    rotation: '360°',
+    weight: '285.8 kg',
+    brands: ['Atlas'],
+    parts: ['3128314313'],
+    machines: ['Simba S7D', 'Simba H1257'],
+    image: '/images/alternatives/l30-65-s-rf-360.jpg',
+    imageW: 384,
+    imageH: 510,
+    imageAlt:
+      'Helac L30 series heavy-duty helical rotary actuator, 360-degree configuration (series representative image)',
+    intro:
+      'Alternative rotary actuator for the Helac L30-125-M-FT-360-S1-C-H, a large 360-degree, foot-mount helical actuator in the L30-125 class, rated at about 14,125 Nm output torque at 207 bar. It is listed by Atlas Copco / Epiroc under part number 3128314313 (also written 3128-3143-13) and is commonly associated with Simba production-drill rigs.',
+    applicationNote:
+      'Part number 3128314313 is commonly listed on the Atlas Copco / Epiroc Simba S7D and Simba H1257 production-drill rigs. Several different turning devices can be fitted across a machine range depending on serial number and build, so please confirm against your machine serial number and the actuator nameplate before ordering.',
+    torque: '~14,125 Nm @ 207 bar (L30-125 series rated output)',
+    crossNote:
+      'L30-125 series rated performance (about 14,125 Nm at 207 bar, foot/front-flange/rear-flange mounts, 180/360-degree builds) per the published Helac catalog. The exact build, ports and mounting are confirmed against the unit tag and drawing before a replacement is supplied.',
+    extraFaqs: [
+      {
+        q: 'Which rigs use Atlas Copco / Epiroc part 3128314313?',
+        a: 'Part number 3128314313 is commonly listed on the Simba S7D and Simba H1257 production-drill rigs, corresponding to the Helac L30-125-M-FT-360-S1-C-H configuration (360-degree rotation, metric BSPP ports, foot mount). Because rigs of the same range can be built with different turning devices, send the part number on your tag or a nameplate photo and we confirm mounting, shaft and ports before quoting.',
+      },
+      {
+        q: 'Is the part number 3128314313 or 3128313413?',
+        a: 'The correct Atlas Copco / Epiroc reference for this build is 3128314313 (also written 3128-3143-13); 3128313413 is a transposition. Confirm the digits against the tag on your unit, as similar-looking numbers can refer to different actuators.',
+      },
+    ],
+  },
+  {
+    model: 'HP50-MS-RL-230-S1-C-H',
+    slug: 'hp50-ms-rl-230-s1-c-h',
+    series: 'HP',
+    seriesSlug: 'helac-hp-series',
+    rotation: '230°',
+    weight: '',
+    brands: ['Atlas'],
+    parts: ['3128312643', '3129316303'],
+    machines: ['Boomer 104', 'Boomer K41', 'Boomer K41x', 'Simba H1257', 'Simba H157', 'Simba S7D'],
+    image: '/images/alternatives/helac-hp125.jpg',
+    imageW: 467,
+    imageH: 286,
+    imageAlt:
+      'Heavy-duty Helac HP-series helical rotary actuator, mining drill-rig configuration (HP series representative image)',
+    intro:
+      'Alternative heavy-duty rotary actuator for the Helac HP50-MS-RL-230-S1-C-H, a large 230-degree, rail/slide-mount (RL) helical actuator built for mining drill-rig duty. It is listed by Atlas Copco / Epiroc under part numbers 3128312643 and 3129316303 (also written 3128-3126-43 and 3129-3163-03).',
+    applicationNote:
+      'Part numbers 3128312643 and 3129316303 are commonly associated with several Atlas Copco / Epiroc Boomer and Simba drill rigs. A single rig range can carry more than one turning device depending on serial number, position and build, so please confirm the fit against your machine serial number and the actuator nameplate before ordering.',
+    crossNote:
+      'The HP50-MS-RL-230 is a heavy mining build of the Helac HP series. HM confirms the exact configuration, mounting and compatibility against the unit nameplate and a drawing or photo before a replacement is supplied; ratings are not assumed from the HP number alone.',
+    extraFaqs: [
+      {
+        q: 'What is the difference between 3128312643 and 3129316303?',
+        a: 'Both Atlas Copco / Epiroc references are recorded against the same Helac HP50-MS-RL-230-S1-C-H turning-device configuration for mining drill rigs; the two numbers can appear across different machine builds or parts-list revisions. Send the tag from your unit and we confirm which reference and build applies before quoting.',
+      },
+      {
+        q: 'Will this fit a Boomer 104, K41 or K41x?',
+        a: 'The HP50-MS-RL-230 actuator is commonly listed on the Boomer 104, K41 and K41x as well as Simba H1257, H157 and S7D rigs, but these ranges use several different turning devices in different positions and serial-number builds. We confirm the mounting face, rail arrangement, ports and 230-degree rotation against your nameplate and a photo or drawing before recommending a replacement.',
+      },
+    ],
+  },
+  {
+    model: 'L30-65-S-FT-240/190-S1-C-H',
+    slug: 'l30-65-s-ft-240-190-s1-c-h',
+    series: 'L30',
+    seriesSlug: 'helac-l30-series',
+    rotation: '190/240°',
+    weight: '',
+    brands: ['Sandvik'],
+    parts: ['76350019', '76350008'],
+    machines: ['Solo 5', 'Solo 5V'],
+    image: '/images/alternatives/l30-65-s-rf-360.jpg',
+    imageW: 384,
+    imageH: 510,
+    imageAlt:
+      'Helac L30 series heavy-duty helical rotary actuator, foot-mount mining configuration (series representative image)',
+    intro:
+      'Alternative rotary actuator for the Helac L30-65-S-FT-240/190-S1-C-H, a large foot-mount helical actuator in the L30-65 class, rated at about 7,345 Nm output torque at 207 bar and built in 190/240-degree mining rotations. It is listed by Sandvik under part numbers 76350019 and 76350008 (also written 763-500-19 and 763-500-08) and is commonly associated with Solo drill rigs.',
+    applicationNote:
+      'Part numbers 76350019 and 76350008 are commonly listed on the Sandvik Solo 5 and Solo 5V drill rigs. As different builds within a machine range can use different turning devices, please confirm the fit and rotation angle against your machine serial number and the actuator nameplate before ordering.',
+    torque: '~7,345 Nm @ 207 bar (L30-65 series rated output)',
+    crossNote:
+      'L30-65 series rated output is about 7,345 Nm at 207 bar per the published Helac catalog; the 190/240-degree FT build is a mining configuration. The exact rotation angle, foot pattern, ports and build are confirmed against the unit tag and drawing before a replacement is supplied.',
+    extraFaqs: [
+      {
+        q: 'Which Sandvik rigs use parts 76350019 and 76350008?',
+        a: 'These Sandvik references are commonly listed on the Solo 5 and Solo 5V drill rigs, corresponding to the Helac L30-65-S-FT-240/190-S1-C-H turning-device configuration (foot mount, 190/240-degree rotation). Send the part number on your tag or a nameplate photo and we confirm the exact angle, mounting and ports before quoting.',
+      },
+      {
+        q: 'Is this a 190-degree or 240-degree unit?',
+        a: 'This L30-65 foot-mount build is supplied in 190-degree and 240-degree mining rotations, reflected in the two Sandvik references 76350019 and 76350008. The exact angle for your machine is read from the actuator tag and mechanism, not assumed from the rig model alone.',
+      },
+    ],
+  },
+  {
+    model: 'L30-65-S-RF-360-L1-C-H',
+    slug: 'l30-65-s-rf-360-l1-c-h',
+    series: 'L30',
+    seriesSlug: 'helac-l30-series',
+    rotation: '360°',
+    weight: '',
+    brands: ['Sandvik'],
+    parts: ['76350018'],
+    machines: ['DD210', 'Bolter'],
+    image: '/images/alternatives/l30-65-s-rf-360.jpg',
+    imageW: 384,
+    imageH: 510,
+    imageAlt:
+      'Helac L30 series heavy-duty helical rotary actuator, 360-degree rear-flange mining configuration (series representative image)',
+    intro:
+      'Alternative rotary actuator for the Helac L30-65-S-RF-360-L1-C-H, a large 360-degree, rear-flange helical actuator in the L30-65 class, rated at about 7,345 Nm output torque at 207 bar, in a mining L1 configuration. It is listed by Sandvik under part number 76350018 (also written 763-500-18) and is commonly associated with Sandvik development-drill and bolter rigs such as the DD210.',
+    applicationNote:
+      'Part number 76350018 is commonly listed on Sandvik DD210 development-drill and bolter-type rigs. This association rests on limited third-party listings, and several turning devices can be fitted across a machine range, so please confirm the fit against your machine serial number and the actuator nameplate before ordering.',
+    torque: '~7,345 Nm @ 207 bar (L30-65 series rated output)',
+    crossNote:
+      'L30-65 series rated output is about 7,345 Nm at 207 bar per the published Helac catalog; the -L1 rear-flange 360-degree build is a mining configuration. HM confirms the exact L1 build, mounting and ports against the unit tag and drawing before a replacement is supplied.',
+    extraFaqs: [
+      {
+        q: 'Which Sandvik rig uses part 76350018?',
+        a: 'Sandvik reference 76350018 is commonly listed on DD210 development-drill and bolter-type rigs, corresponding to the Helac L30-65-S-RF-360-L1-C-H turning-device configuration (360-degree rotation, rear flange, mining L1 build). Because the public evidence for this association is limited and the same rig range can use several turning devices, we confirm the mounting, ports and rotation against your nameplate and a photo or drawing before quoting.',
+      },
+      {
+        q: 'What does the L1 section of the code mean?',
+        a: 'In this mining build the L1 suffix identifies a specific rear-flange configuration rather than the standard S1/S2 shaft code; the exact meaning is read from the actuator tag and mounting drawing. Send a tag photo and we confirm the precise build before recommending a replacement.',
+      },
+    ],
   }
-
 ];
 
 export function getModel(slug: string): ModelData | undefined {

@@ -24,6 +24,10 @@ const slugByModelCode: Record<string, string | undefined> = {
   'L30-25-M-FT-180-S1-C-H': 'l30-25-m-ft-180-s1-c-h',
   'L30-42-M-RF-360-S1-C-H': 'l30-42-m-rf-360-s1-c-h',
   'L30-42-M-FT-180-S1-C-H': 'l30-42-m-ft-180-s1-c-h',
+  'L30-125-M-FT-360-S1-C-H': 'l30-125-m-ft-360-s1-c-h',
+  'HP50-MS-RL-230-S1-C-H': 'hp50-ms-rl-230-s1-c-h',
+  'L30-65-S-FT-240/190-S1-C-H': 'l30-65-s-ft-240-190-s1-c-h',
+  'L30-65-S-RF-360-L1-C-H': 'l30-65-s-rf-360-l1-c-h',
 };
 
 const atlasRows = [
@@ -81,6 +85,18 @@ const atlasRows = [
     weight: '—',
     machines: 'Boomer 282',
   },
+  {
+    code: 'L30-125-M-FT-360-S1-C-H',
+    oemNo: '3128314313',
+    weight: '285.8',
+    machines: 'Simba S7D, Simba H1257',
+  },
+  {
+    code: 'HP50-MS-RL-230-S1-C-H',
+    oemNo: '3128312643, 3129316303',
+    weight: '—',
+    machines: 'Boomer 104, Boomer K41, Boomer K41x, Simba H1257, Simba H157, Simba S7D',
+  },
 ];
 
 const sandvikRows = [
@@ -93,6 +109,8 @@ const sandvikRows = [
   { code: 'L30-25-M-FT-180-S1-C-H', oemNo: '—', weight: '49' },
   { code: 'L30-42-M-RF-360-S1-C-H', oemNo: '—', weight: '94' },
   { code: 'L30-42-M-FT-180-S1-C-H', oemNo: '—', weight: '73' },
+  { code: 'L30-65-S-FT-240/190-S1-C-H', oemNo: '76350019, 76350008', weight: '—' },
+  { code: 'L30-65-S-RF-360-L1-C-H', oemNo: '76350018', weight: '—' },
 ];
 
 const steps = [
