@@ -8,6 +8,7 @@ function listJoin(items: string[]): string {
 
 function buildFaqs(d: ModelData) {
   const brand = d.brands.length ? listJoin(d.brands) : null;
+  const ob = d.originBrand ?? 'Helac';
   const faqs: { q: string; a: string }[] = [];
 
   // Q1 — what it is / replaces
@@ -20,15 +21,22 @@ function buildFaqs(d: ModelData) {
     ? `Our supply records associate this ${d.rotation} rotary actuator${
         d.weight ? ` (${d.weight} class)` : ''
       } with the Helac HP-series build referenced as ${d.model}. The exact factory model code is confirmed against the unit's nameplate before order.`
-    : `It is the model code for a Helac helical rotary actuator providing ${d.rotation} rotation${
+    : d.sourcingOnly
+    ? `It is the original ${ob} model code for a helical hydraulic rotary actuator providing ${d.rotation} rotation. HM provides sourcing and alternative-supply support for this reference; it is not assumed to be an original ${ob} part or a pre-verified interchangeable unit, and the configuration is confirmed against your actuator nameplate and drawing before we quote.`
+    : `It is the model code for a ${ob} helical rotary actuator providing ${d.rotation} rotation${
         d.weight ? ` in the ${d.weight} class` : ''
       }.`;
   if (!d.catalogBuild) {
     if (brand) a1 += ` It is listed by ${brand}`;
     if (d.parts.length) a1 += ` under part number${d.parts.length > 1 ? 's' : ''} ${listJoin(d.parts)}`;
-    a1 += brand || d.parts.length ? '. Our alternative is matched to the same rotation' : ' Our alternative is matched to the same rotation';
-    if (d.weight) a1 += `, ${d.weight} class`;
-    a1 += ' and mounting interface.';
+    if (d.sourcingOnly) {
+      a1 += brand || d.parts.length ? '. HM can source or arrange alternative supply' : ' HM can source or arrange alternative supply';
+      a1 += ' for this reference; mounting dimensions, shaft, ports and the exact configuration are checked against your unit and drawing before any alternative is recommended.';
+    } else {
+      a1 += brand || d.parts.length ? '. Our alternative is matched to the same rotation' : ' Our alternative is matched to the same rotation';
+      if (d.weight) a1 += `, ${d.weight} class`;
+      a1 += ' and mounting interface.';
+    }
   } else {
     a1 += ' Send your tag code or a drawing and we confirm the exact build before quoting.';
   }
@@ -57,6 +65,7 @@ function buildFaqs(d: ModelData) {
 export function ModelPage({ d }: { d: ModelData }) {
   const faqs = buildFaqs(d);
   const path = `/alternatives/${d.slug}`;
+  const ob = d.originBrand ?? 'Helac';
 
   const quickRef = d.catalogBuild
     ? [
@@ -72,7 +81,7 @@ export function ModelPage({ d }: { d: ModelData }) {
       ]
     : [
     { label: d.modelCodeUnverified ? 'Reference code (from supply records)' : 'Original model', value: d.model, mono: true },
-    { label: 'Original brand', value: 'Helac', mono: false },
+    { label: 'Original brand', value: ob, mono: false },
     { label: 'Type', value: 'Rotary actuator', mono: false },
     { label: 'Rotation', value: d.rotation, mono: false },
     ...(d.torque ? [{ label: 'Rated torque', value: d.torque, mono: false }] : []),
@@ -84,7 +93,7 @@ export function ModelPage({ d }: { d: ModelData }) {
     ? `Original reference: ${d.brands[0] ?? 'OEM'} No. ${d.parts[0]}${
         d.parts.length > 1 ? ` (also listed as ${listJoin(d.parts.slice(1))})` : ''
       }`
-    : `Helac ${d.series} series helical rotary actuator`;
+    : `${ob} ${d.series} series helical rotary actuator`;
 
   // Straddle (S2) figures are only published for L20/L30 frames (L10 catalog omits them),
   // and the current-build column must follow the page's own angle rather than always taking 360.
@@ -100,7 +109,7 @@ export function ModelPage({ d }: { d: ModelData }) {
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE}/` },
-      { '@type': 'ListItem', position: 2, name: 'Helac Alternatives', item: `${SITE}/alternatives` },
+      { '@type': 'ListItem', position: 2, name: `${ob} Alternatives`, item: `${SITE}/alternatives` },
       { '@type': 'ListItem', position: 3, name: d.modelCodeUnverified ? `${d.parts[0] ?? d.model} (recorded ref.)` : d.model, item: `${SITE}${path}` },
     ],
   };
@@ -112,11 +121,15 @@ export function ModelPage({ d }: { d: ModelData }) {
       ? `Replacement rotary actuator for Helac ${d.model} (catalog configuration)`
       : d.modelCodeUnverified
       ? `Replacement rotary actuator for ${d.brands[0] ?? 'OEM'} ${d.parts[0] ?? d.model} (Helac HP-class)`
-      : `Replacement rotary actuator for Helac ${d.model}`,
+      : d.sourcingOnly
+      ? `Sourcing / alternative supply for ${ob} ${d.model}`
+      : `Replacement rotary actuator for ${ob} ${d.model}`,
     category: 'Hydraulic rotary actuator',
     image: `${SITE}${d.image}`,
     description: d.catalogBuild
       ? `${d.intro} Configuration derived from HY34-1001; engineering data per ${d.catalogSpec?.source ?? 'published Helac tables'}; exact configuration and compatibility confirmed against the original unit tag and mounting drawings.`
+      : d.sourcingOnly
+      ? `${d.intro} HM offers sourcing and alternative-supply support; original brand and interchangeability are not claimed without verification; exact configuration and mounting are confirmed on inquiry.`
       : `${d.intro} Exact HM model confirmed on inquiry.`,
     brand: { '@type': 'Brand', name: 'HM Hydraulics' },
     manufacturer: {
@@ -148,10 +161,13 @@ export function ModelPage({ d }: { d: ModelData }) {
             { '@type': 'PropertyValue', name: 'Reference-code status', value: 'From HM supply records; exact factory model code to be confirmed against the unit nameplate' },
           ]
         : [
-            { '@type': 'PropertyValue', name: 'Original brand', value: 'Helac' },
+            { '@type': 'PropertyValue', name: 'Original brand', value: ob },
             { '@type': 'PropertyValue', name: 'Original model', value: d.model },
             ...(d.parts.length
               ? [{ '@type': 'PropertyValue', name: 'OEM part number', value: listJoin(d.parts) }]
+              : []),
+            ...(d.sourcingOnly
+              ? [{ '@type': 'PropertyValue', name: 'Supply status', value: 'HM sourcing / alternative supply; not represented as an original part or a pre-verified interchangeable unit' }]
               : []),
           ]),
       { '@type': 'PropertyValue', name: 'Rotation', value: d.rotation },
@@ -193,7 +209,7 @@ export function ModelPage({ d }: { d: ModelData }) {
             </Link>
             <span>/</span>
             <Link href="/alternatives" className="no-underline text-[#62666C] hover:text-[#2C4A73] transition-colors">
-              Helac Alternatives
+              {ob} Alternatives
             </Link>
             <span>/</span>
             <span className="text-[#1B1E20]">{d.modelCodeUnverified ? `${d.parts[0] ?? d.model} (recorded ref.)` : d.model}</span>
@@ -206,7 +222,7 @@ export function ModelPage({ d }: { d: ModelData }) {
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <div>
-              <p className="eyebrow mb-4">HELAC ALTERNATIVE</p>
+              <p className="eyebrow mb-4">{d.sourcingOnly ? `${ob.toUpperCase()} SOURCING` : `${ob.toUpperCase()} ALTERNATIVE`}</p>
               {d.modelCodeUnverified ? (
                 <>
                   <h1 className="font-heading text-3xl md:text-4xl lg:text-[2.75rem] font-medium text-[#1B1E20] leading-tight mb-3">
@@ -247,7 +263,10 @@ export function ModelPage({ d }: { d: ModelData }) {
                         ? `Replacement matched to ${d.brands[0] ?? 'OEM'} ${d.parts[0]}${
                             d.parts.length > 1 ? ` (also listed as ${listJoin(d.parts.slice(1))})` : ''
                           }; the supplied build is recorded as Helac HP-series code ${d.model}, to be confirmed against the nameplate.`
-                        : <>Alternative rotary actuator for Helac {d.model}
+                        : d.sourcingOnly
+                        ? <>Sourcing / alternative supply for {ob} {d.model}
+                          {d.parts.length > 1 ? ` — also listed as ${listJoin(d.parts.slice(1))}` : ''}. Interchangeability confirmed on inquiry.</>
+                        : <>Alternative rotary actuator for {ob} {d.model}
                           {d.parts.length > 1 ? ` — also listed as ${listJoin(d.parts.slice(1))}` : ''}.</>}
                     </p>
                   </div>
@@ -279,7 +298,7 @@ export function ModelPage({ d }: { d: ModelData }) {
                       href="#rfq"
                       className="inline-flex items-center px-5 py-2.5 bg-[#2C4A73] text-white text-sm font-medium rounded no-underline hover:bg-[#1E3A5F] transition-colors duration-150"
                     >
-                      Request a compatibility check
+                      {d.sourcingOnly ? 'Request sourcing & availability' : 'Request a compatibility check'}
                     </a>
                     <a
                       href="#specs"
@@ -303,8 +322,11 @@ export function ModelPage({ d }: { d: ModelData }) {
                     </a>
                   </p>
                   <p className="mt-5 text-xs text-[#62666C] leading-relaxed">
-                    Independently supplied alternative &mdash; not an original Helac
-                    {d.brands.length ? ` or ${listJoin(d.brands)}` : ''} part. Compatibility is verified before ordering.
+                    {d.sourcingOnly
+                      ? <>Independently sourced / alternative-supply service &mdash; not represented as an original {ob}
+                        {d.brands.length ? ` or ${listJoin(d.brands)}` : ''} part. Interchangeability is verified against your unit and drawing before ordering.</>
+                      : <>Independently supplied alternative &mdash; not an original {ob}
+                        {d.brands.length ? ` or ${listJoin(d.brands)}` : ''} part. Compatibility is verified before ordering.</>}
                   </p>
                 </>
               )}
@@ -320,7 +342,9 @@ export function ModelPage({ d }: { d: ModelData }) {
                 loading="eager"
               />
               <figcaption className="text-xs text-[#62666C] px-1 pt-2.5 pb-1">
-                Alternative unit, {d.series} series &mdash; flange &amp; port configuration
+                {d.sourcingOnly
+                  ? `Representative rotary actuator — the actual ${ob} build is confirmed against your nameplate and drawing`
+                  : `Alternative unit, ${d.series} series &mdash; flange &amp; port configuration`}
               </figcaption>
             </figure>
           </div>
@@ -620,11 +644,13 @@ export function ModelPage({ d }: { d: ModelData }) {
           )}
 
           {/* Sibling series link */}
+          {!d.hideSeriesLink && (
           <p className="mt-6 text-sm">
             <Link href={`/alternatives/${d.seriesSlug}`} className="text-[#2C4A73] hover:underline">
-              View more Helac {d.series} series models →
+              View more {ob} {d.series} series models →
             </Link>
           </p>
+          )}
         </div>
       </section>
 
@@ -656,10 +682,12 @@ export function ModelPage({ d }: { d: ModelData }) {
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>
-              <p className="eyebrow mb-4">{d.catalogBuild ? 'Request a replacement review' : 'Request a check'}</p>
+              <p className="eyebrow mb-4">{d.catalogBuild ? 'Request a replacement review' : d.sourcingOnly ? 'Request sourcing' : 'Request a check'}</p>
               <h2 className="font-heading text-2xl md:text-3xl font-medium text-[#1B1E20] mb-4">
                 {d.catalogBuild
                   ? `Need a replacement for ${d.series}-${d.model.split('-')[1]}?`
+                  : d.sourcingOnly
+                  ? `Need a source for ${d.model}?`
                   : 'Looking for an alternative to this model?'}
               </h2>
               <p className="text-[#4A4E54] leading-relaxed mb-6">
@@ -668,6 +696,12 @@ export function ModelPage({ d }: { d: ModelData }) {
                     Send your existing unit&apos;s nameplate and a mounting drawing. HM reviews the configuration and
                     possible alternatives, confirms mounting and compatibility, and recommends the best available
                     sourcing option for your machine.
+                  </>
+                ) : d.sourcingOnly ? (
+                  <>
+                    Send the original {ob} model number, the Sandvik / OEM part number, machine details or a
+                    mounting drawing. We confirm the configuration and advise the available sourcing or
+                    alternative-supply option before quoting.
                   </>
                 ) : (
                   <>

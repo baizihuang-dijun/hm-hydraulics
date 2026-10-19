@@ -49,6 +49,20 @@ export interface ModelData {
    */
   modelCodeUnverified?: boolean;
   /**
+   * Original actuator brand for this reference. Defaults to 'Helac' so every existing
+   * Helac page renders byte-identically; set 'ECKART' / 'HKS' / 'Moveco' / 'Sungji' for
+   * other-brand sourcing/alternative-supply pages.
+   */
+  originBrand?: string;
+  /**
+   * True for a non-Helac reference where HM offers sourcing / alternative supply but has
+   * NOT verified an original part or a fully interchangeable drop-in. The template then uses
+   * sourcing phrasing and never states direct replacement / guaranteed compatibility.
+   */
+  sourcingOnly?: boolean;
+  /** Hide the bottom "browse all builds of this series" link when no series page exists. */
+  hideSeriesLink?: boolean;
+  /**
    * True for a catalog configuration page (a valid build per the Parker/Helac HY34-1001
    * model-code rule and published performance tables), rather than a unit read off a
    * specific nameplate. The page must phrase the code as a catalog/available configuration,
@@ -1587,6 +1601,98 @@ export const modelPages: ModelData[] = [
       {
         q: 'What does the L1 section of the code mean?',
         a: 'In this mining build the L1 suffix identifies a specific rear-flange configuration rather than the standard S1/S2 shaft code; the exact meaning is read from the actuator tag and mounting drawing. Send a tag photo and we confirm the precise build before recommending a replacement.',
+      },
+    ],
+  },
+  {
+    model: 'HP-90-S-RL-360-S1-C-H',
+    slug: 'hp-90-s-rl-360-s1-c-h',
+    series: 'HP',
+    seriesSlug: 'helac-hp-series',
+    rotation: '360°',
+    weight: '',
+    brands: ['Sandvik'],
+    parts: ['76350010'],
+    machines: [],
+    image: '/images/alternatives/helac-hp125.jpg',
+    imageW: 467,
+    imageH: 286,
+    imageAlt:
+      'Heavy-duty Helac HP-series helical hydraulic rotary actuator, rail-mount 360-degree mining configuration (HP series representative image)',
+    intro:
+      'Alternative heavy-duty rotary actuator for the Helac HP-90-S-RL-360-S1-C-H, a 360-degree, rail/slide-mount (RL) helical actuator in the Helac HP series, built for heavy-duty and mining drill-rig duty. It is listed by Sandvik under part number 76350010 (also written 763-500-10) in the supplier cross-reference list.',
+    crossNote:
+      'The HP-90-S-RL-360 is a heavy build of the Helac HP series. HM confirms the exact configuration, mounting, rail arrangement and ports against the unit nameplate and a drawing or photo before a replacement is supplied; ratings are not assumed from the HP number alone.',
+    extraFaqs: [
+      {
+        q: 'Which Sandvik machine uses part 76350010?',
+        a: 'Sandvik reference 76350010 is recorded against the Helac HP-90-S-RL-360-S1-C-H in our supplier cross-reference list; the source list does not tie it to a specific machine model. Send the part number on your tag or a nameplate photo and we confirm the build, rail mounting and ports before quoting.',
+      },
+    ],
+  },
+  {
+    model: 'ECKART SZ.SM3.215-357°/SO',
+    slug: 'eckart-sz-sm3-215-357-bg00334414',
+    series: 'SM3',
+    seriesSlug: '',
+    rotation: '357°',
+    weight: '',
+    brands: ['Sandvik'],
+    parts: ['BG00334414'],
+    machines: [],
+    image: '/images/alternatives/l30-65-s-rf-360.jpg',
+    imageW: 384,
+    imageH: 510,
+    imageAlt:
+      'Heavy-duty helical hydraulic rotary actuator for mining equipment (generic representative image, not the original ECKART unit)',
+    originBrand: 'ECKART',
+    sourcingOnly: true,
+    hideSeriesLink: true,
+    intro:
+      'The ECKART SZ.SM3.215-357°/SO is a helical hydraulic rotary actuator (about 357-degree rotation) listed by Sandvik under OEM part number BG00334414 (also written BG00-334-414) in the supplier cross-reference list. HM provides sourcing and alternative-supply support for this reference. We do not assume the offered unit is an original ECKART part or a pre-verified interchangeable unit; the model, mounting dimensions and configuration are confirmed against your actuator nameplate and drawing before we quote.',
+    crossNote:
+      'ECKART is the original actuator brand; Sandvik lists this unit as BG00334414. HM offers a sourcing / alternative-supply route. Because interchangeability has not been independently verified, the drawing, mounting dimensions, shaft and ports and the exact configuration are checked against your unit before any alternative is recommended.',
+    extraFaqs: [
+      {
+        q: 'Is Sandvik BG00334414 an ECKART actuator?',
+        a: 'Our supplier cross-reference list maps Sandvik OEM number BG00334414 to the original ECKART actuator model SZ.SM3.215-357°/SO. HM can source or arrange alternative supply; we do not represent the offered unit as an original ECKART part or guarantee interchangeability until the configuration and mounting are checked against your unit and drawing.',
+      },
+      {
+        q: 'Can HM supply a direct, fully compatible replacement for BG00334414?',
+        a: 'We do not claim a verified drop-in or a guaranteed-compatible unit from the part number alone. Send the actuator nameplate and a mounting drawing; we confirm rotation, mounting interface, shaft and ports and then advise the available sourcing or alternative-supply option.',
+      },
+    ],
+  },
+  {
+    model: 'ECKART SZ SM3.170-357°/SO',
+    slug: 'eckart-sz-sm3-170-357-bg00334337',
+    series: 'SM3',
+    seriesSlug: '',
+    rotation: '357°',
+    weight: '',
+    brands: ['Sandvik'],
+    parts: ['BG00334337'],
+    machines: [],
+    image: '/images/alternatives/l30-65-s-rf-360.jpg',
+    imageW: 384,
+    imageH: 510,
+    imageAlt:
+      'Heavy-duty helical hydraulic rotary actuator for mining equipment (generic representative image, not the original ECKART unit)',
+    originBrand: 'ECKART',
+    sourcingOnly: true,
+    hideSeriesLink: true,
+    intro:
+      'The ECKART SZ SM3.170-357°/SO is a helical hydraulic rotary actuator (about 357-degree rotation) listed by Sandvik under OEM part number BG00334337 (also written BG00-334-337) in the supplier cross-reference list. HM provides sourcing and alternative-supply support for this reference. We do not assume the offered unit is an original ECKART part or a pre-verified interchangeable unit; the model, mounting dimensions and configuration are confirmed against your actuator nameplate and drawing before we quote.',
+    crossNote:
+      'ECKART is the original actuator brand; Sandvik lists this unit as BG00334337. HM offers a sourcing / alternative-supply route. Because interchangeability has not been independently verified, the drawing, mounting dimensions, shaft and ports and the exact configuration are checked against your unit before any alternative is recommended.',
+    extraFaqs: [
+      {
+        q: 'Is Sandvik BG00334337 an ECKART actuator?',
+        a: 'Our supplier cross-reference list maps Sandvik OEM number BG00334337 to the original ECKART actuator model SZ SM3.170-357°/SO. HM can source or arrange alternative supply; we do not represent the offered unit as an original ECKART part or guarantee interchangeability until the configuration and mounting are checked against your unit and drawing.',
+      },
+      {
+        q: 'Can HM supply a direct, fully compatible replacement for BG00334337?',
+        a: 'We do not claim a verified drop-in or a guaranteed-compatible unit from the part number alone. Send the actuator nameplate and a mounting drawing; we confirm rotation, mounting interface, shaft and ports and then advise the available sourcing or alternative-supply option.',
       },
     ],
   }

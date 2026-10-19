@@ -28,6 +28,9 @@ const slugByModelCode: Record<string, string | undefined> = {
   'HP50-MS-RL-230-S1-C-H': 'hp50-ms-rl-230-s1-c-h',
   'L30-65-S-FT-240/190-S1-C-H': 'l30-65-s-ft-240-190-s1-c-h',
   'L30-65-S-RF-360-L1-C-H': 'l30-65-s-rf-360-l1-c-h',
+  'HP-90-S-RL-360-S1-C-H': 'hp-90-s-rl-360-s1-c-h',
+  'ECKART SZ.SM3.215-357°/SO': 'eckart-sz-sm3-215-357-bg00334414',
+  'ECKART SZ SM3.170-357°/SO': 'eckart-sz-sm3-170-357-bg00334337',
 };
 
 const atlasRows = [
@@ -111,6 +114,9 @@ const sandvikRows = [
   { code: 'L30-42-M-FT-180-S1-C-H', oemNo: '—', weight: '73' },
   { code: 'L30-65-S-FT-240/190-S1-C-H', oemNo: '76350019, 76350008', weight: '—' },
   { code: 'L30-65-S-RF-360-L1-C-H', oemNo: '76350018', weight: '—' },
+  { code: 'HP-90-S-RL-360-S1-C-H', oemNo: '76350010', weight: '—' },
+  { code: 'ECKART SZ.SM3.215-357°/SO', oemNo: 'BG00334414', weight: '—' },
+  { code: 'ECKART SZ SM3.170-357°/SO', oemNo: 'BG00334337', weight: '—' },
 ];
 
 const steps = [
@@ -364,7 +370,7 @@ export function MiningDrillRigsPage() {
               <thead>
                 <tr className="border-b border-[rgba(44,74,115,0.20)]">
                   <th className="py-3 pr-4 font-heading text-sm font-medium text-[#1B1E20]">
-                    Helac model code
+                    Actuator model code
                   </th>
                   <th className="py-3 px-4 font-heading text-sm font-medium text-[#1B1E20]">
                     Sandvik No.
