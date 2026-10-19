@@ -12,18 +12,26 @@ function buildFaqs(d: ModelData) {
 
   // Q1 — what it is / replaces
   const q1 = `What does the ${d.model} replace?`;
-  let a1 = d.modelCodeUnverified
+  let a1 = d.catalogBuild
+    ? `${d.model} is a ${d.rotation} Helac L-series helical rotary actuator configuration derived from the Parker/Helac HY34-1001 ordering key${
+        d.catalogSpec?.source ? ` and ${d.catalogSpec.source}` : ''
+      }. It is assembled per the catalog ordering rules rather than read from a specific nameplate, so the exact configuration and compatibility are confirmed against the original unit tag and mounting drawings; our alternative is matched only after that review.`
+    : d.modelCodeUnverified
     ? `Our supply records associate this ${d.rotation} rotary actuator${
         d.weight ? ` (${d.weight} class)` : ''
       } with the Helac HP-series build referenced as ${d.model}. The exact factory model code is confirmed against the unit's nameplate before order.`
     : `It is the model code for a Helac helical rotary actuator providing ${d.rotation} rotation${
         d.weight ? ` in the ${d.weight} class` : ''
       }.`;
-  if (brand) a1 += ` It is listed by ${brand}`;
-  if (d.parts.length) a1 += ` under part number${d.parts.length > 1 ? 's' : ''} ${listJoin(d.parts)}`;
-  a1 += brand || d.parts.length ? '. Our alternative is matched to the same rotation' : ' Our alternative is matched to the same rotation';
-  if (d.weight) a1 += `, ${d.weight} class`;
-  a1 += ' and mounting interface.';
+  if (!d.catalogBuild) {
+    if (brand) a1 += ` It is listed by ${brand}`;
+    if (d.parts.length) a1 += ` under part number${d.parts.length > 1 ? 's' : ''} ${listJoin(d.parts)}`;
+    a1 += brand || d.parts.length ? '. Our alternative is matched to the same rotation' : ' Our alternative is matched to the same rotation';
+    if (d.weight) a1 += `, ${d.weight} class`;
+    a1 += ' and mounting interface.';
+  } else {
+    a1 += ' Send your tag code or a drawing and we confirm the exact build before quoting.';
+  }
   faqs.push({ q: q1, a: a1 });
 
   // Q2 — fitment (only if machines known)
@@ -50,7 +58,19 @@ export function ModelPage({ d }: { d: ModelData }) {
   const faqs = buildFaqs(d);
   const path = `/alternatives/${d.slug}`;
 
-  const quickRef = [
+  const quickRef = d.catalogBuild
+    ? [
+        { label: 'Catalog configuration', value: d.model, mono: true },
+        { label: 'Original brand', value: 'Helac', mono: false },
+        { label: 'Type', value: 'Rotary actuator', mono: false },
+        { label: 'Rotation', value: d.rotation, mono: false },
+        ...(d.catalogSpec?.ratedTorqueNm
+          ? [{ label: 'Output torque @207 bar', value: `${d.catalogSpec.ratedTorqueNm.toLocaleString('en-US')} Nm`, mono: false }]
+          : []),
+        ...(d.weight ? [{ label: 'Unit weight', value: d.weight, mono: false }] : []),
+        ...(d.catalogSpec?.mountingStyles ? [{ label: 'Mounting styles', value: d.catalogSpec.mountingStyles, mono: false }] : []),
+      ]
+    : [
     { label: d.modelCodeUnverified ? 'Reference code (from supply records)' : 'Original model', value: d.model, mono: true },
     { label: 'Original brand', value: 'Helac', mono: false },
     { label: 'Type', value: 'Rotary actuator', mono: false },
@@ -66,6 +86,15 @@ export function ModelPage({ d }: { d: ModelData }) {
       }`
     : `Helac ${d.series} series helical rotary actuator`;
 
+  // Straddle (S2) figures are only published for L20/L30 frames (L10 catalog omits them),
+  // and the current-build column must follow the page's own angle rather than always taking 360.
+  const thisStraddle = d.catalogSpec?.momentStraddleNm
+    ? (d.rotation === '180°'
+        ? d.catalogSpec.momentStraddleNm.split('/')[0]?.trim()
+        : d.catalogSpec.momentStraddleNm.split('/')[1]?.trim() ?? d.catalogSpec.momentStraddleNm)
+    : '';
+  const showSiblingStraddle = !!d.catalogSpec?.siblingAngle?.straddleNm && !!thisStraddle;
+
   const breadcrumbJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -79,12 +108,16 @@ export function ModelPage({ d }: { d: ModelData }) {
   const productJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Product',
-    name: d.modelCodeUnverified
+    name: d.catalogBuild
+      ? `Replacement rotary actuator for Helac ${d.model} (catalog configuration)`
+      : d.modelCodeUnverified
       ? `Replacement rotary actuator for ${d.brands[0] ?? 'OEM'} ${d.parts[0] ?? d.model} (Helac HP-class)`
       : `Replacement rotary actuator for Helac ${d.model}`,
     category: 'Hydraulic rotary actuator',
     image: `${SITE}${d.image}`,
-    description: `${d.intro} Exact HM model confirmed on inquiry.`,
+    description: d.catalogBuild
+      ? `${d.intro} Configuration derived from HY34-1001; engineering data per ${d.catalogSpec?.source ?? 'published Helac tables'}; exact configuration and compatibility confirmed against the original unit tag and mounting drawings.`
+      : `${d.intro} Exact HM model confirmed on inquiry.`,
     brand: { '@type': 'Brand', name: 'HM Hydraulics' },
     manufacturer: {
       '@type': 'Organization',
@@ -92,7 +125,23 @@ export function ModelPage({ d }: { d: ModelData }) {
       url: SITE,
     },
     additionalProperty: [
-      ...(d.modelCodeUnverified
+      ...(d.catalogBuild
+        ? [
+            { '@type': 'PropertyValue', name: 'Original brand', value: 'Helac' },
+            { '@type': 'PropertyValue', name: 'Catalog configuration (HY34-1001)', value: d.model },
+            { '@type': 'PropertyValue', name: 'Configuration status', value: 'Configuration derived from the Parker/Helac HY34-1001 ordering key and published performance data; exact configuration and compatibility must be confirmed against the original unit tag and mounting drawings; not a nameplate-verified order code' },
+            ...(d.catalogSpec?.ratedTorqueNm ? [{ '@type': 'PropertyValue', name: 'Output torque at 207 bar', value: `${d.catalogSpec.ratedTorqueNm.toLocaleString('en-US')} Nm` }] : []),
+            ...(d.catalogSpec?.crossAlternatives?.length
+              ? [
+                  {
+                    '@type': 'PropertyValue',
+                    name: 'Performance-class alternatives',
+                    value: d.catalogSpec.crossAlternatives.map((c) => `${c.brand} ${c.seriesRef}`).join('; '),
+                  },
+                ]
+              : []),
+          ]
+        : d.modelCodeUnverified
         ? [
             { '@type': 'PropertyValue', name: 'OEM part number', value: listJoin(d.parts) },
             { '@type': 'PropertyValue', name: 'Recorded Helac reference code', value: d.model },
@@ -106,8 +155,15 @@ export function ModelPage({ d }: { d: ModelData }) {
               : []),
           ]),
       { '@type': 'PropertyValue', name: 'Rotation', value: d.rotation },
-      ...(d.torque ? [{ '@type': 'PropertyValue', name: 'Rated torque', value: d.torque }] : []),
-      ...(d.weight ? [{ '@type': 'PropertyValue', name: 'Weight', value: d.weight }] : []),
+      ...(d.catalogBuild && d.catalogSpec
+        ? [
+            ...(d.weight ? [{ '@type': 'PropertyValue', name: 'Unit weight', value: d.weight }] : []),
+            { '@type': 'PropertyValue', name: 'Engineering data source', value: d.catalogSpec.source },
+          ]
+        : [
+            ...(d.torque ? [{ '@type': 'PropertyValue', name: 'Rated torque', value: d.torque }] : []),
+            ...(d.weight ? [{ '@type': 'PropertyValue', name: 'Weight', value: d.weight }] : []),
+          ]),
     ],
   };
 
@@ -162,6 +218,15 @@ export function ModelPage({ d }: { d: ModelData }) {
                     &nbsp;· from HM supply records, to be confirmed against the unit nameplate
                   </p>
                 </>
+              ) : d.catalogBuild ? (
+                <>
+                  <h1 className="font-heading text-3xl md:text-4xl lg:text-[2.5rem] font-medium text-[#1B1E20] leading-tight mb-3">
+                    {d.model} Rotary Actuator
+                  </h1>
+                  <p className="text-base md:text-lg font-medium text-[#2C4A73] mb-4">
+                    Alternatives &amp; cross-reference{d.catalogSpec?.ratedTorqueNm ? ` · ${d.rotation} · ${d.catalogSpec.ratedTorqueNm.toLocaleString('en-US')} Nm at ${d.catalogSpec.pressureBar ?? 207} bar` : ''}
+                  </p>
+                </>
               ) : (
                 <h1 className="font-heading text-3xl md:text-4xl lg:text-[2.75rem] font-medium text-[#1B1E20] leading-tight mb-4">
                   {d.model} Rotary Actuator
@@ -187,32 +252,62 @@ export function ModelPage({ d }: { d: ModelData }) {
                     </p>
                   </div>
                 </div>
-              ) : (
-                <p className="text-sm text-[#4A4E54] border-l-2 border-[#2C4A73] pl-3 mb-7">{partLabel}</p>
-              )}
-              <div className="flex flex-wrap gap-3">
-                <a
-                  href="#rfq"
-                  className="inline-flex items-center px-5 py-2.5 bg-[#2C4A73] text-white text-sm font-medium rounded no-underline hover:bg-[#1E3A5F] transition-colors duration-150"
-                >
-                  Request a compatibility check
-                </a>
-                <a
-                  href="#specs"
-                  className="inline-flex items-center px-5 py-2.5 bg-white text-[#1B1E20] text-sm font-medium rounded border border-[rgba(44,74,115,0.20)] no-underline hover:border-[rgba(44,74,115,0.40)] transition-colors duration-150"
-                >
-                  View specifications
-                </a>
+              ) : !d.catalogBuild ? (
+                <p className="text-sm border-l-2 border-[#2C4A73] pl-3 mb-7">
+                  <span className="text-[#4A4E54]">{partLabel}</span>
+                </p>
+              ) : null}
+              <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
+                {d.catalogBuild ? (
+                  <>
+                    <a
+                      href="#rfq"
+                      className="inline-flex items-center px-7 py-3.5 bg-[#2C4A73] text-white text-base font-semibold rounded-md shadow-md no-underline hover:bg-[#1E3A5F] hover:shadow-lg transition-all duration-150"
+                    >
+                      Request a replacement review
+                    </a>
+                    <a
+                      href="#alternatives"
+                      className="inline-flex items-center text-sm font-medium text-[#2C4A73] no-underline hover:underline"
+                    >
+                      Compare alternatives &darr;
+                    </a>
+                  </>
+                ) : (
+                  <>
+                    <a
+                      href="#rfq"
+                      className="inline-flex items-center px-5 py-2.5 bg-[#2C4A73] text-white text-sm font-medium rounded no-underline hover:bg-[#1E3A5F] transition-colors duration-150"
+                    >
+                      Request a compatibility check
+                    </a>
+                    <a
+                      href="#specs"
+                      className="inline-flex items-center px-5 py-2.5 bg-white text-[#1B1E20] text-sm font-medium rounded border border-[rgba(44,74,115,0.20)] no-underline hover:border-[rgba(44,74,115,0.40)] transition-colors duration-150"
+                    >
+                      View specifications
+                    </a>
+                  </>
+                )}
               </div>
-              <p className="mt-4 mb-0 text-xs">
-                <a href="/solutions" className="text-[#2C4A73] no-underline hover:underline">
-                  Specifying a new program? Talk to our engineering team &rarr;
-                </a>
-              </p>
-              <p className="mt-5 text-xs text-[#62666C] leading-relaxed">
-                Independently supplied alternative &mdash; not an original Helac
-                {d.brands.length ? ` or ${listJoin(d.brands)}` : ''} part. Compatibility is verified before ordering.
-              </p>
+              {d.catalogBuild ? (
+                <p className="mt-5 mb-0 text-xs text-[#62666C] leading-relaxed">
+                  Independently supplied alternative &mdash; not an original Helac part. Configuration and fit are
+                  confirmed against your unit tag and drawing before ordering.
+                </p>
+              ) : (
+                <>
+                  <p className="mt-4 mb-0 text-xs">
+                    <a href="/solutions" className="text-[#2C4A73] no-underline hover:underline">
+                      Specifying a new program? Talk to our engineering team &rarr;
+                    </a>
+                  </p>
+                  <p className="mt-5 text-xs text-[#62666C] leading-relaxed">
+                    Independently supplied alternative &mdash; not an original Helac
+                    {d.brands.length ? ` or ${listJoin(d.brands)}` : ''} part. Compatibility is verified before ordering.
+                  </p>
+                </>
+              )}
             </div>
 
             <figure className="m-0 bg-white border border-[rgba(44,74,115,0.10)] rounded-md p-3">
@@ -231,6 +326,93 @@ export function ModelPage({ d }: { d: ModelData }) {
           </div>
         </div>
       </section>
+
+      {/* Cross-reference / alternatives (catalog builds only) — commercial decision-support block */}
+      {d.catalogBuild && (
+        <section id="alternatives" className="border-b border-[rgba(44,74,115,0.10)] bg-[#FAFAF7]">
+          <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
+            <p className="font-label text-xs text-[#62666C] uppercase tracking-wider mb-2">Cross-reference</p>
+            <h2 className="font-heading text-2xl md:text-3xl font-medium text-[#1B1E20] mb-3">
+              Alternatives for Helac {d.series}-{d.model.split('-')[1]}
+            </h2>
+            <p className="text-[#4A4E54] leading-relaxed max-w-3xl mb-8">
+              Compare this unit with other brands at a similar performance level &mdash; then send us your tag and
+              mounting drawing and we confirm which option actually fits.
+            </p>
+
+            <div className="overflow-x-auto border border-[rgba(44,74,115,0.12)] rounded-md bg-white">
+              <table className="w-full text-sm min-w-[560px]">
+                <thead>
+                  <tr className="border-b border-[rgba(44,74,115,0.14)] bg-[rgba(44,74,115,0.05)]">
+                    <th className="text-left py-3.5 px-5 font-label text-[#1B1E20]">Brand</th>
+                    <th className="text-left py-3.5 px-5 font-label text-[#1B1E20]">Model / series</th>
+                    <th className="text-left py-3.5 px-5 font-label text-[#1B1E20]">Key specification</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-[rgba(44,74,115,0.08)] bg-white">
+                    <td className="py-3.5 px-5 align-top font-medium text-[#1B1E20]">Helac</td>
+                    <td className="py-3.5 px-5 align-top font-label text-[#1B1E20]">
+                      {d.series}-{d.model.split('-')[1]}
+                      <span className="block text-xs text-[#62666C] mt-0.5 font-sans">{d.model}</span>
+                    </td>
+                    <td className="py-3.5 px-5 align-top text-[#4A4E54]">
+                      {d.catalogSpec?.ratedTorqueNm ? `${d.catalogSpec.ratedTorqueNm.toLocaleString('en-US')} Nm` : ''}
+                      {d.catalogSpec?.ratedTorqueNm ? ' · ' : ''}{d.rotation}
+                    </td>
+                  </tr>
+                  {d.catalogSpec?.crossAlternatives?.length ? (
+                    d.catalogSpec.crossAlternatives.map((c) => (
+                      <tr key={`${c.brand}-${c.seriesRef}`} className="border-b border-[rgba(44,74,115,0.08)] last:border-b-0">
+                        <td className="py-3.5 px-5 align-top font-medium text-[#1B1E20]">{c.brand}</td>
+                        <td className="py-3.5 px-5 align-top font-label text-[#1B1E20]">{c.seriesRef}</td>
+                        <td className="py-3.5 px-5 align-top text-[#4A4E54]">{c.keySpec}</td>
+                      </tr>
+                    ))
+                  ) : (
+                    <tr>
+                      <td className="py-3.5 px-5 text-[#4A4E54]" colSpan={3}>
+                        No other brand is listed at this configuration in the current reference data. Send your tag and
+                        drawing &mdash; we check available sourcing options for you.
+                      </td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
+            </div>
+            <p className="mt-3 text-xs text-[#62666C] max-w-3xl leading-relaxed">
+              Alternative models are compared by published performance specifications. Mounting dimensions and
+              compatibility must be confirmed before ordering.
+            </p>
+
+            {/* What we check before recommending a fit */}
+            <div className="mt-10">
+              <h3 className="font-heading text-xl font-medium text-[#1B1E20] mb-4">What HM checks before recommending a fit</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                {[
+                  ['Mounting dimensions', 'Foot / flange pattern, bolt circle and overall envelope.'],
+                  ['Shaft interface', 'Shaft type, spline / key, diameter and flange arrangement (S1/S2).'],
+                  ['Rotation & stops', 'Rotation angle, end stops and cushioning for your mechanism.'],
+                  ['Hydraulic connections', 'Port size/standard (SAE/UNF), position and counterbalance valve.'],
+                ].map(([title, body]) => (
+                  <div key={title} className="bg-white border border-[rgba(44,74,115,0.12)] rounded-md p-5">
+                    <p className="m-0 mb-2 font-label text-sm font-medium text-[#1B1E20]">{title}</p>
+                    <p className="m-0 text-xs text-[#62666C] leading-relaxed">{body}</p>
+                  </div>
+                ))}
+              </div>
+              <p className="mt-5">
+                <a
+                  href="#rfq"
+                  className="inline-flex items-center px-5 py-2.5 bg-[#2C4A73] text-white text-sm font-medium rounded no-underline hover:bg-[#1E3A5F] transition-colors duration-150"
+                >
+                  Send your tag &amp; drawing for a free review
+                </a>
+              </p>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Quick reference */}
       <section className="border-b border-[rgba(44,74,115,0.10)]">
@@ -282,52 +464,160 @@ export function ModelPage({ d }: { d: ModelData }) {
       {/* Specifications */}
       <section id="specs" className="border-b border-[rgba(44,74,115,0.10)]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
-          <p className="font-label text-xs text-[#62666C] uppercase tracking-wider mb-2">Confirmed data only</p>
-          <h2 className="font-heading text-2xl md:text-3xl font-medium text-[#1B1E20] mb-8">Technical specifications</h2>
-          <div className="overflow-hidden border border-[rgba(44,74,115,0.10)] rounded-md bg-white max-w-3xl">
-            <table className="w-full text-sm">
-              <tbody>
-                {[
-                  ['Product type', 'Hydraulic rotary actuator'],
-                  ['Rotation angle', d.rotation],
-                  ...(d.torque ? ([['Rated torque', d.torque]] as [string, string][]) : []),
-                  ...(d.weight ? ([['Unit weight', d.weight]] as [string, string][]) : []),
-                ].map(([k, v]) => (
-                  <tr key={k} className="border-b border-[rgba(44,74,115,0.08)] last:border-b-0">
-                    <th scope="row" className="text-left py-3.5 px-5 font-medium text-[#1B1E20] w-48 align-top">
-                      {k}
-                    </th>
-                    <td className="py-3.5 px-5 text-[#4A4E54]">{v}</td>
-                  </tr>
-                ))}
-                {d.crossNote && (
-                  <tr className="border-b border-[rgba(44,74,115,0.08)]">
-                    <th scope="row" className="text-left py-3.5 px-5 font-medium text-[#1B1E20] w-48 align-top">
-                      Cross reference
-                    </th>
-                    <td className="py-3.5 px-5 text-[#4A4E54]">{d.crossNote}</td>
-                  </tr>
-                )}
-                <tr>
-                  <th scope="row" className="text-left py-3.5 px-5 font-medium text-[#1B1E20] w-48 align-top">
-                    Further data
-                  </th>
-                  <td className="py-3.5 px-5 text-[#62666C]">
-                    Torque, pressure, port and mounting dimensions are shared with the engineering drawing on request.
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          {d.catalogBuild ? (
+            <>
+              <p className="font-label text-xs text-[#62666C] uppercase tracking-wider mb-2">
+                Catalog engineering data · {d.catalogSpec?.source}
+              </p>
+              <h2 className="font-heading text-2xl md:text-3xl font-medium text-[#1B1E20] mb-4">
+                Technical specifications — {d.catalogSpec?.baseLabel ?? d.series}, {d.rotation} build
+              </h2>
+              <p className="text-sm text-[#62666C] max-w-3xl mb-8">
+                Performance figures are taken from the published Helac catalog ({d.catalogSpec?.source}). The full
+                configuration and compatibility are confirmed against your unit tag and mounting drawings before
+                ordering.
+              </p>
+              <div className="overflow-hidden border border-[rgba(44,74,115,0.10)] rounded-md bg-white max-w-3xl">
+                <table className="w-full text-sm">
+                  <tbody>
+                    {([
+                      ['Product type', 'Hydraulic helical rotary actuator'],
+                      ['Series / size', `${d.series} series · ${d.catalogSpec?.baseLabel ?? ''}`],
+                      ['Catalog configuration', d.model],
+                      ['Rotation angle', d.rotation],
+                      ['Rated operating pressure', d.catalogSpec?.pressureBar ? `${d.catalogSpec.pressureBar} bar` : ''],
+                      ['Output (drive) torque @ rated pressure', d.catalogSpec?.ratedTorqueNm ? `${d.catalogSpec.ratedTorqueNm.toLocaleString('en-US')} Nm` : ''],
+                      ['Holding torque', d.catalogSpec?.holdingTorqueNm ? `${d.catalogSpec.holdingTorqueNm.toLocaleString('en-US')} Nm` : ''],
+                      ['Moment capacity — cantilever (S1)', d.catalogSpec?.momentCantileverNm ? `${d.catalogSpec.momentCantileverNm.toLocaleString('en-US')} Nm` : ''],
+                      ['Moment capacity — straddle (S2)', thisStraddle],
+                      ['Axial load capacity', d.catalogSpec?.axialLoadKg ? `${d.catalogSpec.axialLoadKg.toLocaleString('en-US')} kg` : ''],
+                      ['Radial load capacity', d.catalogSpec?.radialLoadKg ? `${d.catalogSpec.radialLoadKg.toLocaleString('en-US')} kg` : ''],
+                      ['Displacement per cycle', d.catalogSpec?.displacementCm3 ?? ''],
+                      ['Unit weight', d.catalogSpec?.weightKg ?? ''],
+                      ['Available mounting styles', d.catalogSpec?.mountingStyles ?? ''],
+                      ['This build', d.catalogSpec?.thisBuildDecode ?? ''],
+                    ] as [string, string][]).filter(([, v]) => v).map(([k, v]) => (
+                      <tr key={k} className="border-b border-[rgba(44,74,115,0.08)] last:border-b-0">
+                        <th scope="row" className="text-left py-3.5 px-5 font-medium text-[#1B1E20] w-64 align-top">
+                          {k}
+                        </th>
+                        <td className="py-3.5 px-5 text-[#4A4E54]">{v}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
 
-          {/* Replacement note */}
-          <div className="mt-8 p-5 bg-[rgba(44,74,115,0.05)] border border-[rgba(44,74,115,0.12)] rounded-md max-w-3xl">
-            <p className="text-sm text-[#4A4E54] leading-relaxed m-0">
-              <strong className="text-[#1B1E20]">HM alternative model — confirmed on inquiry.</strong>{' '}
-              Send us your original model number, part number or machine details and we confirm the matching
-              configuration, specifications and compatibility, then quote. The exact HM model is not published online.
-            </p>
-          </div>
+              {/* 180 vs 360 sibling builds — real independent value */}
+              {d.catalogSpec?.siblingAngle && (
+                <div className="mt-10 max-w-3xl">
+                  <h3 className="font-heading text-xl font-medium text-[#1B1E20] mb-3">
+                    {d.rotation} vs {d.catalogSpec.siblingAngle.angle} on the same {d.catalogSpec?.baseLabel?.split(' ')[0] ?? d.series} base
+                  </h3>
+                  <div className="overflow-hidden border border-[rgba(44,74,115,0.10)] rounded-md bg-white">
+                    <table className="w-full text-sm">
+                      <thead>
+                        <tr className="border-b border-[rgba(44,74,115,0.12)] bg-[rgba(44,74,115,0.04)]">
+                          <th className="text-left py-3 px-5 font-label text-[#1B1E20]">Parameter</th>
+                          <th className="text-left py-3 px-5 font-label text-[#1B1E20]">{d.catalogSpec?.siblingAngle.angle} build</th>
+                          <th className="text-left py-3 px-5 font-label text-[#2C4A73]">{d.rotation} build (this page)</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr className="border-b border-[rgba(44,74,115,0.08)]">
+                          <td className="py-3 px-5 text-[#1B1E20] font-medium">Catalog code</td>
+                          <td className="py-3 px-5 text-[#4A4E54] font-label">{d.catalogSpec.siblingAngle.code}</td>
+                          <td className="py-3 px-5 text-[#2C4A73] font-label">{d.model}</td>
+                        </tr>
+                        <tr className="border-b border-[rgba(44,74,115,0.08)]">
+                          <td className="py-3 px-5 text-[#1B1E20] font-medium">Displacement per cycle</td>
+                          <td className="py-3 px-5 text-[#4A4E54]">{d.catalogSpec.siblingAngle.displacementCm3}</td>
+                          <td className="py-3 px-5 text-[#4A4E54]">{d.catalogSpec.displacementCm3}</td>
+                        </tr>
+                        <tr className="border-b border-[rgba(44,74,115,0.08)]">
+                          <td className="py-3 px-5 text-[#1B1E20] font-medium">Unit weight</td>
+                          <td className="py-3 px-5 text-[#4A4E54]">{d.catalogSpec.siblingAngle.weightKg}</td>
+                          <td className="py-3 px-5 text-[#4A4E54]">{d.catalogSpec.weightKg}</td>
+                        </tr>
+                        {showSiblingStraddle && (
+                          <tr>
+                            <td className="py-3 px-5 text-[#1B1E20] font-medium">Straddle (S2) moment</td>
+                            <td className="py-3 px-5 text-[#4A4E54]">{d.catalogSpec.siblingAngle.straddleNm}</td>
+                            <td className="py-3 px-5 text-[#4A4E54]">{thisStraddle}</td>
+                          </tr>
+                        )}
+                      </tbody>
+                    </table>
+                  </div>
+                  <p className="mt-3 text-xs text-[#62666C]">
+                    Same frame and output torque, different displacement, weight, body length and straddle moment — they
+                    match different cycle-time, hydraulic-flow and mounting-geometry requirements. Select by the angle
+                    your mechanism needs, not by the model number alone.
+                  </p>
+                </div>
+              )}
+            </>
+          ) : (
+            <>
+              <p className="font-label text-xs text-[#62666C] uppercase tracking-wider mb-2">Confirmed data only</p>
+              <h2 className="font-heading text-2xl md:text-3xl font-medium text-[#1B1E20] mb-8">Technical specifications</h2>
+              <div className="overflow-hidden border border-[rgba(44,74,115,0.10)] rounded-md bg-white max-w-3xl">
+                <table className="w-full text-sm">
+                  <tbody>
+                    {[
+                      ['Product type', 'Hydraulic rotary actuator'],
+                      ['Rotation angle', d.rotation],
+                      ...(d.torque ? ([['Rated torque', d.torque]] as [string, string][]) : []),
+                      ...(d.weight ? ([['Unit weight', d.weight]] as [string, string][]) : []),
+                    ].map(([k, v]) => (
+                      <tr key={k} className="border-b border-[rgba(44,74,115,0.08)] last:border-b-0">
+                        <th scope="row" className="text-left py-3.5 px-5 font-medium text-[#1B1E20] w-48 align-top">
+                          {k}
+                        </th>
+                        <td className="py-3.5 px-5 text-[#4A4E54]">{v}</td>
+                      </tr>
+                    ))}
+                    {d.crossNote && (
+                      <tr className="border-b border-[rgba(44,74,115,0.08)]">
+                        <th scope="row" className="text-left py-3.5 px-5 font-medium text-[#1B1E20] w-48 align-top">
+                          Cross reference
+                        </th>
+                        <td className="py-3.5 px-5 text-[#4A4E54]">{d.crossNote}</td>
+                      </tr>
+                    )}
+                    <tr>
+                      <th scope="row" className="text-left py-3.5 px-5 font-medium text-[#1B1E20] w-48 align-top">
+                        Further data
+                      </th>
+                      <td className="py-3.5 px-5 text-[#62666C]">
+                        Torque, pressure, port and mounting dimensions are shared with the engineering drawing on request.
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              {/* Replacement note */}
+              <div className="mt-8 p-5 bg-[rgba(44,74,115,0.05)] border border-[rgba(44,74,115,0.12)] rounded-md max-w-3xl">
+                <p className="text-sm text-[#4A4E54] leading-relaxed m-0">
+                  <strong className="text-[#1B1E20]">HM alternative model — confirmed on inquiry.</strong>{' '}
+                  Send us your original model number, part number or machine details and we confirm the matching
+                  configuration, specifications and compatibility, then quote. The exact HM model is not published online.
+                </p>
+              </div>
+            </>
+          )}
+
+          {/* Catalog replacement note + sibling link */}
+          {d.catalogBuild && (
+            <div className="mt-8 p-5 bg-[rgba(44,74,115,0.05)] border border-[rgba(44,74,115,0.12)] rounded-md max-w-3xl">
+              <p className="text-sm text-[#4A4E54] leading-relaxed m-0">
+                <strong className="text-[#1B1E20]">Send us your nameplate and mounting drawing.</strong>{' '}
+                HM reviews the configuration and cross-brand options, confirms the fit, then quotes the matching unit
+                and price.
+              </p>
+            </div>
+          )}
 
           {/* Sibling series link */}
           <p className="mt-6 text-sm">
@@ -366,13 +656,25 @@ export function ModelPage({ d }: { d: ModelData }) {
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>
-              <p className="eyebrow mb-4">Request a check</p>
+              <p className="eyebrow mb-4">{d.catalogBuild ? 'Request a replacement review' : 'Request a check'}</p>
               <h2 className="font-heading text-2xl md:text-3xl font-medium text-[#1B1E20] mb-4">
-                Looking for an alternative to this model?
+                {d.catalogBuild
+                  ? `Need a replacement for ${d.series}-${d.model.split('-')[1]}?`
+                  : 'Looking for an alternative to this model?'}
               </h2>
               <p className="text-[#4A4E54] leading-relaxed mb-6">
-                Send us the original model number, part number, machine model or a drawing. We check the available
-                option and confirm specifications and compatibility for you.
+                {d.catalogBuild ? (
+                  <>
+                    Send your existing unit&apos;s nameplate and a mounting drawing. HM reviews the configuration and
+                    possible alternatives, confirms mounting and compatibility, and recommends the best available
+                    sourcing option for your machine.
+                  </>
+                ) : (
+                  <>
+                    Send us the original model number, part number, machine model or a drawing. We check the available
+                    option and confirm specifications and compatibility for you.
+                  </>
+                )}
               </p>
               <ul className="space-y-2 mb-6">
                 {[

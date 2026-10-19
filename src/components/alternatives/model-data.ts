@@ -1,3 +1,18 @@
+/**
+ * A cross-brand candidate shown on a public catalog build page.
+ * Commercial presentation only: brand, model/series, and a short key-specification line.
+ * Evidence grade, verification status and detailed caveats stay in the internal DB, not on the page.
+ * Nothing here may imply drop-in, matching mounting dimensions, or verified interchangeability.
+ */
+export interface CrossAlternative {
+  /** Brand name, e.g. 'HKS'. */
+  brand: string;
+  /** Public model/series reference, e.g. 'M-DA-H F10/F5 200'. */
+  seriesRef: string;
+  /** Short buyer-facing key spec, e.g. 'Similar torque class'. */
+  keySpec: string;
+}
+
 export interface ModelData {
   /** Exact model code as shown on the tag (kept verbatim, incl. dots). */
   model: string;
@@ -33,6 +48,40 @@ export interface ModelData {
    * the code as a search anchor but avoids asserting an exact code=part identity.
    */
   modelCodeUnverified?: boolean;
+  /**
+   * True for a catalog configuration page (a valid build per the Parker/Helac HY34-1001
+   * model-code rule and published performance tables), rather than a unit read off a
+   * specific nameplate. The page must phrase the code as a catalog/available configuration,
+   * not a nameplate-verified order code, and show full engineering data instead of an OEM part.
+   */
+  catalogBuild?: boolean;
+  /** Catalog build engineering data (Helac published tables). Numbers with units live in template. */
+  catalogSpec?: {
+    pressureBar?: number;
+    ratedTorqueNm?: number;
+    holdingTorqueNm?: number;
+    momentCantileverNm?: number;
+    momentStraddleNm?: string; // may carry both 180/360 figures
+    axialLoadKg?: number;
+    radialLoadKg?: number;
+    displacementCm3?: string; // this build's displacement
+    weightKg?: string; // this build's weight
+    mountingStyles?: string; // e.g. 'FT foot, FF front flange, RF rear flange'
+    /** Human label for the base size, e.g. 'L30-95 (9,500 in-lb class)'. */
+    baseLabel?: string;
+    /** Plain-English decode of this exact ordering code. */
+    thisBuildDecode?: string;
+    /**
+     * Cross-brand candidates we are allowed to show publicly.
+     * Only add entries that trace to a controlled-DB cell; level is never above 'torque-class'.
+     */
+    crossAlternatives?: CrossAlternative[];
+    /** Sibling angle builds, to show real 180 vs 360 differences on the same base. */
+    siblingAngle?: { angle: string; code: string; displacementCm3: string; weightKg: string; straddleNm: string };
+    source: string; // e.g. 'Helac L30 catalog, pp. 12 & 14'
+  };
+  /** Public cross-brand reference note for catalog builds (parameter-close only). */
+  crossBrandNote?: string;
   /** Model-specific FAQ entries appended to the generated set (optional). */
   extraFaqs?: { q: string; a: string }[];
 }
@@ -251,6 +300,72 @@ export const modelPages: ModelData[] = [
     ],
   },
   {
+    model: 'L30-95-E-FT-360-S1-C-H',
+    slug: 'l30-95-e-ft-360-s1-c-h',
+    series: 'L30',
+    seriesSlug: 'helac-l30-series',
+    rotation: '360°',
+    weight: '204.1 kg',
+    brands: [],
+    parts: [],
+    machines: [],
+    image: '/images/alternatives/l30-65-s-rf-360.jpg',
+    imageW: 384,
+    imageH: 510,
+    imageAlt: 'Heavy-duty Helac L30 series helical rotary actuator, foot-mount 360-degree configuration (L30 series representative image)',
+    catalogBuild: true,
+    intro:
+      'Looking for an alternative to the Helac L30-95 rotary actuator? This page covers the 360° foot-mount catalog configuration, with a rated output torque of approximately 10,735 Nm at 207 bar. HM can help review your unit tag, mounting drawings and operating requirements before proposing a suitable solution.',
+    catalogSpec: {
+      pressureBar: 207,
+      ratedTorqueNm: 10735,
+      holdingTorqueNm: 26216,
+      momentCantileverNm: 29521,
+      momentStraddleNm: '75,145 Nm (180°) / 111,531 Nm (360°)',
+      axialLoadKg: 4536,
+      radialLoadKg: 6804,
+      displacementCm3: '5,358.6 cm³ (360°)',
+      weightKg: '204.1 kg (360°)',
+      mountingStyles: 'FT foot mount · FF front flange · RF rear flange',
+      baseLabel: 'L30-95 (9,500 in-lb class)',
+      thisBuildDecode:
+        'E = English/SAE threads & ports · FT foot mount · 360° rotation · S1 single (cantilever) flange · C counterbalance valve · H standard seals & bearings',
+      crossAlternatives: [
+        {
+          brand: 'HKS',
+          seriesRef: 'M-DA-H F10/F5 200',
+          keySpec: 'Similar torque class',
+        },
+      ],
+      siblingAngle: {
+        angle: '180°',
+        code: 'L30-95-E-FT-180-S1-C-H',
+        displacementCm3: '2,687.5 cm³',
+        weightKg: '163.3 kg',
+        straddleNm: '75,145 Nm',
+      },
+      source: 'Helac L30 catalog, pp. 12 & 14',
+    },
+    extraFaqs: [
+      {
+        q: 'Is L30-95-E-FT-360-S1-C-H a confirmed factory order code?',
+        a: 'This configuration is derived from the Parker/Helac HY34-1001 ordering key (L30 frame, 95 = 9,500 in-lb class, E English/SAE, FT foot mount, 360° rotation, S1 single/cantilever flange, C counterbalance valve, H standard seals & bearings) and the published L30 performance data. It is a configuration assembled per the catalog rules, not an independently verified factory order code read from a nameplate. The exact configuration and compatibility are confirmed against the original unit tag and mounting drawings before we quote.',
+      },
+      {
+        q: 'What is the difference between the 180° and 360° L30-95 builds?',
+        a: 'They share the same L30 frame and output torque (~10,735 Nm at 207 bar) but are different effective builds: the 360° unit displaces about 5,358.6 cm³ and weighs 204.1 kg, while the 180° unit displaces about 2,687.5 cm³ and weighs 163.3 kg; the straddle (double-flange) moment rating is also higher for the longer 360° body. They suit different travel, cycle-time and mounting-geometry requirements, so choose by the required rotation and confirm against the drawing rather than treating them as interchangeable.',
+      },
+      {
+        q: 'Can I use the HKS F10 200 / F5 200 as a direct replacement?',
+        a: 'The HKS M-DA-H F10/F5 200 is at a similar torque level, but it is built to HKS\u2019s own frame and mounting dimensions, so a similar rating does not guarantee a fit. Send us your unit tag and mounting drawing \u2014 we overlay the flange, shaft, ports and rotation and confirm whether it is a suitable option for your machine.',
+      },
+      {
+        q: 'Which mounting styles are available for the L30-95?',
+        a: 'The L30-95 base is offered in FT foot mount, FF front flange and RF rear flange housings, with S1 single-flange (cantilever) or S2 double-flange (straddle) shaft arrangements. This page covers the E-FT-360-S1-C-H build; send your tag code or a mounting drawing and we confirm the matching housing, flange and port arrangement.',
+      },
+    ],
+  },
+  {
     model: 'L10-5.5-M-RF-360/240-S1-CH',
     slug: 'l10-5-5-m-rf-360-240-s1-ch',
     series: 'L10',
@@ -364,6 +479,991 @@ export const modelPages: ModelData[] = [
       },
     ],
   },
+  {
+    model: 'L30-95-E-FT-180-S1-C-H',
+    slug: 'l30-95-e-ft-180-s1-c-h',
+    series: 'L30',
+    seriesSlug: 'helac-l30-series',
+    rotation: '180°',
+    weight: '163.3 kg',
+    brands: [],
+    parts: [],
+    machines: [],
+    image: '/images/alternatives/l30-65-s-rf-360.jpg',
+    imageW: 384,
+    imageH: 510,
+    imageAlt: 'Helac L30 series helical rotary actuator, foot-mount 180-degree configuration (L30 series representative image)',
+    catalogBuild: true,
+    intro: 'Looking for an alternative to the Helac L30-95 rotary actuator? This page covers the 180° foot-mount catalog configuration, with a rated output torque of approximately 10,735 Nm at 207 bar. HM can help review your unit tag, mounting drawings and operating requirements before proposing a suitable solution.',
+    catalogSpec: {
+      pressureBar: 207,
+      ratedTorqueNm: 10735,
+      holdingTorqueNm: 26216,
+      momentCantileverNm: 29521,
+      momentStraddleNm: '75,145 Nm (180°) / 111,531 Nm (360°)',
+      axialLoadKg: 4536,
+      radialLoadKg: 6804,
+      displacementCm3: '2,687.5 cm³ (180°)',
+      weightKg: '163.3 kg (180°)',
+      mountingStyles: 'FT foot mount · FF front flange · RF rear flange',
+      baseLabel: 'L30-95 (9,500 in-lb class)',
+      thisBuildDecode: 'E = English/SAE threads & ports · FT foot mount · 180° rotation · S1 single (cantilever) flange · C counterbalance valve · H standard seals & bearings',
+      crossAlternatives: [
+        {
+          brand: 'HKS',
+          seriesRef: 'M-DA-H F10/F5 200',
+          keySpec: 'Similar torque class',
+        }
+      ],
+      siblingAngle: {
+        angle: '360°',
+        code: 'L30-95-E-FT-360-S1-C-H',
+        displacementCm3: '5,358.6 cm³',
+        weightKg: '204.1 kg',
+        straddleNm: '111,531 Nm',
+      },
+      source: 'Helac L30 catalog, pp. 12 & 14'
+    },
+    extraFaqs: [
+      {
+        q: 'Is L30-95-E-FT-180-S1-C-H a confirmed factory order code?',
+        a: 'This configuration is derived from the Parker/Helac HY34-1001 ordering key (L30-95 frame, L30 series, E English/SAE, FT mount, 180° rotation, S1 single/cantilever flange, C counterbalance valve, H standard seals & bearings) and the published L30 performance data. It is a configuration assembled per the catalog rules, not an independently verified factory order code read from a nameplate. The exact configuration and compatibility are confirmed against the original unit tag and mounting drawings before we quote.',
+      },
+      {
+        q: 'What is the difference between the 180° and 360° L30-95 builds?',
+        a: 'They share the same L30 frame and output torque (~10,735 Nm at 207 bar) but are different effective builds: the 360° unit displaces about 5,358.6 cm³ and weighs 204.1 kg, while the 180° unit displaces about 2,687.5 cm³ and weighs 163.3 kg; the straddle (double-flange) moment rating is also higher for the longer 360° body. They suit different travel, cycle-time and mounting-geometry requirements, so choose by the required rotation and confirm against the drawing rather than treating them as interchangeable.',
+      },
+      {
+        q: 'Can I use the HKS M-DA-H F10/F5 200 as a direct replacement?',
+        a: 'The listed alternatives are at a similar published torque level, but each is built to its own frame and mounting dimensions, so a similar rating does not guarantee a fit. Send us your unit tag and mounting drawing — we overlay the flange, shaft, ports and rotation and confirm whether one is a suitable option for your machine.',
+      },
+      {
+        q: 'Which mounting styles are available for the L30-95?',
+        a: 'This page covers the E-FT-180-S1-C-H build. Send your tag code or a mounting drawing and we confirm the matching housing, flange and port arrangement against the available L30 mounting options.',
+      }
+    ],
+  },
+  {
+    model: 'L30-17-E-FT-180-S1-C-H',
+    slug: 'l30-17-e-ft-180-s1-c-h',
+    series: 'L30',
+    seriesSlug: 'helac-l30-series',
+    rotation: '180°',
+    weight: '34.5 kg',
+    brands: [],
+    parts: [],
+    machines: [],
+    image: '/images/alternatives/l30-65-s-rf-360.jpg',
+    imageW: 384,
+    imageH: 510,
+    imageAlt: 'Helac L30 series helical rotary actuator, foot-mount 180-degree configuration (L30 series representative image)',
+    catalogBuild: true,
+    intro: 'Looking for an alternative to the Helac L30-17 rotary actuator? This page covers the 180° foot-mount catalog configuration, with a rated output torque of approximately 1,921 Nm at 207 bar. HM can help review your unit tag, mounting drawings and operating requirements before proposing a suitable solution.',
+    catalogSpec: {
+      pressureBar: 207,
+      ratedTorqueNm: 1921,
+      holdingTorqueNm: 4927,
+      momentCantileverNm: 5187,
+      momentStraddleNm: '13,447 Nm (180°) / 19,210 Nm (360°)',
+      axialLoadKg: 1361,
+      radialLoadKg: 1814,
+      displacementCm3: '488.3 cm³ (180°)',
+      weightKg: '34.5 kg (180°)',
+      mountingStyles: 'FT foot mount · FF front flange · RF rear flange',
+      baseLabel: 'L30-17 (1,700 in-lb class)',
+      thisBuildDecode: 'E = English/SAE threads & ports · FT foot mount · 180° rotation · S1 single (cantilever) flange · C counterbalance valve · H standard seals & bearings',
+      crossAlternatives: [
+        {
+          brand: 'HKS',
+          seriesRef: 'M-DA-H F10/F5 115',
+          keySpec: 'Similar torque class',
+        },
+        {
+          brand: 'Moveco',
+          seriesRef: 'RR34',
+          keySpec: 'Similar torque class',
+        },
+        {
+          brand: 'Sungji',
+          seriesRef: 'SRC-115',
+          keySpec: 'Similar torque class',
+        }
+      ],
+      siblingAngle: {
+        angle: '360°',
+        code: 'L30-17-E-FT-360-S1-C-H',
+        displacementCm3: '983.2 cm³',
+        weightKg: '45.4 kg',
+        straddleNm: '19,210 Nm',
+      },
+      source: 'Helac L30 catalog, pp. 12 & 14'
+    },
+    extraFaqs: [
+      {
+        q: 'Is L30-17-E-FT-180-S1-C-H a confirmed factory order code?',
+        a: 'This configuration is derived from the Parker/Helac HY34-1001 ordering key (L30-17 frame, L30 series, E English/SAE, FT mount, 180° rotation, S1 single/cantilever flange, C counterbalance valve, H standard seals & bearings) and the published L30 performance data. It is a configuration assembled per the catalog rules, not an independently verified factory order code read from a nameplate. The exact configuration and compatibility are confirmed against the original unit tag and mounting drawings before we quote.',
+      },
+      {
+        q: 'What is the difference between the 180° and 360° L30-17 builds?',
+        a: 'They share the same L30 frame and output torque (~1,921 Nm at 207 bar) but are different effective builds: the 360° unit displaces about 983.2 cm³ and weighs 45.4 kg, while the 180° unit displaces about 488.3 cm³ and weighs 34.5 kg; the straddle (double-flange) moment rating is also higher for the longer 360° body. They suit different travel, cycle-time and mounting-geometry requirements, so choose by the required rotation and confirm against the drawing rather than treating them as interchangeable.',
+      },
+      {
+        q: 'Can I use the HKS M-DA-H F10/F5 115, Moveco RR34, Sungji SRC-115 as a direct replacement?',
+        a: 'The listed alternatives are at a similar published torque level, but each is built to its own frame and mounting dimensions, so a similar rating does not guarantee a fit. Send us your unit tag and mounting drawing — we overlay the flange, shaft, ports and rotation and confirm whether one is a suitable option for your machine.',
+      },
+      {
+        q: 'Which mounting styles are available for the L30-17?',
+        a: 'This page covers the E-FT-180-S1-C-H build. Send your tag code or a mounting drawing and we confirm the matching housing, flange and port arrangement against the available L30 mounting options.',
+      }
+    ],
+  },
+  {
+    model: 'L30-17-E-FT-360-S1-C-H',
+    slug: 'l30-17-e-ft-360-s1-c-h',
+    series: 'L30',
+    seriesSlug: 'helac-l30-series',
+    rotation: '360°',
+    weight: '45.4 kg',
+    brands: [],
+    parts: [],
+    machines: [],
+    image: '/images/alternatives/l30-65-s-rf-360.jpg',
+    imageW: 384,
+    imageH: 510,
+    imageAlt: 'Helac L30 series helical rotary actuator, foot-mount 360-degree configuration (L30 series representative image)',
+    catalogBuild: true,
+    intro: 'Looking for an alternative to the Helac L30-17 rotary actuator? This page covers the 360° foot-mount catalog configuration, with a rated output torque of approximately 1,921 Nm at 207 bar. HM can help review your unit tag, mounting drawings and operating requirements before proposing a suitable solution.',
+    catalogSpec: {
+      pressureBar: 207,
+      ratedTorqueNm: 1921,
+      holdingTorqueNm: 4927,
+      momentCantileverNm: 5187,
+      momentStraddleNm: '13,447 Nm (180°) / 19,210 Nm (360°)',
+      axialLoadKg: 1361,
+      radialLoadKg: 1814,
+      displacementCm3: '983.2 cm³ (360°)',
+      weightKg: '45.4 kg (360°)',
+      mountingStyles: 'FT foot mount · FF front flange · RF rear flange',
+      baseLabel: 'L30-17 (1,700 in-lb class)',
+      thisBuildDecode: 'E = English/SAE threads & ports · FT foot mount · 360° rotation · S1 single (cantilever) flange · C counterbalance valve · H standard seals & bearings',
+      crossAlternatives: [
+        {
+          brand: 'HKS',
+          seriesRef: 'M-DA-H F10/F5 115',
+          keySpec: 'Similar torque class',
+        }
+      ],
+      siblingAngle: {
+        angle: '180°',
+        code: 'L30-17-E-FT-180-S1-C-H',
+        displacementCm3: '488.3 cm³',
+        weightKg: '34.5 kg',
+        straddleNm: '13,447 Nm',
+      },
+      source: 'Helac L30 catalog, pp. 12 & 14'
+    },
+    extraFaqs: [
+      {
+        q: 'Is L30-17-E-FT-360-S1-C-H a confirmed factory order code?',
+        a: 'This configuration is derived from the Parker/Helac HY34-1001 ordering key (L30-17 frame, L30 series, E English/SAE, FT mount, 360° rotation, S1 single/cantilever flange, C counterbalance valve, H standard seals & bearings) and the published L30 performance data. It is a configuration assembled per the catalog rules, not an independently verified factory order code read from a nameplate. The exact configuration and compatibility are confirmed against the original unit tag and mounting drawings before we quote.',
+      },
+      {
+        q: 'What is the difference between the 180° and 360° L30-17 builds?',
+        a: 'They share the same L30 frame and output torque (~1,921 Nm at 207 bar) but are different effective builds: the 360° unit displaces about 983.2 cm³ and weighs 45.4 kg, while the 180° unit displaces about 488.3 cm³ and weighs 34.5 kg; the straddle (double-flange) moment rating is also higher for the longer 360° body. They suit different travel, cycle-time and mounting-geometry requirements, so choose by the required rotation and confirm against the drawing rather than treating them as interchangeable.',
+      },
+      {
+        q: 'Can I use the HKS M-DA-H F10/F5 115 as a direct replacement?',
+        a: 'The listed alternatives are at a similar published torque level, but each is built to its own frame and mounting dimensions, so a similar rating does not guarantee a fit. Send us your unit tag and mounting drawing — we overlay the flange, shaft, ports and rotation and confirm whether one is a suitable option for your machine.',
+      },
+      {
+        q: 'Which mounting styles are available for the L30-17?',
+        a: 'This page covers the E-FT-360-S1-C-H build. Send your tag code or a mounting drawing and we confirm the matching housing, flange and port arrangement against the available L30 mounting options.',
+      }
+    ],
+  },
+  {
+    model: 'L30-125-E-FT-180-S1-C-H',
+    slug: 'l30-125-e-ft-180-s1-c-h',
+    series: 'L30',
+    seriesSlug: 'helac-l30-series',
+    rotation: '180°',
+    weight: '222.3 kg',
+    brands: [],
+    parts: [],
+    machines: [],
+    image: '/images/alternatives/l30-65-s-rf-360.jpg',
+    imageW: 384,
+    imageH: 510,
+    imageAlt: 'Helac L30 series helical rotary actuator, foot-mount 180-degree configuration (L30 series representative image)',
+    catalogBuild: true,
+    intro: 'Looking for an alternative to the Helac L30-125 rotary actuator? This page covers the 180° foot-mount catalog configuration, with a rated output torque of approximately 14,125 Nm at 207 bar. HM can help review your unit tag, mounting drawings and operating requirements before proposing a suitable solution.',
+    catalogSpec: {
+      pressureBar: 207,
+      ratedTorqueNm: 14125,
+      holdingTorqueNm: 34578,
+      momentCantileverNm: 38844,
+      momentStraddleNm: '98,875 Nm (180°) / 146,335 Nm (360°)',
+      axialLoadKg: 5897,
+      radialLoadKg: 8165,
+      displacementCm3: '3,539.6 cm³ (180°)',
+      weightKg: '222.3 kg (180°)',
+      mountingStyles: 'FT foot mount · FF front flange · RF rear flange',
+      baseLabel: 'L30-125 (12,500 in-lb class)',
+      thisBuildDecode: 'E = English/SAE threads & ports · FT foot mount · 180° rotation · S1 single (cantilever) flange · C counterbalance valve · H standard seals & bearings',
+      crossAlternatives: [
+        {
+          brand: 'HKS',
+          seriesRef: 'M-DA-H F10/F5 220',
+          keySpec: 'Similar torque class',
+        },
+        {
+          brand: 'Moveco',
+          seriesRef: 'RR58 / RR61',
+          keySpec: 'Similar torque class',
+        }
+      ],
+      siblingAngle: {
+        angle: '360°',
+        code: 'L30-125-E-FT-360-S1-C-H',
+        displacementCm3: '7,079.2 cm³',
+        weightKg: '285.8 kg',
+        straddleNm: '146,335 Nm',
+      },
+      source: 'Helac L30 catalog, pp. 12 & 14'
+    },
+    extraFaqs: [
+      {
+        q: 'Is L30-125-E-FT-180-S1-C-H a confirmed factory order code?',
+        a: 'This configuration is derived from the Parker/Helac HY34-1001 ordering key (L30-125 frame, L30 series, E English/SAE, FT mount, 180° rotation, S1 single/cantilever flange, C counterbalance valve, H standard seals & bearings) and the published L30 performance data. It is a configuration assembled per the catalog rules, not an independently verified factory order code read from a nameplate. The exact configuration and compatibility are confirmed against the original unit tag and mounting drawings before we quote.',
+      },
+      {
+        q: 'What is the difference between the 180° and 360° L30-125 builds?',
+        a: 'They share the same L30 frame and output torque (~14,125 Nm at 207 bar) but are different effective builds: the 360° unit displaces about 7,079.2 cm³ and weighs 285.8 kg, while the 180° unit displaces about 3,539.6 cm³ and weighs 222.3 kg; the straddle (double-flange) moment rating is also higher for the longer 360° body. They suit different travel, cycle-time and mounting-geometry requirements, so choose by the required rotation and confirm against the drawing rather than treating them as interchangeable.',
+      },
+      {
+        q: 'Can I use the HKS M-DA-H F10/F5 220, Moveco RR58 / RR61 as a direct replacement?',
+        a: 'The listed alternatives are at a similar published torque level, but each is built to its own frame and mounting dimensions, so a similar rating does not guarantee a fit. Send us your unit tag and mounting drawing — we overlay the flange, shaft, ports and rotation and confirm whether one is a suitable option for your machine.',
+      },
+      {
+        q: 'Which mounting styles are available for the L30-125?',
+        a: 'This page covers the E-FT-180-S1-C-H build. Send your tag code or a mounting drawing and we confirm the matching housing, flange and port arrangement against the available L30 mounting options.',
+      }
+    ],
+  },
+  {
+    model: 'L30-125-E-FT-360-S1-C-H',
+    slug: 'l30-125-e-ft-360-s1-c-h',
+    series: 'L30',
+    seriesSlug: 'helac-l30-series',
+    rotation: '360°',
+    weight: '285.8 kg',
+    brands: [],
+    parts: [],
+    machines: [],
+    image: '/images/alternatives/l30-65-s-rf-360.jpg',
+    imageW: 384,
+    imageH: 510,
+    imageAlt: 'Helac L30 series helical rotary actuator, foot-mount 360-degree configuration (L30 series representative image)',
+    catalogBuild: true,
+    intro: 'Looking for an alternative to the Helac L30-125 rotary actuator? This page covers the 360° foot-mount catalog configuration, with a rated output torque of approximately 14,125 Nm at 207 bar. HM can help review your unit tag, mounting drawings and operating requirements before proposing a suitable solution.',
+    catalogSpec: {
+      pressureBar: 207,
+      ratedTorqueNm: 14125,
+      holdingTorqueNm: 34578,
+      momentCantileverNm: 38844,
+      momentStraddleNm: '98,875 Nm (180°) / 146,335 Nm (360°)',
+      axialLoadKg: 5897,
+      radialLoadKg: 8165,
+      displacementCm3: '7,079.2 cm³ (360°)',
+      weightKg: '285.8 kg (360°)',
+      mountingStyles: 'FT foot mount · FF front flange · RF rear flange',
+      baseLabel: 'L30-125 (12,500 in-lb class)',
+      thisBuildDecode: 'E = English/SAE threads & ports · FT foot mount · 360° rotation · S1 single (cantilever) flange · C counterbalance valve · H standard seals & bearings',
+      crossAlternatives: [
+        {
+          brand: 'HKS',
+          seriesRef: 'M-DA-H F10/F5 220',
+          keySpec: 'Similar torque class',
+        }
+      ],
+      siblingAngle: {
+        angle: '180°',
+        code: 'L30-125-E-FT-180-S1-C-H',
+        displacementCm3: '3,539.6 cm³',
+        weightKg: '222.3 kg',
+        straddleNm: '98,875 Nm',
+      },
+      source: 'Helac L30 catalog, pp. 12 & 14'
+    },
+    extraFaqs: [
+      {
+        q: 'Is L30-125-E-FT-360-S1-C-H a confirmed factory order code?',
+        a: 'This configuration is derived from the Parker/Helac HY34-1001 ordering key (L30-125 frame, L30 series, E English/SAE, FT mount, 360° rotation, S1 single/cantilever flange, C counterbalance valve, H standard seals & bearings) and the published L30 performance data. It is a configuration assembled per the catalog rules, not an independently verified factory order code read from a nameplate. The exact configuration and compatibility are confirmed against the original unit tag and mounting drawings before we quote.',
+      },
+      {
+        q: 'What is the difference between the 180° and 360° L30-125 builds?',
+        a: 'They share the same L30 frame and output torque (~14,125 Nm at 207 bar) but are different effective builds: the 360° unit displaces about 7,079.2 cm³ and weighs 285.8 kg, while the 180° unit displaces about 3,539.6 cm³ and weighs 222.3 kg; the straddle (double-flange) moment rating is also higher for the longer 360° body. They suit different travel, cycle-time and mounting-geometry requirements, so choose by the required rotation and confirm against the drawing rather than treating them as interchangeable.',
+      },
+      {
+        q: 'Can I use the HKS M-DA-H F10/F5 220 as a direct replacement?',
+        a: 'The listed alternatives are at a similar published torque level, but each is built to its own frame and mounting dimensions, so a similar rating does not guarantee a fit. Send us your unit tag and mounting drawing — we overlay the flange, shaft, ports and rotation and confirm whether one is a suitable option for your machine.',
+      },
+      {
+        q: 'Which mounting styles are available for the L30-125?',
+        a: 'This page covers the E-FT-360-S1-C-H build. Send your tag code or a mounting drawing and we confirm the matching housing, flange and port arrangement against the available L30 mounting options.',
+      }
+    ],
+  },
+  {
+    model: 'L30-165-E-FT-180-S1-C-H',
+    slug: 'l30-165-e-ft-180-s1-c-h',
+    series: 'L30',
+    seriesSlug: 'helac-l30-series',
+    rotation: '180°',
+    weight: '276.7 kg',
+    brands: [],
+    parts: [],
+    machines: [],
+    image: '/images/alternatives/l30-65-s-rf-360.jpg',
+    imageW: 384,
+    imageH: 510,
+    imageAlt: 'Helac L30 series helical rotary actuator, foot-mount 180-degree configuration (L30 series representative image)',
+    catalogBuild: true,
+    intro: 'Looking for an alternative to the Helac L30-165 rotary actuator? This page covers the 180° foot-mount catalog configuration, with a rated output torque of approximately 18,645 Nm at 207 bar. HM can help review your unit tag, mounting drawings and operating requirements before proposing a suitable solution.',
+    catalogSpec: {
+      pressureBar: 207,
+      ratedTorqueNm: 18645,
+      holdingTorqueNm: 45652,
+      momentCantileverNm: 55935,
+      momentStraddleNm: '130,515 Nm (180°) / 197,750 Nm (360°)',
+      axialLoadKg: 6804,
+      radialLoadKg: 9979,
+      displacementCm3: '4,653.9 cm³ (180°)',
+      weightKg: '276.7 kg (180°)',
+      mountingStyles: 'FT foot mount · FF front flange · RF rear flange',
+      baseLabel: 'L30-165 (16,500 in-lb class)',
+      thisBuildDecode: 'E = English/SAE threads & ports · FT foot mount · 180° rotation · S1 single (cantilever) flange · C counterbalance valve · H standard seals & bearings',
+      crossAlternatives: [
+        {
+          brand: 'HKS',
+          seriesRef: 'M-DA-H F10/F5 245',
+          keySpec: 'Similar torque class',
+        },
+        {
+          brand: 'Moveco',
+          seriesRef: 'RR66',
+          keySpec: 'Similar torque class',
+        }
+      ],
+      siblingAngle: {
+        angle: '360°',
+        code: 'L30-165-E-FT-360-S1-C-H',
+        displacementCm3: '9,324.3 cm³',
+        weightKg: '367.4 kg',
+        straddleNm: '197,750 Nm',
+      },
+      source: 'Helac L30 catalog, pp. 12 & 14'
+    },
+    extraFaqs: [
+      {
+        q: 'Is L30-165-E-FT-180-S1-C-H a confirmed factory order code?',
+        a: 'This configuration is derived from the Parker/Helac HY34-1001 ordering key (L30-165 frame, L30 series, E English/SAE, FT mount, 180° rotation, S1 single/cantilever flange, C counterbalance valve, H standard seals & bearings) and the published L30 performance data. It is a configuration assembled per the catalog rules, not an independently verified factory order code read from a nameplate. The exact configuration and compatibility are confirmed against the original unit tag and mounting drawings before we quote.',
+      },
+      {
+        q: 'What is the difference between the 180° and 360° L30-165 builds?',
+        a: 'They share the same L30 frame and output torque (~18,645 Nm at 207 bar) but are different effective builds: the 360° unit displaces about 9,324.3 cm³ and weighs 367.4 kg, while the 180° unit displaces about 4,653.9 cm³ and weighs 276.7 kg; the straddle (double-flange) moment rating is also higher for the longer 360° body. They suit different travel, cycle-time and mounting-geometry requirements, so choose by the required rotation and confirm against the drawing rather than treating them as interchangeable.',
+      },
+      {
+        q: 'Can I use the HKS M-DA-H F10/F5 245, Moveco RR66 as a direct replacement?',
+        a: 'The listed alternatives are at a similar published torque level, but each is built to its own frame and mounting dimensions, so a similar rating does not guarantee a fit. Send us your unit tag and mounting drawing — we overlay the flange, shaft, ports and rotation and confirm whether one is a suitable option for your machine.',
+      },
+      {
+        q: 'Which mounting styles are available for the L30-165?',
+        a: 'This page covers the E-FT-180-S1-C-H build. Send your tag code or a mounting drawing and we confirm the matching housing, flange and port arrangement against the available L30 mounting options.',
+      }
+    ],
+  },
+  {
+    model: 'L30-165-E-FT-360-S1-C-H',
+    slug: 'l30-165-e-ft-360-s1-c-h',
+    series: 'L30',
+    seriesSlug: 'helac-l30-series',
+    rotation: '360°',
+    weight: '367.4 kg',
+    brands: [],
+    parts: [],
+    machines: [],
+    image: '/images/alternatives/l30-65-s-rf-360.jpg',
+    imageW: 384,
+    imageH: 510,
+    imageAlt: 'Helac L30 series helical rotary actuator, foot-mount 360-degree configuration (L30 series representative image)',
+    catalogBuild: true,
+    intro: 'Looking for an alternative to the Helac L30-165 rotary actuator? This page covers the 360° foot-mount catalog configuration, with a rated output torque of approximately 18,645 Nm at 207 bar. HM can help review your unit tag, mounting drawings and operating requirements before proposing a suitable solution.',
+    catalogSpec: {
+      pressureBar: 207,
+      ratedTorqueNm: 18645,
+      holdingTorqueNm: 45652,
+      momentCantileverNm: 55935,
+      momentStraddleNm: '130,515 Nm (180°) / 197,750 Nm (360°)',
+      axialLoadKg: 6804,
+      radialLoadKg: 9979,
+      displacementCm3: '9,324.3 cm³ (360°)',
+      weightKg: '367.4 kg (360°)',
+      mountingStyles: 'FT foot mount · FF front flange · RF rear flange',
+      baseLabel: 'L30-165 (16,500 in-lb class)',
+      thisBuildDecode: 'E = English/SAE threads & ports · FT foot mount · 360° rotation · S1 single (cantilever) flange · C counterbalance valve · H standard seals & bearings',
+      crossAlternatives: [
+        {
+          brand: 'HKS',
+          seriesRef: 'M-DA-H F10/F5 245',
+          keySpec: 'Similar torque class',
+        }
+      ],
+      siblingAngle: {
+        angle: '180°',
+        code: 'L30-165-E-FT-180-S1-C-H',
+        displacementCm3: '4,653.9 cm³',
+        weightKg: '276.7 kg',
+        straddleNm: '130,515 Nm',
+      },
+      source: 'Helac L30 catalog, pp. 12 & 14'
+    },
+    extraFaqs: [
+      {
+        q: 'Is L30-165-E-FT-360-S1-C-H a confirmed factory order code?',
+        a: 'This configuration is derived from the Parker/Helac HY34-1001 ordering key (L30-165 frame, L30 series, E English/SAE, FT mount, 360° rotation, S1 single/cantilever flange, C counterbalance valve, H standard seals & bearings) and the published L30 performance data. It is a configuration assembled per the catalog rules, not an independently verified factory order code read from a nameplate. The exact configuration and compatibility are confirmed against the original unit tag and mounting drawings before we quote.',
+      },
+      {
+        q: 'What is the difference between the 180° and 360° L30-165 builds?',
+        a: 'They share the same L30 frame and output torque (~18,645 Nm at 207 bar) but are different effective builds: the 360° unit displaces about 9,324.3 cm³ and weighs 367.4 kg, while the 180° unit displaces about 4,653.9 cm³ and weighs 276.7 kg; the straddle (double-flange) moment rating is also higher for the longer 360° body. They suit different travel, cycle-time and mounting-geometry requirements, so choose by the required rotation and confirm against the drawing rather than treating them as interchangeable.',
+      },
+      {
+        q: 'Can I use the HKS M-DA-H F10/F5 245 as a direct replacement?',
+        a: 'The listed alternatives are at a similar published torque level, but each is built to its own frame and mounting dimensions, so a similar rating does not guarantee a fit. Send us your unit tag and mounting drawing — we overlay the flange, shaft, ports and rotation and confirm whether one is a suitable option for your machine.',
+      },
+      {
+        q: 'Which mounting styles are available for the L30-165?',
+        a: 'This page covers the E-FT-360-S1-C-H build. Send your tag code or a mounting drawing and we confirm the matching housing, flange and port arrangement against the available L30 mounting options.',
+      }
+    ],
+  },
+  {
+    model: 'L30-215-E-FT-180-S1-C-H',
+    slug: 'l30-215-e-ft-180-s1-c-h',
+    series: 'L30',
+    seriesSlug: 'helac-l30-series',
+    rotation: '180°',
+    weight: '358.3 kg',
+    brands: [],
+    parts: [],
+    machines: [],
+    image: '/images/alternatives/l30-65-s-rf-360.jpg',
+    imageW: 384,
+    imageH: 510,
+    imageAlt: 'Helac L30 series helical rotary actuator, foot-mount 180-degree configuration (L30 series representative image)',
+    catalogBuild: true,
+    intro: 'Looking for an alternative to the Helac L30-215 rotary actuator? This page covers the 180° foot-mount catalog configuration, with a rated output torque of approximately 24,295 Nm at 207 bar. HM can help review your unit tag, mounting drawings and operating requirements before proposing a suitable solution.',
+    catalogSpec: {
+      pressureBar: 207,
+      ratedTorqueNm: 24295,
+      holdingTorqueNm: 58760,
+      momentCantileverNm: 72885,
+      momentStraddleNm: '170,065 Nm (180°) / 256,510 Nm (360°)',
+      axialLoadKg: 8165,
+      radialLoadKg: 11794,
+      displacementCm3: '5,997.7 cm³ (180°)',
+      weightKg: '358.3 kg (180°)',
+      mountingStyles: 'FT foot mount · FF front flange · RF rear flange',
+      baseLabel: 'L30-215 (21,500 in-lb class)',
+      thisBuildDecode: 'E = English/SAE threads & ports · FT foot mount · 180° rotation · S1 single (cantilever) flange · C counterbalance valve · H standard seals & bearings',
+      crossAlternatives: [
+        {
+          brand: 'HKS',
+          seriesRef: 'M-DA-H F10/F5 265',
+          keySpec: 'Similar torque class',
+        },
+        {
+          brand: 'Moveco',
+          seriesRef: 'RR72',
+          keySpec: 'Similar torque class',
+        }
+      ],
+      siblingAngle: {
+        angle: '360°',
+        code: 'L30-215-E-FT-360-S1-C-H',
+        displacementCm3: '11,995.4 cm³',
+        weightKg: '453.6 kg',
+        straddleNm: '256,510 Nm',
+      },
+      source: 'Helac L30 catalog, pp. 12 & 14'
+    },
+    extraFaqs: [
+      {
+        q: 'Is L30-215-E-FT-180-S1-C-H a confirmed factory order code?',
+        a: 'This configuration is derived from the Parker/Helac HY34-1001 ordering key (L30-215 frame, L30 series, E English/SAE, FT mount, 180° rotation, S1 single/cantilever flange, C counterbalance valve, H standard seals & bearings) and the published L30 performance data. It is a configuration assembled per the catalog rules, not an independently verified factory order code read from a nameplate. The exact configuration and compatibility are confirmed against the original unit tag and mounting drawings before we quote.',
+      },
+      {
+        q: 'What is the difference between the 180° and 360° L30-215 builds?',
+        a: 'They share the same L30 frame and output torque (~24,295 Nm at 207 bar) but are different effective builds: the 360° unit displaces about 11,995.4 cm³ and weighs 453.6 kg, while the 180° unit displaces about 5,997.7 cm³ and weighs 358.3 kg; the straddle (double-flange) moment rating is also higher for the longer 360° body. They suit different travel, cycle-time and mounting-geometry requirements, so choose by the required rotation and confirm against the drawing rather than treating them as interchangeable.',
+      },
+      {
+        q: 'Can I use the HKS M-DA-H F10/F5 265, Moveco RR72 as a direct replacement?',
+        a: 'The listed alternatives are at a similar published torque level, but each is built to its own frame and mounting dimensions, so a similar rating does not guarantee a fit. Send us your unit tag and mounting drawing — we overlay the flange, shaft, ports and rotation and confirm whether one is a suitable option for your machine.',
+      },
+      {
+        q: 'Which mounting styles are available for the L30-215?',
+        a: 'This page covers the E-FT-180-S1-C-H build. Send your tag code or a mounting drawing and we confirm the matching housing, flange and port arrangement against the available L30 mounting options.',
+      }
+    ],
+  },
+  {
+    model: 'L30-215-E-FT-360-S1-C-H',
+    slug: 'l30-215-e-ft-360-s1-c-h',
+    series: 'L30',
+    seriesSlug: 'helac-l30-series',
+    rotation: '360°',
+    weight: '453.6 kg',
+    brands: [],
+    parts: [],
+    machines: [],
+    image: '/images/alternatives/l30-65-s-rf-360.jpg',
+    imageW: 384,
+    imageH: 510,
+    imageAlt: 'Helac L30 series helical rotary actuator, foot-mount 360-degree configuration (L30 series representative image)',
+    catalogBuild: true,
+    intro: 'Looking for an alternative to the Helac L30-215 rotary actuator? This page covers the 360° foot-mount catalog configuration, with a rated output torque of approximately 24,295 Nm at 207 bar. HM can help review your unit tag, mounting drawings and operating requirements before proposing a suitable solution.',
+    catalogSpec: {
+      pressureBar: 207,
+      ratedTorqueNm: 24295,
+      holdingTorqueNm: 58760,
+      momentCantileverNm: 72885,
+      momentStraddleNm: '170,065 Nm (180°) / 256,510 Nm (360°)',
+      axialLoadKg: 8165,
+      radialLoadKg: 11794,
+      displacementCm3: '11,995.4 cm³ (360°)',
+      weightKg: '453.6 kg (360°)',
+      mountingStyles: 'FT foot mount · FF front flange · RF rear flange',
+      baseLabel: 'L30-215 (21,500 in-lb class)',
+      thisBuildDecode: 'E = English/SAE threads & ports · FT foot mount · 360° rotation · S1 single (cantilever) flange · C counterbalance valve · H standard seals & bearings',
+      crossAlternatives: [
+        {
+          brand: 'HKS',
+          seriesRef: 'M-DA-H F10/F5 265',
+          keySpec: 'Similar torque class',
+        }
+      ],
+      siblingAngle: {
+        angle: '180°',
+        code: 'L30-215-E-FT-180-S1-C-H',
+        displacementCm3: '5,997.7 cm³',
+        weightKg: '358.3 kg',
+        straddleNm: '170,065 Nm',
+      },
+      source: 'Helac L30 catalog, pp. 12 & 14'
+    },
+    extraFaqs: [
+      {
+        q: 'Is L30-215-E-FT-360-S1-C-H a confirmed factory order code?',
+        a: 'This configuration is derived from the Parker/Helac HY34-1001 ordering key (L30-215 frame, L30 series, E English/SAE, FT mount, 360° rotation, S1 single/cantilever flange, C counterbalance valve, H standard seals & bearings) and the published L30 performance data. It is a configuration assembled per the catalog rules, not an independently verified factory order code read from a nameplate. The exact configuration and compatibility are confirmed against the original unit tag and mounting drawings before we quote.',
+      },
+      {
+        q: 'What is the difference between the 180° and 360° L30-215 builds?',
+        a: 'They share the same L30 frame and output torque (~24,295 Nm at 207 bar) but are different effective builds: the 360° unit displaces about 11,995.4 cm³ and weighs 453.6 kg, while the 180° unit displaces about 5,997.7 cm³ and weighs 358.3 kg; the straddle (double-flange) moment rating is also higher for the longer 360° body. They suit different travel, cycle-time and mounting-geometry requirements, so choose by the required rotation and confirm against the drawing rather than treating them as interchangeable.',
+      },
+      {
+        q: 'Can I use the HKS M-DA-H F10/F5 265 as a direct replacement?',
+        a: 'The listed alternatives are at a similar published torque level, but each is built to its own frame and mounting dimensions, so a similar rating does not guarantee a fit. Send us your unit tag and mounting drawing — we overlay the flange, shaft, ports and rotation and confirm whether one is a suitable option for your machine.',
+      },
+      {
+        q: 'Which mounting styles are available for the L30-215?',
+        a: 'This page covers the E-FT-360-S1-C-H build. Send your tag code or a mounting drawing and we confirm the matching housing, flange and port arrangement against the available L30 mounting options.',
+      }
+    ],
+  },
+  {
+    model: 'L10-15-E-RF-180-S1-C-H',
+    slug: 'l10-15-e-rf-180-s1-c-h',
+    series: 'L10',
+    seriesSlug: 'helac-l10-series',
+    rotation: '180°',
+    weight: '43.1 kg',
+    brands: [],
+    parts: [],
+    machines: [],
+    image: '/images/alternatives/l10-5-5-m-rf-360.jpg',
+    imageW: 333,
+    imageH: 246,
+    imageAlt: 'Helac L10 series helical rotary actuator, rear-flange 180-degree configuration (L10 series representative image)',
+    catalogBuild: true,
+    intro: 'Looking for an alternative to the Helac L10-15 rotary actuator? This page covers the 180° rear-flange catalog configuration, with a rated output torque of approximately 1,695 Nm at 207 bar. HM can help review your unit tag, mounting drawings and operating requirements before proposing a suitable solution.',
+    catalogSpec: {
+      pressureBar: 207,
+      ratedTorqueNm: 1695,
+      holdingTorqueNm: 5650,
+      momentCantileverNm: 9040,
+      axialLoadKg: 4990,
+      radialLoadKg: 4990,
+      displacementCm3: '552.2 cm³ (180°)',
+      weightKg: '43.1 kg (180°)',
+      mountingStyles: 'RF rear flange',
+      baseLabel: 'L10-15 (1,500 in-lb class)',
+      thisBuildDecode: 'E = English/SAE threads & ports · RF rear flange · 180° rotation · S1 single (cantilever) flange · C counterbalance valve · H standard seals & bearings',
+      crossAlternatives: [
+        {
+          brand: 'HKS',
+          seriesRef: 'M-DA-H 90',
+          keySpec: 'Similar torque class',
+        },
+        {
+          brand: 'Sungji',
+          seriesRef: 'SRA-160',
+          keySpec: 'Similar torque class',
+        }
+      ],
+      siblingAngle: {
+        angle: '360°',
+        code: 'L10-15-E-RF-360-S1-C-H',
+        displacementCm3: '1,104.5 cm³',
+        weightKg: '54.4 kg',
+        straddleNm: '',
+      },
+      source: 'Helac L10 catalog, p. 8'
+    },
+    extraFaqs: [
+      {
+        q: 'Is L10-15-E-RF-180-S1-C-H a confirmed factory order code?',
+        a: 'This configuration is derived from the Parker/Helac HY34-1001 ordering key (L10-15 frame, L10 series, E English/SAE, RF mount, 180° rotation, S1 single/cantilever flange, C counterbalance valve, H standard seals & bearings) and the published L10 performance data. It is a configuration assembled per the catalog rules, not an independently verified factory order code read from a nameplate. The exact configuration and compatibility are confirmed against the original unit tag and mounting drawings before we quote.',
+      },
+      {
+        q: 'What is the difference between the 180° and 360° L10-15 builds?',
+        a: 'They share the same L10 frame and output torque (~1,695 Nm at 207 bar) but are different effective builds: the 360° unit displaces about 1,104.5 cm³ and weighs 54.4 kg, while the 180° unit displaces about 552.2 cm³ and weighs 43.1 kg. They suit different travel, cycle-time and mounting-geometry requirements, so choose by the required rotation and confirm against the drawing rather than treating them as interchangeable.',
+      },
+      {
+        q: 'Can I use the HKS M-DA-H 90, Sungji SRA-160 as a direct replacement?',
+        a: 'The listed alternatives are at a similar published torque level, but each is built to its own frame and mounting dimensions, so a similar rating does not guarantee a fit. Send us your unit tag and mounting drawing — we overlay the flange, shaft, ports and rotation and confirm whether one is a suitable option for your machine.',
+      },
+      {
+        q: 'Which mounting styles are available for the L10-15?',
+        a: 'This page covers the E-RF-180-S1-C-H build. Send your tag code or a mounting drawing and we confirm the matching housing, flange and port arrangement against the available L10 mounting options.',
+      }
+    ],
+  },
+  {
+    model: 'L10-15-E-RF-360-S1-C-H',
+    slug: 'l10-15-e-rf-360-s1-c-h',
+    series: 'L10',
+    seriesSlug: 'helac-l10-series',
+    rotation: '360°',
+    weight: '54.4 kg',
+    brands: [],
+    parts: [],
+    machines: [],
+    image: '/images/alternatives/l10-5-5-m-rf-360.jpg',
+    imageW: 333,
+    imageH: 246,
+    imageAlt: 'Helac L10 series helical rotary actuator, rear-flange 360-degree configuration (L10 series representative image)',
+    catalogBuild: true,
+    intro: 'Looking for an alternative to the Helac L10-15 rotary actuator? This page covers the 360° rear-flange catalog configuration, with a rated output torque of approximately 1,695 Nm at 207 bar. HM can help review your unit tag, mounting drawings and operating requirements before proposing a suitable solution.',
+    catalogSpec: {
+      pressureBar: 207,
+      ratedTorqueNm: 1695,
+      holdingTorqueNm: 5650,
+      momentCantileverNm: 9040,
+      axialLoadKg: 4990,
+      radialLoadKg: 4990,
+      displacementCm3: '1,104.5 cm³ (360°)',
+      weightKg: '54.4 kg (360°)',
+      mountingStyles: 'RF rear flange',
+      baseLabel: 'L10-15 (1,500 in-lb class)',
+      thisBuildDecode: 'E = English/SAE threads & ports · RF rear flange · 360° rotation · S1 single (cantilever) flange · C counterbalance valve · H standard seals & bearings',
+      crossAlternatives: [
+        {
+          brand: 'HKS',
+          seriesRef: 'M-DA-H 90',
+          keySpec: 'Similar torque class',
+        }
+      ],
+      siblingAngle: {
+        angle: '180°',
+        code: 'L10-15-E-RF-180-S1-C-H',
+        displacementCm3: '552.2 cm³',
+        weightKg: '43.1 kg',
+        straddleNm: '',
+      },
+      source: 'Helac L10 catalog, p. 8'
+    },
+    extraFaqs: [
+      {
+        q: 'Is L10-15-E-RF-360-S1-C-H a confirmed factory order code?',
+        a: 'This configuration is derived from the Parker/Helac HY34-1001 ordering key (L10-15 frame, L10 series, E English/SAE, RF mount, 360° rotation, S1 single/cantilever flange, C counterbalance valve, H standard seals & bearings) and the published L10 performance data. It is a configuration assembled per the catalog rules, not an independently verified factory order code read from a nameplate. The exact configuration and compatibility are confirmed against the original unit tag and mounting drawings before we quote.',
+      },
+      {
+        q: 'What is the difference between the 180° and 360° L10-15 builds?',
+        a: 'They share the same L10 frame and output torque (~1,695 Nm at 207 bar) but are different effective builds: the 360° unit displaces about 1,104.5 cm³ and weighs 54.4 kg, while the 180° unit displaces about 552.2 cm³ and weighs 43.1 kg. They suit different travel, cycle-time and mounting-geometry requirements, so choose by the required rotation and confirm against the drawing rather than treating them as interchangeable.',
+      },
+      {
+        q: 'Can I use the HKS M-DA-H 90 as a direct replacement?',
+        a: 'The listed alternatives are at a similar published torque level, but each is built to its own frame and mounting dimensions, so a similar rating does not guarantee a fit. Send us your unit tag and mounting drawing — we overlay the flange, shaft, ports and rotation and confirm whether one is a suitable option for your machine.',
+      },
+      {
+        q: 'Which mounting styles are available for the L10-15?',
+        a: 'This page covers the E-RF-360-S1-C-H build. Send your tag code or a mounting drawing and we confirm the matching housing, flange and port arrangement against the available L10 mounting options.',
+      }
+    ],
+  },
+  {
+    model: 'L10-25-E-RF-180-S1-C-H',
+    slug: 'l10-25-e-rf-180-s1-c-h',
+    series: 'L10',
+    seriesSlug: 'helac-l10-series',
+    rotation: '180°',
+    weight: '56.7 kg',
+    brands: [],
+    parts: [],
+    machines: [],
+    image: '/images/alternatives/l10-5-5-m-rf-360.jpg',
+    imageW: 333,
+    imageH: 246,
+    imageAlt: 'Helac L10 series helical rotary actuator, rear-flange 180-degree configuration (L10 series representative image)',
+    catalogBuild: true,
+    intro: 'Looking for an alternative to the Helac L10-25 rotary actuator? This page covers the 180° rear-flange catalog configuration, with a rated output torque of approximately 2,825 Nm at 207 bar. HM can help review your unit tag, mounting drawings and operating requirements before proposing a suitable solution.',
+    catalogSpec: {
+      pressureBar: 207,
+      ratedTorqueNm: 2825,
+      holdingTorqueNm: 9379,
+      momentCantileverNm: 11300,
+      axialLoadKg: 6804,
+      radialLoadKg: 6804,
+      displacementCm3: '914.4 cm³ (180°)',
+      weightKg: '56.7 kg (180°)',
+      mountingStyles: 'RF rear flange',
+      baseLabel: 'L10-25 (2,500 in-lb class)',
+      thisBuildDecode: 'E = English/SAE threads & ports · RF rear flange · 180° rotation · S1 single (cantilever) flange · C counterbalance valve · H standard seals & bearings',
+      crossAlternatives: [
+        {
+          brand: 'HKS',
+          seriesRef: 'M-DA-H 100',
+          keySpec: 'Similar torque class',
+        }
+      ],
+      siblingAngle: {
+        angle: '360°',
+        code: 'L10-25-E-RF-360-S1-C-H',
+        displacementCm3: '1,828.8 cm³',
+        weightKg: '83 kg',
+        straddleNm: '',
+      },
+      source: 'Helac L10 catalog, p. 8'
+    },
+    extraFaqs: [
+      {
+        q: 'Is L10-25-E-RF-180-S1-C-H a confirmed factory order code?',
+        a: 'This configuration is derived from the Parker/Helac HY34-1001 ordering key (L10-25 frame, L10 series, E English/SAE, RF mount, 180° rotation, S1 single/cantilever flange, C counterbalance valve, H standard seals & bearings) and the published L10 performance data. It is a configuration assembled per the catalog rules, not an independently verified factory order code read from a nameplate. The exact configuration and compatibility are confirmed against the original unit tag and mounting drawings before we quote.',
+      },
+      {
+        q: 'What is the difference between the 180° and 360° L10-25 builds?',
+        a: 'They share the same L10 frame and output torque (~2,825 Nm at 207 bar) but are different effective builds: the 360° unit displaces about 1,828.8 cm³ and weighs 83 kg, while the 180° unit displaces about 914.4 cm³ and weighs 56.7 kg. They suit different travel, cycle-time and mounting-geometry requirements, so choose by the required rotation and confirm against the drawing rather than treating them as interchangeable.',
+      },
+      {
+        q: 'Can I use the HKS M-DA-H 100 as a direct replacement?',
+        a: 'The listed alternatives are at a similar published torque level, but each is built to its own frame and mounting dimensions, so a similar rating does not guarantee a fit. Send us your unit tag and mounting drawing — we overlay the flange, shaft, ports and rotation and confirm whether one is a suitable option for your machine.',
+      },
+      {
+        q: 'Which mounting styles are available for the L10-25?',
+        a: 'This page covers the E-RF-180-S1-C-H build. Send your tag code or a mounting drawing and we confirm the matching housing, flange and port arrangement against the available L10 mounting options.',
+      }
+    ],
+  },
+  {
+    model: 'L10-25-E-RF-360-S1-C-H',
+    slug: 'l10-25-e-rf-360-s1-c-h',
+    series: 'L10',
+    seriesSlug: 'helac-l10-series',
+    rotation: '360°',
+    weight: '83 kg',
+    brands: [],
+    parts: [],
+    machines: [],
+    image: '/images/alternatives/l10-5-5-m-rf-360.jpg',
+    imageW: 333,
+    imageH: 246,
+    imageAlt: 'Helac L10 series helical rotary actuator, rear-flange 360-degree configuration (L10 series representative image)',
+    catalogBuild: true,
+    intro: 'Looking for an alternative to the Helac L10-25 rotary actuator? This page covers the 360° rear-flange catalog configuration, with a rated output torque of approximately 2,825 Nm at 207 bar. HM can help review your unit tag, mounting drawings and operating requirements before proposing a suitable solution.',
+    catalogSpec: {
+      pressureBar: 207,
+      ratedTorqueNm: 2825,
+      holdingTorqueNm: 9379,
+      momentCantileverNm: 11300,
+      axialLoadKg: 6804,
+      radialLoadKg: 6804,
+      displacementCm3: '1,828.8 cm³ (360°)',
+      weightKg: '83 kg (360°)',
+      mountingStyles: 'RF rear flange',
+      baseLabel: 'L10-25 (2,500 in-lb class)',
+      thisBuildDecode: 'E = English/SAE threads & ports · RF rear flange · 360° rotation · S1 single (cantilever) flange · C counterbalance valve · H standard seals & bearings',
+      crossAlternatives: [
+        {
+          brand: 'HKS',
+          seriesRef: 'M-DA-H 100',
+          keySpec: 'Similar torque class',
+        }
+      ],
+      siblingAngle: {
+        angle: '180°',
+        code: 'L10-25-E-RF-180-S1-C-H',
+        displacementCm3: '914.4 cm³',
+        weightKg: '56.7 kg',
+        straddleNm: '',
+      },
+      source: 'Helac L10 catalog, p. 8'
+    },
+    extraFaqs: [
+      {
+        q: 'Is L10-25-E-RF-360-S1-C-H a confirmed factory order code?',
+        a: 'This configuration is derived from the Parker/Helac HY34-1001 ordering key (L10-25 frame, L10 series, E English/SAE, RF mount, 360° rotation, S1 single/cantilever flange, C counterbalance valve, H standard seals & bearings) and the published L10 performance data. It is a configuration assembled per the catalog rules, not an independently verified factory order code read from a nameplate. The exact configuration and compatibility are confirmed against the original unit tag and mounting drawings before we quote.',
+      },
+      {
+        q: 'What is the difference between the 180° and 360° L10-25 builds?',
+        a: 'They share the same L10 frame and output torque (~2,825 Nm at 207 bar) but are different effective builds: the 360° unit displaces about 1,828.8 cm³ and weighs 83 kg, while the 180° unit displaces about 914.4 cm³ and weighs 56.7 kg. They suit different travel, cycle-time and mounting-geometry requirements, so choose by the required rotation and confirm against the drawing rather than treating them as interchangeable.',
+      },
+      {
+        q: 'Can I use the HKS M-DA-H 100 as a direct replacement?',
+        a: 'The listed alternatives are at a similar published torque level, but each is built to its own frame and mounting dimensions, so a similar rating does not guarantee a fit. Send us your unit tag and mounting drawing — we overlay the flange, shaft, ports and rotation and confirm whether one is a suitable option for your machine.',
+      },
+      {
+        q: 'Which mounting styles are available for the L10-25?',
+        a: 'This page covers the E-RF-360-S1-C-H build. Send your tag code or a mounting drawing and we confirm the matching housing, flange and port arrangement against the available L10 mounting options.',
+      }
+    ],
+  },
+  {
+    model: 'L20-15-E-FT-180-S1-C-H',
+    slug: 'l20-15-e-ft-180-s1-c-h',
+    series: 'L20',
+    seriesSlug: 'helac-l20-series',
+    rotation: '180°',
+    weight: '29.9 kg',
+    brands: [],
+    parts: [],
+    machines: [],
+    image: '/images/alternatives/l20-15-e-cl-180-90.jpg',
+    imageW: 291,
+    imageH: 323,
+    imageAlt: 'Helac L20 series helical rotary actuator, foot-mount 180-degree configuration (L20 series representative image)',
+    catalogBuild: true,
+    intro: 'Looking for an alternative to the Helac L20-15 rotary actuator? This page covers the 180° foot-mount catalog configuration, with a rated output torque of approximately 1,695 Nm at 207 bar. HM can help review your unit tag, mounting drawings and operating requirements before proposing a suitable solution.',
+    catalogSpec: {
+      pressureBar: 207,
+      ratedTorqueNm: 1695,
+      holdingTorqueNm: 4375,
+      momentCantileverNm: 5424,
+      momentStraddleNm: '10,170 Nm',
+      axialLoadKg: 998,
+      radialLoadKg: 4187,
+      displacementCm3: '435.9 cm³',
+      weightKg: '29.9 kg',
+      mountingStyles: 'FT foot mount · FF front flange · RF rear flange · CL clevis',
+      baseLabel: 'L20-15 (1,500 in-lb class)',
+      thisBuildDecode: 'E = English/SAE threads & ports · FT foot mount · 180° rotation · S1 single (cantilever) flange · C counterbalance valve · H standard seals & bearings',
+      crossAlternatives: [
+        {
+          brand: 'HKS',
+          seriesRef: 'M-DA-H-F7 120',
+          keySpec: 'Similar torque class',
+        },
+        {
+          brand: 'Moveco',
+          seriesRef: 'RP33',
+          keySpec: 'Similar torque class',
+        },
+        {
+          brand: 'Sungji',
+          seriesRef: 'SRB-115',
+          keySpec: 'Similar torque class',
+        }
+      ],
+      source: 'Helac L20 catalog, p. 10'
+    },
+    extraFaqs: [
+      {
+        q: 'Is L20-15-E-FT-180-S1-C-H a confirmed factory order code?',
+        a: 'This configuration is derived from the Parker/Helac HY34-1001 ordering key (L20-15 frame, L20 series, E English/SAE, FT mount, 180° rotation, S1 single/cantilever flange, C counterbalance valve, H standard seals & bearings) and the published L20 performance data. It is a configuration assembled per the catalog rules, not an independently verified factory order code read from a nameplate. The exact configuration and compatibility are confirmed against the original unit tag and mounting drawings before we quote.',
+      },
+      {
+        q: 'Can I use the HKS M-DA-H-F7 120, Moveco RP33, Sungji SRB-115 as a direct replacement?',
+        a: 'The listed alternatives are at a similar published torque level, but each is built to its own frame and mounting dimensions, so a similar rating does not guarantee a fit. Send us your unit tag and mounting drawing — we overlay the flange, shaft, ports and rotation and confirm whether one is a suitable option for your machine.',
+      },
+      {
+        q: 'Which mounting styles are available for the L20-15?',
+        a: 'This page covers the E-FT-180-S1-C-H build. Send your tag code or a mounting drawing and we confirm the matching housing, flange and port arrangement against the available L20 mounting options.',
+      }
+    ],
+  },
+  {
+    model: 'L20-39-E-FT-180-S1-C-H',
+    slug: 'l20-39-e-ft-180-s1-c-h',
+    series: 'L20',
+    seriesSlug: 'helac-l20-series',
+    rotation: '180°',
+    weight: '76.7 kg',
+    brands: [],
+    parts: [],
+    machines: [],
+    image: '/images/alternatives/l20-15-e-cl-180-90.jpg',
+    imageW: 291,
+    imageH: 323,
+    imageAlt: 'Helac L20 series helical rotary actuator, foot-mount 180-degree configuration (L20 series representative image)',
+    catalogBuild: true,
+    intro: 'Looking for an alternative to the Helac L20-39 rotary actuator? This page covers the 180° foot-mount catalog configuration, with a rated output torque of approximately 4,407 Nm at 207 bar. HM can help review your unit tag, mounting drawings and operating requirements before proposing a suitable solution.',
+    catalogSpec: {
+      pressureBar: 207,
+      ratedTorqueNm: 4407,
+      holdingTorqueNm: 10532,
+      momentCantileverNm: 15820,
+      momentStraddleNm: '31,640 Nm',
+      axialLoadKg: 1769,
+      radialLoadKg: 9526,
+      displacementCm3: '1,076.6 cm³',
+      weightKg: '76.7 kg',
+      mountingStyles: 'FT foot mount · FF front flange · RF rear flange · CL clevis',
+      baseLabel: 'L20-39 (3,900 in-lb class)',
+      thisBuildDecode: 'E = English/SAE threads & ports · FT foot mount · 180° rotation · S1 single (cantilever) flange · C counterbalance valve · H standard seals & bearings',
+      crossAlternatives: [
+        {
+          brand: 'HKS',
+          seriesRef: 'M-DA-H-F7 145',
+          keySpec: 'Similar torque class',
+        },
+        {
+          brand: 'Moveco',
+          seriesRef: 'RP46',
+          keySpec: 'Similar torque class',
+        },
+        {
+          brand: 'Sungji',
+          seriesRef: 'SRB-160',
+          keySpec: 'Similar torque class',
+        }
+      ],
+      source: 'Helac L20 catalog, p. 10'
+    },
+    extraFaqs: [
+      {
+        q: 'Is L20-39-E-FT-180-S1-C-H a confirmed factory order code?',
+        a: 'This configuration is derived from the Parker/Helac HY34-1001 ordering key (L20-39 frame, L20 series, E English/SAE, FT mount, 180° rotation, S1 single/cantilever flange, C counterbalance valve, H standard seals & bearings) and the published L20 performance data. It is a configuration assembled per the catalog rules, not an independently verified factory order code read from a nameplate. The exact configuration and compatibility are confirmed against the original unit tag and mounting drawings before we quote.',
+      },
+      {
+        q: 'Can I use the HKS M-DA-H-F7 145, Moveco RP46, Sungji SRB-160 as a direct replacement?',
+        a: 'The listed alternatives are at a similar published torque level, but each is built to its own frame and mounting dimensions, so a similar rating does not guarantee a fit. Send us your unit tag and mounting drawing — we overlay the flange, shaft, ports and rotation and confirm whether one is a suitable option for your machine.',
+      },
+      {
+        q: 'Which mounting styles are available for the L20-39?',
+        a: 'This page covers the E-FT-180-S1-C-H build. Send your tag code or a mounting drawing and we confirm the matching housing, flange and port arrangement against the available L20 mounting options.',
+      }
+    ],
+  }
+
 ];
 
 export function getModel(slug: string): ModelData | undefined {
