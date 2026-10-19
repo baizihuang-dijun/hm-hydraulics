@@ -126,6 +126,10 @@ export const modelPages: ModelData[] = [
       'May also cross to the Parker 53905-P041 series (e.g. 53905-P041-D / P065-D); the final match is verified against the tag on your unit.',
     extraFaqs: [
       {
+        q: 'What other order codes are available in this same series?',
+        a: 'Other catalog configurations of the same actuator family include: L10-3.0-E-RF-180-S1-C-H. These are complete Helac order codes differing in rotation angle, ports, valve or mounting/flange arrangement; they are not interchangeable with the configuration shown on this page. Send the exact code on your unit tag or a mounting drawing and we confirm the matching build before quoting.',
+      },
+      {
         q: 'Will this fit a Husqvarna RS8500D?',
         a: 'Yes. On the Husqvarna RS8500D ride-on concrete saw, the steering actuator in the hydraulic assembly is part number 541 20 09-94, the Helac L10-3.0-E-RF-180-S1-O-H. Before ordering we confirm the mounting face, port position and rotation against the tag and a drawing or photo of your unit.',
       },
@@ -147,6 +151,13 @@ export const modelPages: ModelData[] = [
     imageAlt: 'Replacement rotary actuator for Helac L10-3.0-S-RF-180, Sandvik 76350014',
     intro:
       'Alternative rotary actuator for the Helac L10-3.0-S-RF-180-S1-0-H, a 180-degree helical actuator listed by Sandvik under part number 76350014 (BG00568383), in the 12 kg class.',
+    extraFaqs: [
+      {
+        q: 'What other order codes are available in this same series?',
+        a: 'Other catalog configurations of the same actuator family include: L10-3.0-E-RF-360-S1-C-H. These are complete Helac order codes differing in rotation angle, ports, valve or mounting/flange arrangement; they are not interchangeable with the configuration shown on this page. Send the exact code on your unit tag or a mounting drawing and we confirm the matching build before quoting.',
+      },
+    ], // P0-VARIANTS
+
   },
   {
     model: 'L10-5.5-E-RF-360-S1-O-H',
@@ -167,6 +178,10 @@ export const modelPages: ModelData[] = [
     applicationNote:
       'Based on equipment records, this actuator is associated with the following Atlas Boltec drill rigs. Confirmation against your machine build plate is recommended.',
     extraFaqs: [
+      {
+        q: 'What other order codes are available in this same series?',
+        a: 'Other catalog configurations of the same actuator family include: L10-5.5-E-RF-360-S1-C-H. These are complete Helac order codes differing in rotation angle, ports, valve or mounting/flange arrangement; they are not interchangeable with the configuration shown on this page. Send the exact code on your unit tag or a mounting drawing and we confirm the matching build before quoting.',
+      },
       {
         q: 'Is part number 3128309281 the same actuator on the Boltec 235?',
         a: 'Yes. On the Atlas Copco / Epiroc Boltec 235, 235h, Lc and Md drill rigs the 360-degree rotary actuator is supplied under part number 3128309281, corresponding to the Helac L10-5.5-E-RF-360-S1-O-H configuration (360-degree rotation, round-flange mount). Before ordering we confirm the mounting face, port position and rotation against the tag and a photo or drawing of your unit.',
@@ -192,6 +207,10 @@ export const modelPages: ModelData[] = [
     applicationNote:
       'This actuator is recorded on the following Sandvik and Atlas Boltec drill rigs. Confirmation against the machine build plate is recommended.',
     extraFaqs: [
+      {
+        q: 'What other order codes are available in this same series?',
+        a: 'Other catalog configurations of the same actuator family include: L10-5.5-E-RF-180-S1-C-H. These are complete Helac order codes differing in rotation angle, ports, valve or mounting/flange arrangement; they are not interchangeable with the configuration shown on this page. Send the exact code on your unit tag or a mounting drawing and we confirm the matching build before quoting.',
+      },
       {
         q: 'Which part numbers cross to the L10-5.5-M-RF-360 on the Boltec 235?',
         a: 'This 360-degree build is cross-listed by Sandvik under 76350015 and 76350006 and by Atlas Copco / Epiroc under 3128309281 on the Boltec 235, 235h, Lc and Md rigs, matching the Helac L10-5.5-M-RF-360-S1-O-H configuration. Send the part number on your tag or a nameplate photo and we confirm the exact variant before quoting.',
@@ -248,6 +267,13 @@ export const modelPages: ModelData[] = [
     imageAlt: 'Replacement rotary actuator for Helac L30-25-M-FT-180, flanged helical unit',
     intro:
       'Alternative rotary actuator for the Helac L30-25-M-FT-180-S1-C-H, a flanged 180-degree helical actuator in the 49 kg class, supplied for maintenance and aftermarket replacement.',
+    extraFaqs: [
+      {
+        q: 'What other order codes are available in this same series?',
+        a: 'Other catalog configurations of the same actuator family include: L30-25-E-FT-180-S1-C-H; L30-25-E-FT-360-S1-C-H. These are complete Helac order codes differing in rotation angle, ports, valve or mounting/flange arrangement; they are not interchangeable with the configuration shown on this page. Send the exact code on your unit tag or a mounting drawing and we confirm the matching build before quoting.',
+      },
+    ], // P0-VARIANTS
+
   },
   {
     model: 'L30-42-M-RF-360-S1-C-H',
@@ -282,6 +308,13 @@ export const modelPages: ModelData[] = [
     imageAlt: 'Replacement rotary actuator for Helac L30-42-M-FT-180, flanged helical unit',
     intro:
       'Alternative rotary actuator for the Helac L30-42-M-FT-180-S1-C-H, a flanged 180-degree helical actuator in the 73 kg class, supplied for heavy-duty aftermarket replacement.',
+    extraFaqs: [
+      {
+        q: 'What other order codes are available in this same series?',
+        a: 'Other catalog configurations of the same actuator family include: L30-42-E-FT-180-S1-C-H. These are complete Helac order codes differing in rotation angle, ports, valve or mounting/flange arrangement; they are not interchangeable with the configuration shown on this page. Send the exact code on your unit tag or a mounting drawing and we confirm the matching build before quoting.',
+      },
+    ], // P0-VARIANTS
+
   },
   {
     model: 'L30-65-S-RF-360-S1-C-H',
@@ -417,6 +450,10 @@ export const modelPages: ModelData[] = [
     applicationNote:
       'This actuator is recorded on the Atlas Boomer 353 face-drill rig. Confirmation against your machine build plate is recommended.',
     extraFaqs: [
+      {
+        q: 'What other order codes are available in this same series?',
+        a: 'Other catalog configurations of the same actuator family include: L10-9.5-E-RF-180-S1-C-H; L10-9.5-E-RF-360-S1-C-H. These are complete Helac order codes differing in rotation angle, ports, valve or mounting/flange arrangement; they are not interchangeable with the configuration shown on this page. Send the exact code on your unit tag or a mounting drawing and we confirm the matching build before quoting.',
+      },
       {
         q: 'Will part 9106178448 fit my Boomer 353?',
         a: 'Yes. On the Atlas Copco / Epiroc Boomer 353 face-drill rig the rotation actuator is supplied under part number 9106178448, corresponding to the Helac L10-9.5-M-RF-185-S-C-H configuration (185-degree rotation with integral counterbalance valve). Before ordering we confirm the mounting face, port position and rotation against the tag and a photo of your unit.',
@@ -1401,6 +1438,10 @@ export const modelPages: ModelData[] = [
     },
     extraFaqs: [
       {
+        q: 'What other order codes are available in this same series?',
+        a: 'Other catalog configurations of the same actuator family include: L20-15-E-FT-360-S1-C-H. These are complete Helac order codes differing in rotation angle, ports, valve or mounting/flange arrangement; they are not interchangeable with the configuration shown on this page. Send the exact code on your unit tag or a mounting drawing and we confirm the matching build before quoting.',
+      },
+      {
         q: 'Is L20-15-E-FT-180-S1-C-H a confirmed factory order code?',
         a: 'This configuration is derived from the Parker/Helac HY34-1001 ordering key (L20-15 frame, L20 series, E English/SAE, FT mount, 180° rotation, S1 single/cantilever flange, C counterbalance valve, H standard seals & bearings) and the published L20 performance data. It is a configuration assembled per the catalog rules, not an independently verified factory order code read from a nameplate. The exact configuration and compatibility are confirmed against the original unit tag and mounting drawings before we quote.',
       },
@@ -1463,6 +1504,10 @@ export const modelPages: ModelData[] = [
       source: 'Helac L20 catalog, p. 10'
     },
     extraFaqs: [
+      {
+        q: 'What other order codes are available in this same series?',
+        a: 'Other catalog configurations of the same actuator family include: L20-39-E-FT-360-S1-C-H. These are complete Helac order codes differing in rotation angle, ports, valve or mounting/flange arrangement; they are not interchangeable with the configuration shown on this page. Send the exact code on your unit tag or a mounting drawing and we confirm the matching build before quoting.',
+      },
       {
         q: 'Is L20-39-E-FT-180-S1-C-H a confirmed factory order code?',
         a: 'This configuration is derived from the Parker/Helac HY34-1001 ordering key (L20-39 frame, L20 series, E English/SAE, FT mount, 180° rotation, S1 single/cantilever flange, C counterbalance valve, H standard seals & bearings) and the published L20 performance data. It is a configuration assembled per the catalog rules, not an independently verified factory order code read from a nameplate. The exact configuration and compatibility are confirmed against the original unit tag and mounting drawings before we quote.',
@@ -1695,7 +1740,555 @@ export const modelPages: ModelData[] = [
         a: 'We do not claim a verified drop-in or a guaranteed-compatible unit from the part number alone. Send the actuator nameplate and a mounting drawing; we confirm rotation, mounting interface, shaft and ports and then advise the available sourcing or alternative-supply option.',
       },
     ],
-  }
+  },
+
+
+  // --- Helac P0 catalog builds added 2026-10 (sizes L20-4.5/8.2/25 + T series) ---
+  {
+    model: 'L20-4.5-E-FT-180-S1-C-H',
+    slug: 'l20-4-5-e-ft-180-s1-c-h',
+    series: 'L20',
+    seriesSlug: 'helac-l20-series',
+    rotation: '180°',
+    weight: '12.2 kg',
+    brands: [],
+    parts: [],
+    machines: [],
+    image: '/images/alternatives/l20-15-e-cl-180-90.jpg',
+    imageW: 291,
+    imageH: 323,
+    imageAlt: 'Helac L20 series helical rotary actuator, foot-mount 180-degree configuration (L20 series representative image)',
+    catalogBuild: true,
+    intro: 'Looking for an alternative to the Helac L20-4.5 rotary actuator? This page covers the 180° foot-mount catalog configuration, with a rated output torque of approximately 509 Nm at 207 bar. HM can help review your unit tag, mounting drawings and operating requirements before proposing a suitable solution.',
+    catalogSpec: {
+      pressureBar: 207,
+      ratedTorqueNm: 509,
+      holdingTorqueNm: 1333,
+      momentCantileverNm: 1356,
+      momentStraddleNm: '2,543 Nm',
+      axialLoadKg: 499,
+      radialLoadKg: 1383,
+      displacementCm3: '131.9 cm³',
+      weightKg: '12.2 kg',
+      mountingStyles: 'FT foot mount · FF front flange · RF rear flange · CL clevis',
+      baseLabel: 'L20-4.5 (450 in-lb class)',
+      thisBuildDecode: 'E = English/SAE threads & ports · FT foot mount · 180° rotation · S1 single (cantilever) flange · C counterbalance valve · H standard seals & bearings',
+      crossAlternatives: [
+        {
+          brand: 'HKS',
+          seriesRef: 'M-DA-H-F7 70',
+          keySpec: 'Similar torque class',
+        },
+        {
+          brand: 'Moveco',
+          seriesRef: 'RP17',
+          keySpec: 'Similar torque class',
+        },
+        {
+          brand: 'Sungji',
+          seriesRef: 'SRB-080',
+          keySpec: 'Similar torque class',
+        },
+      ],
+      source: 'Helac L20 catalog, p. 10'
+    },
+    extraFaqs: [
+      {
+        q: 'Is L20-4.5-E-FT-180-S1-C-H a confirmed factory order code?',
+        a: 'This configuration is derived from the Parker/Helac HY34-1001 ordering key (L20-4.5 frame, L20 series, E English/SAE, FT mount, 180° rotation, S1 single/cantilever flange, C counterbalance valve, H standard seals & bearings) and the published L20 performance data. It is a configuration assembled per the catalog rules, not an independently verified factory order code read from a nameplate. The exact configuration and compatibility are confirmed against the original unit tag and mounting drawings before we quote.',
+      },
+      {
+        q: 'Can I use the HKS M-DA-H-F7 70, Moveco RP17, Sungji SRB-080 as a direct replacement?',
+        a: 'The listed alternatives are at a similar published torque level, but each is built to its own frame and mounting dimensions, so a similar rating does not guarantee a fit. Send us your unit tag and mounting drawing — we overlay the flange, shaft, ports and rotation and confirm whether one is a suitable option for your machine.',
+      },
+      {
+        q: 'Which mounting styles are available for the L20-4.5?',
+        a: 'This page covers the E-FT-180-S1-C-H build. Send your tag code or a mounting drawing and we confirm the matching housing, flange and port arrangement against the available L20 mounting options.',
+      }
+    ],
+  },
+  {
+    model: 'L20-4.5-E-FT-360-S1-C-H',
+    slug: 'l20-4-5-e-ft-360-s1-c-h',
+    series: 'L20',
+    seriesSlug: 'helac-l20-series',
+    rotation: '360°',
+    weight: '',
+    brands: [],
+    parts: [],
+    machines: [],
+    image: '/images/alternatives/l20-15-e-cl-180-90.jpg',
+    imageW: 291,
+    imageH: 323,
+    imageAlt: 'Helac L20 series helical rotary actuator, foot-mount 360-degree configuration (L20 series representative image)',
+    catalogBuild: true,
+    intro: 'Looking for an alternative to the Helac L20-4.5 rotary actuator? This page covers the 360° foot-mount catalog configuration, with a rated output torque of approximately 509 Nm at 207 bar. HM can help review your unit tag, mounting drawings and operating requirements before proposing a suitable solution.',
+    catalogSpec: {
+      pressureBar: 207,
+      ratedTorqueNm: 509,
+      holdingTorqueNm: 1333,
+      momentCantileverNm: 1356,
+      axialLoadKg: 499,
+      radialLoadKg: 1383,
+      mountingStyles: 'FT foot mount · FF front flange · RF rear flange · CL clevis',
+      baseLabel: 'L20-4.5 (450 in-lb class)',
+      thisBuildDecode: 'E = English/SAE threads & ports · FT foot mount · 360° rotation · S1 single (cantilever) flange · C counterbalance valve · H standard seals & bearings',
+      crossAlternatives: [
+        {
+          brand: 'HKS',
+          seriesRef: 'M-DA-H-F7 70',
+          keySpec: 'Similar torque class',
+        },
+      ],
+      source: 'Helac L20 catalog, p. 10'
+    },
+    extraFaqs: [
+      {
+        q: 'Is L20-4.5-E-FT-360-S1-C-H a confirmed factory order code?',
+        a: 'This configuration is derived from the Parker/Helac HY34-1001 ordering key (L20-4.5 frame, L20 series, E English/SAE, FT mount, 360° rotation, S1 single/cantilever flange, C counterbalance valve, H standard seals & bearings) and the published L20 performance data. It is a configuration assembled per the catalog rules, not an independently verified factory order code read from a nameplate. The exact configuration and compatibility are confirmed against the original unit tag and mounting drawings before we quote.',
+      },
+      {
+        q: 'Can I use the HKS M-DA-H-F7 70 as a direct replacement?',
+        a: 'The listed alternatives are at a similar published torque level, but each is built to its own frame and mounting dimensions, so a similar rating does not guarantee a fit. Send us your unit tag and mounting drawing — we overlay the flange, shaft, ports and rotation and confirm whether one is a suitable option for your machine.',
+      },
+      {
+        q: 'Which mounting styles are available for the L20-4.5?',
+        a: 'This page covers the E-FT-360-S1-C-H build. Send your tag code or a mounting drawing and we confirm the matching housing, flange and port arrangement against the available L20 mounting options.',
+      }
+    ],
+  },
+  {
+    model: 'L20-8.2-E-FT-180-S1-C-H',
+    slug: 'l20-8-2-e-ft-180-s1-c-h',
+    series: 'L20',
+    seriesSlug: 'helac-l20-series',
+    rotation: '180°',
+    weight: '16.8 kg',
+    brands: [],
+    parts: [],
+    machines: [],
+    image: '/images/alternatives/l20-15-e-cl-180-90.jpg',
+    imageW: 291,
+    imageH: 323,
+    imageAlt: 'Helac L20 series helical rotary actuator, foot-mount 180-degree configuration (L20 series representative image)',
+    catalogBuild: true,
+    intro: 'Looking for an alternative to the Helac L20-8.2 rotary actuator? This page covers the 180° foot-mount catalog configuration, with a rated output torque of approximately 927 Nm at 207 bar. HM can help review your unit tag, mounting drawings and operating requirements before proposing a suitable solution.',
+    catalogSpec: {
+      pressureBar: 207,
+      ratedTorqueNm: 927,
+      holdingTorqueNm: 2373,
+      momentCantileverNm: 2486,
+      momentStraddleNm: '4,520 Nm',
+      axialLoadKg: 680,
+      radialLoadKg: 2132,
+      displacementCm3: '234.3 cm³',
+      weightKg: '16.8 kg',
+      mountingStyles: 'FT foot mount · FF front flange · RF rear flange · CL clevis',
+      baseLabel: 'L20-8.2 (820 in-lb class)',
+      thisBuildDecode: 'E = English/SAE threads & ports · FT foot mount · 180° rotation · S1 single (cantilever) flange · C counterbalance valve · H standard seals & bearings',
+      crossAlternatives: [
+        {
+          brand: 'HKS',
+          seriesRef: 'M-DA-H-F7 85',
+          keySpec: 'Similar torque class',
+        },
+        {
+          brand: 'Moveco',
+          seriesRef: 'RP24',
+          keySpec: 'Similar torque class',
+        },
+        {
+          brand: 'Sungji',
+          seriesRef: 'SRB-090',
+          keySpec: 'Similar torque class',
+        },
+      ],
+      source: 'Helac L20 catalog, p. 10'
+    },
+    extraFaqs: [
+      {
+        q: 'Is L20-8.2-E-FT-180-S1-C-H a confirmed factory order code?',
+        a: 'This configuration is derived from the Parker/Helac HY34-1001 ordering key (L20-8.2 frame, L20 series, E English/SAE, FT mount, 180° rotation, S1 single/cantilever flange, C counterbalance valve, H standard seals & bearings) and the published L20 performance data. It is a configuration assembled per the catalog rules, not an independently verified factory order code read from a nameplate. The exact configuration and compatibility are confirmed against the original unit tag and mounting drawings before we quote.',
+      },
+      {
+        q: 'Can I use the HKS M-DA-H-F7 85, Moveco RP24, Sungji SRB-090 as a direct replacement?',
+        a: 'The listed alternatives are at a similar published torque level, but each is built to its own frame and mounting dimensions, so a similar rating does not guarantee a fit. Send us your unit tag and mounting drawing — we overlay the flange, shaft, ports and rotation and confirm whether one is a suitable option for your machine.',
+      },
+      {
+        q: 'Which mounting styles are available for the L20-8.2?',
+        a: 'This page covers the E-FT-180-S1-C-H build. Send your tag code or a mounting drawing and we confirm the matching housing, flange and port arrangement against the available L20 mounting options.',
+      }
+    ],
+  },
+  {
+    model: 'L20-8.2-E-FT-360-S1-C-H',
+    slug: 'l20-8-2-e-ft-360-s1-c-h',
+    series: 'L20',
+    seriesSlug: 'helac-l20-series',
+    rotation: '360°',
+    weight: '',
+    brands: [],
+    parts: [],
+    machines: [],
+    image: '/images/alternatives/l20-15-e-cl-180-90.jpg',
+    imageW: 291,
+    imageH: 323,
+    imageAlt: 'Helac L20 series helical rotary actuator, foot-mount 360-degree configuration (L20 series representative image)',
+    catalogBuild: true,
+    intro: 'Looking for an alternative to the Helac L20-8.2 rotary actuator? This page covers the 360° foot-mount catalog configuration, with a rated output torque of approximately 927 Nm at 207 bar. HM can help review your unit tag, mounting drawings and operating requirements before proposing a suitable solution.',
+    catalogSpec: {
+      pressureBar: 207,
+      ratedTorqueNm: 927,
+      holdingTorqueNm: 2373,
+      momentCantileverNm: 2486,
+      axialLoadKg: 680,
+      radialLoadKg: 2132,
+      mountingStyles: 'FT foot mount · FF front flange · RF rear flange · CL clevis',
+      baseLabel: 'L20-8.2 (820 in-lb class)',
+      thisBuildDecode: 'E = English/SAE threads & ports · FT foot mount · 360° rotation · S1 single (cantilever) flange · C counterbalance valve · H standard seals & bearings',
+      crossAlternatives: [
+        {
+          brand: 'HKS',
+          seriesRef: 'M-DA-H-F7 85',
+          keySpec: 'Similar torque class',
+        },
+      ],
+      source: 'Helac L20 catalog, p. 10'
+    },
+    extraFaqs: [
+      {
+        q: 'Is L20-8.2-E-FT-360-S1-C-H a confirmed factory order code?',
+        a: 'This configuration is derived from the Parker/Helac HY34-1001 ordering key (L20-8.2 frame, L20 series, E English/SAE, FT mount, 360° rotation, S1 single/cantilever flange, C counterbalance valve, H standard seals & bearings) and the published L20 performance data. It is a configuration assembled per the catalog rules, not an independently verified factory order code read from a nameplate. The exact configuration and compatibility are confirmed against the original unit tag and mounting drawings before we quote.',
+      },
+      {
+        q: 'Can I use the HKS M-DA-H-F7 85 as a direct replacement?',
+        a: 'The listed alternatives are at a similar published torque level, but each is built to its own frame and mounting dimensions, so a similar rating does not guarantee a fit. Send us your unit tag and mounting drawing — we overlay the flange, shaft, ports and rotation and confirm whether one is a suitable option for your machine.',
+      },
+      {
+        q: 'Which mounting styles are available for the L20-8.2?',
+        a: 'This page covers the E-FT-360-S1-C-H build. Send your tag code or a mounting drawing and we confirm the matching housing, flange and port arrangement against the available L20 mounting options.',
+      }
+    ],
+  },
+  {
+    model: 'L20-25-E-FT-180-S1-C-H',
+    slug: 'l20-25-e-ft-180-s1-c-h',
+    series: 'L20',
+    seriesSlug: 'helac-l20-series',
+    rotation: '180°',
+    weight: '51.3 kg',
+    brands: [],
+    parts: [],
+    machines: [],
+    image: '/images/alternatives/l20-15-e-cl-180-90.jpg',
+    imageW: 291,
+    imageH: 323,
+    imageAlt: 'Helac L20 series helical rotary actuator, foot-mount 180-degree configuration (L20 series representative image)',
+    catalogBuild: true,
+    intro: 'Looking for an alternative to the Helac L20-25 rotary actuator? This page covers the 180° foot-mount catalog configuration, with a rated output torque of approximately 2,825 Nm at 207 bar. HM can help review your unit tag, mounting drawings and operating requirements before proposing a suitable solution.',
+    catalogSpec: {
+      pressureBar: 207,
+      ratedTorqueNm: 2825,
+      holdingTorqueNm: 7108,
+      momentCantileverNm: 11300,
+      momentStraddleNm: '22,597 Nm',
+      axialLoadKg: 1406,
+      radialLoadKg: 5579,
+      displacementCm3: '725.9 cm³',
+      weightKg: '51.3 kg',
+      mountingStyles: 'FT foot mount · FF front flange · RF rear flange · CL clevis',
+      baseLabel: 'L20-25 (2,500 in-lb class)',
+      thisBuildDecode: 'E = English/SAE threads & ports · FT foot mount · 180° rotation · S1 single (cantilever) flange · C counterbalance valve · H standard seals & bearings',
+      crossAlternatives: [
+        {
+          brand: 'HKS',
+          seriesRef: 'M-DA-H-F7 125',
+          keySpec: 'Similar torque class',
+        },
+        {
+          brand: 'Moveco',
+          seriesRef: 'RP40',
+          keySpec: 'Similar torque class',
+        },
+        {
+          brand: 'Sungji',
+          seriesRef: 'SRB-140',
+          keySpec: 'Similar torque class',
+        },
+      ],
+      source: 'Helac L20 catalog, p. 10'
+    },
+    extraFaqs: [
+      {
+        q: 'Is L20-25-E-FT-180-S1-C-H a confirmed factory order code?',
+        a: 'This configuration is derived from the Parker/Helac HY34-1001 ordering key (L20-25 frame, L20 series, E English/SAE, FT mount, 180° rotation, S1 single/cantilever flange, C counterbalance valve, H standard seals & bearings) and the published L20 performance data. It is a configuration assembled per the catalog rules, not an independently verified factory order code read from a nameplate. The exact configuration and compatibility are confirmed against the original unit tag and mounting drawings before we quote.',
+      },
+      {
+        q: 'Can I use the HKS M-DA-H-F7 125, Moveco RP40, Sungji SRB-140 as a direct replacement?',
+        a: 'The listed alternatives are at a similar published torque level, but each is built to its own frame and mounting dimensions, so a similar rating does not guarantee a fit. Send us your unit tag and mounting drawing — we overlay the flange, shaft, ports and rotation and confirm whether one is a suitable option for your machine.',
+      },
+      {
+        q: 'Which mounting styles are available for the L20-25?',
+        a: 'This page covers the E-FT-180-S1-C-H build. Send your tag code or a mounting drawing and we confirm the matching housing, flange and port arrangement against the available L20 mounting options.',
+      }
+    ],
+  },
+  {
+    model: 'L20-25-E-FT-360-S1-C-H',
+    slug: 'l20-25-e-ft-360-s1-c-h',
+    series: 'L20',
+    seriesSlug: 'helac-l20-series',
+    rotation: '360°',
+    weight: '',
+    brands: [],
+    parts: [],
+    machines: [],
+    image: '/images/alternatives/l20-15-e-cl-180-90.jpg',
+    imageW: 291,
+    imageH: 323,
+    imageAlt: 'Helac L20 series helical rotary actuator, foot-mount 360-degree configuration (L20 series representative image)',
+    catalogBuild: true,
+    intro: 'Looking for an alternative to the Helac L20-25 rotary actuator? This page covers the 360° foot-mount catalog configuration, with a rated output torque of approximately 2,825 Nm at 207 bar. HM can help review your unit tag, mounting drawings and operating requirements before proposing a suitable solution.',
+    catalogSpec: {
+      pressureBar: 207,
+      ratedTorqueNm: 2825,
+      holdingTorqueNm: 7108,
+      momentCantileverNm: 11300,
+      axialLoadKg: 1406,
+      radialLoadKg: 5579,
+      mountingStyles: 'FT foot mount · FF front flange · RF rear flange · CL clevis',
+      baseLabel: 'L20-25 (2,500 in-lb class)',
+      thisBuildDecode: 'E = English/SAE threads & ports · FT foot mount · 360° rotation · S1 single (cantilever) flange · C counterbalance valve · H standard seals & bearings',
+      crossAlternatives: [
+        {
+          brand: 'HKS',
+          seriesRef: 'M-DA-H-F7 125',
+          keySpec: 'Similar torque class',
+        },
+      ],
+      source: 'Helac L20 catalog, p. 10'
+    },
+    extraFaqs: [
+      {
+        q: 'Is L20-25-E-FT-360-S1-C-H a confirmed factory order code?',
+        a: 'This configuration is derived from the Parker/Helac HY34-1001 ordering key (L20-25 frame, L20 series, E English/SAE, FT mount, 360° rotation, S1 single/cantilever flange, C counterbalance valve, H standard seals & bearings) and the published L20 performance data. It is a configuration assembled per the catalog rules, not an independently verified factory order code read from a nameplate. The exact configuration and compatibility are confirmed against the original unit tag and mounting drawings before we quote.',
+      },
+      {
+        q: 'Can I use the HKS M-DA-H-F7 125 as a direct replacement?',
+        a: 'The listed alternatives are at a similar published torque level, but each is built to its own frame and mounting dimensions, so a similar rating does not guarantee a fit. Send us your unit tag and mounting drawing — we overlay the flange, shaft, ports and rotation and confirm whether one is a suitable option for your machine.',
+      },
+      {
+        q: 'Which mounting styles are available for the L20-25?',
+        a: 'This page covers the E-FT-360-S1-C-H build. Send your tag code or a mounting drawing and we confirm the matching housing, flange and port arrangement against the available L20 mounting options.',
+      }
+    ],
+  },
+  {
+    model: 'T20-25-E-FT-220-S1-C-H',
+    slug: 't20-25-e-ft-220-s1-c-h',
+    series: 'T20',
+    seriesSlug: '',
+    rotation: '220°',
+    weight: '33.6 kg',
+    brands: [],
+    parts: [],
+    machines: [],
+    image: '/images/alternatives/l30-65-s-rf-360.jpg',
+    imageW: 384,
+    imageH: 510,
+    imageAlt: 'Helac T-series heavy-duty helical rotary actuator with dual splined output shafts, 220-degree foot-mount configuration (series representative image)',
+    catalogBuild: true,
+    hideSeriesLink: true,
+    intro: 'Looking for an alternative to the Helac T20-25 rotary actuator? This page covers the 220° foot-mount catalog configuration of the T-series dual splined-output-shaft build, with a rated output torque of approximately 2,825 Nm at 207 bar. HM can help review your unit tag, mounting drawings and operating requirements before proposing a suitable solution.',
+    catalogSpec: {
+      pressureBar: 207,
+      ratedTorqueNm: 2825,
+      holdingTorqueNm: 6125,
+      momentStraddleNm: '4,238 Nm',
+      axialLoadKg: 2041,
+      radialLoadKg: 2041,
+      displacementCm3: '775.1 cm³',
+      weightKg: '33.6 kg',
+      mountingStyles: 'FT foot mount · dual splined output shafts (straddle)',
+      baseLabel: 'T20-25 (2,500 in-lb class)',
+      thisBuildDecode: 'E = English/SAE threads & ports · FT foot mount · 220° rotation · S1 single (cantilever) flange · C counterbalance valve · H standard seals & bearings',
+      crossAlternatives: [
+        {
+          brand: 'Sungji',
+          seriesRef: 'SRS-115',
+          keySpec: 'Similar torque class',
+        }
+      ],
+      source: 'Helac T-series catalog, p. 18'
+    },
+    extraFaqs: [
+      {
+        q: 'Is T20-25-E-FT-220-S1-C-H a confirmed factory order code?',
+        a: 'This T-series configuration is derived from the Parker/Helac HY34-1001 ordering key (T20-25 frame, T series with dual splined output shafts, E English/SAE, FT mount, 220° rotation, S1 single/cantilever flange, C counterbalance valve, H standard seals & bearings) and the published T-series performance data. It is a catalog configuration assembled per the ordering rules rather than a code independently verified from a nameplate; the exact build is confirmed against the Helac selection sheet, the original unit tag and the mounting drawing before we quote.',
+      },
+      {
+        q: 'Can I use the Sungji SRS-115 as a direct replacement?',
+        a: 'The listed alternative is at a similar published torque level, but it is built to its own frame and mounting dimensions, so a similar rating does not guarantee a fit. Send us your unit tag and mounting drawing — we overlay the flange, shaft, ports and rotation and confirm whether it is a suitable option for your machine.',
+      },
+      {
+        q: 'What is special about the T-series dual splined shaft build?',
+        a: 'The T series uses two splined output shafts for straddle mounting, so the published moment figure is the straddle (double-support) rating rather than a cantilever value. Send your tag code and mounting drawing and we confirm the shaft, flange, ports and rotation against the available T-series builds before quoting.',
+      }
+    ],
+  },
+  {
+    model: 'T30-27-E-FT-220-S1-C-H',
+    slug: 't30-27-e-ft-220-s1-c-h',
+    series: 'T30',
+    seriesSlug: '',
+    rotation: '220°',
+    weight: '32.7 kg',
+    brands: [],
+    parts: [],
+    machines: [],
+    image: '/images/alternatives/l30-65-s-rf-360.jpg',
+    imageW: 384,
+    imageH: 510,
+    imageAlt: 'Helac T-series heavy-duty helical rotary actuator with dual splined output shafts, 220-degree foot-mount configuration (series representative image)',
+    catalogBuild: true,
+    hideSeriesLink: true,
+    intro: 'Looking for an alternative to the Helac T30-27 rotary actuator? This page covers the 220° foot-mount catalog configuration of the T-series dual splined-output-shaft build, with a rated output torque of approximately 3,051 Nm at 207 bar. HM can help review your unit tag, mounting drawings and operating requirements before proposing a suitable solution.',
+    catalogSpec: {
+      pressureBar: 207,
+      ratedTorqueNm: 3051,
+      holdingTorqueNm: 6125,
+      momentStraddleNm: '4,577 Nm',
+      axialLoadKg: 2041,
+      radialLoadKg: 2041,
+      displacementCm3: '799.7 cm³',
+      weightKg: '32.7 kg',
+      mountingStyles: 'FT foot mount · dual splined output shafts (straddle)',
+      baseLabel: 'T30-27 (2,700 in-lb class)',
+      thisBuildDecode: 'E = English/SAE threads & ports · FT foot mount · 220° rotation · S1 single (cantilever) flange · C counterbalance valve · H standard seals & bearings',
+      crossAlternatives: [
+        {
+          brand: 'Sungji',
+          seriesRef: 'SRS-115',
+          keySpec: 'Similar torque class',
+        }
+      ],
+      source: 'Helac T-series catalog, p. 18'
+    },
+    extraFaqs: [
+      {
+        q: 'Is T30-27-E-FT-220-S1-C-H a confirmed factory order code?',
+        a: 'This T-series configuration is derived from the Parker/Helac HY34-1001 ordering key (T30-27 frame, T series with dual splined output shafts, E English/SAE, FT mount, 220° rotation, S1 single/cantilever flange, C counterbalance valve, H standard seals & bearings) and the published T-series performance data. It is a catalog configuration assembled per the ordering rules rather than a code independently verified from a nameplate; the exact build is confirmed against the Helac selection sheet, the original unit tag and the mounting drawing before we quote.',
+      },
+      {
+        q: 'Can I use the Sungji SRS-115 as a direct replacement?',
+        a: 'The listed alternative is at a similar published torque level, but it is built to its own frame and mounting dimensions, so a similar rating does not guarantee a fit. Send us your unit tag and mounting drawing — we overlay the flange, shaft, ports and rotation and confirm whether it is a suitable option for your machine.',
+      },
+      {
+        q: 'What is special about the T-series dual splined shaft build?',
+        a: 'The T series uses two splined output shafts for straddle mounting, so the published moment figure is the straddle (double-support) rating rather than a cantilever value. Send your tag code and mounting drawing and we confirm the shaft, flange, ports and rotation against the available T-series builds before quoting.',
+      }
+    ],
+  },
+  {
+    model: 'T20-45-E-FT-220-S1-C-H',
+    slug: 't20-45-e-ft-220-s1-c-h',
+    series: 'T20',
+    seriesSlug: '',
+    rotation: '220°',
+    weight: '58.1 kg',
+    brands: [],
+    parts: [],
+    machines: [],
+    image: '/images/alternatives/l30-65-s-rf-360.jpg',
+    imageW: 384,
+    imageH: 510,
+    imageAlt: 'Helac T-series heavy-duty helical rotary actuator with dual splined output shafts, 220-degree foot-mount configuration (series representative image)',
+    catalogBuild: true,
+    hideSeriesLink: true,
+    intro: 'Looking for an alternative to the Helac T20-45 rotary actuator? This page covers the 220° foot-mount catalog configuration of the T-series dual splined-output-shaft build, with a rated output torque of approximately 5,085 Nm at 207 bar. HM can help review your unit tag, mounting drawings and operating requirements before proposing a suitable solution.',
+    catalogSpec: {
+      pressureBar: 207,
+      ratedTorqueNm: 5085,
+      holdingTorqueNm: 10622,
+      momentStraddleNm: '7,628 Nm',
+      axialLoadKg: 3130,
+      radialLoadKg: 3130,
+      displacementCm3: '1,356.9 cm³',
+      weightKg: '58.1 kg',
+      mountingStyles: 'FT foot mount · dual splined output shafts (straddle)',
+      baseLabel: 'T20-45 (4,500 in-lb class)',
+      thisBuildDecode: 'E = English/SAE threads & ports · FT foot mount · 220° rotation · S1 single (cantilever) flange · C counterbalance valve · H standard seals & bearings',
+      crossAlternatives: [],
+      source: 'Helac T-series catalog, p. 18'
+    },
+    extraFaqs: [
+      {
+        q: 'Is T20-45-E-FT-220-S1-C-H a confirmed factory order code?',
+        a: 'This T-series configuration is derived from the Parker/Helac HY34-1001 ordering key (T20-45 frame, T series with dual splined output shafts, E English/SAE, FT mount, 220° rotation, S1 single/cantilever flange, C counterbalance valve, H standard seals & bearings) and the published T-series performance data. It is a catalog configuration assembled per the ordering rules rather than a code independently verified from a nameplate; the exact build is confirmed against the Helac selection sheet, the original unit tag and the mounting drawing before we quote.',
+      },
+      {
+        q: 'What is special about the T-series dual splined shaft build?',
+        a: 'The T series uses two splined output shafts for straddle mounting, so the published moment figure is the straddle (double-support) rating rather than a cantilever value. Send your tag code and mounting drawing and we confirm the shaft, flange, ports and rotation against the available T-series builds before quoting.',
+      }
+    ],
+  },
+  {
+    model: 'T20-60-E-FT-220-S1-C-H',
+    slug: 't20-60-e-ft-220-s1-c-h',
+    series: 'T20',
+    seriesSlug: '',
+    rotation: '220°',
+    weight: '75.3 kg',
+    brands: [],
+    parts: [],
+    machines: [],
+    image: '/images/alternatives/l30-65-s-rf-360.jpg',
+    imageW: 384,
+    imageH: 510,
+    imageAlt: 'Helac T-series heavy-duty helical rotary actuator with dual splined output shafts, 220-degree foot-mount configuration (series representative image)',
+    catalogBuild: true,
+    hideSeriesLink: true,
+    intro: 'Looking for an alternative to the Helac T20-60 rotary actuator? This page covers the 220° foot-mount catalog configuration of the T-series dual splined-output-shaft build, with a rated output torque of approximately 6,780 Nm at 207 bar. HM can help review your unit tag, mounting drawings and operating requirements before proposing a suitable solution.',
+    catalogSpec: {
+      pressureBar: 207,
+      ratedTorqueNm: 6780,
+      holdingTorqueNm: 14351,
+      momentStraddleNm: '10,170 Nm',
+      axialLoadKg: 3901,
+      radialLoadKg: 3901,
+      displacementCm3: '1,655.1 cm³',
+      weightKg: '75.3 kg',
+      mountingStyles: 'FT foot mount · dual splined output shafts (straddle)',
+      baseLabel: 'T20-60 (6,000 in-lb class)',
+      thisBuildDecode: 'E = English/SAE threads & ports · FT foot mount · 220° rotation · S1 single (cantilever) flange · C counterbalance valve · H standard seals & bearings',
+      crossAlternatives: [
+        {
+          brand: 'Sungji',
+          seriesRef: 'SRS-150',
+          keySpec: 'Similar torque class',
+        }
+      ],
+      source: 'Helac T-series catalog, p. 18'
+    },
+    extraFaqs: [
+      {
+        q: 'Is T20-60-E-FT-220-S1-C-H a confirmed factory order code?',
+        a: 'This T-series configuration is derived from the Parker/Helac HY34-1001 ordering key (T20-60 frame, T series with dual splined output shafts, E English/SAE, FT mount, 220° rotation, S1 single/cantilever flange, C counterbalance valve, H standard seals & bearings) and the published T-series performance data. It is a catalog configuration assembled per the ordering rules rather than a code independently verified from a nameplate; the exact build is confirmed against the Helac selection sheet, the original unit tag and the mounting drawing before we quote.',
+      },
+      {
+        q: 'Why does the T20-60 reference data show 200° while this code is a 220° build?',
+        a: 'The published T-series performance table lists the T20-60 at a 200° standard angle, whereas the controlled order-code cross-reference assigns the complete code T20-60-E-FT-220-S1-C-H at 220°. This page uses the angle written in the complete order code. Please confirm the required rotation against your unit tag and mounting drawing, and we verify the exact build before quoting.',
+      },
+      {
+        q: 'Can I use the Sungji SRS-150 as a direct replacement?',
+        a: 'The listed alternative is at a similar published torque level, but it is built to its own frame and mounting dimensions, so a similar rating does not guarantee a fit. Send us your unit tag and mounting drawing — we overlay the flange, shaft, ports and rotation and confirm whether it is a suitable option for your machine.',
+      },
+      {
+        q: 'What is special about the T-series dual splined shaft build?',
+        a: 'The T series uses two splined output shafts for straddle mounting, so the published moment figure is the straddle (double-support) rating rather than a cantilever value. Send your tag code and mounting drawing and we confirm the shaft, flange, ports and rotation against the available T-series builds before quoting.',
+      }
+    ],
+  },
 ];
 
 export function getModel(slug: string): ModelData | undefined {
