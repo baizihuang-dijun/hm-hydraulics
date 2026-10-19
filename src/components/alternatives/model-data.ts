@@ -1490,10 +1490,6 @@ export const modelPages: ModelData[] = [
         q: 'Which rigs use Atlas Copco / Epiroc part 3128314313?',
         a: 'Part number 3128314313 is commonly listed on the Simba S7D and Simba H1257 production-drill rigs, corresponding to the Helac L30-125-M-FT-360-S1-C-H configuration (360-degree rotation, metric BSPP ports, foot mount). Because rigs of the same range can be built with different turning devices, send the part number on your tag or a nameplate photo and we confirm mounting, shaft and ports before quoting.',
       },
-      {
-        q: 'Is the part number 3128314313 or 3128313413?',
-        a: 'The correct Atlas Copco / Epiroc reference for this build is 3128314313 (also written 3128-3143-13); 3128313413 is a transposition. Confirm the digits against the tag on your unit, as similar-looking numbers can refer to different actuators.',
-      },
     ],
   },
   {
