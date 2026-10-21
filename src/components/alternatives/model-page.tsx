@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { RfqForm } from '@/components/alternatives/rfq-form';
 import type { ModelData } from '@/components/alternatives/model-data';
+import { getSeriesSiblings, parseTorqueNm } from '@/components/alternatives/model-data';
 import { resolveModelImage, MODEL_IMAGE_PLACEHOLDER } from '@/components/alternatives/model-image';
 
 const SITE = 'https://www.hmhydraulics.com';
@@ -73,6 +74,23 @@ export function ModelPage({ d, related }: { d: ModelData; related: { slug: strin
   const faqs = buildFaqs(d);
   const path = `/alternatives/${d.slug}`;
   const ob = d.originBrand ?? 'Helac';
+
+  const siblingsRaw = getSeriesSiblings(d.slug);
+  const allSiblingsHaveTorque =
+    siblingsRaw.length >= 2 && siblingsRaw.every((s) => parseTorqueNm(s.torque) > 0);
+  const showSiblingSizes =
+    d.originBrand && d.originBrand !== 'Helac' && allSiblingsHaveTorque;
+  const sortedSiblings = showSiblingSizes
+    ? [...siblingsRaw]
+        .map((s) => ({ ...s, torqueNm: parseTorqueNm(s.torque) }))
+        .sort((a, b) => {
+          if (a.torqueNm === 0 && b.torqueNm !== 0) return 1;
+          if (b.torqueNm === 0 && a.torqueNm !== 0) return -1;
+          if (a.torqueNm !== b.torqueNm) return a.torqueNm - b.torqueNm;
+          return a.slug.localeCompare(b.slug);
+        })
+    : [];
+  const currentIndex = sortedSiblings.findIndex((s) => s.current);
 
   const quickRef = d.catalogBuild
     ? [
@@ -647,6 +665,62 @@ export function ModelPage({ d, related }: { d: ModelData; related: { slug: strin
                 <strong className="text-[#1B1E20]">Send us your nameplate and mounting drawing.</strong>{' '}
                 HM reviews the configuration and cross-brand options, confirms the fit, then quotes the matching unit
                 and price.
+              </p>
+            </div>
+          )}
+
+          {/* Same-series size comparison */}
+          {showSiblingSizes && sortedSiblings.length >= 2 && currentIndex !== -1 && (
+            <div className="mt-10 p-5 bg-white border border-[rgba(44,74,115,0.12)] rounded-md max-w-3xl">
+              <p className="font-label text-xs text-[#62666C] uppercase tracking-wider mb-3">
+                Other sizes in the {d.series} range
+              </p>
+              <div className="overflow-x-auto">
+                <table className="min-w-full text-sm">
+                  <thead>
+                    <tr className="border-b border-[rgba(44,74,115,0.10)] text-left text-[#62666C]">
+                      <th className="py-2 pr-4 font-medium">Model</th>
+                      <th className="py-2 pr-4 font-medium">Torque</th>
+                      <th className="py-2 font-medium">Weight</th>
+                    </tr>
+                  </thead>
+                  <tbody className="text-[#1B1E20]">
+                    {sortedSiblings.map((s) => {
+                      const firstWeight = s.weight ? s.weight.split(';')[0].trim() : '—';
+                      return (
+                        <tr
+                          key={s.slug}
+                          className={s.current ? 'bg-[rgba(44,74,115,0.05)]' : ''}
+                        >
+                          <td className="py-2 pr-4 align-top">
+                            {s.current ? (
+                              <span className="font-medium">
+                                {s.model}{' '}
+                                <span className="text-[10px] text-[#62666C] font-normal">(this size)</span>
+                              </span>
+                            ) : (
+                              <Link
+                                href={`/alternatives/${s.slug}`}
+                                className="text-[#2C4A73] hover:underline"
+                              >
+                                {s.model}
+                              </Link>
+                            )}
+                          </td>
+                          <td className="py-2 pr-4 align-top">{s.torque}</td>
+                          <td className="py-2 align-top">{firstWeight}</td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
+              <p className="mt-3 text-xs text-[#62666C] leading-relaxed">
+                {currentIndex === 0
+                  ? `${d.model} is the smallest size in the ${d.series} range at ${d.torque}.`
+                  : currentIndex === sortedSiblings.length - 1
+                    ? `${d.model} is the largest size in the ${d.series} range at ${d.torque}.`
+                    : `At ${d.torque}, ${d.model} sits between ${sortedSiblings[currentIndex - 1].model} (${sortedSiblings[currentIndex - 1].torque}) and ${sortedSiblings[currentIndex + 1].model} (${sortedSiblings[currentIndex + 1].torque}) in the ${d.series} range.`}
               </p>
             </div>
           )}

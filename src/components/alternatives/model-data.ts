@@ -3456,14 +3456,47 @@ export function getModel(slug: string): ModelData | undefined {
   return modelPages.find((m) => m.slug === slug);
 }
 
-function torqueNumeric(m: ModelData): number {
-  if (m.catalogSpec?.ratedTorqueNm) return m.catalogSpec.ratedTorqueNm;
-  if (typeof m.torque === 'string') {
-    const n = parseFloat(m.torque.replace(/[^0-9.]/g, ''));
+function parseTorqueNm(torque?: string): number {
+  if (typeof torque === 'string') {
+    const n = parseFloat(torque.replace(/[^0-9.]/g, ''));
     if (!Number.isNaN(n)) return n;
   }
   return 0;
 }
+
+function torqueNumeric(m: ModelData): number {
+  if (m.catalogSpec?.ratedTorqueNm) return m.catalogSpec.ratedTorqueNm;
+  return parseTorqueNm(m.torque);
+}
+
+export function getSeriesSiblings(slug: string): {
+  slug: string;
+  model: string;
+  torque?: string;
+  weight?: string;
+  current: boolean;
+}[] {
+  const model = getModel(slug);
+  if (!model) return [];
+  const brand = model.originBrand ?? 'Helac';
+  const siblings = modelPages.filter(
+    (m) => m.slug !== slug && m.series === model.series && (m.originBrand ?? 'Helac') === brand,
+  );
+  const sortedSiblings = siblings.sort((a, b) => {
+    const ta = torqueNumeric(a);
+    const tb = torqueNumeric(b);
+    if (ta === 0 && tb !== 0) return 1;
+    if (tb === 0 && ta !== 0) return -1;
+    if (ta !== tb) return ta - tb;
+    return a.slug.localeCompare(b.slug);
+  });
+  return [
+    { slug: model.slug, model: model.model, torque: model.torque, weight: model.weight, current: true },
+    ...sortedSiblings.map((m) => ({ slug: m.slug, model: m.model, torque: m.torque, weight: m.weight, current: false })),
+  ];
+}
+
+export { parseTorqueNm };
 
 export function getRelatedModels(slug: string): { slug: string; model: string }[] {
   const model = getModel(slug);
