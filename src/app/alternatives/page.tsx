@@ -5,21 +5,20 @@ import { buildSearchIndex } from '@/components/alternatives/model-data';
 import { AlternativesBrowser } from '@/components/alternatives/alternatives-browser';
 
 export const metadata: Metadata = {
-  title: 'Helac Replacement & Cross-Reference Lookup',
+  title: 'Rotary Actuator Replacement & Cross-Reference Lookup | Helac, HKS, Moveco, Sungji',
   description:
-    'Search by Helac model code or OEM part number to find a replacement rotary actuator. Our engineering team confirms the match before quoting.',
+    'Search by brand or model code (Helac, HKS, Moveco, Sungji) or OEM part number to find a replacement rotary actuator. Our engineering team confirms the match before quoting.',
   alternates: { canonical: '/alternatives' },
 };
 
 const searchIndex = buildSearchIndex();
-const helacCount = searchIndex.filter((m) => m.originBrand === 'Helac').length;
-const crossCount = searchIndex.filter((m) => m.originBrand !== 'Helac').length;
-const liveCountLabel = `${helacCount} Helac models · ${crossCount} cross-brand references · ${searchIndex.length} pages`;
+const brandSet = new Set(searchIndex.map((m) => m.originBrand).filter(Boolean));
+const liveCountLabel = `${searchIndex.length} models across ${brandSet.size} brands · ${searchIndex.length} reference pages`;
 
 const faqs = [
   {
-    q: 'Do you supply direct replacements for Helac rotary actuators?',
-    a: 'We supply alternative rotary actuators that match Helac L-series, HP and HP125 units used on Atlas and Sandvik equipment. Rotation, weight and mounting interface are checked against your original unit before we confirm the exact replacement model.',
+    q: 'Do you supply direct replacements for Helac, HKS or Moveco rotary actuators?',
+    a: 'We supply alternative rotary actuators that match Helac, HKS, Moveco and Sungji units used on Atlas, Sandvik and other equipment. Rotation, weight and mounting interface are checked against your original unit before we confirm the exact replacement model.',
   },
   {
     q: 'What information do you need to confirm the right replacement?',
@@ -57,7 +56,7 @@ const breadcrumbJsonLd = {
   '@type': 'BreadcrumbList',
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.hmhydraulics.com/' },
-    { '@type': 'ListItem', position: 2, name: 'Helac Alternatives', item: 'https://www.hmhydraulics.com/alternatives' },
+    { '@type': 'ListItem', position: 2, name: 'Cross-Reference', item: 'https://www.hmhydraulics.com/alternatives' },
   ],
 };
 
@@ -87,7 +86,7 @@ export default function AlternativesHubPage() {
               Home
             </Link>
             <span>/</span>
-            <span className="text-[#1B1E20]">Helac Alternatives</span>
+            <span className="text-[#1B1E20]">Cross-Reference</span>
           </nav>
         </div>
       </section>
@@ -97,10 +96,10 @@ export default function AlternativesHubPage() {
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
           <p className="eyebrow mb-4">REPLACEMENT &amp; CROSS-REFERENCE</p>
           <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-medium text-[#1B1E20] mb-5">
-            Helac Rotary Actuator Lookup
+            Rotary Actuator Cross-Reference Lookup
           </h1>
           <p className="text-lg text-[#4A4E54] leading-relaxed max-w-3xl mb-6">
-            Search by Helac model code or OEM part number to find the matching reference page.
+            Search by brand or model code (Helac, HKS, Moveco, Sungji) or OEM part number to find a matching replacement rotary actuator.
             Our engineering team confirms rotation, mounting interface and shaft configuration
             against your unit tag before quoting.
           </p>
@@ -184,7 +183,7 @@ export default function AlternativesHubPage() {
             <div>
               <p className="eyebrow mb-4">Request a check</p>
               <h2 className="font-heading text-2xl md:text-3xl font-medium text-[#1B1E20] mb-4">
-                Send us your Helac model details
+                Send us your model details
               </h2>
               <p className="text-[#4A4E54] leading-relaxed mb-6">
                 Give us the model code, the part number on the tag and the machine it
@@ -199,7 +198,7 @@ export default function AlternativesHubPage() {
               </p>
             </div>
             <div className="p-6 md:p-8 bg-white border border-[rgba(44,74,115,0.10)] rounded-md">
-              <RfqForm context="Helac model to be confirmed" />
+              <RfqForm context="Model to be confirmed" />
             </div>
           </div>
         </div>

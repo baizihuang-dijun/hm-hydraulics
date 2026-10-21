@@ -284,7 +284,7 @@ export default function CrossReferenceGuidePage() {
                 Send Your Part Number for Free Verification
               </h2>
               <p className="text-[#4A4E54] leading-relaxed mb-6">
-                Send the Helac model code or OEM part number and we confirm the matching replacement
+                Send the brand model code or OEM part number and we confirm the matching replacement
                 within one working day.
               </p>
               <p className="text-sm text-[#62666C]">

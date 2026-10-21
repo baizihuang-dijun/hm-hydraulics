@@ -285,7 +285,7 @@ export function SeriesPage({ code, models, site }: { code: string; models: Model
           <h2 className="font-heading text-2xl md:text-3xl font-medium text-[#1B1E20] mb-10">How replacement works</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[rgba(44,74,115,0.10)] border border-[rgba(44,74,115,0.10)] rounded-md overflow-hidden">
             {[
-              ['1', 'Send your model or tag', 'Share the Helac model code, OEM part number or machine details, plus a photo if possible.'],
+              ['1', 'Send your model or tag', 'Share the actuator / brand model code, OEM part number or machine details, plus a photo if possible.'],
               ['2', 'We confirm the match', 'We verify rotation, weight, mounting face and ports against your unit before quoting.'],
               ['3', 'Quote and supply', 'You receive the confirmed specifications, price and lead time for the exact build.'],
             ].map(([n, h, p]) => (

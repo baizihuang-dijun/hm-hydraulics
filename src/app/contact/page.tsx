@@ -136,19 +136,18 @@ export default function ContactPage() {
                         htmlFor="name"
                         className="block text-sm font-medium text-[#1B1E20] mb-1.5"
                       >
-                        Name <span className="text-red-500">*</span>
+                        Name <span className="text-[#6B7280] font-normal">(optional)</span>
                       </label>
                       <input
                         type="text"
                         id="name"
                         name="name"
-                        required
                         value={formState.name}
                         onChange={(e) =>
                           setFormState({ ...formState, name: e.target.value })
                         }
                         className="w-full px-3.5 py-2.5 border border-[rgba(44,74,115,0.15)] rounded text-sm text-[#1B1E20] bg-white placeholder:text-[#9CA3AF] focus:outline-none focus:ring-2 focus:ring-[#2C4A73]/20 focus:border-[#2C4A73] transition-colors"
-                        placeholder="Your name"
+                        placeholder="Your name (optional)"
                       />
                     </div>
                     <div>

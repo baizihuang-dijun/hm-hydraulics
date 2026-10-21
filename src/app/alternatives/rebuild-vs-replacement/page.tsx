@@ -6,7 +6,7 @@ import { SITE } from '@/components/alternatives/model-data';
 export const metadata: Metadata = {
   title: 'Rotary Actuator Rebuild vs Replacement: Costs, Downtime & Decision Guide',
   description:
-    'Should you rebuild or replace your Helac rotary actuator? Compare seal kit costs, downtime, and risk factors. Free engineering assessment for replacement options.',
+    'Should you rebuild or replace your rotary actuator? Compare seal kit costs, downtime, and risk factors. Free engineering assessment for replacement options.',
   alternates: { canonical: '/alternatives/rebuild-vs-replacement' },
 };
 
@@ -35,7 +35,7 @@ const faqs = [
   },
   {
     q: 'What information do I need for a replacement assessment?',
-    a: 'Send the Helac model code, OEM part number, machine model, and photos of the tag, mounting face, shaft, and machine nameplate. We confirm the match before quoting.',
+    a: 'Send the model code or OEM part number, machine model, and photos of the tag, mounting face, shaft, and machine nameplate. We confirm the match before quoting.',
   },
 ];
 
@@ -44,7 +44,7 @@ const breadcrumbJsonLd = {
   '@type': 'BreadcrumbList',
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE}/` },
-    { '@type': 'ListItem', position: 2, name: 'Helac Alternatives', item: `${SITE}/alternatives` },
+    { '@type': 'ListItem', position: 2, name: 'Cross-Reference', item: `${SITE}/alternatives` },
     { '@type': 'ListItem', position: 3, name: 'Rebuild vs Replacement', item: `${SITE}${pagePath}` },
   ],
 };
@@ -54,7 +54,7 @@ const articleJsonLd = {
   '@type': 'Article',
   headline: 'Rotary Actuator Rebuild vs Replacement: Seal Kit Costs, Downtime & When to Replace',
   description:
-    'Should you rebuild or replace your Helac rotary actuator? Compare seal kit costs, downtime, and risk factors.',
+    'Should you rebuild or replace your rotary actuator? Compare seal kit costs, downtime, and risk factors.',
   author: {
     '@type': 'Organization',
     name: 'HM Hydraulics Engineering Team',
@@ -233,7 +233,7 @@ export default function RebuildVsReplacementPage() {
             5-Point Decision Checklist
           </h2>
           <ol className="list-decimal pl-5 space-y-4 text-[#4A4E54] leading-relaxed max-w-3xl">
-            <li>Inspect the actuator tag and confirm the exact Helac model code and OEM part number.</li>
+            <li>Inspect the actuator tag and confirm the exact model code and OEM part number.</li>
             <li>Check for external leakage and measure whether the actuator holds pressure under load.</li>
             <li>Inspect the shaft, spline, and housing for scoring, cracks, or distortion.</li>
             <li>Compare current torque output to the original specification; flag any drop above 15%.</li>
@@ -271,7 +271,7 @@ export default function RebuildVsReplacementPage() {
                 Get a Free Rebuild vs Replacement Assessment
               </h2>
               <p className="text-[#4A4E54] leading-relaxed mb-6">
-                Send us the Helac model code, OEM part number, and photos of the tag and mounting
+                Send us the model code or OEM part number, and photos of the tag and mounting
                 face. Our engineering team will advise whether a rebuild is viable or if replacement
                 is the safer option.
               </p>
@@ -300,8 +300,8 @@ export default function RebuildVsReplacementPage() {
               href="/alternatives"
               className="block p-6 border border-[rgba(44,74,115,0.10)] rounded-md bg-white no-underline hover:border-[rgba(44,74,115,0.25)] transition-colors"
             >
-              <h3 className="font-heading text-lg font-medium text-[#1B1E20] mb-2">Helac Replacement Guide</h3>
-              <p className="text-sm text-[#4A4E54] leading-relaxed">Browse replacement actuators by Helac series.</p>
+              <h3 className="font-heading text-lg font-medium text-[#1B1E20] mb-2">Replacement Guide</h3>
+              <p className="text-sm text-[#4A4E54] leading-relaxed">Browse replacement actuators by series.</p>
             </Link>
             <Link
               href="/alternatives/cross-reference-guide"
@@ -315,7 +315,7 @@ export default function RebuildVsReplacementPage() {
               className="block p-6 border border-[rgba(44,74,115,0.10)] rounded-md bg-white no-underline hover:border-[rgba(44,74,115,0.25)] transition-colors"
             >
               <h3 className="font-heading text-lg font-medium text-[#1B1E20] mb-2">How to Identify Your Actuator</h3>
-              <p className="text-sm text-[#4A4E54] leading-relaxed">Read model tags and decode Helac model codes.</p>
+              <p className="text-sm text-[#4A4E54] leading-relaxed">Read model tags and decode common model codes.</p>
             </Link>
           </div>
         </div>

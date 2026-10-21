@@ -98,8 +98,15 @@ export function Footer() {
           </div>
         </div>
 
+        {/* Trademark disclaimer */}
+        <div className="mt-12">
+          <p className="text-[10px] md:text-[11px] text-[#6B7280] leading-relaxed max-w-4xl">
+            Helac&reg;, HKS&reg;, Moveco&reg;, Sungji&reg; and other manufacturer names and model/part numbers are trademarks or property of their respective owners, used solely to identify compatible alternatives. HM Hydraulics is an independent manufacturer and is not affiliated with, sponsored by, or endorsed by these owners.
+          </p>
+        </div>
+
         {/* Bottom */}
-        <div className="mt-14 pt-8 border-t border-[rgba(255,255,255,0.08)] flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+        <div className="mt-8 pt-8 border-t border-[rgba(255,255,255,0.08)] flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
           <p className="text-xs text-[#6B7280]">
             &copy; {new Date().getFullYear()} HM Hydraulics. All rights reserved.
           </p>

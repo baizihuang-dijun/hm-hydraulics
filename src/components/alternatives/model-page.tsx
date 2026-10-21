@@ -318,7 +318,7 @@ export function ModelPage({ d, related }: { d: ModelData; related: { slug: strin
               </div>
               {d.catalogBuild ? (
                 <p className="mt-5 mb-0 text-xs text-[#62666C] leading-relaxed">
-                  Independently supplied alternative &mdash; not an original Helac part. Configuration and fit are
+                  Independently supplied alternative &mdash; not an original {ob} part. Configuration and fit are
                   confirmed against your unit tag and drawing before ordering.
                 </p>
               ) : (

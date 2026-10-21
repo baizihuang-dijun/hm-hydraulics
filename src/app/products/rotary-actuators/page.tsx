@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import type { ReactNode } from 'react';
 import { RotaryGallery } from '@/components/products/rotary-gallery';
 import { HmrUnifiedSelector } from '@/components/hmr/hmr-unified-selector';
 import { HMR_ALL_DATA, HMR_SERIES_CODES, type HmrModel } from '@/lib/hmr/hmr-all-series';
@@ -16,7 +17,9 @@ function formatComparableRefs(refs: string[]): string {
   return refs.join(', ');
 }
 
-function comparableCellText(m: HmrModel): React.ReactNode {
+const NOTE_SYMBOLS = ['*', '†', '‡', '§', '¶', '#'];
+
+function comparableCellText(m: HmrModel, noteToSymbol: Map<string, string>): ReactNode {
   const brands = [
     { key: 'helac' as const, label: 'Helac' },
     { key: 'hks' as const, label: 'HKS' },
@@ -26,11 +29,17 @@ function comparableCellText(m: HmrModel): React.ReactNode {
   const parts = brands
     .filter((b) => m.comparable[b.key].length > 0)
     .map((b) => `${b.label}: ${formatComparableRefs(m.comparable[b.key])}`);
+  const symbol = m.comparableNote ? noteToSymbol.get(m.comparableNote) : undefined;
   return (
     <>
       {parts.length > 0 ? parts.join(' · ') : 'Ask engineering'}
-      {m.comparableNote && (
-        <span className="block mt-1 text-[10px] text-[#62666C]">{m.comparableNote}</span>
+      {symbol && (
+        <sup
+          className="ml-1 text-[10px] text-[#62666C]"
+          title={m.comparableNote}
+        >
+          {symbol}
+        </sup>
       )}
     </>
   );
@@ -164,6 +173,15 @@ function jsonLd() {
 }
 
 export default function RotaryActuatorsPage() {
+  const noteToSymbol = new Map<string, string>();
+  const footnotes: string[] = [];
+  HMR_ALL_DATA.models.forEach((m) => {
+    if (m.comparableNote && !noteToSymbol.has(m.comparableNote)) {
+      noteToSymbol.set(m.comparableNote, NOTE_SYMBOLS[footnotes.length % NOTE_SYMBOLS.length]);
+      footnotes.push(m.comparableNote);
+    }
+  });
+
   return (
     <>
       <script
@@ -352,7 +370,7 @@ export default function RotaryActuatorsPage() {
                         {m.rotation.map((r) => `${r}°`).join(', ')}
                       </td>
                       <td className="px-4 py-3 text-[#4A4E54] text-xs whitespace-nowrap">
-                        {comparableCellText(m)}
+                        {comparableCellText(m, noteToSymbol)}
                       </td>
                     </tr>
                   ));
@@ -360,6 +378,16 @@ export default function RotaryActuatorsPage() {
               </tbody>
             </table>
           </div>
+          {footnotes.length > 0 && (
+            <div className="mt-3 space-y-1">
+              {footnotes.map((note, i) => (
+                <p key={i} className="text-[11px] text-[#62666C] leading-relaxed">
+                  <sup className="mr-1">{NOTE_SYMBOLS[i % NOTE_SYMBOLS.length]}</sup>
+                  {note}
+                </p>
+              ))}
+            </div>
+          )}
           <p className="mt-4 text-xs text-[#62666C]">
             {HMR_ALL_DATA.compareNotice}
           </p>

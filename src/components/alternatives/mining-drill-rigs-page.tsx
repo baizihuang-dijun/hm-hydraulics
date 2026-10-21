@@ -308,7 +308,7 @@ export function MiningDrillRigsPage() {
               <thead>
                 <tr className="border-b border-[rgba(44,74,115,0.20)]">
                   <th className="py-3 pr-4 font-heading text-sm font-medium text-[#1B1E20]">
-                    Helac model code
+                    Actuator model code
                   </th>
                   <th className="py-3 px-4 font-heading text-sm font-medium text-[#1B1E20]">
                     Atlas Copco / Epiroc No.
@@ -501,7 +501,7 @@ export function MiningDrillRigsPage() {
                 Send your mining drill rig actuator details
               </h2>
               <p className="text-[#4A4E54] leading-relaxed mb-6">
-                Send the Helac model code or OEM part number, the machine model, and photos of the
+                Send the actuator model code or OEM part number, the machine model, and photos of the
                 tag and mounting face. We verify the match and quote the correct replacement before
                 you order.
               </p>
