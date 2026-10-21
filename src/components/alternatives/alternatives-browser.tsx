@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 
 export interface SearchIndexItem {
@@ -8,6 +8,7 @@ export interface SearchIndexItem {
   slug: string;
   originBrand: string;
   parts: string[];
+  machines: string[];
 }
 
 interface AlternativesBrowserProps {
@@ -23,12 +24,18 @@ function matchesQuery(m: SearchIndexItem, raw: string): boolean {
   if (!q) return false;
   const needle = normalize(q);
   if (!needle) return false;
-  const fields = [m.model, m.slug, m.originBrand, ...m.parts];
+  const fields = [m.model, m.slug, m.originBrand, ...m.parts, ...m.machines];
   return fields.some((f) => normalize(String(f)).includes(needle));
 }
 
 export function AlternativesBrowser({ searchIndex }: AlternativesBrowserProps) {
   const [query, setQuery] = useState('');
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const q = new URLSearchParams(window.location.search).get('q');
+    if (q) setQuery(q);
+  }, []);
 
   const {
     helacCount,
@@ -40,6 +47,7 @@ export function AlternativesBrowser({ searchIndex }: AlternativesBrowserProps) {
     heavyCount,
     tSeriesCount,
     filtered,
+    brandChips,
   } = useMemo(() => {
     const q = query.trim();
     const filtered = q ? searchIndex.filter((m) => matchesQuery(m, q)) : [];
@@ -56,6 +64,14 @@ export function AlternativesBrowser({ searchIndex }: AlternativesBrowserProps) {
     const heavyCount = searchIndex.filter((m) => heavySeries.has(seriesFromModel(m.model))).length;
     const tSeriesCount = searchIndex.filter((m) => seriesFromModel(m.model).startsWith('T')).length;
 
+    const counts = new Map<string, number>();
+    for (const m of searchIndex) {
+      counts.set(m.originBrand, (counts.get(m.originBrand) ?? 0) + 1);
+    }
+    const brandChips = Array.from(counts.entries())
+      .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+      .map(([name, count]) => ({ name, count }));
+
     return {
       helacCount,
       crossCount,
@@ -66,6 +82,7 @@ export function AlternativesBrowser({ searchIndex }: AlternativesBrowserProps) {
       heavyCount,
       tSeriesCount,
       filtered,
+      brandChips,
     };
   }, [query, searchIndex]);
 
@@ -89,6 +106,29 @@ export function AlternativesBrowser({ searchIndex }: AlternativesBrowserProps) {
         <p className="mt-3 text-sm text-[#62666C]">
           {helacCount} Helac models · {crossCount} cross-brand references · {totalCount} pages
         </p>
+        {brandChips.length > 0 && (
+          <div className="mt-4 flex flex-wrap items-center gap-2">
+            <span className="text-xs text-[#62666C] mr-1">Browse by brand:</span>
+            {brandChips.map(({ name, count }) => {
+              const active = normalize(query) === normalize(name);
+              return (
+                <button
+                  key={name}
+                  type="button"
+                  onClick={() => setQuery(active ? '' : name)}
+                  className={[
+                    'inline-flex items-center px-2.5 py-1 rounded-full text-xs border transition-colors',
+                    active
+                      ? 'bg-[#2C4A73] border-[#2C4A73] text-white'
+                      : 'bg-white border-[rgba(44,74,115,0.20)] text-[#4A4E54] hover:border-[#2C4A73] hover:text-[#2C4A73]',
+                  ].join(' ')}
+                >
+                  {name} <span className="ml-1.5 opacity-70">{count}</span>
+                </button>
+              );
+            })}
+          </div>
+        )}
       </div>
 
       {/* Search results */}

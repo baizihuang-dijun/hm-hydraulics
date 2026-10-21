@@ -475,13 +475,14 @@ export function ModelPage({ d, related }: { d: ModelData; related: { slug: strin
             </p>
             <div className="flex flex-wrap gap-2.5">
               {d.machines.map((m) => (
-                <span
+                <Link
                   key={m}
-                  className="inline-flex items-center px-4 py-2 bg-[#FAFAF7] border border-[rgba(44,74,115,0.15)] rounded-full text-sm text-[#1B1E20]"
+                  href={`/alternatives?q=${encodeURIComponent(m)}`}
+                  className="inline-flex items-center px-4 py-2 bg-[#FAFAF7] border border-[rgba(44,74,115,0.15)] rounded-full text-sm text-[#1B1E20] no-underline hover:border-[rgba(44,74,115,0.30)] transition-colors"
                 >
                   <span className="text-[#2C4A73] mr-2" aria-hidden="true">●</span>
                   {m}
-                </span>
+                </Link>
               ))}
             </div>
             <p className="mt-6 text-sm text-[#62666C]">

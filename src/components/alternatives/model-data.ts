@@ -3490,12 +3490,19 @@ export function getModelsBySeries(seriesCode: string): ModelData[] {
   return modelPages.filter((m) => m.series === seriesCode);
 }
 
-export function buildSearchIndex(): { model: string; slug: string; originBrand: string; parts: string[] }[] {
+export function buildSearchIndex(): {
+  model: string;
+  slug: string;
+  originBrand: string;
+  parts: string[];
+  machines: string[];
+}[] {
   return modelPages.map((m) => ({
     model: m.model,
     slug: m.slug,
     originBrand: m.originBrand ?? 'Helac',
     parts: m.parts ?? [],
+    machines: m.machines ?? [],
   }));
 }
 
