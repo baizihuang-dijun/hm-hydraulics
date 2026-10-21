@@ -2093,10 +2093,10 @@ export const modelPages: ModelData[] = [
     brands: [],
     parts: [],
     machines: [],
-    image: '/images/alternatives/l30-65-s-rf-360.jpg',
-    imageW: 384,
-    imageH: 510,
-    imageAlt: 'Helac T-series heavy-duty helical rotary actuator with dual splined output shafts, 220-degree foot-mount configuration (series representative image)',
+    image: '/images/products/hmr6-foot-through-splined-shaft.png',
+    imageW: 400,
+    imageH: 300,
+    imageAlt: 'Helac T-series dual-spline straddle rotary actuator (representative image)',
     catalogBuild: true,
     hideSeriesLink: true,
     intro: 'Looking for an alternative to the Helac T20-25 rotary actuator? This page covers the 220° foot-mount catalog configuration of the T-series dual splined-output-shaft build, with a rated output torque of approximately 2,825 Nm at 207 bar. HM can help review your unit tag, mounting drawings and operating requirements before proposing a suitable solution.',
@@ -2146,10 +2146,10 @@ export const modelPages: ModelData[] = [
     brands: [],
     parts: [],
     machines: [],
-    image: '/images/alternatives/l30-65-s-rf-360.jpg',
-    imageW: 384,
-    imageH: 510,
-    imageAlt: 'Helac T-series heavy-duty helical rotary actuator with dual splined output shafts, 220-degree foot-mount configuration (series representative image)',
+    image: '/images/products/hmr6-foot-through-splined-shaft.png',
+    imageW: 400,
+    imageH: 300,
+    imageAlt: 'Helac T-series dual-spline straddle rotary actuator (representative image)',
     catalogBuild: true,
     hideSeriesLink: true,
     intro: 'Looking for an alternative to the Helac T30-27 rotary actuator? This page covers the 220° foot-mount catalog configuration of the T-series dual splined-output-shaft build, with a rated output torque of approximately 3,051 Nm at 207 bar. HM can help review your unit tag, mounting drawings and operating requirements before proposing a suitable solution.',
@@ -2199,10 +2199,10 @@ export const modelPages: ModelData[] = [
     brands: [],
     parts: [],
     machines: [],
-    image: '/images/alternatives/l30-65-s-rf-360.jpg',
-    imageW: 384,
-    imageH: 510,
-    imageAlt: 'Helac T-series heavy-duty helical rotary actuator with dual splined output shafts, 220-degree foot-mount configuration (series representative image)',
+    image: '/images/products/hmr6-foot-through-splined-shaft.png',
+    imageW: 400,
+    imageH: 300,
+    imageAlt: 'Helac T-series dual-spline straddle rotary actuator (representative image)',
     catalogBuild: true,
     hideSeriesLink: true,
     intro: 'Looking for an alternative to the Helac T20-45 rotary actuator? This page covers the 220° foot-mount catalog configuration of the T-series dual splined-output-shaft build, with a rated output torque of approximately 5,085 Nm at 207 bar. HM can help review your unit tag, mounting drawings and operating requirements before proposing a suitable solution.',
@@ -2242,10 +2242,10 @@ export const modelPages: ModelData[] = [
     brands: [],
     parts: [],
     machines: [],
-    image: '/images/alternatives/l30-65-s-rf-360.jpg',
-    imageW: 384,
-    imageH: 510,
-    imageAlt: 'Helac T-series heavy-duty helical rotary actuator with dual splined output shafts, 220-degree foot-mount configuration (series representative image)',
+    image: '/images/products/hmr6-foot-through-splined-shaft.png',
+    imageW: 400,
+    imageH: 300,
+    imageAlt: 'Helac T-series dual-spline straddle rotary actuator (representative image)',
     catalogBuild: true,
     hideSeriesLink: true,
     intro: 'Looking for an alternative to the Helac T20-60 rotary actuator? This page covers the 220° foot-mount catalog configuration of the T-series dual splined-output-shaft build, with a rated output torque of approximately 6,780 Nm at 207 bar. HM can help review your unit tag, mounting drawings and operating requirements before proposing a suitable solution.',
@@ -3454,6 +3454,49 @@ export const modelPages: ModelData[] = [
 
 export function getModel(slug: string): ModelData | undefined {
   return modelPages.find((m) => m.slug === slug);
+}
+
+function torqueNumeric(m: ModelData): number {
+  if (m.catalogSpec?.ratedTorqueNm) return m.catalogSpec.ratedTorqueNm;
+  if (typeof m.torque === 'string') {
+    const n = parseFloat(m.torque.replace(/[^0-9.]/g, ''));
+    if (!Number.isNaN(n)) return n;
+  }
+  return 0;
+}
+
+export function getRelatedModels(slug: string): { slug: string; model: string }[] {
+  const model = getModel(slug);
+  if (!model) return [];
+  const brand = model.originBrand ?? 'Helac';
+  const candidates = modelPages.filter(
+    (m) => m.slug !== slug && m.series === model.series && (m.originBrand ?? 'Helac') === brand
+  );
+  if (candidates.length < 3) {
+    // fallback: same series only
+    candidates.push(...modelPages.filter((m) => m.slug !== slug && m.series === model.series && !candidates.some((c) => c.slug === m.slug)));
+  }
+  if (candidates.length < 3) {
+    // final fallback: same brand
+    candidates.push(...modelPages.filter((m) => m.slug !== slug && (m.originBrand ?? 'Helac') === brand && !candidates.some((c) => c.slug === m.slug)));
+  }
+  return candidates
+    .sort((a, b) => torqueNumeric(a) - torqueNumeric(b) || a.slug.localeCompare(b.slug))
+    .slice(0, 3)
+    .map((m) => ({ slug: m.slug, model: m.model }));
+}
+
+export function getModelsBySeries(seriesCode: string): ModelData[] {
+  return modelPages.filter((m) => m.series === seriesCode);
+}
+
+export function buildSearchIndex(): { model: string; slug: string; originBrand: string; parts: string[] }[] {
+  return modelPages.map((m) => ({
+    model: m.model,
+    slug: m.slug,
+    originBrand: m.originBrand ?? 'Helac',
+    parts: m.parts ?? [],
+  }));
 }
 
 export const SITE = base;

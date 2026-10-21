@@ -2,10 +2,9 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Quality & Technical Validation — HM Hydraulics',
+  title: 'Quality & Technical Validation',
   description:
     'ISO9001 certified production. 1,000,000-cycle fatigue test passed. Full QA traceability. Every unit tested before shipment.',
-  alternates: { canonical: '/quality' },
 };
 
 const milestones = [
@@ -78,7 +77,7 @@ export default function QualityPage() {
                 1,000,000-Cycle Fatigue Test
               </h2>
               <p className="text-[#4A4E54] leading-relaxed mb-6">
-                Our DKX series rotary actuators have passed a 1,000,000-cycle full-load fatigue test at 150 bar. The test was conducted independently by an international customer and confirmed zero actuator failures.
+                Our HMR helical rotary actuator series (HMR1–HMR6) has passed a 1,000,000-cycle full-load fatigue test at 150 bar. The test was conducted independently by an international customer and confirmed zero actuator failures.
               </p>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
                 <div className="p-4 border border-[rgba(44,74,115,0.10)] rounded-md text-center">

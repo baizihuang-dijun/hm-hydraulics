@@ -1,6 +1,9 @@
 import Link from 'next/link';
 import { RfqForm } from '@/components/alternatives/rfq-form';
-import { ModelData, SITE } from '@/components/alternatives/model-data';
+import type { ModelData } from '@/components/alternatives/model-data';
+import { resolveModelImage, MODEL_IMAGE_PLACEHOLDER } from '@/components/alternatives/model-image';
+
+const SITE = 'https://www.hmhydraulics.com';
 
 function listJoin(items: string[]): string {
   return items.join(', ');
@@ -62,7 +65,11 @@ function buildFaqs(d: ModelData) {
   return faqs;
 }
 
-export function ModelPage({ d }: { d: ModelData }) {
+export function ModelPage({ d, related }: { d: ModelData; related: { slug: string; model: string }[] }) {
+  const resolvedImage = resolveModelImage(d);
+  const resolvedAlt = resolvedImage === MODEL_IMAGE_PLACEHOLDER
+    ? `${d.model} rotary actuator — correct unit drawing available on request`
+    : d.imageAlt;
   const faqs = buildFaqs(d);
   const path = `/alternatives/${d.slug}`;
   const ob = d.originBrand ?? 'Helac';
@@ -125,7 +132,7 @@ export function ModelPage({ d }: { d: ModelData }) {
       ? `Sourcing / alternative supply for ${ob} ${d.model}`
       : `Replacement rotary actuator for ${ob} ${d.model}`,
     category: 'Hydraulic rotary actuator',
-    image: `${SITE}${d.image}`,
+    image: `${SITE}${resolvedImage}`,
     description: d.catalogBuild
       ? `${d.intro} Configuration derived from HY34-1001; engineering data per ${d.catalogSpec?.source ?? 'published Helac tables'}; exact configuration and compatibility confirmed against the original unit tag and mounting drawings.`
       : d.sourcingOnly
@@ -334,8 +341,8 @@ export function ModelPage({ d }: { d: ModelData }) {
 
             <figure className="m-0 bg-white border border-[rgba(44,74,115,0.10)] rounded-md p-3">
               <img
-                src={d.image}
-                alt={d.imageAlt}
+                src={resolvedImage}
+                alt={resolvedAlt}
                 width={d.imageW}
                 height={d.imageH}
                 className="block w-full h-auto rounded"
@@ -676,6 +683,26 @@ export function ModelPage({ d }: { d: ModelData }) {
           </div>
         </div>
       </section>
+
+      {/* Related models */}
+      {related.length > 0 && (
+        <section className="border-b border-[rgba(44,74,115,0.10)] bg-[#FAFAF7]">
+          <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-12 md:py-16">
+            <p className="font-label text-xs text-[#62666C] uppercase tracking-wider mb-3">Related models</p>
+            <div className="flex flex-wrap gap-3">
+              {related.map((r) => (
+                <Link
+                  key={r.slug}
+                  href={`/alternatives/${r.slug}`}
+                  className="inline-flex items-center px-4 py-2 bg-white border border-[rgba(44,74,115,0.15)] rounded-md text-sm text-[#1B1E20] no-underline hover:border-[rgba(44,74,115,0.35)] transition-colors"
+                >
+                  {r.model}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* RFQ */}
       <section id="rfq">

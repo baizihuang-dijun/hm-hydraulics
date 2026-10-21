@@ -1,0 +1,1385 @@
+{
+  "generated": "2026-10-20",
+  "dataSource": "HM cross-reference DB v2.4 (sheets 02/03) + frozen HMR configuration matrix v3",
+  "usage": "Single public data source for the all-series unified selector. SSR-spec table + JSON-LD must be generated from this.",
+  "compareNotice": "Comparable performance based on rated torque class for engineering comparison. The mounting interface must be confirmed by our engineering team before quotation.",
+  "series": {
+    "HMR1": {
+      "pressureBar": 210,
+      "familyClass": "Helical, HKS-style flanged",
+      "angles": [
+        "90",
+        "180",
+        "270",
+        "360"
+      ],
+      "mounts": [
+        {
+          "code": "FL",
+          "label": "Flange",
+          "implicit": true
+        }
+      ],
+      "outputs": [
+        {
+          "code": "KS"
+        },
+        {
+          "code": "SS"
+        },
+        {
+          "code": "KB"
+        },
+        {
+          "code": "BS"
+        }
+      ],
+      "valves": [
+        {
+          "code": "NV",
+          "label": "No valve"
+        },
+        {
+          "code": "CB",
+          "label": "Counterbalance"
+        },
+        {
+          "code": "CS",
+          "label": "Cushion"
+        }
+      ],
+      "orderSyntax": "HMR1-{spec}-{angle}-{output}-{valve}",
+      "example": "HMR1-020-180-KS-CS",
+      "note": "Flange (FL) mounting is standard and implicit in the order code."
+    },
+    "HMR2": {
+      "pressureBar": 210,
+      "familyClass": "Helical, L20-style foot mount",
+      "angles": [
+        "180"
+      ],
+      "mounts": [
+        {
+          "code": "FT",
+          "label": "Foot"
+        }
+      ],
+      "outputs": [
+        {
+          "code": "1F",
+          "label": "Single flange shaft"
+        },
+        {
+          "code": "2F",
+          "label": "Double flange shaft"
+        }
+      ],
+      "valves": [
+        {
+          "code": "NV"
+        },
+        {
+          "code": "CB"
+        },
+        {
+          "code": "CS"
+        }
+      ],
+      "orderSyntax": "HMR2-{spec}-180-FT-{output}-{valve}",
+      "example": "HMR2-095-180-FT-1F-NV",
+      "note": "360° availability subject to engineering confirmation."
+    },
+    "HMR3": {
+      "pressureBar": 210,
+      "familyClass": "Helical, L10-style compact front flange",
+      "angles": [
+        "180",
+        "360"
+      ],
+      "mounts": [
+        {
+          "code": "FF",
+          "label": "Front flange",
+          "implicit": true
+        }
+      ],
+      "outputs": [
+        {
+          "code": "1F",
+          "label": "Single flange shaft",
+          "implicit": true
+        }
+      ],
+      "valves": [
+        {
+          "code": "NV"
+        },
+        {
+          "code": "CB"
+        },
+        {
+          "code": "CS"
+        }
+      ],
+      "orderSyntax": "HMR3-{spec}-{angle}-FF-1F-{valve}",
+      "shortSyntax": "HMR3-{spec}-{angle}-{valve}",
+      "example": "HMR3-030-180-CB",
+      "note": "FF mounting and 1F output are standard and may be omitted in the short code."
+    },
+    "HMR4": {
+      "pressureBar": 210,
+      "familyClass": "Helical, L30-style heavy-duty",
+      "angles": [
+        "180",
+        "360"
+      ],
+      "mounts": [
+        {
+          "code": "FT",
+          "label": "Foot"
+        },
+        {
+          "code": "FF",
+          "label": "Front flange"
+        },
+        {
+          "code": "RF",
+          "label": "Rear flange"
+        }
+      ],
+      "outputs": [
+        {
+          "code": "1F",
+          "label": "Single flange shaft"
+        },
+        {
+          "code": "2F",
+          "label": "Double flange shaft"
+        }
+      ],
+      "valves": [
+        {
+          "code": "NV"
+        },
+        {
+          "code": "CB"
+        },
+        {
+          "code": "CS"
+        }
+      ],
+      "orderSyntax": "HMR4-{spec}-{angle}-{mount}-{output}-{valve}",
+      "example": "HMR4-500-180-FT-2F-CS",
+      "note": "Same rated performance across FT/FF/RF; only the mounting interface changes."
+    },
+    "HMR5": {
+      "pressureBar": 135,
+      "familyClass": "Helical valve actuator (no external load support)",
+      "angles": [
+        "90"
+      ],
+      "mounts": [
+        {
+          "code": "FL",
+          "label": "Valve mounting flange",
+          "implicit": true
+        }
+      ],
+      "outputs": [
+        {
+          "code": "BS"
+        },
+        {
+          "code": "SQ"
+        },
+        {
+          "code": "KB"
+        },
+        {
+          "code": "CU"
+        }
+      ],
+      "valves": [
+        {
+          "code": "NV"
+        },
+        {
+          "code": "CB"
+        },
+        {
+          "code": "CS"
+        }
+      ],
+      "orderSyntax": "HMR5-{spec}-90-{output}-{valve}",
+      "example": "HMR5-012-90-BS-CB",
+      "note": "Standard 90°; special angles on request. Rated at 135 bar."
+    },
+    "HMR6": {
+      "pressureBar": 210,
+      "familyClass": "Helical through-shaft, straddle mount only",
+      "angles": [
+        "220",
+        "180"
+      ],
+      "mounts": [
+        {
+          "code": "FT",
+          "label": "Foot, straddle only",
+          "implicit": true
+        }
+      ],
+      "outputs": [
+        {
+          "code": "DS",
+          "label": "Through double spline shaft",
+          "implicit": true
+        }
+      ],
+      "valves": [
+        {
+          "code": "NV"
+        },
+        {
+          "code": "CB"
+        },
+        {
+          "code": "CS"
+        }
+      ],
+      "orderSyntax": "HMR6-{spec}-{angle}-{valve}",
+      "example": "HMR6-280-220-CB",
+      "note": "220° standard; 180° is a special angle requiring engineering confirmation."
+    }
+  },
+  "models": [
+    {
+      "hmr": "HMR1-020",
+      "series": "HMR1",
+      "spec": "020",
+      "drivingNm": 200,
+      "rotation": [
+        "90",
+        "180",
+        "270",
+        "360"
+      ],
+      "comparable": {
+        "helac": [],
+        "hks": [
+          "DA-H 40",
+          "I-DA-H 40"
+        ],
+        "moveco": [],
+        "sungji": []
+      }
+    },
+    {
+      "hmr": "HMR1-035",
+      "series": "HMR1",
+      "spec": "035",
+      "drivingNm": 340,
+      "rotation": [
+        "90",
+        "180",
+        "270",
+        "360"
+      ],
+      "comparable": {
+        "helac": [],
+        "hks": [
+          "DA-H 50",
+          "I-DA-H 50"
+        ],
+        "moveco": [],
+        "sungji": []
+      }
+    },
+    {
+      "hmr": "HMR1-065",
+      "series": "HMR1",
+      "spec": "065",
+      "drivingNm": 650,
+      "rotation": [
+        "90",
+        "180",
+        "270",
+        "360"
+      ],
+      "comparable": {
+        "helac": [],
+        "hks": [
+          "DA-H 63",
+          "I-DA-H 63"
+        ],
+        "moveco": [],
+        "sungji": []
+      }
+    },
+    {
+      "hmr": "HMR1-135",
+      "series": "HMR1",
+      "spec": "135",
+      "drivingNm": 1350,
+      "rotation": [
+        "90",
+        "180",
+        "270",
+        "360"
+      ],
+      "comparable": {
+        "helac": [],
+        "hks": [
+          "DA-H 80",
+          "I-DA-H 80"
+        ],
+        "moveco": [],
+        "sungji": []
+      }
+    },
+    {
+      "hmr": "HMR1-250",
+      "series": "HMR1",
+      "spec": "250",
+      "drivingNm": 2500,
+      "rotation": [
+        "90",
+        "180",
+        "270",
+        "360"
+      ],
+      "comparable": {
+        "helac": [],
+        "hks": [
+          "DA-H 100",
+          "I-DA-H 100"
+        ],
+        "moveco": [],
+        "sungji": []
+      }
+    },
+    {
+      "hmr": "HMR1-500",
+      "series": "HMR1",
+      "spec": "500",
+      "drivingNm": 5100,
+      "rotation": [
+        "90",
+        "180",
+        "270",
+        "360"
+      ],
+      "comparable": {
+        "helac": [],
+        "hks": [
+          "DA-H 125",
+          "I-DA-H 125"
+        ],
+        "moveco": [],
+        "sungji": []
+      }
+    },
+    {
+      "hmr": "HMR1-700",
+      "series": "HMR1",
+      "spec": "700",
+      "drivingNm": 7100,
+      "rotation": [
+        "90",
+        "180",
+        "270",
+        "360"
+      ],
+      "comparable": {
+        "helac": [],
+        "hks": [
+          "DA-H 140",
+          "I-DA-H 140"
+        ],
+        "moveco": [],
+        "sungji": []
+      }
+    },
+    {
+      "hmr": "HMR1-1100",
+      "series": "HMR1",
+      "spec": "1100",
+      "drivingNm": 11300,
+      "rotation": [
+        "90",
+        "180",
+        "270",
+        "360"
+      ],
+      "comparable": {
+        "helac": [],
+        "hks": [
+          "DA-H 160",
+          "I-DA-H 160"
+        ],
+        "moveco": [],
+        "sungji": []
+      }
+    },
+    {
+      "hmr": "HMR1-1600",
+      "series": "HMR1",
+      "spec": "1600",
+      "drivingNm": 16200,
+      "rotation": [
+        "90",
+        "180",
+        "270",
+        "360"
+      ],
+      "comparable": {
+        "helac": [],
+        "hks": [
+          "DA-H 180",
+          "I-DA-H 180"
+        ],
+        "moveco": [],
+        "sungji": []
+      }
+    },
+    {
+      "hmr": "HMR1-2200",
+      "series": "HMR1",
+      "spec": "2200",
+      "drivingNm": 22300,
+      "rotation": [
+        "90",
+        "180",
+        "270",
+        "360"
+      ],
+      "comparable": {
+        "helac": [],
+        "hks": [
+          "DA-H 200",
+          "I-DA-H 200"
+        ],
+        "moveco": [],
+        "sungji": []
+      }
+    },
+    {
+      "hmr": "HMR1-3200",
+      "series": "HMR1",
+      "spec": "3200",
+      "drivingNm": 32000,
+      "rotation": [
+        "90",
+        "180",
+        "270",
+        "360"
+      ],
+      "comparable": {
+        "helac": [],
+        "hks": [
+          "DA-H 225",
+          "I-DA-H 225"
+        ],
+        "moveco": [],
+        "sungji": []
+      }
+    },
+    {
+      "hmr": "HMR1-3900",
+      "series": "HMR1",
+      "spec": "3900",
+      "drivingNm": 38920,
+      "rotation": [
+        "90",
+        "180",
+        "270",
+        "360"
+      ],
+      "comparable": {
+        "helac": [],
+        "hks": [
+          "DA-H 225S"
+        ],
+        "moveco": [],
+        "sungji": []
+      }
+    },
+    {
+      "hmr": "HMR1-4400",
+      "series": "HMR1",
+      "spec": "4400",
+      "drivingNm": 44000,
+      "rotation": [
+        "90",
+        "180",
+        "270",
+        "360"
+      ],
+      "comparable": {
+        "helac": [],
+        "hks": [
+          "DA-H 250"
+        ],
+        "moveco": [],
+        "sungji": []
+      }
+    },
+    {
+      "hmr": "HMR1-6000",
+      "series": "HMR1",
+      "spec": "6000",
+      "drivingNm": 60800,
+      "rotation": [
+        "90",
+        "180",
+        "270",
+        "360"
+      ],
+      "comparable": {
+        "helac": [],
+        "hks": [
+          "DA-H 280"
+        ],
+        "moveco": [],
+        "sungji": []
+      }
+    },
+    {
+      "hmr": "HMR1-7600",
+      "series": "HMR1",
+      "spec": "7600",
+      "drivingNm": 76000,
+      "rotation": [
+        "90",
+        "180",
+        "270",
+        "360"
+      ],
+      "comparable": {
+        "helac": [],
+        "hks": [
+          "DA-H 300"
+        ],
+        "moveco": [],
+        "sungji": []
+      }
+    },
+    {
+      "hmr": "HMR2-050",
+      "series": "HMR2",
+      "spec": "050",
+      "drivingNm": 508,
+      "rotation": [
+        "180"
+      ],
+      "comparable": {
+        "helac": [
+          "L20-4.5"
+        ],
+        "hks": [
+          "M-DA-H-F7 70"
+        ],
+        "moveco": [
+          "RP17"
+        ],
+        "sungji": [
+          "SRB-080"
+        ]
+      }
+    },
+    {
+      "hmr": "HMR2-095",
+      "series": "HMR2",
+      "spec": "095",
+      "drivingNm": 960,
+      "rotation": [
+        "180"
+      ],
+      "comparable": {
+        "helac": [
+          "L20-8.2"
+        ],
+        "hks": [
+          "M-DA-H-F7 85"
+        ],
+        "moveco": [
+          "RP24"
+        ],
+        "sungji": [
+          "SRB-090"
+        ]
+      }
+    },
+    {
+      "hmr": "HMR2-180",
+      "series": "HMR2",
+      "spec": "180",
+      "drivingNm": 1690,
+      "rotation": [
+        "180"
+      ],
+      "comparable": {
+        "helac": [
+          "L20-15"
+        ],
+        "hks": [
+          "M-DA-H-F7 120"
+        ],
+        "moveco": [
+          "RP33"
+        ],
+        "sungji": [
+          "SRB-115"
+        ]
+      }
+    },
+    {
+      "hmr": "HMR2-280",
+      "series": "HMR2",
+      "spec": "280",
+      "drivingNm": 2830,
+      "rotation": [
+        "180"
+      ],
+      "comparable": {
+        "helac": [
+          "L20-25"
+        ],
+        "hks": [
+          "M-DA-H-F7 125"
+        ],
+        "moveco": [
+          "RP40"
+        ],
+        "sungji": [
+          "SRB-140"
+        ]
+      }
+    },
+    {
+      "hmr": "HMR2-300",
+      "series": "HMR2",
+      "spec": "300",
+      "drivingNm": 3150,
+      "rotation": [
+        "180"
+      ],
+      "comparable": {
+        "helac": [
+          "L20-25"
+        ],
+        "hks": [
+          "M-DA-H-F7 125"
+        ],
+        "moveco": [
+          "RP40"
+        ],
+        "sungji": [
+          "SRB-140"
+        ]
+      }
+    },
+    {
+      "hmr": "HMR2-450",
+      "series": "HMR2",
+      "spec": "450",
+      "drivingNm": 4400,
+      "rotation": [
+        "180"
+      ],
+      "comparable": {
+        "helac": [
+          "L20-39"
+        ],
+        "hks": [
+          "M-DA-H-F7 145"
+        ],
+        "moveco": [
+          "RP46"
+        ],
+        "sungji": [
+          "SRB-160"
+        ]
+      }
+    },
+    {
+      "hmr": "HMR2-580",
+      "series": "HMR2",
+      "spec": "580",
+      "drivingNm": 5870,
+      "rotation": [
+        "180"
+      ],
+      "comparable": {
+        "helac": [],
+        "hks": [],
+        "moveco": [],
+        "sungji": []
+      }
+    },
+    {
+      "hmr": "HMR3-020",
+      "series": "HMR3",
+      "spec": "020",
+      "drivingNm": 190,
+      "rotation": [
+        "180",
+        "360"
+      ],
+      "comparable": {
+        "helac": [],
+        "hks": [
+          "M-DA-H 50"
+        ],
+        "moveco": [],
+        "sungji": [
+          "SRA-080"
+        ]
+      }
+    },
+    {
+      "hmr": "HMR3-030",
+      "series": "HMR3",
+      "spec": "030",
+      "drivingNm": 340,
+      "rotation": [
+        "180",
+        "360"
+      ],
+      "comparable": {
+        "helac": [
+          "L10-3.0"
+        ],
+        "hks": [
+          "M-DA-H 60"
+        ],
+        "moveco": [],
+        "sungji": [
+          "SRA-090"
+        ]
+      }
+    },
+    {
+      "hmr": "HMR3-060",
+      "series": "HMR3",
+      "spec": "060",
+      "drivingNm": 620,
+      "rotation": [
+        "180",
+        "360"
+      ],
+      "comparable": {
+        "helac": [
+          "L10-5.5"
+        ],
+        "hks": [],
+        "moveco": [],
+        "sungji": []
+      }
+    },
+    {
+      "hmr": "HMR3-100",
+      "series": "HMR3",
+      "spec": "100",
+      "drivingNm": 1075,
+      "rotation": [
+        "180",
+        "360"
+      ],
+      "comparable": {
+        "helac": [
+          "L10-9.5"
+        ],
+        "hks": [
+          "M-DA-H 80"
+        ],
+        "moveco": [],
+        "sungji": [
+          "SRA-140"
+        ]
+      }
+    },
+    {
+      "hmr": "HMR3-160",
+      "series": "HMR3",
+      "spec": "160",
+      "drivingNm": 1695,
+      "rotation": [
+        "180",
+        "360"
+      ],
+      "comparable": {
+        "helac": [
+          "L10-15"
+        ],
+        "hks": [
+          "M-DA-H 90"
+        ],
+        "moveco": [],
+        "sungji": [
+          "SRA-160"
+        ]
+      }
+    },
+    {
+      "hmr": "HMR3-280",
+      "series": "HMR3",
+      "spec": "280",
+      "drivingNm": 2825,
+      "rotation": [
+        "180",
+        "360"
+      ],
+      "comparable": {
+        "helac": [
+          "L10-25"
+        ],
+        "hks": [
+          "M-DA-H 100"
+        ],
+        "moveco": [],
+        "sungji": []
+      }
+    },
+    {
+      "hmr": "HMR4-200",
+      "series": "HMR4",
+      "spec": "200",
+      "drivingNm": 1920,
+      "rotation": [
+        "180",
+        "360"
+      ],
+      "comparable": {
+        "helac": [
+          "L30-17"
+        ],
+        "hks": [
+          "F10 115",
+          "F5 115"
+        ],
+        "moveco": [
+          "RR34"
+        ],
+        "sungji": [
+          "SRC-115"
+        ]
+      }
+    },
+    {
+      "hmr": "HMR4-280",
+      "series": "HMR4",
+      "spec": "280",
+      "drivingNm": 2820,
+      "rotation": [
+        "180",
+        "360"
+      ],
+      "comparable": {
+        "helac": [
+          "L30-25"
+        ],
+        "hks": [
+          "F10 125",
+          "F5 125"
+        ],
+        "moveco": [
+          "RR40"
+        ],
+        "sungji": [
+          "SRC-125"
+        ]
+      }
+    },
+    {
+      "hmr": "HMR4-300",
+      "series": "HMR4",
+      "spec": "300",
+      "drivingNm": 3100,
+      "rotation": [
+        "180",
+        "360"
+      ],
+      "comparable": {
+        "helac": [
+          "L30-25"
+        ],
+        "hks": [
+          "F10 125",
+          "F5 125"
+        ],
+        "moveco": [
+          "RR40"
+        ],
+        "sungji": [
+          "SRC-125"
+        ]
+      }
+    },
+    {
+      "hmr": "HMR4-470",
+      "series": "HMR4",
+      "spec": "470",
+      "drivingNm": 4750,
+      "rotation": [
+        "180",
+        "360"
+      ],
+      "comparable": {
+        "helac": [
+          "L30-42"
+        ],
+        "hks": [
+          "F10 150",
+          "F5 150"
+        ],
+        "moveco": [
+          "RR46"
+        ],
+        "sungji": [
+          "SRC-150"
+        ]
+      }
+    },
+    {
+      "hmr": "HMR4-500",
+      "series": "HMR4",
+      "spec": "500",
+      "drivingNm": 5100,
+      "rotation": [
+        "180",
+        "360"
+      ],
+      "comparable": {
+        "helac": [
+          "L30-42"
+        ],
+        "hks": [
+          "F10 150",
+          "F5 150"
+        ],
+        "moveco": [
+          "RR46"
+        ],
+        "sungji": [
+          "SRC-150"
+        ]
+      }
+    },
+    {
+      "hmr": "HMR4-750",
+      "series": "HMR4",
+      "spec": "750",
+      "drivingNm": 7340,
+      "rotation": [
+        "180",
+        "360"
+      ],
+      "comparable": {
+        "helac": [
+          "L30-65"
+        ],
+        "hks": [
+          "F10 175",
+          "F5 175"
+        ],
+        "moveco": [
+          "RR52"
+        ],
+        "sungji": [
+          "SRC-180"
+        ]
+      }
+    },
+    {
+      "hmr": "HMR4-1000",
+      "series": "HMR4",
+      "spec": "1000",
+      "drivingNm": 10700,
+      "rotation": [
+        "180",
+        "360"
+      ],
+      "comparable": {
+        "helac": [
+          "L30-95"
+        ],
+        "hks": [
+          "F10 200",
+          "F5 200"
+        ],
+        "moveco": [],
+        "sungji": []
+      }
+    },
+    {
+      "hmr": "HMR4-1150",
+      "series": "HMR4",
+      "spec": "1150",
+      "drivingNm": 11500,
+      "rotation": [
+        "180",
+        "360"
+      ],
+      "comparable": {
+        "helac": [
+          "L30-95"
+        ],
+        "hks": [
+          "F10 200",
+          "F5 200"
+        ],
+        "moveco": [],
+        "sungji": []
+      }
+    },
+    {
+      "hmr": "HMR4-1400",
+      "series": "HMR4",
+      "spec": "1400",
+      "drivingNm": 14100,
+      "rotation": [
+        "180",
+        "360"
+      ],
+      "comparable": {
+        "helac": [
+          "L30-125"
+        ],
+        "hks": [
+          "F10 220",
+          "F5 220"
+        ],
+        "moveco": [
+          "RR58",
+          "RR61"
+        ],
+        "sungji": []
+      }
+    },
+    {
+      "hmr": "HMR4-1800",
+      "series": "HMR4",
+      "spec": "1800",
+      "drivingNm": 18600,
+      "rotation": [
+        "180",
+        "360"
+      ],
+      "comparable": {
+        "helac": [
+          "L30-165"
+        ],
+        "hks": [
+          "F10 245",
+          "F5 245"
+        ],
+        "moveco": [
+          "RR66"
+        ],
+        "sungji": []
+      }
+    },
+    {
+      "hmr": "HMR4-2500",
+      "series": "HMR4",
+      "spec": "2500",
+      "drivingNm": 24300,
+      "rotation": [
+        "180",
+        "360"
+      ],
+      "comparable": {
+        "helac": [
+          "L30-215"
+        ],
+        "hks": [
+          "F10 265",
+          "F5 265"
+        ],
+        "moveco": [
+          "RR72"
+        ],
+        "sungji": []
+      }
+    },
+    {
+      "hmr": "HMR4-2850",
+      "series": "HMR4",
+      "spec": "2850",
+      "drivingNm": 28500,
+      "rotation": [
+        "180",
+        "360"
+      ],
+      "comparable": {
+        "helac": [],
+        "hks": [],
+        "moveco": [],
+        "sungji": []
+      },
+      "availability": "engineered"
+    },
+    {
+      "hmr": "HMR4-4200",
+      "series": "HMR4",
+      "spec": "4200",
+      "drivingNm": 42900,
+      "rotation": [
+        "180"
+      ],
+      "comparable": {
+        "helac": [],
+        "hks": [
+          "F10 265S",
+          "F5 265S"
+        ],
+        "moveco": [
+          "RR78"
+        ],
+        "sungji": []
+      }
+    },
+    {
+      "hmr": "HMR4-8300",
+      "series": "HMR4",
+      "spec": "8300",
+      "drivingNm": 83600,
+      "rotation": [
+        "180",
+        "360"
+      ],
+      "comparable": {
+        "helac": [],
+        "hks": [
+          "F5 350",
+          "F10 350"
+        ],
+        "moveco": [],
+        "sungji": []
+      },
+      "availability": "engineered",
+      "comparableNote": "HKS F5/F10 350 is an HKS-original design at 83,600 Nm (210 bar); listed for torque-class engineering comparison only, with independent dimensions and mounting interface. Engineered, non-standard build — confirm mounting interface and duty with our engineering."
+    },
+    {
+      "hmr": "HMR5-012",
+      "series": "HMR5",
+      "spec": "012",
+      "drivingNm": 125,
+      "rotation": [
+        "90"
+      ],
+      "comparable": {
+        "helac": [],
+        "hks": [],
+        "moveco": [
+          "RL14"
+        ],
+        "sungji": []
+      },
+      "comparableNote": "Moveco valve references are rated at 210 bar vs HMR5 at 135 bar; torque-near only, not equal-class. Confirm operating pressure and interface with engineering."
+    },
+    {
+      "hmr": "HMR5-025",
+      "series": "HMR5",
+      "spec": "025",
+      "drivingNm": 250,
+      "rotation": [
+        "90"
+      ],
+      "comparable": {
+        "helac": [],
+        "hks": [],
+        "moveco": [
+          "RL16"
+        ],
+        "sungji": []
+      },
+      "comparableNote": "Moveco valve references are rated at 210 bar vs HMR5 at 135 bar; torque-near only, not equal-class. Confirm operating pressure and interface with engineering."
+    },
+    {
+      "hmr": "HMR5-050",
+      "series": "HMR5",
+      "spec": "050",
+      "drivingNm": 500,
+      "rotation": [
+        "90"
+      ],
+      "comparable": {
+        "helac": [],
+        "hks": [],
+        "moveco": [
+          "RL26"
+        ],
+        "sungji": []
+      },
+      "comparableNote": "Moveco valve references are rated at 210 bar vs HMR5 at 135 bar; torque-near only, not equal-class. Confirm operating pressure and interface with engineering."
+    },
+    {
+      "hmr": "HMR5-100",
+      "series": "HMR5",
+      "spec": "100",
+      "drivingNm": 1000,
+      "rotation": [
+        "90"
+      ],
+      "comparable": {
+        "helac": [],
+        "hks": [],
+        "moveco": [
+          "RL36"
+        ],
+        "sungji": []
+      },
+      "comparableNote": "Moveco valve references are rated at 210 bar vs HMR5 at 135 bar; torque-near only, not equal-class. Confirm operating pressure and interface with engineering."
+    },
+    {
+      "hmr": "HMR5-200",
+      "series": "HMR5",
+      "spec": "200",
+      "drivingNm": 2000,
+      "rotation": [
+        "90"
+      ],
+      "comparable": {
+        "helac": [],
+        "hks": [],
+        "moveco": [
+          "RL44"
+        ],
+        "sungji": []
+      },
+      "comparableNote": "Moveco valve references are rated at 210 bar vs HMR5 at 135 bar; torque-near only, not equal-class. Confirm operating pressure and interface with engineering."
+    },
+    {
+      "hmr": "HMR5-400",
+      "series": "HMR5",
+      "spec": "400",
+      "drivingNm": 4000,
+      "rotation": [
+        "90"
+      ],
+      "comparable": {
+        "helac": [],
+        "hks": [],
+        "moveco": [
+          "RL52"
+        ],
+        "sungji": []
+      },
+      "comparableNote": "Moveco valve references are rated at 210 bar vs HMR5 at 135 bar; torque-near only, not equal-class. Confirm operating pressure and interface with engineering."
+    },
+    {
+      "hmr": "HMR5-800",
+      "series": "HMR5",
+      "spec": "800",
+      "drivingNm": 8000,
+      "rotation": [
+        "90"
+      ],
+      "comparable": {
+        "helac": [],
+        "hks": [],
+        "moveco": [
+          "RL60"
+        ],
+        "sungji": []
+      },
+      "comparableNote": "Moveco valve references are rated at 210 bar vs HMR5 at 135 bar; torque-near only, not equal-class. Confirm operating pressure and interface with engineering."
+    },
+    {
+      "hmr": "HMR5-1600",
+      "series": "HMR5",
+      "spec": "1600",
+      "drivingNm": 16000,
+      "rotation": [
+        "90"
+      ],
+      "comparable": {
+        "helac": [],
+        "hks": [],
+        "moveco": [
+          "RL67"
+        ],
+        "sungji": []
+      },
+      "comparableNote": "Moveco valve references are rated at 210 bar vs HMR5 at 135 bar; torque-near only, not equal-class. Confirm operating pressure and interface with engineering."
+    },
+    {
+      "hmr": "HMR5-3200",
+      "series": "HMR5",
+      "spec": "3200",
+      "drivingNm": 32000,
+      "rotation": [
+        "90"
+      ],
+      "comparable": {
+        "helac": [],
+        "hks": [],
+        "moveco": [
+          "RL86"
+        ],
+        "sungji": []
+      },
+      "comparableNote": "Moveco valve references are rated at 210 bar vs HMR5 at 135 bar; torque-near only, not equal-class. Confirm operating pressure and interface with engineering."
+    },
+    {
+      "hmr": "HMR6-280",
+      "series": "HMR6",
+      "spec": "280",
+      "drivingNm": 2830,
+      "rotation": [
+        "220",
+        "180"
+      ],
+      "comparable": {
+        "helac": [
+          "T20-25",
+          "T30-27"
+        ],
+        "hks": [],
+        "moveco": [],
+        "sungji": [
+          "SRS-115"
+        ]
+      }
+    },
+    {
+      "hmr": "HMR6-500",
+      "series": "HMR6",
+      "spec": "500",
+      "drivingNm": 5090,
+      "rotation": [
+        "220",
+        "180"
+      ],
+      "comparable": {
+        "helac": [
+          "T20-45"
+        ],
+        "hks": [],
+        "moveco": [],
+        "sungji": []
+      }
+    },
+    {
+      "hmr": "HMR6-680",
+      "series": "HMR6",
+      "spec": "680",
+      "drivingNm": 6780,
+      "rotation": [
+        "220",
+        "180"
+      ],
+      "comparable": {
+        "helac": [
+          "T20-60"
+        ],
+        "hks": [],
+        "moveco": [],
+        "sungji": [
+          "SRS-150"
+        ]
+      }
+    }
+  ]
+}

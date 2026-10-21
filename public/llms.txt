@@ -1,6 +1,6 @@
 # HM Hydraulics
 
-> HM Hydraulics is a technical sourcing partner for hydraulic rotary actuators and core hydraulic components, supplying drop-in replacements for Helac series actuators used on mining and construction equipment.
+> HM Hydraulics is a technical sourcing partner for hydraulic rotary actuators and core hydraulic components. We offer potential alternatives to Helac series actuators used on mining and construction equipment, matched by mounting interface, shaft, rotation angle and torque. These are torque-class equivalents, not drop-in replacements — compatibility must be verified against drawings and application requirements.
 
 ## Guides
 - [Helac Replacement Guide](https://www.hmhydraulics.com/alternatives): Find replacement rotary actuators for Helac L10, L20, L30, L40, HTX, and HP series.
@@ -13,13 +13,26 @@
 - [Mining Drill Rigs](https://www.hmhydraulics.com/alternatives/mining-drill-rigs): Cross-reference rotary actuators for Atlas Copco/Epiroc and Sandvik mining drill and bolting rigs by OEM part number or machine model, incl. Epiroc Boomer 282 part 3128312644 (Helac L30-65-S-RF-360-S1-C-H).
 
 ## Series
-- [L10 Series](https://www.hmhydraulics.com/alternatives/helac-l10-series): Compact actuators, 12-26 kg, 180-360 deg
+- [L10 Series](https://www.hmhydraulics.com/alternatives/helac-l10-series): Compact actuators, 12-26 kg, 180-360 deg; includes a cross-brand torque-class reference table (Helac/HKS/Sungji) for identification only — verify by drawing.
 - [L20 Series](https://www.hmhydraulics.com/alternatives/helac-l20-series): Mid-size actuators, 56 kg, compound angle
-- [L30 Series](https://www.hmhydraulics.com/alternatives/helac-l30-series): Large flange actuators, 49-94 kg
+- [L30 Series](https://www.hmhydraulics.com/alternatives/helac-l30-series): Large flange actuators, 49-94 kg; includes a cross-brand torque-class reference table (Helac/HKS/Sungji/Moveco) for identification only — not drop-in, verify by drawing.
 - [L40 Series](https://www.hmhydraulics.com/alternatives/helac-l40-series): Heavy-duty actuators, 140 kg, 360 deg
 - [HTX Series](https://www.hmhydraulics.com/alternatives/helac-htx-series): Splined-shaft actuators
 - [HP Series](https://www.hmhydraulics.com/alternatives/helac-hp-series): Flanged actuators, 27-208 kg
+- [T20/T30 Series](https://www.hmhydraulics.com/alternatives/t20-25-e-ft-220-s1-c-h): Helac T-series splined-shaft double-output actuators
+
+## Products
+- [HMR Rotary Actuators](https://www.hmhydraulics.com/products/rotary-actuators): HM standard and engineered helical rotary actuators, 54 sizes across HMR1-HMR6, 125-76,000 Nm. Includes online selector and comparable reference search for Helac, HKS, Moveco, Sungji and other makes.
+- [HMT Tilt Actuators](https://www.hmhydraulics.com/products/tilt-actuators): HMT-A and HMT-D tilt motors for excavator quick couplers and tilt rotators, public specifications only.
+- [Slew Drives](https://www.hmhydraulics.com/products/slew-drives): Worm and hourglass slew drives for solar tracking and industrial rotation.
+
+## Cross-brand references
+- HKS, Moveco, Sungji and Eckart references are listed as torque-class comparable/evaluate candidates only. Valve and seal options must be confirmed with engineering.
+- Same model code or torque class does not guarantee interchangeability; installation requires drawing review.
 
 ## Contact
 - Email: hm@hmhydraulics.com
-- Send your Helac model code, OEM part number, and tag photos for free engineering verification.
+- Send your actuator model code, OEM part number, and tag photos for free engineering verification.
+
+---
+Last updated: 2026-10-20. Cross-reference data is for model identification only; same torque class does not guarantee interchangeability, and compatibility must be verified against drawings and application requirements before ordering.

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ModelPage } from '@/components/alternatives/model-page';
-import { getModel } from '@/components/alternatives/model-data';
+import { getModel, getRelatedModels } from '@/components/alternatives/model-data';
 
 const model = getModel('l20-4-5-e-ft-180-s1-c-h');
 
@@ -16,5 +16,5 @@ export const metadata: Metadata = model
 
 export default function Page() {
   if (!model) return notFound();
-  return <ModelPage d={model} />;
+  return <ModelPage d={model} related={getRelatedModels(model.slug)} />;
 }

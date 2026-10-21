@@ -1,7 +1,10 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { RfqForm } from '@/components/alternatives/rfq-form';
-import { SITE, modelPages } from '@/components/alternatives/model-data';
+import { SITE, buildSearchIndex } from '@/components/alternatives/model-data';
+import { AlternativesBrowser } from '@/components/alternatives/alternatives-browser';
+
+const searchIndex = buildSearchIndex();
 
 export const metadata: Metadata = {
   title: 'How to Identify Your Helac Actuator: Model Tag, Serial Number & Code Breakdown',
@@ -34,13 +37,6 @@ const faqs = [
     a: 'Stamped numbers may show only the series and size. The full configuration—rotation angle, valve, and mounting—is usually only on the plastic tag.',
   },
 ];
-
-const seriesList = Object.values(
-  modelPages.reduce<Record<string, { slug: string; name: string }>>((acc, m) => {
-    if (!acc[m.series]) acc[m.series] = { slug: m.seriesSlug, name: `Helac ${m.series} Series` };
-    return acc;
-  }, {}),
-);
 
 // Segments per the Parker/Helac Series L & T ordering key (example: L10-5.5-M-RF-360-S1-0-H).
 // Official catalog HY34-1001 / L30 ordering information: field 3 E/M/ES-MS, field 5 special
@@ -318,24 +314,16 @@ export default function HowToIdentifyPage() {
         </div>
       </section>
 
-      {/* Series links */}
+      {/* Series / brand browser */}
       <section className="border-b border-[rgba(44,74,115,0.10)]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
-          <h2 className="font-heading text-2xl md:text-3xl font-medium text-[#1B1E20] mb-6">
-            Browse by Series
+          <h2 className="font-heading text-2xl md:text-3xl font-medium text-[#1B1E20] mb-2">
+            Find your actuator reference
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {seriesList.map((series) => (
-              <Link
-                key={series.slug}
-                href={`/alternatives/${series.slug}`}
-                className="flex items-center justify-between p-5 border border-[rgba(44,74,115,0.10)] rounded-md bg-white no-underline hover:border-[rgba(44,74,115,0.25)] transition-colors"
-              >
-                <span className="font-heading text-base font-medium text-[#1B1E20]">{series.name}</span>
-                <span className="text-[#2C4A73]">&rarr;</span>
-              </Link>
-            ))}
-          </div>
+          <p className="text-sm text-[#62666C] mb-8">
+            Browse Helac series and cross-brand references, or search by model code or part number.
+          </p>
+          <AlternativesBrowser searchIndex={searchIndex} />
         </div>
       </section>
 

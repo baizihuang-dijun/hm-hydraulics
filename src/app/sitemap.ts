@@ -1,15 +1,16 @@
 import type { MetadataRoute } from 'next';
 import { SERIES_INFO } from '@/components/alternatives/series-page';
-
-export const dynamic = 'force-static';
 import { modelPages } from '@/components/alternatives/model-data';
 
-const BASE = 'https://www.hmhydraulics.com';
+export const dynamic = 'force-static';
+
+const BASE = process.env.COZE_PROJECT_DOMAIN_DEFAULT || 'https://www.hmhydraulics.com';
 
 const staticRoutes = [
   '',
   '/products',
   '/products/rotary-actuators',
+  '/products/rotary-actuators/hmr4',
   '/products/slew-drives',
   '/products/tilt-actuators',
   '/solutions',

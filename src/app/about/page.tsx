@@ -2,10 +2,9 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'About — HM Hydraulics',
+  title: 'About',
   description:
     'HM Hydraulics — Technical sourcing partner for hydraulic rotary actuators and core hydraulic components. Engineering-led validation, quality oversight, supply coordination.',
-  alternates: { canonical: '/about' },
 };
 
 const applications = [
@@ -121,8 +120,8 @@ export default function AboutPage() {
             </div>
             <div className="rounded-md overflow-hidden border border-[rgba(44,74,115,0.10)] group">
               <img
-                src="/images/S1.png"
-                alt="Engineering team reviewing CAD drawings"
+                src="/images/factory/engineer-cad-design.png"
+                alt="Engineer reviewing rotary actuator CAD design"
                 className="w-full h-[320px] object-cover transition-transform duration-200 ease-out group-hover:scale-[1.03]"
                 loading="lazy"
               />
@@ -180,8 +179,8 @@ export default function AboutPage() {
           {/* Precision Manufacturing Image */}
           <div className="mb-10 rounded-md overflow-hidden border border-[rgba(44,74,115,0.10)] group">
             <img
-              src="/images/A2.png"
-              alt="Precision machined hydraulic component"
+              src="/images/factory/cnc-workshop-panorama.png"
+              alt="CNC machining workshop panoramic view"
               className="w-full h-[280px] md:h-[340px] object-cover transition-transform duration-200 ease-out group-hover:scale-[1.02]"
               loading="lazy"
             />

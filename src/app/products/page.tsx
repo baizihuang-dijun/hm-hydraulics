@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Products — HM Hydraulics',
+  title: 'Products',
   description:
     'Hydraulic actuators and selected components. Technical sourcing solutions for demanding hydraulic applications.',
   alternates: { canonical: '/products' },
@@ -12,26 +12,27 @@ const products = [
   {
     name: 'Rotary Actuators',
     slug: 'rotary-actuators',
-    badge: '9 Series · 72 Configurations',
+    badge: '6 HMR Series · 54 Configurations',
     description:
-      'Hydraulic rotary actuators covering 100 Nm to 42,900 Nm, with multiple mechanisms and rotation configurations.',
+      'Hydraulic rotary actuators covering 125 Nm to 76,000 Nm, with foot, flange, and through-shaft configurations.',
     specs: [
-      'DKX-A through DKX-F helical gear series',
-      'DT, TR, RT series',
-      '100 Nm to 42,900 Nm standard torque range',
+      'HMR1 through HMR6 helical gear series',
+      'Foot, flange, and through-shaft mounts',
+      '125 Nm to 76,000 Nm standard torque range',
     ],
   },
   {
     name: 'Tilt Actuators',
-    slug: 'tilt-actuators',
-    badge: '19 Models',
+    slug: '/products/tilt-actuators',
+    badge: 'HMT-A / HMT-B / HMT-C / HMT-D',
     description:
-      'Selected cross-reference solutions for excavator tilt and coupler applications.',
+      'Tilt motor solutions for excavator couplers and bucket-tilt applications.',
     specs: [
-      'DTA Series — 12 models',
-      'DTD Series — 7 models',
+      'HMT-A / HMT-B / HMT-C / HMT-D public groups',
+      'Excavator coupler and bucket tilt',
       'Comparable to HKS BVC/BVE, Helac PT',
     ],
+    isLink: true,
   },
   {
     name: 'Other Hydraulic Components',
@@ -76,16 +77,16 @@ export default function ProductsPage() {
               >
                 {product.name === 'Rotary Actuators' && (
                   <img
-                    src="/images/H4.png"
-                    alt="Rotary actuator"
+                    src="/images/products/hmr4-foot-mount-FT.png"
+                    alt="HMR4 heavy-duty foot-mounted helical rotary actuator"
                     className="w-full h-48 object-contain mb-4 bg-[#FAFAF7] rounded"
                     loading="lazy"
                   />
                 )}
                 {product.name === 'Tilt Actuators' && (
                   <img
-                    src="/images/H5.png"
-                    alt="Tilt actuator"
+                    src="/images/products/hmt-a-tilt-motor-v2.jpg"
+                    alt="HMT-A tilt actuator for excavator couplers"
                     className="w-full h-48 object-contain mb-4 bg-[#FAFAF7] rounded"
                     loading="lazy"
                   />
@@ -171,12 +172,12 @@ export default function ProductsPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
             <div className="p-6 border border-[rgba(44,74,115,0.10)] rounded-md">
               <h3 className="font-heading text-lg font-medium text-[#1B1E20] mb-2">
-                L10 / L20 / L30 / HP125 &harr; Helac
+                Helac / HKS / Moveco / Sungji alternatives
               </h3>
               <p className="text-sm text-[#4A4E54] mb-3">
-                Equivalent-class data for Helac rotary actuators across common
-                torque and mounting interfaces, prepared for engineering comparison
-                and component selection.
+                Equivalent-class data for rotary actuators across common torque and
+                mounting interfaces, prepared for engineering comparison and
+                component selection.
               </p>
               <Link
                 href="/alternatives"
@@ -187,32 +188,18 @@ export default function ProductsPage() {
             </div>
             <div className="p-6 border border-[rgba(44,74,115,0.10)] rounded-md">
               <h3 className="font-heading text-lg font-medium text-[#1B1E20] mb-2">
-                DTA Series &harr; HKS
+                HMT-A / HMT-B / HMT-C / HMT-D tilt actuators
               </h3>
               <p className="text-sm text-[#4A4E54] mb-3">
-                Comparable specifications to HKS BVC and BVE series tilt
-                cylinders for excavator couplers.
+                Tilt motor solutions for excavator couplers and bucket tilt,
+                comparable to HKS BVC/BVE and Helac PT series. Verify dimensions
+                before ordering.
               </p>
               <Link
                 href="/products/tilt-actuators"
                 className="text-sm font-medium text-[#2C4A73] no-underline hover:underline"
               >
-                View cross-reference table &rarr;
-              </Link>
-            </div>
-            <div className="p-6 border border-[rgba(44,74,115,0.10)] rounded-md">
-              <h3 className="font-heading text-lg font-medium text-[#1B1E20] mb-2">
-                DTD Series &harr; Helac
-              </h3>
-              <p className="text-sm text-[#4A4E54] mb-3">
-                Comparable specifications to Helac PT series tilt actuators.
-                Verify dimensions before ordering.
-              </p>
-              <Link
-                href="/products/tilt-actuators"
-                className="text-sm font-medium text-[#2C4A73] no-underline hover:underline"
-              >
-                View cross-reference table &rarr;
+                View tilt actuators page &rarr;
               </Link>
             </div>
           </div>

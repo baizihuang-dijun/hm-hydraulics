@@ -47,10 +47,10 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/alternatives"
+                  href="/products/slew-drives"
                   className="text-sm text-[#D1D5DB] hover:text-white no-underline transition-colors duration-150"
                 >
-                  Helac Replacements &amp; Cross-Reference
+                  Slew Drives
                 </Link>
               </li>
             </ul>

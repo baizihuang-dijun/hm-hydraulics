@@ -2,10 +2,9 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Solutions — HM Hydraulics',
+  title: 'Solutions',
   description:
     'From technical requirement to reliable delivery. Engineering support, manufacturing sourcing, quality coordination and delivery management for hydraulic components.',
-  alternates: { canonical: '/solutions' },
 };
 
 export default function SolutionsPage() {
@@ -15,8 +14,8 @@ export default function SolutionsPage() {
       <section className="border-b border-[rgba(44,74,115,0.10)] relative overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/images/S1.png"
-            alt="Engineering review and component selection"
+            src="/images/factory/engineer-cad-design.png"
+            alt="Engineer reviewing rotary actuator CAD design"
             className="w-full h-full object-cover"
             loading="eager"
             fetchPriority="high"

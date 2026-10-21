@@ -1,9 +1,4 @@
 import Link from 'next/link';
-import type { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  alternates: { canonical: '/' },
-};
 
 function ArrowRight({ className }: { className?: string }) {
   return (
@@ -21,8 +16,8 @@ export default function HomePage() {
       <section className="home-section relative overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/images/H10.2.jpg"
-            alt="Hydraulic actuator on heavy equipment"
+            src="/images/applications/drill-rig-rotary-actuator-closeup.jpg"
+            alt="Rotary actuator on an orange drill rig mast"
             className="w-full h-full object-cover"
             loading="eager"
             fetchPriority="high"
@@ -164,8 +159,8 @@ export default function HomePage() {
             <div className="home-card home-card-hover overflow-hidden">
               <div className="home-image-container border-0 border-b rounded-none">
                 <img
-                  src="/images/H4.png"
-                  alt="Rotary actuator product render"
+                  src="/images/products/hmr4-foot-mount-FT.png"
+                  alt="HMR4 heavy-duty foot-mounted helical rotary actuator"
                   className="w-full h-56 object-contain"
                   loading="lazy"
                 />
@@ -176,7 +171,7 @@ export default function HomePage() {
                   Rotary Actuators
                 </h3>
                 <p className="home-body mb-5">
-                  100 Nm–42,900 Nm across nine standard series, with custom builds engineered to higher torque on request.
+                  125 Nm–76,000 Nm across six standard HMR series, with engineered builds to higher torque on request.
                 </p>
                 <Link href="/products/rotary-actuators" className="home-link">
                   Explore Rotary Actuators
@@ -188,8 +183,8 @@ export default function HomePage() {
             <div className="home-card home-card-hover overflow-hidden">
               <div className="home-image-container border-0 border-b rounded-none">
                 <img
-                  src="/images/H5.png"
-                  alt="Tilt actuator product render"
+                  src="/images/products/hmt-a-tilt-motor-v2.jpg"
+                  alt="HMT-A tilt actuator for excavator couplers"
                   className="w-full h-56 object-contain"
                   loading="lazy"
                 />
@@ -199,7 +194,7 @@ export default function HomePage() {
                   Tilt Actuators
                 </h3>
                 <p className="home-body mb-5">
-                  Selected cross-reference solutions for excavator tilt and coupler applications.
+                  Tilt motor solutions for excavator couplers and bucket-tilt applications.
                 </p>
                 <Link href="/products/tilt-actuators" className="home-link">
                   View Products
@@ -260,7 +255,7 @@ export default function HomePage() {
           {/* Evidence Strip */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { value: '72+', label: 'Configurations' },
+              { value: '54+', label: 'Configurations' },
               { value: '1M+', label: 'Cycle Validation*' },
               { value: '200,000 Nm', label: 'Manufacturing Envelope*' },
               { value: '100%', label: 'Pre-Shipment Testing*' },
@@ -297,16 +292,16 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2 gap-4 mb-8">
             <div className="home-image-container overflow-hidden">
               <img
-                src="/images/H10.3.jpg"
-                alt="Hydraulic machinery in industrial application"
+                src="/images/applications/heavy-duty-rotary-drive-geared-output.jpg"
+                alt="Heavy-duty rotary drive assembly with geared output"
                 className="w-full h-64 object-cover"
                 loading="lazy"
               />
             </div>
             <div className="home-image-container overflow-hidden">
               <img
-                src="/images/H10.4.jpg"
-                alt="Specialized equipment with hydraulic systems"
+                src="/images/applications/aerial-work-platform-airport-deicing.jpg"
+                alt="Truck-mounted aerial work platform servicing an aircraft in snow"
                 className="w-full h-64 object-cover"
                 loading="lazy"
               />

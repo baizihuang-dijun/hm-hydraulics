@@ -1,8 +1,9 @@
 import Link from 'next/link';
-import { modelPages, ModelData, SITE } from '@/components/alternatives/model-data';
+import type { ModelData } from '@/components/alternatives/model-data';
+import { resolveModelImage, MODEL_IMAGE_PLACEHOLDER } from '@/components/alternatives/model-image';
 import { RfqForm } from '@/components/alternatives/rfq-form';
 
-interface SeriesMeta {
+export interface SeriesMeta {
   code: string;
   slug: string;
   title: string;
@@ -54,10 +55,6 @@ export const SERIES_INFO: SeriesMeta[] = [
   },
 ];
 
-function seriesModels(code: string): ModelData[] {
-  return modelPages.filter((m) => m.series === code);
-}
-
 interface EquivRow {
   nm: string;
   helac: string;
@@ -72,7 +69,7 @@ interface EquivMatrix {
 }
 
 // Public-safe torque-class cross-reference only. Sourced from the internal v2.3 cross-reference
-// table (grade ① rows with a Helac anchor). COYO/DKX and ZY columns are intentionally excluded.
+// table (rows with a Helac anchor). Non-public internal columns are intentionally excluded.
 // Same nominal torque class = independent designs, NOT drop-in interchangeable.
 const TORQUE_CLASS_MATRIX: Record<string, EquivMatrix> = {
   L10: {
@@ -99,9 +96,8 @@ const TORQUE_CLASS_MATRIX: Record<string, EquivMatrix> = {
   },
 };
 
-export function SeriesPage({ code }: { code: string }) {
+export function SeriesPage({ code, models, site }: { code: string; models: ModelData[]; site: string }) {
   const info = SERIES_INFO.find((s) => s.code === code)!;
-  const models = seriesModels(code);
   const equiv = TORQUE_CLASS_MATRIX[code];
   const path = `/alternatives/${info.slug}`;
 
@@ -109,9 +105,9 @@ export function SeriesPage({ code }: { code: string }) {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE}/` },
-      { '@type': 'ListItem', position: 2, name: 'Helac Alternatives', item: `${SITE}/alternatives` },
-      { '@type': 'ListItem', position: 3, name: info.title, item: `${SITE}${path}` },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${site}/` },
+      { '@type': 'ListItem', position: 2, name: 'Helac Alternatives', item: `${site}/alternatives` },
+      { '@type': 'ListItem', position: 3, name: info.title, item: `${site}${path}` },
     ],
   };
 
@@ -123,7 +119,7 @@ export function SeriesPage({ code }: { code: string }) {
       '@type': 'ListItem',
       position: i + 1,
       name: m.model,
-      url: `${SITE}/alternatives/${m.slug}`,
+      url: `${site}/alternatives/${m.slug}`,
     })),
   };
 
@@ -192,8 +188,8 @@ export function SeriesPage({ code }: { code: string }) {
               >
                 <div className="bg-[#FAFAF7] rounded p-3 mb-4 h-36 flex items-center justify-center overflow-hidden">
                   <img
-                    src={m.image}
-                    alt={m.imageAlt}
+                    src={resolveModelImage(m)}
+                    alt={resolveModelImage(m) === MODEL_IMAGE_PLACEHOLDER ? `${m.model} rotary actuator — correct unit drawing available on request` : m.imageAlt}
                     width={m.imageW}
                     height={m.imageH}
                     className="max-w-full max-h-full w-auto h-auto object-contain"

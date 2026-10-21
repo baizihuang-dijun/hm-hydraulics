@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { SeriesPage } from '@/components/alternatives/series-page';
+import { getModelsBySeries, SITE } from '@/components/alternatives/model-data';
 
 export const metadata: Metadata = {
   title: 'Helac L20 Series Replacement Actuators',
@@ -8,5 +9,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <SeriesPage code="L20" />;
+  return <SeriesPage code="L20" models={getModelsBySeries('L20')} site={SITE} />;
 }

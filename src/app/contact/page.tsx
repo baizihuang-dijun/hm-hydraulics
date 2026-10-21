@@ -3,6 +3,8 @@
 import { useState } from 'react';
 import type { FormEvent } from 'react';
 
+const ACCESS_KEY = 'e9d0abd1-8bbf-4c81-b984-c76bc78b9b6b';
+
 export default function ContactPage() {
   const [formState, setFormState] = useState({
     name: '',
@@ -10,44 +12,66 @@ export default function ContactPage() {
     email: '',
     product: '',
     message: '',
+    botcheck: '',
   });
-  const [submitted, setSubmitted] = useState(false);
-  const [sending, setSending] = useState(false);
-  const [errorMsg, setErrorMsg] = useState('');
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    setErrorMsg('');
-    setSending(true);
+    if (formState.botcheck) return;
+
+    setStatus('sending');
+    setErrorMessage('');
+
+    const subject = formState.name
+      ? `Website inquiry from ${formState.name}`
+      : 'Website inquiry';
+
+    const messageBody = [
+      `Name: ${formState.name || '-'}`,
+      `Company: ${formState.company || '-'}`,
+      `Email: ${formState.email || '-'}`,
+      `Product of interest: ${formState.product || '-'}`,
+      '',
+      `Message:`,
+      formState.message || '-',
+      '',
+      `Source page: ${window.location.href}`,
+    ].join('\n');
+
+    const payload = {
+      access_key: ACCESS_KEY,
+      subject,
+      name: formState.name,
+      email: formState.email,
+      from_name: formState.name,
+      replyto: formState.email,
+      message: messageBody,
+      company: formState.company || undefined,
+      product_of_interest: formState.product || undefined,
+      source_page: window.location.href,
+      botcheck: formState.botcheck,
+    };
+
     try {
-      const res = await fetch('https://api.web3forms.com/submit', {
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          access_key: 'e9d0abd1-8bbf-4c81-b984-c76bc78b9b6b',
-          subject: formState.name
-            ? `Website inquiry from ${formState.name}`
-            : 'Website inquiry',
-          from_name: 'HM Hydraulics Website',
-          name: formState.name || '-',
-          company: formState.company || '-',
-          email: formState.email,
-          product_of_interest: formState.product || '-',
-          message: formState.message || '-',
-          source_page: typeof window !== 'undefined' ? window.location.href : '',
-          botcheck: '',
-        }),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
       });
-      const result = await res.json();
-      if (result.success) {
-        setSubmitted(true);
+      const data = await response.json();
+
+      if (data.success) {
+        setStatus('success');
+        setFormState({ name: '', company: '', email: '', product: '', message: '', botcheck: '' });
       } else {
-        setErrorMsg(result.message || 'Sorry, the message could not be sent. Please try again.');
+        setStatus('error');
+        setErrorMessage(data.message || 'Submission failed. Please try again.');
       }
-    } catch {
-      setErrorMsg('Network error — please check your connection and try again.');
-    } finally {
-      setSending(false);
+    } catch (err) {
+      setStatus('error');
+      setErrorMessage('Network error. Please check your connection and try again.');
     }
   };
 
@@ -72,7 +96,7 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
             {/* Form */}
             <div className="lg:col-span-3">
-              {submitted ? (
+              {status === 'success' ? (
                 <div className="p-8 border border-[rgba(44,74,115,0.10)] rounded-md bg-white text-center">
                   <div className="w-12 h-12 rounded-full bg-[rgba(44,74,115,0.08)] flex items-center justify-center mx-auto mb-4">
                     <svg
@@ -87,19 +111,25 @@ export default function ContactPage() {
                     </svg>
                   </div>
                   <h2 className="font-heading text-xl font-medium text-[#1B1E20] mb-2">
-                    Message sent
+                    Thank you, your message has been sent.
                   </h2>
                   <p className="text-sm text-[#4A4E54] leading-relaxed">
-                    Thank you — your message has been sent. We will get back to you shortly.
-                    For anything urgent, write to{' '}
-                    <a href="mailto:hm@hmhydraulics.com" className="text-[#2C4A73] no-underline hover:underline">
-                      hm@hmhydraulics.com
-                    </a>{' '}
-                    directly.
+                    We will get back to you as soon as possible.
                   </p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
+                  <input
+                    type="text"
+                    name="botcheck"
+                    value={formState.botcheck}
+                    onChange={(e) => setFormState({ ...formState, botcheck: e.target.value })}
+                    className="hidden"
+                    aria-hidden="true"
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
+
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
                       <label
@@ -111,6 +141,7 @@ export default function ContactPage() {
                       <input
                         type="text"
                         id="name"
+                        name="name"
                         required
                         value={formState.name}
                         onChange={(e) =>
@@ -130,6 +161,7 @@ export default function ContactPage() {
                       <input
                         type="text"
                         id="company"
+                        name="company"
                         value={formState.company}
                         onChange={(e) =>
                           setFormState({ ...formState, company: e.target.value })
@@ -150,6 +182,7 @@ export default function ContactPage() {
                     <input
                       type="email"
                       id="email"
+                      name="email"
                       required
                       value={formState.email}
                       onChange={(e) =>
@@ -169,6 +202,7 @@ export default function ContactPage() {
                     </label>
                     <select
                       id="product"
+                      name="product"
                       value={formState.product}
                       onChange={(e) =>
                         setFormState({ ...formState, product: e.target.value })
@@ -197,6 +231,7 @@ export default function ContactPage() {
                     </label>
                     <textarea
                       id="message"
+                      name="message"
                       required
                       rows={5}
                       value={formState.message}
@@ -208,19 +243,17 @@ export default function ContactPage() {
                     />
                   </div>
 
-                  <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" aria-hidden="true" />
-
                   <button
                     type="submit"
-                    disabled={sending}
+                    disabled={status === 'sending'}
                     className="inline-flex items-center px-6 py-3 bg-[#2C4A73] text-white text-sm font-medium rounded hover:bg-[#1E3A5F] transition-colors duration-150 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
                   >
-                    {sending ? 'Sending...' : 'Send Inquiry'}
+                    {status === 'sending' ? 'Sending...' : 'Send Inquiry'}
                   </button>
 
-                  {errorMsg && (
-                    <p className="text-sm text-[#A31919] leading-relaxed" role="alert">
-                      {errorMsg}
+                  {status === 'error' && (
+                    <p className="text-sm text-[#A31919]" role="alert">
+                      {errorMessage || 'Something went wrong. Please try again.'}
                     </p>
                   )}
                 </form>
@@ -279,6 +312,18 @@ export default function ContactPage() {
                     HM Hydraulics
                     <br />
                     Qingdao Hydraulic Machinery Co., Ltd.
+                  </p>
+                </div>
+
+                {/* Location */}
+                <div className="pt-6 border-t border-[rgba(44,74,115,0.10)]">
+                  <p className="font-label text-xs text-[#62666C] uppercase tracking-wider mb-2">
+                    Location
+                  </p>
+                  <p className="text-sm text-[#4A4E54]">
+                    Qingdao, China
+                    <br />
+                    Serving mining, construction and industrial OEMs worldwide.
                   </p>
                 </div>
               </div>

@@ -1,80 +1,20 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { RfqForm } from '@/components/alternatives/rfq-form';
-import { modelPages } from '@/components/alternatives/model-data';
+import { buildSearchIndex } from '@/components/alternatives/model-data';
+import { AlternativesBrowser } from '@/components/alternatives/alternatives-browser';
 
 export const metadata: Metadata = {
-  title: 'Helac Replacement & Cross-Reference Guide',
+  title: 'Helac Replacement & Cross-Reference Lookup',
   description:
-    'Find a replacement for Helac L10, HP and HP125 rotary actuators used on Atlas and Sandvik equipment. Confirm your model code, part number and mounting dimensions with our engineering team.',
+    'Search by Helac model code or OEM part number to find a replacement rotary actuator. Our engineering team confirms the match before quoting.',
   alternates: { canonical: '/alternatives' },
 };
 
-// Per-series model counts are derived from the canonical modelPages dataset so the
-// hub never drifts from the actual published model pages.
-const countBySeries = modelPages.reduce<Record<string, number>>((acc, m) => {
-  acc[m.series] = (acc[m.series] ?? 0) + 1;
-  return acc;
-}, {});
-
-const series = [
-  {
-    name: 'L10 Series',
-    seriesKey: 'L10',
-    href: '/alternatives/helac-l10-series',
-    range: '12–26 kg · 180–360°',
-    description:
-      'Compact L10 helical rotary actuators found on Sandvik and Atlas drilling and bolting rigs.',
-    state: 'published',
-  },
-  {
-    name: 'L20 Series',
-    seriesKey: 'L20',
-    href: '/alternatives/helac-l20-series',
-    range: '56 kg · 180/90°',
-    description:
-      'Mid-size L20 helical actuators including compound-angle builds for mid-size equipment.',
-    state: 'published',
-  },
-  {
-    name: 'L30 Series',
-    seriesKey: 'L30',
-    href: '/alternatives/helac-l30-series',
-    range: '49–94 kg · 180–360°',
-    description:
-      'Large L30 flange and round-flange actuators for heavy-duty rotation on larger rigs.',
-    state: 'published',
-  },
-  {
-    name: 'L40 Series',
-    seriesKey: 'L40',
-    href: '/alternatives/helac-l40-series',
-    range: '140 kg · 360°',
-    description:
-      'Heavy-duty L40 helical actuators for the largest rotation duties.',
-    state: 'published',
-  },
-  {
-    name: 'HTX Series',
-    seriesKey: 'HTX',
-    href: '/alternatives/helac-htx-series',
-    range: 'HTX70 · 360°',
-    description:
-      'Splined-shaft HTX70 actuators used on Atlas Boomer and Simba rigs.',
-    state: 'published',
-  },
-  {
-    name: 'HP Series',
-    seriesKey: 'HP',
-    href: '/alternatives/helac-hp-series',
-    range: '27–208 kg · 180–360°',
-    description:
-      'Flanged helical actuators from the compact HP-15 to the large HP125, OEM part 3128312645 / L3D.',
-    state: 'published',
-  },
-];
-
-const modelLabel = (n: number) => `${n} ${n === 1 ? 'model' : 'models'}`;
+const searchIndex = buildSearchIndex();
+const helacCount = searchIndex.filter((m) => m.originBrand === 'Helac').length;
+const crossCount = searchIndex.filter((m) => m.originBrand !== 'Helac').length;
+const liveCountLabel = `${helacCount} Helac models · ${crossCount} cross-brand references · ${searchIndex.length} pages`;
 
 const faqs = [
   {
@@ -157,28 +97,20 @@ export default function AlternativesHubPage() {
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
           <p className="eyebrow mb-4">REPLACEMENT &amp; CROSS-REFERENCE</p>
           <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-medium text-[#1B1E20] mb-5">
-            Replacement Guide for Helac Rotary Actuators
+            Helac Rotary Actuator Lookup
           </h1>
           <p className="text-lg text-[#4A4E54] leading-relaxed max-w-3xl mb-6">
-            Looking for a replacement for a Helac rotary actuator? We offer potential alternatives
-            matched by mounting interface, shaft, rotation angle and torque specs across all Helac
-            series — L10, L20, L30, L40, HTX, and HP. Compatibility must be verified against drawings
-            and application requirements. Send us the model code or OEM part number from the actuator
-            tag, and our engineering team verifies the configuration before you order.
-          </p>
-          <p className="text-lg text-[#4A4E54] leading-relaxed max-w-3xl">
-            If the Helac actuator on your Atlas or Sandvik machine is worn, damaged or past its
-            service life, we supply an alternative matched to the original interface. Browse by
-            series, or send us the model code and part number on the tag — our engineering team
-            confirms the exact replacement before you commit.
+            Search by Helac model code or OEM part number to find the matching reference page.
+            Our engineering team confirms rotation, mounting interface and shaft configuration
+            against your unit tag before quoting.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link
-              href="/alternatives/helac-l10-series"
+            <a
+              href="#search"
               className="inline-flex items-center px-5 py-2.5 bg-[#2C4A73] text-white text-sm font-medium rounded no-underline hover:bg-[#1E3A5F] transition-colors duration-150"
             >
-              Browse L10 series
-            </Link>
+              Search by model or part number
+            </a>
             <a
               href="#rfq"
               className="inline-flex items-center px-5 py-2.5 bg-white text-[#1B1E20] text-sm font-medium rounded border border-[rgba(44,74,115,0.20)] no-underline hover:border-[rgba(44,74,115,0.40)] transition-colors duration-150"
@@ -186,100 +118,26 @@ export default function AlternativesHubPage() {
               Ask us to check a model
             </a>
           </div>
-          <p className="mt-4 text-sm text-[#62666C]">Last reviewed: September 2026</p>
         </div>
       </section>
 
-      {/* Applications */}
-      <section>
+      {/* Search landing */}
+      <section id="search" className="border-t border-[rgba(44,74,115,0.10)]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
           <p className="font-label text-xs text-[#62666C] uppercase tracking-wider mb-2">
-            Browse by application
+            Model or part-number search
           </p>
-          <h2 className="font-heading text-2xl md:text-3xl font-medium text-[#1B1E20] mb-8">
-            Select your equipment type
+          <h2 className="font-heading text-2xl md:text-3xl font-medium text-[#1B1E20] mb-2">
+            Find your actuator reference
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Link
-              href="/alternatives/mining-drill-rigs"
-              className="block p-6 border border-[rgba(44,74,115,0.10)] rounded-md bg-white no-underline hover:border-[rgba(44,74,115,0.25)] transition-colors"
-            >
-              <h3 className="font-heading text-lg font-medium text-[#1B1E20] mb-2">
-                Mining drill rigs
-              </h3>
-              <p className="text-sm text-[#4A4E54] leading-relaxed">
-                Atlas Copco / Epiroc and Sandvik rotary actuators for Boltec, Boomer, Simba, and more.
-              </p>
-            </Link>
-            <Link
-              href="/alternatives/jlg-aerial-work-platform"
-              className="block p-6 border border-[rgba(44,74,115,0.10)] rounded-md bg-white no-underline hover:border-[rgba(44,74,115,0.25)] transition-colors"
-            >
-              <h3 className="font-heading text-lg font-medium text-[#1B1E20] mb-2">
-                JLG aerial work platforms
-              </h3>
-              <p className="text-sm text-[#4A4E54] leading-relaxed">
-                Replacement rotary actuators for JLG boom lifts and aerial platforms.
-              </p>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Series grid */}
-      <section className="border-t border-[rgba(44,74,115,0.10)]">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
-          <p className="font-label text-xs text-[#62666C] uppercase tracking-wider mb-2">
-            Browse by series
-          </p>
-          <h2 className="font-heading text-2xl md:text-3xl font-medium text-[#1B1E20] mb-8">
-            Select your Helac series
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {series.map((item) => (
-              <div
-                key={item.name}
-                className="group relative p-6 border bg-white rounded-md transition-colors duration-150 border-[rgba(44,74,115,0.10)] hover:border-[rgba(44,74,115,0.25)]"
-              >
-                <p className="font-label text-xs text-[#62666C] uppercase tracking-wider mb-3">
-                  {modelLabel(countBySeries[item.seriesKey] ?? 0)}
-                </p>
-                <h3 className="font-heading text-lg font-medium text-[#1B1E20] mb-2">
-                  {item.name}
-                </h3>
-                <p className="text-sm text-[#4A4E54] leading-relaxed mb-3">
-                  {item.description}
-                </p>
-                <p className="font-label text-xs text-[#62666C] mb-4">{item.range}</p>
-                {item.state === 'published' ? (
-                  <Link
-                    href={item.href}
-                    className="inline-flex items-center text-sm font-medium text-[#2C4A73] no-underline hover:underline"
-                  >
-                    View models
-                    <svg className="ml-1.5 w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M5 12h14" />
-                      <path d="m12 5 7 7-7 7" />
-                    </svg>
-                  </Link>
-                ) : (
-                  <span className="text-sm font-medium text-[#62666C]">
-                    Available on inquiry &rarr;
-                  </span>
-                )}
-              </div>
-            ))}
-          </div>
-
-          <p className="mt-8 text-sm text-[#62666C] leading-relaxed max-w-2xl">
-            These {modelPages.length} entries are the model-code records currently published on this
-            site across {series.length} series, kept here as search starting points. The count is a page
-            inventory, <strong>not</strong> a claim that {modelPages.length} complete order codes have each
-            been verified against a physical nameplate. Every build &mdash; standard, special (ES/MS),
-            or custom rotation &mdash; is confirmed against the unit nameplate and mounting drawing
-            before we quote. If your model is not listed, send the details and we will check the
-            available option.
+          <p className="text-sm text-[#62666C] mb-8">{liveCountLabel}</p>
+          <AlternativesBrowser searchIndex={searchIndex} />
+          <p className="mt-12 text-sm text-[#62666C] leading-relaxed max-w-2xl">
+            These {searchIndex.length} entries are the model-code records currently published on this
+            site, kept here as search starting points. The count is a page inventory,{" "}
+            <strong>not</strong> a claim that {searchIndex.length} complete order codes have each been
+            verified against a physical nameplate. Every build is confirmed against the unit nameplate
+            and mounting drawing before we quote.
           </p>
         </div>
       </section>
@@ -315,62 +173,6 @@ export default function AlternativesHubPage() {
                 </p>
               </details>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Related Guides */}
-      <section className="border-t border-[rgba(44,74,115,0.10)]">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
-          <p className="eyebrow mb-4">LEARN MORE</p>
-          <h2 className="font-heading text-2xl md:text-3xl font-medium text-[#1B1E20] mb-8">
-            Related Guides
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Link
-              href="/alternatives/rebuild-vs-replacement"
-              className="block p-6 border border-[rgba(44,74,115,0.10)] rounded-md bg-white no-underline hover:border-[rgba(44,74,115,0.25)] transition-colors"
-            >
-              <h3 className="font-heading text-lg font-medium text-[#1B1E20] mb-2">
-                Rebuild vs Replacement Guide
-              </h3>
-              <p className="text-sm text-[#4A4E54] leading-relaxed">
-                Compare costs, downtime, and risk factors.
-              </p>
-            </Link>
-            <Link
-              href="/alternatives/cross-reference-guide"
-              className="block p-6 border border-[rgba(44,74,115,0.10)] rounded-md bg-white no-underline hover:border-[rgba(44,74,115,0.25)] transition-colors"
-            >
-              <h3 className="font-heading text-lg font-medium text-[#1B1E20] mb-2">
-                Cross-Reference Guide
-              </h3>
-              <p className="text-sm text-[#4A4E54] leading-relaxed">
-                Match OEM part numbers to the right replacement.
-              </p>
-            </Link>
-            <Link
-              href="/alternatives/how-to-identify"
-              className="block p-6 border border-[rgba(44,74,115,0.10)] rounded-md bg-white no-underline hover:border-[rgba(44,74,115,0.25)] transition-colors"
-            >
-              <h3 className="font-heading text-lg font-medium text-[#1B1E20] mb-2">
-                How to Identify Your Helac Actuator
-              </h3>
-              <p className="text-sm text-[#4A4E54] leading-relaxed">
-                Read model tags and decode model codes.
-              </p>
-            </Link>
-            <Link
-              href="/alternatives/jlg-aerial-work-platform"
-              className="block p-6 border border-[rgba(44,74,115,0.10)] rounded-md bg-white no-underline hover:border-[rgba(44,74,115,0.25)] transition-colors"
-            >
-              <h3 className="font-heading text-lg font-medium text-[#1B1E20] mb-2">
-                JLG Aerial Work Platform
-              </h3>
-              <p className="text-sm text-[#4A4E54] leading-relaxed">
-                Cross-reference JLG part numbers for boom lift replacements.
-              </p>
-            </Link>
           </div>
         </div>
       </section>
