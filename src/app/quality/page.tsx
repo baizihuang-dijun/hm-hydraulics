@@ -4,7 +4,7 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Quality & Technical Validation',
   description:
-    'ISO9001 certified production. 1,000,000-cycle fatigue test passed. Full QA traceability. Every unit tested before shipment.',
+    'Pressure testing, dimensional inspection and batch traceability on every rotary actuator before shipment. Request test records with your quote.',
   alternates: { canonical: '/quality' },
 };
 

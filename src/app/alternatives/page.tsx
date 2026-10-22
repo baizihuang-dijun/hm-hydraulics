@@ -5,9 +5,9 @@ import { buildSearchIndex } from '@/components/alternatives/model-data';
 import { AlternativesBrowser } from '@/components/alternatives/alternatives-browser';
 
 export const metadata: Metadata = {
-  title: 'Rotary Actuator Replacement & Cross-Reference Lookup | Helac, HKS, Moveco, Sungji',
+  title: 'Helac, HKS & Moveco Rotary Actuator Cross-Reference',
   description:
-    'Search by brand or model code (Helac, HKS, Moveco, Sungji) or OEM part number to find a replacement rotary actuator. Our engineering team confirms the match before quoting.',
+    'Find drop-in replacements for Helac, HKS, Moveco and Sungji rotary actuators. Search 80+ models by model code or OEM part number; engineering verifies each match.',
   alternates: { canonical: '/alternatives' },
 };
 

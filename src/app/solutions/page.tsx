@@ -2,9 +2,9 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Solutions',
+  title: 'Hydraulic Component Sourcing & Engineering',
   description:
-    'From technical requirement to reliable delivery. Engineering support, manufacturing sourcing, quality coordination and delivery management for hydraulic components.',
+    'Source hydraulic rotary actuators and other core hydraulic components with engineering validation, factory quality control and managed delivery from China.',
   alternates: { canonical: '/solutions' },
 };
 
