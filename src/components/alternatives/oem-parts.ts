@@ -5,8 +5,11 @@
  *  - Grouping, primary/new/old numbering and product photos = factory-provided
  *    part-number/photo cross-reference (authoritative for part identity).
  *  - Machine fitment (models[]) = web-researched simple fitment sheet, NOT a
- *    controlled JLG/Genie parts catalogue. It is shown as "reported on ..." and
- *    every page asks the buyer to verify against the machine build plate/tag.
+ *    controlled JLG/Genie parts catalogue. It is lead-gen REFERENCE data: shown as
+ *    "reported on ..." and every page asks the buyer to verify against the build
+ *    plate/tag. No per-row source-URL gate is required; fitment is treated as real
+ *    only after HM matches it privately per inquiry. Withhold only rows whose models
+ *    self-contradict within the same part number.
  *
  * Public-page rules: OEM numbers are used for identification only; never claim
  * original parts, drop-in fit, or guaranteed interchangeability. No internal

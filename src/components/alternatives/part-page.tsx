@@ -88,12 +88,20 @@ export function PartPage({ g }: { g: OemPartGroup }) {
         brand: { '@type': 'Brand', name: 'HM Hydraulics' },
         image: `https://www.hmhydraulics.com${g.image}`,
         category: 'Hydraulic rotary actuator',
-        // Machine fitment is AI web-researched and unverified, so it is deliberately NOT emitted
-        // into machine-readable Product structured data (no isCompatibleWith / additionalProperty).
-        // It appears only in the visible, clearly-labelled "Reported" section on the page.
+        // Machine fitment is reference-only cross-reference data for lead generation; HM confirms
+        // fitment privately per inquiry before quoting. It is emitted as a DESCRIPTIVE PropertyValue
+        // (never schema.org isCompatibleWith), so machine models stay machine-readable for SEO/entities
+        // without asserting guaranteed or OEM-verified compatibility.
         additionalProperty: [
           { '@type': 'PropertyValue', name: 'OEM part number', value: g.allNumbers.join(', ') },
           { '@type': 'PropertyValue', name: 'Equipment brand', value: g.brand },
+          ...(g.machines.length
+            ? [{
+                '@type': 'PropertyValue',
+                name: 'Cross-referenced machine models (reference only - verify before ordering)',
+                value: g.machines.join(', '),
+              }]
+            : []),
         ],
       },
       {
