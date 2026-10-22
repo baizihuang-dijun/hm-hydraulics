@@ -14,9 +14,11 @@ const slugByModelCode: Record<string, string | undefined> = {
   'L10-9.5-M-RF-185-S-C-H': 'l10-9-5-m-rf-185-s-c-h',
   'HTX70-MS-RF-360-SS-O-H': 'htx70-ms-rf-360-ss-o-h',
   'L40-110-M-RF-360-S1-C-H': 'l40-110-m-rf-360-s1-c-h',
-  HKS: undefined,
+  'L40-110-M-FT-360-S1-C-H': 'l40-110-m-ft-360-s1-c-h',
+  HKS: 'atlas-3128309172-hks-rotary-actuator',
   'HP125-S-RF-360-S1-C-H': 'hp125-s-rf-360-s1-c-h',
   'L30-65-S-RF-360-S1-C-H': 'l30-65-s-rf-360-s1-c-h',
+  'L30-65-S-RF-180-S1-C-H': 'l30-65-s-rf-180-s1-c-h',
   'L10-3.0-E-RF-180-S1-O-H': 'l10-3-0-e-rf-180-s1-o-h',
   'L10-3.0-S-RF-180-S1-O-H': 'l10-3-0-s-rf-180-s1-0-h',
   'L20-15-E-CL-180/90-S1-O-H': 'l20-15-e-cl-180-90-s1-o-h',
@@ -31,6 +33,12 @@ const slugByModelCode: Record<string, string | undefined> = {
   'HP-90-S-RL-360-S1-C-H': 'hp-90-s-rl-360-s1-c-h',
   'ECKART SZ.SM3.215-357°/SO': 'eckart-sz-sm3-215-357-bg00334414',
   'ECKART SZ SM3.170-357°/SO': 'eckart-sz-sm3-170-357-bg00334337',
+  'BG00391147 (DD321-40 unit)': 'sandvik-bg00391147-rotary-actuator',
+  'BG01035613 (DD321-40 unit)': 'sandvik-bg01035613-rotary-actuator',
+  'L10-3.0-M-RF-360-S1-C-H (RESEMIN)': 'resemin-l10-3-0-m-rf-360-s1-c-h',
+  'L40-110-M-FT-220/185-S1-C-H (RESEMIN)': 'resemin-l40-110-m-ft-220-185-s1-c-h',
+  'L40-110-M-RL/RF-360-S1-C-H (RESEMIN)': 'l40-110-m-rf-360-s1-c-h',
+  'SRA-110-360-CO-RF-SH-N (Putzmeister)': 'putzmeister-sra-110-360-co-rf-sh-n',
 };
 
 const atlasRows = [
@@ -71,6 +79,12 @@ const atlasRows = [
     machines: '—',
   },
   {
+    code: 'L40-110-M-FT-360-S1-C-H',
+    oemNo: '3128341084',
+    weight: '150',
+    machines: 'Boomer S2',
+  },
+  {
     code: 'HKS',
     oemNo: '3128309172',
     weight: '—',
@@ -85,8 +99,14 @@ const atlasRows = [
   {
     code: 'L30-65-S-RF-360-S1-C-H',
     oemNo: '3128312644',
-    weight: '—',
+    weight: '141',
     machines: 'Boomer 282',
+  },
+  {
+    code: 'L30-65-S-RF-180-S1-C-H',
+    oemNo: '3128312607',
+    weight: '107',
+    machines: '— (confirm against tag)',
   },
   {
     code: 'L30-125-M-FT-360-S1-C-H',
@@ -115,8 +135,19 @@ const sandvikRows = [
   { code: 'L30-65-S-FT-240/190-S1-C-H', oemNo: '76350019, 76350008', weight: '—' },
   { code: 'L30-65-S-RF-360-L1-C-H', oemNo: '76350018', weight: '—' },
   { code: 'HP-90-S-RL-360-S1-C-H', oemNo: '76350010', weight: '—' },
-  { code: 'ECKART SZ.SM3.215-357°/SO', oemNo: 'BG00334414', weight: '—' },
-  { code: 'ECKART SZ SM3.170-357°/SO', oemNo: 'BG00334337', weight: '—' },
+  { code: 'ECKART SZ.SM3.215-357°/SO', oemNo: 'BG00334414', weight: '255' },
+  { code: 'ECKART SZ SM3.170-357°/SO', oemNo: 'BG00334337', weight: '255' },
+  { code: 'BG00391147 (DD321-40 unit)', oemNo: 'BG00391147', weight: '380' },
+  { code: 'BG01035613 (DD321-40 unit)', oemNo: 'BG01035613', weight: '380' },
+];
+
+// Other mining / construction equipment makes. These entries are identified by
+// actuator model code; no separate machine OEM part number is published.
+const otherRows = [
+  { code: 'L10-3.0-M-RF-360-S1-C-H (RESEMIN)', oemNo: '— (model code)', weight: '—' },
+  { code: 'L40-110-M-FT-220/185-S1-C-H (RESEMIN)', oemNo: '— (model code)', weight: '—' },
+  { code: 'L40-110-M-RL/RF-360-S1-C-H (RESEMIN)', oemNo: '— (see Atlas 3128341070 family)', weight: '140' },
+  { code: 'SRA-110-360-CO-RF-SH-N (Putzmeister)', oemNo: '— (model code)', weight: '—' },
 ];
 
 const steps = [
@@ -210,7 +241,7 @@ const itemListJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
   name: 'Mining drill rig rotary actuator cross-reference',
-  itemListElement: [...atlasRows, ...sandvikRows].map((row, index) => ({
+  itemListElement: [...atlasRows, ...sandvikRows, ...otherRows].map((row, index) => ({
     '@type': 'ListItem',
     position: index + 1,
     name: row.code,
@@ -396,6 +427,49 @@ export function MiningDrillRigsPage() {
         </div>
       </section>
 
+      {/* Other equipment makes table */}
+      <section className="border-b border-[rgba(44,74,115,0.10)] bg-white">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
+          <h2 className="font-heading text-2xl md:text-3xl font-medium text-[#1B1E20] mb-4">
+            RESEMIN &amp; Putzmeister model-code references
+          </h2>
+          <p className="text-sm text-[#62666C] leading-relaxed max-w-3xl mb-8">
+            These actuators are identified by the actuator ordering code rather than a separate
+            machine OEM part number. The same Helac-class or SRA-class platforms are used across
+            several equipment makers; confirm the full code, rotation, mounting and ports against
+            the nameplate before ordering.
+          </p>
+          <div className="overflow-x-auto">
+            <table className="min-w-full text-left border-collapse">
+              <thead>
+                <tr className="border-b border-[rgba(44,74,115,0.20)]">
+                  <th className="py-3 pr-4 font-heading text-sm font-medium text-[#1B1E20]">
+                    Actuator model code
+                  </th>
+                  <th className="py-3 px-4 font-heading text-sm font-medium text-[#1B1E20]">
+                    Reference
+                  </th>
+                  <th className="py-3 pl-4 font-heading text-sm font-medium text-[#1B1E20]">
+                    Weight (kg)
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="text-[#4A4E54]">
+                {otherRows.map((row) => (
+                  <tr key={row.code} className="border-b border-[rgba(44,74,115,0.10)]">
+                    <td className="py-3 pr-4">
+                      <ModelCodeCell code={row.code} />
+                    </td>
+                    <td className="py-3 px-4 font-mono text-sm">{row.oemNo}</td>
+                    <td className="py-3 pl-4">{row.weight}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
       {/* Shop by series */}
       <section className="border-b border-[rgba(44,74,115,0.10)] bg-white">
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
@@ -546,10 +620,10 @@ export function MiningDrillRigsPage() {
       <section>
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-12">
           <p className="text-xs text-[#62666C] leading-relaxed max-w-4xl">
-            Atlas Copco®, Epiroc®, Sandvik®, Boomer®, Boltec®, and Simba® are trademarks of their
-            respective owners. HM Hydraulics is an independent third-party replacement parts
-            supplier and is not affiliated with, sponsored by, or endorsed by Atlas Copco, Epiroc,
-            or Sandvik. Part numbers and model codes are used solely for identification and
+            Atlas Copco®, Epiroc®, Sandvik®, RESEMIN®, Putzmeister®, Boomer®, Boltec®, and Simba®
+            are trademarks of their respective owners. HM Hydraulics is an independent third-party
+            replacement parts supplier and is not affiliated with, sponsored by, or endorsed by any
+            of these owners. Part numbers and model codes are used solely for identification and
             compatibility purposes.
           </p>
         </div>

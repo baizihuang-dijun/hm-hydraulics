@@ -21,8 +21,12 @@ export function resolveModelImage(record: ModelData): string {
   // Explicit product-image overrides (e.g. T-series using HMR6 product photo).
   if (image.startsWith('/images/products/')) return image;
 
-  // Alternatives images must be verified against the model code stem.
-  if (image.startsWith('/images/alternatives/')) {
+  // Mining / aerial brand photo directories. File names follow
+  // '<model-code>-rotary-actuator.png' and are verified against the model stem;
+  // the descriptive suffix is stripped before matching.
+  const brandDirs = ['/images/alternatives/', '/images/sandvik/', '/images/atlas-copco/', '/images/epiroc/', '/images/resemin/', '/images/putzmeister/'];
+  const matchedDir = brandDirs.find((dir) => image.startsWith(dir));
+  if (matchedDir) {
     let stem = stemFromPath(image);
     // Strip known brand prefixes.
     for (const prefix of ['helac-', 'hks-', 'moveco-', 'sungji-', 'eckart-']) {
@@ -31,6 +35,8 @@ export function resolveModelImage(record: ModelData): string {
         break;
       }
     }
+    // Strip the shared descriptive SEO suffix so the model code alone is matched.
+    stem = stem.replace(/-rotary-actuator$/i, '');
     const modelNorm = normalize(record.model);
     const stemNorm = normalize(stem);
     if (modelNorm.startsWith(stemNorm) || stemNorm.startsWith(modelNorm)) {
