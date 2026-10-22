@@ -7,6 +7,7 @@ export interface SearchIndexItem {
   model: string;
   slug: string;
   originBrand: string;
+  equipmentMakes?: string[];
   parts: string[];
   machines: string[];
   kind?: 'model' | 'part';
@@ -26,7 +27,7 @@ function matchesQuery(m: SearchIndexItem, raw: string): boolean {
   if (!q) return false;
   const needle = normalize(q);
   if (!needle) return false;
-  const fields = [m.model, m.slug, m.originBrand, ...m.parts, ...m.machines];
+  const fields = [m.model, m.slug, m.originBrand, ...(m.equipmentMakes ?? []), ...m.parts, ...m.machines];
   return fields.some((f) => normalize(String(f)).includes(needle));
 }
 
@@ -51,7 +52,8 @@ export function AlternativesBrowser({ searchIndex }: AlternativesBrowserProps) {
     heavyCount,
     tSeriesCount,
     filtered,
-    brandChips,
+    actuatorChips,
+    equipmentChips,
   } = useMemo(() => {
     const q = query.trim();
     const filtered = q ? searchIndex.filter((m) => matchesQuery(m, q)) : [];
@@ -72,13 +74,31 @@ export function AlternativesBrowser({ searchIndex }: AlternativesBrowserProps) {
     const heavyCount = searchIndex.filter((m) => heavySeries.has(seriesFromModel(m.model))).length;
     const tSeriesCount = searchIndex.filter((m) => seriesFromModel(m.model).startsWith('T')).length;
 
-    const counts = new Map<string, number>();
+    const toChips = (counts: Map<string, number>) =>
+      Array.from(counts.entries())
+        .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+        .map(([name, count]) => ({ name, count }));
+
+    // Actuator manufacturers (the unit being replaced): models only.
+    const actuatorCounts = new Map<string, number>();
     for (const m of searchIndex) {
-      counts.set(m.originBrand, (counts.get(m.originBrand) ?? 0) + 1);
+      if (m.kind === 'part') continue;
+      actuatorCounts.set(m.originBrand, (actuatorCounts.get(m.originBrand) ?? 0) + 1);
     }
-    const brandChips = Array.from(counts.entries())
-      .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
-      .map(([name, count]) => ({ name, count }));
+    const actuatorChips = toChips(actuatorCounts);
+
+    // Equipment makes (the machine): from model brands[] + OEM part groups.
+    const equipmentCounts = new Map<string, number>();
+    const bump = (name: string) =>
+      equipmentCounts.set(name, (equipmentCounts.get(name) ?? 0) + 1);
+    for (const m of searchIndex) {
+      if (m.kind === 'part') {
+        bump(m.originBrand);
+      } else {
+        for (const mk of m.equipmentMakes ?? []) bump(mk);
+      }
+    }
+    const equipmentChips = toChips(equipmentCounts);
 
     return {
       helacCount,
@@ -92,54 +112,62 @@ export function AlternativesBrowser({ searchIndex }: AlternativesBrowserProps) {
       heavyCount,
       tSeriesCount,
       filtered,
-      brandChips,
+      actuatorChips,
+      equipmentChips,
     };
   }, [query, searchIndex]);
 
   return (
     <div className="space-y-16">
-      {/* Search + live count */}
-      <div>
-        <div className="max-w-xl">
-          <label htmlFor="alt-search" className="block text-sm font-medium text-[#1B1E20] mb-2">
-            Search model, part number or brand
-          </label>
+      {/* Search + live count — prominent panel */}
+      <div className="rounded-xl border border-[#D5A85C]/40 bg-gradient-to-b from-[#FBF4E6] to-white p-6 md:p-8 shadow-sm">
+        <label htmlFor="alt-search" className="block text-sm font-semibold text-[#1B1E20] mb-3">
+          Search model, part number, brand or machine
+        </label>
+        <div className="relative max-w-2xl">
+          <svg
+            className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#2C4A73]"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            aria-hidden="true"
+          >
+            <circle cx="11" cy="11" r="7" />
+            <path d="m21 21-4.3-4.3" strokeLinecap="round" />
+          </svg>
           <input
             id="alt-search"
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="e.g. L30-65, 76350018, HKS F5 200"
-            className="w-full px-4 py-3 rounded-lg border border-[rgba(44,74,115,0.15)] bg-white text-sm focus:outline-none focus:border-[#D98A1D] focus:ring-1 focus:ring-[#D98A1D]"
+            placeholder="e.g. L30-65, 76350018, 3128312644, Boltec, Sandvik"
+            className="w-full pl-12 pr-4 py-4 text-base rounded-lg border-2 border-[#D98A1D]/50 bg-white text-[#1B1E20] shadow-sm focus:outline-none focus:border-[#D98A1D] focus:ring-2 focus:ring-[#D98A1D]/30"
           />
         </div>
         <p className="mt-3 text-sm text-[#62666C]">
-          {helacCount} Helac models · {crossCount} cross-brand models · {partCount} OEM part
-          numbers · {totalCount} pages
+          {helacCount} Helac models · {crossCount} other-actuator-brand models · {partCount} OEM
+          part numbers · {totalCount} pages
         </p>
-        {brandChips.length > 0 && (
-          <div className="mt-4 flex flex-wrap items-center gap-2">
-            <span className="text-xs text-[#62666C] mr-1">Browse by brand:</span>
-            {brandChips.map(({ name, count }) => {
-              const active = normalize(query) === normalize(name);
-              return (
-                <button
-                  key={name}
-                  type="button"
-                  onClick={() => setQuery(active ? '' : name)}
-                  className={[
-                    'inline-flex items-center px-2.5 py-1 rounded-full text-xs border transition-colors',
-                    active
-                      ? 'bg-[#2C4A73] border-[#2C4A73] text-white'
-                      : 'bg-white border-[rgba(44,74,115,0.20)] text-[#4A4E54] hover:border-[#2C4A73] hover:text-[#2C4A73]',
-                  ].join(' ')}
-                >
-                  {name} <span className="ml-1.5 opacity-70">{count}</span>
-                </button>
-              );
-            })}
+
+        <div className="mt-6 space-y-3">
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="text-xs font-medium text-[#62666C] mr-1 w-32 shrink-0">
+              Actuator brand:
+            </span>
+            {actuatorChips.map(({ name, count }) => (
+              <Chip key={name} name={name} count={count} active={isActive(query, name)} onClick={() => toggle(setQuery, query, name)} />
+            ))}
           </div>
-        )}
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="text-xs font-medium text-[#62666C] mr-1 w-32 shrink-0">
+              Equipment make:
+            </span>
+            {equipmentChips.map(({ name, count }) => (
+              <Chip key={name} name={name} count={count} tone="equipment" active={isActive(query, name)} onClick={() => toggle(setQuery, query, name)} />
+            ))}
+          </div>
+        </div>
       </div>
 
       {/* Search results */}
@@ -155,7 +183,7 @@ export function AlternativesBrowser({ searchIndex }: AlternativesBrowserProps) {
                 <Link
                   key={m.slug}
                   href={`/alternatives/${m.slug}`}
-                  className="flex items-center gap-3 p-3 border border-[rgba(44,74,115,0.10)] rounded-md bg-white no-underline hover:border-[rgba(44,74,115,0.25)] transition-colors"
+                  className="flex items-center gap-3 p-3 border border-[rgba(44,74,115,0.10)] rounded-md bg-white no-underline hover:border-[rgba(44,74,115,0.25)] hover:shadow-sm transition-all"
                 >
                   {m.image ? (
                     // eslint-disable-next-line @next/next/no-img-element
@@ -165,7 +193,17 @@ export function AlternativesBrowser({ searchIndex }: AlternativesBrowserProps) {
                       loading="lazy"
                       className="w-14 h-14 shrink-0 object-contain rounded border border-[rgba(44,74,115,0.08)] bg-[#FAFAF7] p-1"
                     />
-                  ) : null}
+                  ) : (
+                    <span
+                      aria-hidden="true"
+                      className="w-14 h-14 shrink-0 flex items-center justify-center rounded border border-[rgba(44,74,115,0.08)] bg-[#F2F5F9]"
+                    >
+                      <svg viewBox="0 0 24 24" className="w-6 h-6 text-[#9FB0C4]" fill="none" stroke="currentColor" strokeWidth="1.6">
+                        <circle cx="12" cy="12" r="8" />
+                        <path d="M12 8v8M9 10.5c0-1 1.3-1.5 3-1.5s3 .6 3 1.5-1.3 1.3-3 1.8-3 .7-3 1.7 1.3 1.5 3 1.5 3-.5 3-1.5" strokeLinecap="round" />
+                      </svg>
+                    </span>
+                  )}
                   <div className="min-w-0 flex-1">
                     <p className="text-sm font-medium text-[#1B1E20] truncate">{m.model}</p>
                     <p className="text-xs text-[#62666C] truncate">
@@ -276,6 +314,52 @@ function seriesFromModel(model: string): string {
   const dash = model.indexOf('-');
   if (dash < 0) return model;
   return model.slice(0, dash);
+}
+
+function isActive(query: string, name: string): boolean {
+  return normalize(query) === normalize(name);
+}
+
+function toggle(
+  setQuery: (v: string) => void,
+  query: string,
+  name: string,
+) {
+  setQuery(isActive(query, name) ? '' : name);
+}
+
+function Chip({
+  name,
+  count,
+  active,
+  onClick,
+  tone = 'actuator',
+}: {
+  name: string;
+  count: number;
+  active: boolean;
+  onClick: () => void;
+  tone?: 'actuator' | 'equipment';
+}) {
+  const activeCls =
+    tone === 'equipment'
+      ? 'bg-[#D98A1D] border-[#D98A1D] text-white'
+      : 'bg-[#2C4A73] border-[#2C4A73] text-white';
+  const idleCls =
+    tone === 'equipment'
+      ? 'bg-white border-[#D98A1D]/40 text-[#7a5310] hover:border-[#D98A1D] hover:text-[#D98A1D]'
+      : 'bg-white border-[rgba(44,74,115,0.20)] text-[#4A4E54] hover:border-[#2C4A73] hover:text-[#2C4A73]';
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs border transition-colors ${
+        active ? activeCls : idleCls
+      }`}
+    >
+      {name} <span className="ml-1.5 opacity-70">{count}</span>
+    </button>
+  );
 }
 
 function SeriesCard({

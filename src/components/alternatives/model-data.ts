@@ -3815,19 +3815,36 @@ export function getModelsBySeries(seriesCode: string): ModelData[] {
   return modelPages.filter((m) => m.series === seriesCode);
 }
 
+// Normalise internal brand labels to public equipment-make (OEM) names.
+export function equipmentMakeName(label: string): string {
+  switch (label) {
+    case 'Atlas':
+      return 'Atlas Copco / Epiroc';
+    default:
+      return label;
+  }
+}
+
 export function buildSearchIndex(): {
   model: string;
   slug: string;
   originBrand: string;
+  equipmentMakes: string[];
   parts: string[];
   machines: string[];
+  image?: string;
 }[] {
   return modelPages.map((m) => ({
     model: m.model,
     slug: m.slug,
     originBrand: m.originBrand ?? 'Helac',
+    equipmentMakes: (m.brands ?? []).map(equipmentMakeName),
     parts: m.parts ?? [],
     machines: m.machines ?? [],
+    image:
+      m.image && !m.image.includes('placeholder')
+        ? m.image
+        : undefined,
   }));
 }
 

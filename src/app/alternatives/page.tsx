@@ -6,9 +6,9 @@ import { oemPartGroups } from '@/components/alternatives/oem-parts';
 import { AlternativesBrowser } from '@/components/alternatives/alternatives-browser';
 
 export const metadata: Metadata = {
-  title: 'Helac, HKS & Moveco Rotary Actuator Cross-Reference',
+  title: 'Helac, HKS, Moveco Rotary Actuator Cross-Reference',
   description:
-    'Find alternative replacements for Helac, HKS, Moveco and Sungji rotary actuators. Search 80+ models by model code or OEM part number; engineering verifies each match.',
+    'Find alternative replacements for Helac, HKS, Moveco, Sungji and ECKART rotary actuators. Search 80+ models by model code or OEM part number for JLG, Genie, Sandvik, Atlas Copco, Epiroc, RESEMIN and Putzmeister equipment; engineering verifies each match.',
   alternates: { canonical: '/alternatives' },
 };
 
@@ -17,14 +17,20 @@ const oemPartIndex = oemPartGroups.map((g) => ({
   model: g.primary,
   slug: g.slug,
   originBrand: g.brand,
+  equipmentMakes: [g.brand],
   parts: g.allNumbers,
   machines: g.machines.map((m) => `${g.brand} ${m}`),
   kind: 'part' as const,
   image: g.image,
 }));
 const searchIndex = [...modelIndex, ...oemPartIndex];
-const brandSet = new Set(searchIndex.map((m) => m.originBrand).filter(Boolean));
-const liveCountLabel = `${modelIndex.length} actuator models & ${oemPartIndex.length} OEM part numbers across ${brandSet.size} brands · ${searchIndex.length} reference pages`;
+const actuatorBrandSet = new Set(
+  searchIndex.filter((m) => m.kind !== 'part').map((m) => m.originBrand).filter(Boolean),
+);
+const equipmentMakeSet = new Set(
+  searchIndex.flatMap((m) => m.equipmentMakes).filter(Boolean),
+);
+const liveCountLabel = `${modelIndex.length} actuator models & ${oemPartIndex.length} OEM part numbers · ${actuatorBrandSet.size} actuator brands · ${equipmentMakeSet.size} equipment makes · ${searchIndex.length} reference pages`;
 
 const faqs = [
   {
@@ -110,9 +116,10 @@ export default function AlternativesHubPage() {
             Rotary Actuator Cross-Reference Lookup
           </h1>
           <p className="text-lg text-[#4A4E54] leading-relaxed max-w-3xl mb-6">
-            Search by brand or model code (Helac, HKS, Moveco, Sungji) or OEM aerial-lift part number (JLG, Genie) to find a matching replacement rotary actuator.
-            Our engineering team confirms rotation, mounting interface and shaft configuration
-            against your unit tag before quoting.
+            Search by actuator brand (Helac, HKS, Moveco, Sungji, ECKART) or by equipment make and
+            part number — JLG, Genie, Sandvik, Atlas Copco / Epiroc, RESEMIN and Putzmeister — to
+            find a matching replacement rotary actuator. Our engineering team confirms rotation,
+            mounting interface and shaft configuration against your unit tag before quoting.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a
@@ -151,7 +158,7 @@ export default function AlternativesHubPage() {
             and mounting drawing before we quote.
           </p>
 
-          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl">
+          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl">
             <Link
               href="/alternatives/jlg-aerial-work-platform"
               className="block rounded-lg border border-[rgba(44,74,115,0.14)] bg-white p-5 no-underline hover:border-[#2C4A73] transition-colors"
@@ -168,6 +175,15 @@ export default function AlternativesHubPage() {
               <p className="font-heading text-base font-medium text-[#1B1E20]">Genie boom lift parts</p>
               <p className="text-xs text-[#62666C] mt-1 leading-relaxed">
                 Genie S- &amp; Z-series GT rotary actuator part numbers.
+              </p>
+            </Link>
+            <Link
+              href="/alternatives/mining-drill-rigs"
+              className="block rounded-lg border border-[rgba(44,74,115,0.14)] bg-white p-5 no-underline hover:border-[#2C4A73] transition-colors"
+            >
+              <p className="font-heading text-base font-medium text-[#1B1E20]">Mining drill rig parts</p>
+              <p className="text-xs text-[#62666C] mt-1 leading-relaxed">
+                Atlas Copco / Epiroc, Sandvik, RESEMIN &amp; Putzmeister drill and bolting rigs.
               </p>
             </Link>
           </div>
