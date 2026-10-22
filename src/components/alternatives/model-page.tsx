@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { RfqForm } from '@/components/alternatives/rfq-form';
 import type { ModelData } from '@/components/alternatives/model-data';
 import { getSeriesSiblings, parseTorqueNm } from '@/components/alternatives/model-data';
-import { resolveModelImage, MODEL_IMAGE_PLACEHOLDER } from '@/components/alternatives/model-image';
+import { resolveModelImage, modelImageTier, resolveModelAlt } from '@/components/alternatives/model-image';
 
 const SITE = 'https://www.hmhydraulics.com';
 
@@ -68,9 +68,8 @@ function buildFaqs(d: ModelData) {
 
 export function ModelPage({ d, related }: { d: ModelData; related: { slug: string; model: string }[] }) {
   const resolvedImage = resolveModelImage(d);
-  const resolvedAlt = resolvedImage === MODEL_IMAGE_PLACEHOLDER
-    ? `${d.model} rotary actuator — correct unit drawing available on request`
-    : d.imageAlt;
+  const imageTier = modelImageTier(d);
+  const resolvedAlt = resolveModelAlt(d);
   const faqs = buildFaqs(d);
   const path = `/alternatives/${d.slug}`;
   const ob = d.originBrand ?? 'Helac';
@@ -367,9 +366,11 @@ export function ModelPage({ d, related }: { d: ModelData; related: { slug: strin
                 loading="eager"
               />
               <figcaption className="text-xs text-[#62666C] px-1 pt-2.5 pb-1">
-                {d.sourcingOnly
-                  ? `Representative rotary actuator — the actual ${ob} build is confirmed against your nameplate and drawing`
-                  : `Alternative unit, ${d.series} series &mdash; flange &amp; port configuration`}
+                {imageTier === 'placeholder'
+                  ? 'Correct unit drawing available on request — send your nameplate or mounting photo'
+                  : imageTier === 'representative' || d.sourcingOnly
+                    ? `Representative ${d.series} class rotary actuator — the exact ${ob} build is confirmed against your nameplate and drawing`
+                    : `${d.series} series rotary actuator — verify flange and port configuration against your unit`}
               </figcaption>
             </figure>
           </div>

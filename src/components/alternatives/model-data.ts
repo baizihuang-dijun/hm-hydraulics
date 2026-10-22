@@ -1,3 +1,5 @@
+import { resolveModelImage } from './model-image';
+
 /**
  * A cross-brand candidate shown on a public catalog build page.
  * Commercial presentation only: brand, model/series, and a short key-specification line.
@@ -3589,12 +3591,12 @@ export const modelPages: ModelData[] = [
     imageW: 1332,
     imageH: 1263,
     imageAlt: 'Heavy-duty dual-output-flange rotary / torque actuator for Sandvik DD321-40 development drill, part BG00391147 (representative unit)',
-    originBrand: 'Sandvik',
+    originBrand: 'ECKART',
     sourcingOnly: true,
     modelCodeUnverified: true,
     hideSeriesLink: true,
     intro:
-      'Sandvik OEM part number BG00391147 (also written BG00-391-147) is the heavy-duty rotary / torque turning unit listed on the Sandvik DD321-40 development drill, in the 380 kg class. The unit is identified directly from the machine parts documentation; the original actuator maker and full model code are not stated in the available reference. HM provides sourcing and alternative-supply support for this reference and does not present the offered unit as an original Sandvik part or a pre-verified interchangeable unit; mounting, shaft, ports and rotation are confirmed against your nameplate and drawing before quotation.',
+      'Sandvik OEM part number BG00391147 (also written BG00-391-147) is the heavy-duty rotary / torque turning unit listed on the Sandvik DD321-40 development drill, in the 380 kg class. Cross-reference records identify the fitted actuator as an ECKART-built unit; HM treats that maker attribution as a supply-record reference rather than a factory statement from Sandvik. HM provides sourcing and alternative-supply support for this reference and does not present the offered unit as an original Sandvik part or a pre-verified interchangeable unit; mounting, shaft, ports and rotation are confirmed against your nameplate and drawing before quotation.',
     crossNote:
       'BG00391147 is a Sandvik OEM reference for the DD321-40 turning unit. Because the underlying actuator brand/model and interchangeability have not been independently verified, the drawing and mounting dimensions are checked against your unit before any alternative is recommended. BG00391147 and BG01035613 are both recorded on the DD321-40 in the same weight class and should be distinguished by the tag rather than assumed identical.',
     extraFaqs: [
@@ -3626,12 +3628,12 @@ export const modelPages: ModelData[] = [
     imageW: 1332,
     imageH: 1263,
     imageAlt: 'Heavy-duty dual-output-flange rotary / torque actuator for Sandvik DD321-40 development drill, part BG01035613 (representative unit)',
-    originBrand: 'Sandvik',
+    originBrand: 'ECKART',
     sourcingOnly: true,
     modelCodeUnverified: true,
     hideSeriesLink: true,
     intro:
-      'Sandvik OEM part number BG01035613 (also written BG01-035-613) is the heavy-duty rotary / torque turning unit recorded on the Sandvik DD321-40 development drill, in the 380 kg class. The original actuator maker and full model code are not stated in the available cross-reference. HM provides sourcing and alternative-supply support for this reference and does not present the offered unit as an original Sandvik part or a pre-verified interchangeable unit; mounting, shaft, ports and rotation are confirmed against your nameplate and drawing before quotation.',
+      'Sandvik OEM part number BG01035613 (also written BG01-035-613) is the heavy-duty rotary / torque turning unit recorded on the Sandvik DD321-40 development drill, in the 380 kg class. Cross-reference records identify the fitted actuator as an ECKART-built unit; HM treats that maker attribution as a supply-record reference rather than a factory statement from Sandvik. HM provides sourcing and alternative-supply support for this reference and does not present the offered unit as an original Sandvik part or a pre-verified interchangeable unit; mounting, shaft, ports and rotation are confirmed against your nameplate and drawing before quotation.',
     crossNote:
       'BG01035613 is a Sandvik OEM reference associated with the DD321-40 turning unit. The underlying actuator brand/model and interchangeability have not been independently verified, so the drawing and mounting dimensions are checked against your unit before any alternative is recommended. It should be distinguished from the similarly-rated BG00391147 by the tag rather than assumed identical.',
     extraFaqs: [
@@ -3867,11 +3869,12 @@ export function buildSearchIndex(): {
     equipmentMakes: (m.brands ?? []).map(equipmentMakeName),
     parts: m.parts ?? [],
     machines: m.machines ?? [],
-    image:
-      m.image && !m.image.includes('placeholder')
-        ? m.image
-        : undefined,
-    thumb: thumbFor(m.image),
+    ...(() => {
+      const resolved = resolveModelImage(m);
+      return resolved.includes('placeholder')
+        ? { image: undefined, thumb: undefined }
+        : { image: resolved, thumb: thumbFor(resolved) };
+    })(),
   }));
 }
 

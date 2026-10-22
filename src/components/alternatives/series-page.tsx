@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { ModelData } from '@/components/alternatives/model-data';
-import { resolveModelImage, MODEL_IMAGE_PLACEHOLDER } from '@/components/alternatives/model-image';
+import { resolveModelImage, resolveModelAlt } from '@/components/alternatives/model-image';
 import { RfqForm } from '@/components/alternatives/rfq-form';
 
 export interface SeriesMeta {
@@ -189,7 +189,7 @@ export function SeriesPage({ code, models, site }: { code: string; models: Model
                 <div className="bg-[#FAFAF7] rounded p-3 mb-4 h-36 flex items-center justify-center overflow-hidden">
                   <img
                     src={resolveModelImage(m)}
-                    alt={resolveModelImage(m) === MODEL_IMAGE_PLACEHOLDER ? `${m.model} rotary actuator — correct unit drawing available on request` : m.imageAlt}
+                    alt={resolveModelAlt(m)}
                     width={m.imageW}
                     height={m.imageH}
                     className="max-w-full max-h-full w-auto h-auto object-contain"
