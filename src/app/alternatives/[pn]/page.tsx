@@ -16,7 +16,9 @@ export async function generateMetadata({
   const g = getOemPartBySlug(pn);
   if (!g) return { title: 'Not found', robots: { index: false } };
   const oldNumbers = g.allNumbers.filter((n) => n !== g.primary);
-  const title = `${g.brand} ${g.primary} Replacement Rotary Actuator`;
+  // Keep the most-searched legacy number in <title> (old part numbers are real query terms).
+  const legacy = oldNumbers.length ? ` (replaces ${oldNumbers[0]})` : '';
+  const title = `${g.brand} ${g.primary}${legacy} Replacement Rotary Actuator`;
   const description =
     `Replacement rotary actuator for ${g.brand} part ${g.primary}` +
     (oldNumbers.length ? ` (replaces/equivalent to ${oldNumbers.join(', ')})` : '') +

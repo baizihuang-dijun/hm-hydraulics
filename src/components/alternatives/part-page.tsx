@@ -88,12 +88,12 @@ export function PartPage({ g }: { g: OemPartGroup }) {
         brand: { '@type': 'Brand', name: 'HM Hydraulics' },
         image: `https://www.hmhydraulics.com${g.image}`,
         category: 'Hydraulic rotary actuator',
+        // Machine fitment is AI web-researched and unverified, so it is deliberately NOT emitted
+        // into machine-readable Product structured data (no isCompatibleWith / additionalProperty).
+        // It appears only in the visible, clearly-labelled "Reported" section on the page.
         additionalProperty: [
           { '@type': 'PropertyValue', name: 'OEM part number', value: g.allNumbers.join(', ') },
           { '@type': 'PropertyValue', name: 'Equipment brand', value: g.brand },
-          ...(g.machines.length
-            ? [{ '@type': 'PropertyValue', name: 'Reported machine models', value: g.machines.join(', ') }]
-            : []),
         ],
       },
       {

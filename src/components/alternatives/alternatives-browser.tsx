@@ -9,6 +9,8 @@ export interface SearchIndexItem {
   originBrand: string;
   parts: string[];
   machines: string[];
+  kind?: 'model' | 'part';
+  image?: string;
 }
 
 interface AlternativesBrowserProps {
@@ -41,6 +43,8 @@ export function AlternativesBrowser({ searchIndex }: AlternativesBrowserProps) {
     helacCount,
     crossCount,
     totalCount,
+    modelCount,
+    partCount,
     l10Count,
     l20Count,
     l30Count,
@@ -53,8 +57,12 @@ export function AlternativesBrowser({ searchIndex }: AlternativesBrowserProps) {
     const filtered = q ? searchIndex.filter((m) => matchesQuery(m, q)) : [];
 
     const totalCount = searchIndex.length;
-    const helacCount = searchIndex.filter((m) => m.originBrand === 'Helac').length;
-    const crossCount = totalCount - helacCount;
+    const partCount = searchIndex.filter((m) => m.kind === 'part').length;
+    const modelCount = totalCount - partCount;
+    const helacCount = searchIndex.filter(
+      (m) => m.originBrand === 'Helac' && m.kind !== 'part',
+    ).length;
+    const crossCount = modelCount - helacCount;
 
     const l10Count = searchIndex.filter((m) => m.model.startsWith('L10-')).length;
     const l20Count = searchIndex.filter((m) => m.model.startsWith('L20-')).length;
@@ -76,6 +84,8 @@ export function AlternativesBrowser({ searchIndex }: AlternativesBrowserProps) {
       helacCount,
       crossCount,
       totalCount,
+      modelCount,
+      partCount,
       l10Count,
       l20Count,
       l30Count,
@@ -104,7 +114,8 @@ export function AlternativesBrowser({ searchIndex }: AlternativesBrowserProps) {
           />
         </div>
         <p className="mt-3 text-sm text-[#62666C]">
-          {helacCount} Helac models · {crossCount} cross-brand references · {totalCount} pages
+          {helacCount} Helac models · {crossCount} cross-brand models · {partCount} OEM part
+          numbers · {totalCount} pages
         </p>
         {brandChips.length > 0 && (
           <div className="mt-4 flex flex-wrap items-center gap-2">
@@ -138,21 +149,35 @@ export function AlternativesBrowser({ searchIndex }: AlternativesBrowserProps) {
             Search results ({filtered.length})
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {filtered.map((m) => (
-              <Link
-                key={m.slug}
-                href={`/alternatives/${m.slug}`}
-                className="flex items-center justify-between p-4 border border-[rgba(44,74,115,0.10)] rounded-md bg-white no-underline hover:border-[rgba(44,74,115,0.25)] transition-colors"
-              >
-                <div>
-                  <p className="text-sm font-medium text-[#1B1E20]">{m.model}</p>
-                  <p className="text-xs text-[#62666C]">
-                    {seriesFromModel(m.model)} · {m.originBrand}
-                  </p>
-                </div>
-                <span className="text-[#2C4A73]">&rarr;</span>
-              </Link>
-            ))}
+            {filtered.map((m) => {
+              const oldNums = m.parts.filter((p) => normalize(p) !== normalize(m.model));
+              return (
+                <Link
+                  key={m.slug}
+                  href={`/alternatives/${m.slug}`}
+                  className="flex items-center gap-3 p-3 border border-[rgba(44,74,115,0.10)] rounded-md bg-white no-underline hover:border-[rgba(44,74,115,0.25)] transition-colors"
+                >
+                  {m.image ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={m.image}
+                      alt={`${m.originBrand} ${m.model} rotary actuator`}
+                      loading="lazy"
+                      className="w-14 h-14 shrink-0 object-contain rounded border border-[rgba(44,74,115,0.08)] bg-[#FAFAF7] p-1"
+                    />
+                  ) : null}
+                  <div className="min-w-0 flex-1">
+                    <p className="text-sm font-medium text-[#1B1E20] truncate">{m.model}</p>
+                    <p className="text-xs text-[#62666C] truncate">
+                      {m.kind === 'part'
+                        ? `${m.originBrand} part${oldNums.length ? ` · replaces ${oldNums.join(', ')}` : ''}`
+                        : `${seriesFromModel(m.model)} · ${m.originBrand}`}
+                    </p>
+                  </div>
+                  <span className="text-[#2C4A73] shrink-0">&rarr;</span>
+                </Link>
+              );
+            })}
           </div>
         </section>
       )}

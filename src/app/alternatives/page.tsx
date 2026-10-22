@@ -8,21 +8,23 @@ import { AlternativesBrowser } from '@/components/alternatives/alternatives-brow
 export const metadata: Metadata = {
   title: 'Helac, HKS & Moveco Rotary Actuator Cross-Reference',
   description:
-    'Find drop-in replacements for Helac, HKS, Moveco and Sungji rotary actuators. Search 80+ models by model code or OEM part number; engineering verifies each match.',
+    'Find alternative replacements for Helac, HKS, Moveco and Sungji rotary actuators. Search 80+ models by model code or OEM part number; engineering verifies each match.',
   alternates: { canonical: '/alternatives' },
 };
 
-const modelIndex = buildSearchIndex();
+const modelIndex = buildSearchIndex().map((m) => ({ ...m, kind: 'model' as const }));
 const oemPartIndex = oemPartGroups.map((g) => ({
   model: g.primary,
   slug: g.slug,
   originBrand: g.brand,
   parts: g.allNumbers,
   machines: g.machines.map((m) => `${g.brand} ${m}`),
+  kind: 'part' as const,
+  image: g.image,
 }));
 const searchIndex = [...modelIndex, ...oemPartIndex];
 const brandSet = new Set(searchIndex.map((m) => m.originBrand).filter(Boolean));
-const liveCountLabel = `${searchIndex.length} models across ${brandSet.size} brands · ${searchIndex.length} reference pages`;
+const liveCountLabel = `${modelIndex.length} actuator models & ${oemPartIndex.length} OEM part numbers across ${brandSet.size} brands · ${searchIndex.length} reference pages`;
 
 const faqs = [
   {
@@ -141,8 +143,9 @@ export default function AlternativesHubPage() {
           <p className="text-sm text-[#62666C] mb-8">{liveCountLabel}</p>
           <AlternativesBrowser searchIndex={searchIndex} />
           <p className="mt-12 text-sm text-[#62666C] leading-relaxed max-w-2xl">
-            These {searchIndex.length} entries are the model-code records currently published on this
-            site, kept here as search starting points. The count is a page inventory,{" "}
+            These {searchIndex.length} entries are the actuator model codes and OEM part numbers
+            currently published on this site, kept here as search starting points. The count is a
+            page inventory,{" "}
             <strong>not</strong> a claim that {searchIndex.length} complete order codes have each been
             verified against a physical nameplate. Every build is confirmed against the unit nameplate
             and mounting drawing before we quote.
