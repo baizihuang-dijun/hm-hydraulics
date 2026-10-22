@@ -12,6 +12,7 @@ export interface SearchIndexItem {
   machines: string[];
   kind?: 'model' | 'part';
   image?: string;
+  thumb?: string;
 }
 
 interface AlternativesBrowserProps {
@@ -41,11 +42,6 @@ export function AlternativesBrowser({ searchIndex }: AlternativesBrowserProps) {
   }, []);
 
   const {
-    helacCount,
-    crossCount,
-    totalCount,
-    modelCount,
-    partCount,
     l10Count,
     l20Count,
     l30Count,
@@ -57,14 +53,6 @@ export function AlternativesBrowser({ searchIndex }: AlternativesBrowserProps) {
   } = useMemo(() => {
     const q = query.trim();
     const filtered = q ? searchIndex.filter((m) => matchesQuery(m, q)) : [];
-
-    const totalCount = searchIndex.length;
-    const partCount = searchIndex.filter((m) => m.kind === 'part').length;
-    const modelCount = totalCount - partCount;
-    const helacCount = searchIndex.filter(
-      (m) => m.originBrand === 'Helac' && m.kind !== 'part',
-    ).length;
-    const crossCount = modelCount - helacCount;
 
     const l10Count = searchIndex.filter((m) => m.model.startsWith('L10-')).length;
     const l20Count = searchIndex.filter((m) => m.model.startsWith('L20-')).length;
@@ -101,11 +89,6 @@ export function AlternativesBrowser({ searchIndex }: AlternativesBrowserProps) {
     const equipmentChips = toChips(equipmentCounts);
 
     return {
-      helacCount,
-      crossCount,
-      totalCount,
-      modelCount,
-      partCount,
       l10Count,
       l20Count,
       l30Count,
@@ -145,11 +128,6 @@ export function AlternativesBrowser({ searchIndex }: AlternativesBrowserProps) {
             className="w-full pl-12 pr-4 py-4 text-base rounded-lg border-2 border-[#D98A1D]/50 bg-white text-[#1B1E20] shadow-sm focus:outline-none focus:border-[#D98A1D] focus:ring-2 focus:ring-[#D98A1D]/30"
           />
         </div>
-        <p className="mt-3 text-sm text-[#62666C]">
-          {helacCount} Helac models · {crossCount} other-actuator-brand models · {partCount} OEM
-          part numbers · {totalCount} pages
-        </p>
-
         <div className="mt-6 space-y-3">
           <div className="flex flex-wrap items-center gap-2">
             <span className="text-xs font-medium text-[#62666C] mr-1 w-32 shrink-0">
@@ -185,12 +163,15 @@ export function AlternativesBrowser({ searchIndex }: AlternativesBrowserProps) {
                   href={`/alternatives/${m.slug}`}
                   className="flex items-center gap-3 p-3 border border-[rgba(44,74,115,0.10)] rounded-md bg-white no-underline hover:border-[rgba(44,74,115,0.25)] hover:shadow-sm transition-all"
                 >
-                  {m.image ? (
+                  {m.thumb ? (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img
-                      src={m.image}
+                      src={m.thumb}
+                      width={56}
+                      height={56}
                       alt={`${m.originBrand} ${m.model} rotary actuator`}
                       loading="lazy"
+                      decoding="async"
                       className="w-14 h-14 shrink-0 object-contain rounded border border-[rgba(44,74,115,0.08)] bg-[#FAFAF7] p-1"
                     />
                   ) : (

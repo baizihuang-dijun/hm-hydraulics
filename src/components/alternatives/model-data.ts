@@ -145,7 +145,7 @@ export const modelPages: ModelData[] = [
     brands: ['Sandvik'],
     parts: ['76350014', 'BG00568383'],
     machines: [],
-    image: '/images/atlas-copco/l10-3-0-s-rf-180-s1-0-h-rotary-actuator.png',
+    image: '/images/atlas-copco/l10-3-0-s-rf-180-s1-0-h-rotary-actuator.webp',
     imageW: 909,
     imageH: 603,
     imageAlt: 'Replacement rotary actuator for Helac L10-3.0-S-RF-180, Sandvik 76350014',
@@ -198,9 +198,9 @@ export const modelPages: ModelData[] = [
     brands: ['Sandvik', 'Atlas'],
     parts: ['76350015', '76350006', '3128309281', '3128010431'],
     machines: ['Boltec 235', 'Boltec 235h', 'Boltec Lc', 'Boltec Md'],
-    image: '/images/atlas-copco/l10-5-5-m-rf-360-s1-o-h-rotary-actuator.png',
-    imageW: 2101,
-    imageH: 2537,
+    image: '/images/atlas-copco/l10-5-5-m-rf-360-s1-o-h-rotary-actuator.webp',
+    imageW: 1600,
+    imageH: 1932,
     imageAlt: 'Replacement rotary actuator for Helac L10-5.5-M-RF-360, Sandvik 76350015 / 76350006, Atlas 3128309281',
     intro:
       'Alternative rotary actuator for the Helac L10-5.5-M-RF-360-S1-O-H, a 360-degree helical actuator cross-listed by Sandvik (76350015 / 76350006) and Atlas (3128309281), in the 20.5 kg class.',
@@ -326,7 +326,7 @@ export const modelPages: ModelData[] = [
     brands: ['Atlas'],
     parts: ['3128312644'],
     machines: ['Boomer 282'],
-    image: '/images/atlas-copco/l30-65-s-rf-360-s1-c-h-rotary-actuator.png',
+    image: '/images/atlas-copco/l30-65-s-rf-360-s1-c-h-rotary-actuator.webp',
     imageW: 1280,
     imageH: 1280,
     imageAlt:
@@ -478,9 +478,9 @@ export const modelPages: ModelData[] = [
     brands: ['Atlas'],
     parts: ['3128307978'],
     machines: ['Boomer 104', 'Boomer K41', 'Boomer K41x', 'Simba H157'],
-    image: '/images/atlas-copco/htx70-ms-rf-360-ss-o-h-rotary-actuator.png',
-    imageW: 1734,
-    imageH: 687,
+    image: '/images/atlas-copco/htx70-ms-rf-360-ss-o-h-rotary-actuator.webp',
+    imageW: 1600,
+    imageH: 634,
     imageAlt: 'Replacement rotary actuator for Helac HTX70-MS-RF-360, Atlas 3128307978',
     intro:
       'Alternative rotary actuator for the Helac HTX70-MS-RF-360-SS-O-H, a splined-shaft 360-degree helical actuator listed by Atlas under part number 3128307978, supplied for aftermarket replacement.',
@@ -503,9 +503,9 @@ export const modelPages: ModelData[] = [
     brands: ['Atlas'],
     parts: ['3128341070'],
     machines: [],
-    image: '/images/atlas-copco/l40-110-m-rf-360-s1-c-h-rotary-actuator.png',
-    imageW: 1900,
-    imageH: 1018,
+    image: '/images/atlas-copco/l40-110-m-rf-360-s1-c-h-rotary-actuator.webp',
+    imageW: 1600,
+    imageH: 857,
     imageAlt: 'Replacement rotary actuator for Helac L40-110-M-RF-360, Atlas 3128341070, heavy-duty unit',
     intro:
       'Alternative rotary actuator for the Helac L40-110-M-RF-360-S1-C-H, a heavy-duty 360-degree helical actuator listed by Atlas under part number 3128341070, in the 140 kg class. The same L40-110 360-degree rear/rail-flange family also appears on RESEMIN drilling equipment under the model code L40-110-M-RL/RF-360-S1-C-H (no separate OEM part number published).',
@@ -527,7 +527,7 @@ export const modelPages: ModelData[] = [
     parts: ['3128312645', 'L3D'],
     modelCodeUnverified: true,
     machines: ['Boomer M2d', 'Boomer XL3', 'Boomer 353', 'Boomer L2c', 'Boomer L2d'],
-    image: '/images/atlas-copco/hp125-s-rf-360-s1-c-h-rotary-actuator.png',
+    image: '/images/atlas-copco/hp125-s-rf-360-s1-c-h-rotary-actuator.webp',
     imageW: 1379,
     imageH: 521,
     imageAlt: 'Replacement rotary actuator supplied for Helac HP125-S-RF-360-S1-C-H, flange and port view',
@@ -1546,9 +1546,9 @@ export const modelPages: ModelData[] = [
     brands: ['Atlas'],
     parts: ['3128314313'],
     machines: ['Simba S7D', 'Simba H1257'],
-    image: '/images/atlas-copco/l30-125-m-ft-360-s1-c-h-rotary-actuator.png',
-    imageW: 4096,
-    imageH: 3072,
+    image: '/images/atlas-copco/l30-125-m-ft-360-s1-c-h-rotary-actuator.webp',
+    imageW: 1600,
+    imageH: 1200,
     imageAlt:
       'Helac L30-125 class heavy-duty foot-mount helical rotary actuator for Atlas Copco / Epiroc Simba drill rigs',
     intro:
@@ -1579,9 +1579,9 @@ export const modelPages: ModelData[] = [
     brands: ['Atlas'],
     parts: ['3128312643', '3129316303'],
     machines: ['Boomer 104', 'Boomer K41', 'Boomer K41x', 'Simba H1257', 'Simba H157', 'Simba S7D'],
-    image: '/images/atlas-copco/hp50-ms-rl-230-s1-c-h-rotary-actuator.png',
-    imageW: 1706,
-    imageH: 1280,
+    image: '/images/atlas-copco/hp50-ms-rl-230-s1-c-h-rotary-actuator.webp',
+    imageW: 1600,
+    imageH: 1200,
     imageAlt:
       'Heavy-duty Helac HP-series helical rotary actuator, mining drill-rig configuration (HP series representative image)',
     intro:
@@ -1611,9 +1611,9 @@ export const modelPages: ModelData[] = [
     brands: ['Sandvik'],
     parts: ['76350019', '76350008'],
     machines: ['Solo 5', 'Solo 5V'],
-    image: '/images/atlas-copco/l30-65-s-ft-240-s1-c-h-rotary-actuator.png',
-    imageW: 3630,
-    imageH: 1999,
+    image: '/images/atlas-copco/l30-65-s-ft-240-s1-c-h-rotary-actuator.webp',
+    imageW: 1600,
+    imageH: 881,
     imageAlt:
       'Helac L30 series heavy-duty helical rotary actuator, foot-mount mining configuration (series representative image)',
     intro:
@@ -1648,7 +1648,7 @@ export const modelPages: ModelData[] = [
     brands: ['Sandvik'],
     parts: ['76350018', '76350007'],
     machines: ['DD210', 'Bolter'],
-    image: '/images/sandvik/l30-65-s-rf-360-l1-c-h-rotary-actuator.png',
+    image: '/images/sandvik/l30-65-s-rf-360-l1-c-h-rotary-actuator.webp',
     imageW: 1161,
     imageH: 885,
     imageAlt:
@@ -1684,9 +1684,9 @@ export const modelPages: ModelData[] = [
     weight: '195 kg',
     brands: ['Sandvik'],
     parts: ['76350010'],
-    image: '/images/atlas-copco/hp-90-s-rl-360-s1-c-h-rotary-actuator.png',
-    imageW: 2563,
-    imageH: 1500,
+    image: '/images/atlas-copco/hp-90-s-rl-360-s1-c-h-rotary-actuator.webp',
+    imageW: 1600,
+    imageH: 936,
     imageAlt:
       'Helac HP-90 class heavy-duty rail-mount helical rotary actuator for Sandvik DS311 and DS2710 bolting rigs (Sandvik part 76350010)',
     intro:
@@ -1715,9 +1715,9 @@ export const modelPages: ModelData[] = [
     brands: ['Sandvik'],
     parts: ['BG00334414'],
     machines: [],
-    image: '/images/sandvik/eckart-sz-sm3-215-357-bg00334414-rotary-actuator.png',
-    imageW: 4096,
-    imageH: 3072,
+    image: '/images/sandvik/eckart-sz-sm3-215-357-bg00334414-rotary-actuator.webp',
+    imageW: 1600,
+    imageH: 1200,
     imageAlt:
       'Heavy-duty helical hydraulic rotary actuator for mining equipment (generic representative image, not the original ECKART unit)',
     originBrand: 'ECKART',
@@ -1748,7 +1748,7 @@ export const modelPages: ModelData[] = [
     brands: ['Sandvik'],
     parts: ['BG00334337'],
     machines: [],
-    image: '/images/sandvik/eckart-sz-sm3-170-357-bg00334337-rotary-actuator.png',
+    image: '/images/sandvik/eckart-sz-sm3-170-357-bg00334337-rotary-actuator.webp',
     imageW: 1440,
     imageH: 810,
     imageAlt:
@@ -2123,9 +2123,9 @@ export const modelPages: ModelData[] = [
     brands: [],
     parts: [],
     machines: [],
-    image: '/images/products/hmr6-foot-through-splined-shaft.png',
-    imageW: 400,
-    imageH: 300,
+    image: '/images/products/hmr6-foot-through-splined-shaft.webp',
+    imageW: 1600,
+    imageH: 1130,
     imageAlt: 'Helac T-series dual-spline straddle rotary actuator (representative image)',
     catalogBuild: true,
     hideSeriesLink: true,
@@ -2176,9 +2176,9 @@ export const modelPages: ModelData[] = [
     brands: [],
     parts: [],
     machines: [],
-    image: '/images/products/hmr6-foot-through-splined-shaft.png',
-    imageW: 400,
-    imageH: 300,
+    image: '/images/products/hmr6-foot-through-splined-shaft.webp',
+    imageW: 1600,
+    imageH: 1130,
     imageAlt: 'Helac T-series dual-spline straddle rotary actuator (representative image)',
     catalogBuild: true,
     hideSeriesLink: true,
@@ -2229,9 +2229,9 @@ export const modelPages: ModelData[] = [
     brands: [],
     parts: [],
     machines: [],
-    image: '/images/products/hmr6-foot-through-splined-shaft.png',
-    imageW: 400,
-    imageH: 300,
+    image: '/images/products/hmr6-foot-through-splined-shaft.webp',
+    imageW: 1600,
+    imageH: 1130,
     imageAlt: 'Helac T-series dual-spline straddle rotary actuator (representative image)',
     catalogBuild: true,
     hideSeriesLink: true,
@@ -2272,9 +2272,9 @@ export const modelPages: ModelData[] = [
     brands: [],
     parts: [],
     machines: [],
-    image: '/images/products/hmr6-foot-through-splined-shaft.png',
-    imageW: 400,
-    imageH: 300,
+    image: '/images/products/hmr6-foot-through-splined-shaft.webp',
+    imageW: 1600,
+    imageH: 1130,
     imageAlt: 'Helac T-series dual-spline straddle rotary actuator (representative image)',
     catalogBuild: true,
     hideSeriesLink: true,
@@ -3490,7 +3490,7 @@ export const modelPages: ModelData[] = [
     brands: ['Atlas'],
     parts: ['3128312607'],
     machines: [],
-    image: '/images/atlas-copco/l30-65-s-rf-180-s1-c-h-rotary-actuator.png',
+    image: '/images/atlas-copco/l30-65-s-rf-180-s1-c-h-rotary-actuator.webp',
     imageW: 810,
     imageH: 950,
     imageAlt: 'Replacement rotary actuator matched to Atlas Copco / Epiroc part 3128312607, Helac L30-65-S-RF-180-S1-C-H, rear-flange mining build',
@@ -3521,9 +3521,9 @@ export const modelPages: ModelData[] = [
     brands: ['Atlas'],
     parts: ['3128341084'],
     machines: ['Boomer S2'],
-    image: '/images/atlas-copco/l40-110-m-ft-360-s1-c-h-rotary-actuator.png',
-    imageW: 1900,
-    imageH: 1018,
+    image: '/images/atlas-copco/l40-110-m-ft-360-s1-c-h-rotary-actuator.webp',
+    imageW: 1600,
+    imageH: 857,
     imageAlt: 'Replacement rotary actuator matched to Atlas Copco / Epiroc part 3128341084, Helac L40-110-M-FT-360-S1-C-H, foot-mount mining build (L40 family representative image)',
     intro:
       'Alternative rotary actuator for the Helac L40-110-M-FT-360-S1-C-H, a heavy-duty 360-degree, foot-mount (FT) helical actuator in the L40-110 class, in the 150 kg weight band. It is listed by Atlas Copco / Epiroc under part number 3128341084 (also written 3128-3410-84) and is associated in the source parts documentation with the Boomer S2 development rig.',
@@ -3585,7 +3585,7 @@ export const modelPages: ModelData[] = [
     brands: ['Sandvik'],
     parts: ['BG00391147'],
     machines: ['DD321-40'],
-    image: '/images/sandvik/bg00391147-rotary-actuator.png',
+    image: '/images/sandvik/bg00391147-rotary-actuator.webp',
     imageW: 1332,
     imageH: 1263,
     imageAlt: 'Heavy-duty dual-output-flange rotary / torque actuator for Sandvik DD321-40 development drill, part BG00391147 (representative unit)',
@@ -3622,7 +3622,7 @@ export const modelPages: ModelData[] = [
     brands: ['Sandvik'],
     parts: ['BG01035613'],
     machines: ['DD321-40'],
-    image: '/images/sandvik/bg01035613-rotary-actuator.png',
+    image: '/images/sandvik/bg01035613-rotary-actuator.webp',
     imageW: 1332,
     imageH: 1263,
     imageAlt: 'Heavy-duty dual-output-flange rotary / torque actuator for Sandvik DD321-40 development drill, part BG01035613 (representative unit)',
@@ -3825,6 +3825,31 @@ export function equipmentMakeName(label: string): string {
   }
 }
 
+const THUMB_DIRS = [
+  '/images/alternatives/',
+  '/images/sandvik/',
+  '/images/atlas-copco/',
+  '/images/epiroc/',
+  '/images/resemin/',
+  '/images/putzmeister/',
+  '/images/jlg/',
+  '/images/genie/',
+  '/images/products/',
+];
+
+/**
+ * Small optimized thumbnail (112px WebP) for client-side search result cards.
+ * Every referenced product image has a generated '<stem>@112.webp'; falls back
+ * to the source image if the asset is outside the processed directories.
+ */
+export function thumbFor(image?: string): string | undefined {
+  if (!image || image.includes('placeholder')) return undefined;
+  const dir = THUMB_DIRS.find((d) => image.startsWith(d));
+  if (!dir) return image;
+  const dot = image.lastIndexOf('.');
+  return dot > 0 ? `${image.slice(0, dot)}@112.webp` : `${image}@112.webp`;
+}
+
 export function buildSearchIndex(): {
   model: string;
   slug: string;
@@ -3833,6 +3858,7 @@ export function buildSearchIndex(): {
   parts: string[];
   machines: string[];
   image?: string;
+  thumb?: string;
 }[] {
   return modelPages.map((m) => ({
     model: m.model,
@@ -3845,6 +3871,7 @@ export function buildSearchIndex(): {
       m.image && !m.image.includes('placeholder')
         ? m.image
         : undefined,
+    thumb: thumbFor(m.image),
   }));
 }
 

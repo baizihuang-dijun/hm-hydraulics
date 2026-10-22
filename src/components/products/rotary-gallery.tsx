@@ -85,7 +85,7 @@ const TABS: GalleryTab[] = [
     label: 'HMR6',
     images: [
       {
-        src: '/images/products/hmr6-foot-through-splined-shaft.png',
+        src: '/images/products/hmr6-foot-through-splined-shaft.webp',
         alt: 'HMR6 foot-mounted rotary actuator with through splined shaft',
       },
     ],

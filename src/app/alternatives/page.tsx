@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { RfqForm } from '@/components/alternatives/rfq-form';
-import { buildSearchIndex } from '@/components/alternatives/model-data';
+import { buildSearchIndex, thumbFor } from '@/components/alternatives/model-data';
 import { oemPartGroups } from '@/components/alternatives/oem-parts';
 import { AlternativesBrowser } from '@/components/alternatives/alternatives-browser';
 
@@ -22,15 +22,9 @@ const oemPartIndex = oemPartGroups.map((g) => ({
   machines: g.machines.map((m) => `${g.brand} ${m}`),
   kind: 'part' as const,
   image: g.image,
+  thumb: thumbFor(g.image),
 }));
 const searchIndex = [...modelIndex, ...oemPartIndex];
-const actuatorBrandSet = new Set(
-  searchIndex.filter((m) => m.kind !== 'part').map((m) => m.originBrand).filter(Boolean),
-);
-const equipmentMakeSet = new Set(
-  searchIndex.flatMap((m) => m.equipmentMakes).filter(Boolean),
-);
-const liveCountLabel = `${modelIndex.length} actuator models & ${oemPartIndex.length} OEM part numbers · ${actuatorBrandSet.size} actuator brands · ${equipmentMakeSet.size} equipment makes · ${searchIndex.length} reference pages`;
 
 const faqs = [
   {
@@ -147,15 +141,17 @@ export default function AlternativesHubPage() {
           <h2 className="font-heading text-2xl md:text-3xl font-medium text-[#1B1E20] mb-2">
             Find your actuator reference
           </h2>
-          <p className="text-sm text-[#62666C] mb-8">{liveCountLabel}</p>
+          <p className="text-sm text-[#62666C] mb-8">
+            Search by actuator model code, OEM part number, equipment make or machine model across our
+            cross-reference library.
+          </p>
           <AlternativesBrowser searchIndex={searchIndex} />
           <p className="mt-12 text-sm text-[#62666C] leading-relaxed max-w-2xl">
-            These {searchIndex.length} entries are the actuator model codes and OEM part numbers
-            currently published on this site, kept here as search starting points. The count is a
-            page inventory,{" "}
-            <strong>not</strong> a claim that {searchIndex.length} complete order codes have each been
-            verified against a physical nameplate. Every build is confirmed against the unit nameplate
-            and mounting drawing before we quote.
+            The model codes and OEM part numbers here are search starting points for identifying your
+            unit. They are <strong>not</strong> a claim that every code has been verified against a
+            physical nameplate &mdash; every build is confirmed against the unit nameplate and mounting
+            drawing before we quote. Don&apos;t see your part number? Send us the tag and we&apos;ll
+            identify it.
           </p>
 
           <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl">

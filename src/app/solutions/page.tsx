@@ -227,6 +227,32 @@ export default function SolutionsPage() {
         </div>
       </section>
 
+      {/* Field case */}
+      <section className="border-t border-[rgba(44,74,115,0.10)] bg-white">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
+          <p className="eyebrow text-[#2C4A73] mb-3">FIELD CASE &middot; CNC MACHINE TOOLS</p>
+          <div className="grid md:grid-cols-[1fr_auto] gap-6 items-center">
+            <div>
+              <h2 className="font-heading text-[#1B1E20] text-2xl md:text-3xl font-medium mb-3">
+                Rotary actuator in service on a horizontal machining centre tilting table
+              </h2>
+              <p className="text-[#4A4E54] leading-relaxed max-w-3xl">
+                An independently engineered helical actuator indexing a Vigel-class machining-centre
+                worktable through 182°&plusmn;1° at 210&nbsp;bar &mdash; installed October 2021 and
+                running continuous production with no reported actuator failure. See the application,
+                the observed piston-cracking failure mode and how we qualified the replacement.
+              </p>
+            </div>
+            <Link
+              href="/case-studies/vigel-machining-center"
+              className="inline-flex items-center justify-center whitespace-nowrap rounded-md border border-[#2C4A73]/30 px-5 py-3 text-sm font-medium text-[#2C4A73] no-underline hover:bg-[#2C4A73]/5"
+            >
+              Read the case &rarr;
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Final CTA */}
       <section>
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-20 md:py-24">

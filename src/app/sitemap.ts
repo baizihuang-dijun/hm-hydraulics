@@ -15,6 +15,7 @@ const staticRoutes = [
   '/products/slew-drives',
   '/products/tilt-actuators',
   '/solutions',
+  '/case-studies/vigel-machining-center',
   '/about',
   '/quality',
   '/support',

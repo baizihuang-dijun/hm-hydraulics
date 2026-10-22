@@ -722,7 +722,7 @@ export function getSeriesImage(seriesCode: string, mountCode?: string): string {
     HMR2: '/images/products/hmr2-foot-flange-disc-output.png',
     HMR3: '/images/products/hmr3-flange-flange-disc-output.png',
     HMR5: '/images/products/hmr5-heavy-duty-valve-block-photo.png',
-    HMR6: '/images/products/hmr6-foot-through-splined-shaft.png',
+    HMR6: '/images/products/hmr6-foot-through-splined-shaft.webp',
   };
   return map[seriesCode] || '';
 }
