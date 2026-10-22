@@ -23,6 +23,8 @@ for (const file of walk(srcDir)) {
   const text = fs.readFileSync(file, 'utf8');
   let m;
   while ((m = imgRegex.exec(text)) !== null) {
+    // Skip dynamic template-literal paths (e.g. `/images/${dir}/${f}.png`); they resolve at runtime.
+    if (m[0].includes('${')) continue;
     refs.push({ file: path.relative(root, file), url: m[0] });
   }
 }

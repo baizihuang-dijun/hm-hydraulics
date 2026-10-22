@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { RfqForm } from '@/components/alternatives/rfq-form';
 import { buildSearchIndex } from '@/components/alternatives/model-data';
+import { oemPartGroups } from '@/components/alternatives/oem-parts';
 import { AlternativesBrowser } from '@/components/alternatives/alternatives-browser';
 
 export const metadata: Metadata = {
@@ -11,7 +12,15 @@ export const metadata: Metadata = {
   alternates: { canonical: '/alternatives' },
 };
 
-const searchIndex = buildSearchIndex();
+const modelIndex = buildSearchIndex();
+const oemPartIndex = oemPartGroups.map((g) => ({
+  model: g.primary,
+  slug: g.slug,
+  originBrand: g.brand,
+  parts: g.allNumbers,
+  machines: g.machines.map((m) => `${g.brand} ${m}`),
+}));
+const searchIndex = [...modelIndex, ...oemPartIndex];
 const brandSet = new Set(searchIndex.map((m) => m.originBrand).filter(Boolean));
 const liveCountLabel = `${searchIndex.length} models across ${brandSet.size} brands · ${searchIndex.length} reference pages`;
 
@@ -99,7 +108,7 @@ export default function AlternativesHubPage() {
             Rotary Actuator Cross-Reference Lookup
           </h1>
           <p className="text-lg text-[#4A4E54] leading-relaxed max-w-3xl mb-6">
-            Search by brand or model code (Helac, HKS, Moveco, Sungji) or OEM part number to find a matching replacement rotary actuator.
+            Search by brand or model code (Helac, HKS, Moveco, Sungji) or OEM aerial-lift part number (JLG, Genie) to find a matching replacement rotary actuator.
             Our engineering team confirms rotation, mounting interface and shaft configuration
             against your unit tag before quoting.
           </p>
@@ -138,6 +147,27 @@ export default function AlternativesHubPage() {
             verified against a physical nameplate. Every build is confirmed against the unit nameplate
             and mounting drawing before we quote.
           </p>
+
+          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl">
+            <Link
+              href="/alternatives/jlg-aerial-work-platform"
+              className="block rounded-lg border border-[rgba(44,74,115,0.14)] bg-white p-5 no-underline hover:border-[#2C4A73] transition-colors"
+            >
+              <p className="font-heading text-base font-medium text-[#1B1E20]">JLG boom lift parts</p>
+              <p className="text-xs text-[#62666C] mt-1 leading-relaxed">
+                JLG aerial work platform rotary actuators — current &amp; superseded part numbers.
+              </p>
+            </Link>
+            <Link
+              href="/alternatives/genie-boom-lifts"
+              className="block rounded-lg border border-[rgba(44,74,115,0.14)] bg-white p-5 no-underline hover:border-[#2C4A73] transition-colors"
+            >
+              <p className="font-heading text-base font-medium text-[#1B1E20]">Genie boom lift parts</p>
+              <p className="text-xs text-[#62666C] mt-1 leading-relaxed">
+                Genie S- &amp; Z-series GT rotary actuator part numbers.
+              </p>
+            </Link>
+          </div>
         </div>
       </section>
 
