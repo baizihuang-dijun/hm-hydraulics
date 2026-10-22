@@ -67,6 +67,9 @@ export function RfqForm({ context }: RfqFormProps) {
       const result = await res.json();
       if (result.success) {
         setSentOk(true);
+        if (typeof window !== 'undefined' && (window as any).gtag) {
+          (window as any).gtag('event', 'generate_lead', { form_source: 'model_rfq', source_page: window.location.pathname });
+        }
         form.reset();
         setStatus('Thank you, your message has been sent. We will get back to you shortly.');
       } else {

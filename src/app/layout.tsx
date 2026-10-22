@@ -53,6 +53,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZPJ9PXS32N" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-ZPJ9PXS32N');`,
+          }}
+        />
+      </head>
       <body className="antialiased bg-[#FAFAF7] text-[#1B1E20]">
         <Header />
         <main className="min-h-screen">{children}</main>

@@ -50,6 +50,9 @@ export function TiltRfqForm() {
       const json = await res.json().catch(() => ({}));
       if (res.ok && json.success) {
         setSentOk(true);
+        if (typeof window !== 'undefined' && (window as any).gtag) {
+          (window as any).gtag('event', 'generate_lead', { form_source: 'tilt_rfq', source_page: window.location.pathname });
+        }
         setStatus('Thank you. We have received your enquiry and will reply shortly.');
         form.reset();
       } else {

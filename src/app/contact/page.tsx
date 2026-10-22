@@ -64,6 +64,9 @@ export default function ContactPage() {
 
       if (data.success) {
         setStatus('success');
+        if (typeof window !== 'undefined' && (window as any).gtag) {
+          (window as any).gtag('event', 'generate_lead', { form_source: 'contact_page', source_page: window.location.pathname });
+        }
         setFormState({ name: '', company: '', email: '', product: '', message: '', botcheck: '' });
       } else {
         setStatus('error');

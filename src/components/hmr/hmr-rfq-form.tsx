@@ -100,6 +100,9 @@ export function HmrRfqForm() {
       const result = await res.json();
       if (result.success) {
         setSentOk(true);
+        if (typeof window !== 'undefined' && (window as any).gtag) {
+          (window as any).gtag('event', 'generate_lead', { form_source: 'hmr_rfq', source_page: window.location.pathname });
+        }
         form.reset();
         setReference('');
         setMessage('');
