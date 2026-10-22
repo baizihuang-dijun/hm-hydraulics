@@ -46,9 +46,9 @@ function comparableCellText(m: HmrModel, noteToSymbol: Map<string, string>): Rea
 }
 
 export const metadata: Metadata = {
-  title: 'Rotary Actuators',
+  title: 'Hydraulic Rotary Actuators — Helical, Block Mount, 125–76,000 Nm | HM',
   description:
-    'HMR1–HMR6 helical hydraulic rotary actuators. 54 standard configurations from 125 Nm to 76,000 Nm.',
+    'Helical hydraulic rotary actuators (rotary hydraulic cylinders) in foot, flange and block-mount styles — from small hydraulic rotary actuators to 76,000 Nm. HMR1–HMR6, 54 builds. Cross-reference Helac, HKS, Moveco.',
   alternates: { canonical: '/products/rotary-actuators' },
 };
 
@@ -118,6 +118,29 @@ const otherMechanisms = [
 
 const maxScale = Math.max(...hmrSeries.map((s) => s.torqueMax));
 
+const rotaryFaqs = [
+  {
+    q: 'What is the difference between a rotary actuator and a hydraulic motor?',
+    a: 'A hydraulic motor rotates continuously through unlimited turns, while a rotary actuator swings through a fixed angle — typically 90°, 180° or 360°. The helical design converts linear piston motion into that angular rotation, delivering high torque in a compact block-mount body for positioning, clamping and swing duties.',
+  },
+  {
+    q: 'How do I choose the right torque for a block-mount rotary actuator?',
+    a: 'Start from the load torque and duty cycle, then add a safety margin for shock and side loading. Confirm the working pressure, rotation angle and shaft or interface dimensions, and match the mounting envelope. Send the required torque, angle, pressure and a drawing — engineering confirms the HMR series and configuration.',
+  },
+  {
+    q: 'Are HMR actuators direct replacements for Helac, HKS, Moveco or Sungji units?',
+    a: 'Use the cross-reference tables as a starting point, not a guarantee of interchangeability. Torque and envelope can align, but shaft, port and mounting dimensions must be verified against the controlled drawing. Share the OEM model or drawing and HM confirms fit before order.',
+  },
+  {
+    q: 'What rotation angles are available?',
+    a: 'Standard HMR builds cover 90°, 180°, 220° and 360° depending on series — for example HMR2 is 180°, HMR5 is 90°, and HMR3/HMR4 offer 180°/360°. Multi-turn and non-standard angles are available on engineered builds.',
+  },
+  {
+    q: 'How are rotary actuators tested before shipment?',
+    a: 'Every rotary actuator is pressure-tested before shipment. A documented 1,000,000-cycle full-load endurance test at 150 bar was independently run on a large HMR-class helical unit in 2017. Pressure-test records, dimensional inspection reports and batch traceability are available on request.',
+  },
+];
+
 function jsonLd() {
   const items = HMR_SERIES_CODES.map((code, i) => ({
     '@type': 'Product',
@@ -169,6 +192,14 @@ function jsonLd() {
         ],
       },
       ...items,
+      {
+        '@type': 'FAQPage',
+        mainEntity: rotaryFaqs.map((f) => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: { '@type': 'Answer', text: f.a },
+        })),
+      },
     ],
   };
 }
@@ -216,6 +247,13 @@ export default function RotaryActuatorsPage() {
           <p className="text-lg text-[#4A4E54] leading-relaxed max-w-2xl">
             Helical hydraulic rotary actuators covering 125 Nm to 76,000 Nm across six standard HMR
             series, with foot, flange, and through-shaft configurations for industrial applications.
+          </p>
+          <p className="mt-4 text-base text-[#4A4E54] leading-relaxed max-w-2xl">
+            A rotary hydraulic actuator — the helical type is also called a helical hydraulic
+            rotary actuator or rotary hydraulic cylinder — converts hydraulic pressure into
+            high-torque angular rotation in a compact block-mount package. HM supplies six HMR series,
+            from small hydraulic rotary actuators for valves and aerial work platforms to heavy units
+            reaching 76,000 Nm for mining and drilling.
           </p>
           <p className="mt-4 text-sm text-[#5A6775]">
             Looking for a cross-reference to a specific Helac / HKS / Moveco / Sungji model?{' '}
@@ -395,6 +433,50 @@ export default function RotaryActuatorsPage() {
         </div>
       </section>
 
+      {/* Explainer: what it is + mounting styles */}
+      <section className="border-t border-[rgba(44,74,115,0.10)]">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20 grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div>
+            <h2 className="font-heading text-2xl md:text-3xl font-medium text-[#1B1E20] mb-4">
+              What Is a Helical Hydraulic Rotary Actuator?
+            </h2>
+            <p className="text-sm text-[#4A4E54] leading-relaxed">
+              A helical hydraulic rotary actuator (also called a rotary hydraulic cylinder) turns
+              linear piston motion into high-torque angular rotation through a helical spline. As
+              hydraulic oil drives the piston, internal helical gearing rotates the output shaft
+              — producing more torque in a smaller envelope than a rack-and-pinion design, with
+              no external linkage. That compact block-mount body is why helical rotary hydraulic
+              actuators are used where space is tight and torque is high: valve actuation, aerial
+              work platforms, mining and drilling equipment.
+            </p>
+            <p className="mt-4 text-sm">
+              <Link href="/alternatives" className="text-[#2C4A73] hover:underline">
+                Cross-reference Helac, HKS, Moveco or Sungji by model or OEM code &rarr;
+              </Link>
+            </p>
+          </div>
+          <div>
+            <h2 className="font-heading text-2xl md:text-3xl font-medium text-[#1B1E20] mb-4">
+              Mounting Styles: Rotary Actuator Block Mount, Foot, Flange &amp; Through-Shaft
+            </h2>
+            <p className="text-sm text-[#4A4E54] leading-relaxed">
+              HMR series are offered in four mounting styles. A rotary actuator block mount bolts
+              directly through the body for the most rigid, space-efficient installation and is the
+              common choice for a small hydraulic rotary actuator on compact machines. Foot mounts
+              suit a horizontal base, flange mounts locate on a machined face, and through-shaft
+              designs drive from both ends. To select one, confirm required torque, rotation angle,
+              working pressure and shaft interface, then match the envelope — send the drawing
+              and HM verifies the fit.
+            </p>
+            <p className="mt-4 text-sm">
+              <Link href="/quality" className="text-[#2C4A73] hover:underline">
+                Quality, pressure testing &amp; endurance validation &rarr;
+              </Link>
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Applications */}
       <section className="border-t border-[rgba(44,74,115,0.10)]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
@@ -459,6 +541,36 @@ export default function RotaryActuatorsPage() {
           >
             Contact engineering
           </Link>
+        </div>
+      </section>
+
+
+      {/* FAQ */}
+      <section className="border-t border-[rgba(44,74,115,0.10)] bg-[#FAFAF7]">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
+          <p className="eyebrow mb-4">Buying guide</p>
+          <h2 className="font-heading text-2xl md:text-3xl font-medium text-[#1B1E20] mb-8">
+            Frequently Asked Questions
+          </h2>
+          <div className="max-w-3xl space-y-8">
+            {rotaryFaqs.map((f) => (
+              <div key={f.q}>
+                <h3 className="font-heading text-lg font-medium text-[#1B1E20] mb-2">{f.q}</h3>
+                <p className="text-sm text-[#4A4E54] leading-relaxed">{f.a}</p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-10 text-sm text-[#4A4E54]">
+            Still comparing models?{' '}
+            <Link href="/alternatives" className="text-[#2C4A73] hover:underline">
+              Browse the cross-reference guide
+            </Link>{' '}
+            or{' '}
+            <Link href="/quality" className="text-[#2C4A73] hover:underline">
+              read about quality &amp; pressure testing
+            </Link>
+            .
+          </p>
         </div>
       </section>
 
