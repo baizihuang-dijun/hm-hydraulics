@@ -78,7 +78,7 @@ export default function AboutPage() {
                 Production Coordination
               </h3>
               <p className="text-sm text-[#4A4E54]">
-                Coordinate manufacturing through qualified capabilities with ISO9001 oversight.
+                Coordinate manufacturing through qualified, ISO 9001-certified production partners.
               </p>
             </div>
             <div className="p-5 border border-[rgba(44,74,115,0.10)] rounded-md">
@@ -285,8 +285,7 @@ export default function AboutPage() {
               Quality-first, always
             </h2>
             <p className="text-[#4A4E54] leading-relaxed mb-6">
-              ISO9001 certified. 8+ patents. 1,000,000-cycle fatigue validated.
-              Every unit tested before shipment with full traceability.
+              Built through ISO 9001-certified production partners. Documented 1,000,000-cycle endurance validation on a large HMR-class rotary actuator. Every unit pressure-tested before shipment with full batch traceability.
             </p>
             <Link
               href="/quality"

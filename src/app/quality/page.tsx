@@ -13,19 +13,19 @@ const milestones = [
     phase: 'Phase 1',
     title: 'Production Planning & Quality Management',
     description:
-      'Each unit produced under ISO9001 quality management system. Unique Production Order ID assigned per sales order, linking BOM, work orders, and inspection records.',
+      'Manufactured through ISO 9001-certified partner facilities. Each sales order gets a unique Production Order ID linking the controlled drawing revision, BOM, routing and inspection records.',
   },
   {
     phase: 'Phase 2',
     title: 'Pre-Shipment Testing',
     description:
-      'Every unit undergoes comprehensive testing: start-up pressure, rotation angle, internal/external leakage, low-speed crawling, and return-to-zero confirmation.',
+      'Every rotary actuator follows a controlled routing — turning, grinding, gear cutting and assembly — with self, peer and QC inspection at each step. Nonconformances are logged with disposition and corrective action before they can flow downstream.',
   },
   {
     phase: 'Phase 3',
     title: 'Independent Fatigue Validation',
     description:
-      '1,000,000-cycle full-load fatigue test at 150 bar, independently conducted by an international customer. Result: PASSED with zero actuator failures.',
+      'Documented 1,000,000-cycle full-load endurance test at 150 bar on a helical rotary actuator, run independently by an overseas customer in 2017. PASSED with no structural damage and zero actuator failures.',
   },
   {
     phase: 'Phase 4',
@@ -75,10 +75,10 @@ export default function QualityPage() {
             <div>
               <p className="eyebrow text-[#2C4A73] mb-4">FATIGUE VALIDATION</p>
               <h2 className="font-heading text-2xl md:text-3xl font-medium text-[#1B1E20] mb-4">
-                1,000,000-Cycle Fatigue Test
+                1,000,000-Cycle Rotary Actuator Endurance Test
               </h2>
               <p className="text-[#4A4E54] leading-relaxed mb-6">
-                Our HMR helical rotary actuator series (HMR1–HMR6) has passed a 1,000,000-cycle full-load fatigue test at 150 bar. The test was conducted independently by an international customer and confirmed zero actuator failures.
+                Our helical rotary actuator design completed a documented 1,000,000-cycle full-load endurance test at 150 bar, run independently by an overseas customer from May to July 2017 on a large HMR-class unit built against an HKS-level benchmark. The customer&apos;s own test-rig mechanical load arm failed from metal fatigue at 600,000 cycles — the actuator completed all 1,000,000. Full teardown showed no structural damage and zero actuator failures, with only marginal end-cap seepage near the end of the run. The full test report is available on request.
               </p>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
                 <div className="p-4 border border-[rgba(44,74,115,0.10)] rounded-md text-center">
@@ -99,13 +99,13 @@ export default function QualityPage() {
                 </div>
               </div>
               <p className="text-xs text-[#62666C]">
-                Test report available upon request.
+                Tested on a large HMR-class helical rotary actuator by an independent overseas customer in 2017. Report available on request.
               </p>
             </div>
             <div className="relative aspect-[4/3] rounded-md overflow-hidden border border-[rgba(44,74,115,0.10)]">
               <img
                 src="/images/quality/Q2.jpg"
-                alt="Hydraulic actuator on fatigue test bench"
+                alt="Large rotary actuator mounted on a hydraulic test bench"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -233,7 +233,7 @@ export default function QualityPage() {
             Measured, recorded, and traceable
           </h2>
           <p className="text-[#4A4E54] leading-relaxed max-w-3xl mb-10">
-            Components are inspected during production and before shipment using calibrated measuring equipment. Results are recorded against each Production Order ID.
+            Components are inspected during production and before shipment using calibrated measuring equipment. Results, measured values and lot photos are archived against each Production Order ID for warranty and claim support.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -247,7 +247,7 @@ export default function QualityPage() {
             <div className="relative aspect-[4/3] rounded-md overflow-hidden border border-[rgba(44,74,115,0.10)]">
               <img
                 src="/images/factory/batch-iso.jpg"
-                alt="Batch finished products with ISO9001 certification"
+                alt="Batch of finished rotary actuators prepared for shipment"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -266,18 +266,18 @@ export default function QualityPage() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             <div className="p-6 border border-[rgba(44,74,115,0.10)] rounded-md">
               <h3 className="font-heading text-lg font-medium text-[#1B1E20] mb-2">
-                ISO9001:2015
+                Certified Production Partners
               </h3>
               <p className="text-sm text-[#4A4E54] leading-relaxed">
-                Certified quality management system applied across the production coordination process.
+                Rotary actuators are manufactured in partner facilities certified to ISO 9001:2015. We coordinate quality planning, incoming inspection and document control on every order.
               </p>
             </div>
             <div className="p-6 border border-[rgba(44,74,115,0.10)] rounded-md">
               <h3 className="font-heading text-lg font-medium text-[#1B1E20] mb-2">
-                8+ Patents
+                Engineering Documentation
               </h3>
               <p className="text-sm text-[#4A4E54] leading-relaxed">
-                Utility model patents for helical rotary actuator mechanisms. Software copyrights for control systems and testing procedures.
+                Controlled drawing releases, dimensional drawings, torque verification and mounting interface documentation, backed by application engineering support.
               </p>
             </div>
             <div className="p-6 border border-[rgba(44,74,115,0.10)] rounded-md">
@@ -300,7 +300,7 @@ export default function QualityPage() {
               Request quality documentation
             </h2>
             <p className="text-[#4A4E54] leading-relaxed mb-6">
-              We can provide test reports, certification copies, and detailed traceability records for any order.
+              Request pressure test records, dimensional inspection reports and batch traceability documentation for any order.
             </p>
             <Link
               href="/contact"

@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'HM Hydraulics — Hydraulic Rotary Actuators & Components',
     description:
-      'Technical sourcing partner for core hydraulic components. 1M+ cycle fatigue tested. ISO9001 certified.',
+      'Technical sourcing partner for core hydraulic components. 1,000,000-cycle endurance documented. Every rotary actuator pressure-tested before shipment.',
   },
   icons: {
     icon: '/favicon.svg',
