@@ -49,6 +49,7 @@ export const metadata: Metadata = {
   title: 'Rotary Actuators',
   description:
     'HMR1–HMR6 helical hydraulic rotary actuators. 54 standard configurations from 125 Nm to 76,000 Nm.',
+  alternates: { canonical: '/products/rotary-actuators' },
 };
 
 const hmrSeries = [
