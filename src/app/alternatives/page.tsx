@@ -183,6 +183,40 @@ export default function AlternativesHubPage() {
               </p>
             </Link>
           </div>
+
+          <p className="font-label text-xs text-[#62666C] uppercase tracking-wider mt-12 mb-3">
+            Selection &amp; engineering guides
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <Link
+              href="/alternatives/how-to-identify"
+              className="block rounded-lg border border-[rgba(44,74,115,0.14)] bg-white p-5 no-underline hover:border-[#2C4A73] transition-colors"
+            >
+              <p className="font-heading text-base font-medium text-[#1B1E20]">How to identify your actuator</p>
+              <p className="text-xs text-[#62666C] mt-1 leading-relaxed">Model tag, serial number and code breakdown.</p>
+            </Link>
+            <Link
+              href="/alternatives/rotary-actuator-types"
+              className="block rounded-lg border border-[rgba(44,74,115,0.14)] bg-white p-5 no-underline hover:border-[#2C4A73] transition-colors"
+            >
+              <p className="font-heading text-base font-medium text-[#1B1E20]">Rotary actuator types</p>
+              <p className="text-xs text-[#62666C] mt-1 leading-relaxed">Helical vs rack &amp; pinion vs vane.</p>
+            </Link>
+            <Link
+              href="/alternatives/rotary-actuator-vs-motor"
+              className="block rounded-lg border border-[rgba(44,74,115,0.14)] bg-white p-5 no-underline hover:border-[#2C4A73] transition-colors"
+            >
+              <p className="font-heading text-base font-medium text-[#1B1E20]">Actuator vs motor vs slew drive</p>
+              <p className="text-xs text-[#62666C] mt-1 leading-relaxed">Match the component to the motion.</p>
+            </Link>
+            <Link
+              href="/alternatives/rotary-actuator-troubleshooting"
+              className="block rounded-lg border border-[rgba(44,74,115,0.14)] bg-white p-5 no-underline hover:border-[#2C4A73] transition-colors"
+            >
+              <p className="font-heading text-base font-medium text-[#1B1E20]">Troubleshooting</p>
+              <p className="text-xs text-[#62666C] mt-1 leading-relaxed">Drift, weak torque, leaks and noise.</p>
+            </Link>
+          </div>
         </div>
       </section>
 

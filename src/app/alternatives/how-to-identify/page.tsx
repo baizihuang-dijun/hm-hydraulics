@@ -335,11 +335,11 @@ export default function HowToIdentifyPage() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <Link
-              href="/alternatives"
+              href="/alternatives/rotary-actuator-types"
               className="block p-6 border border-[rgba(44,74,115,0.10)] rounded-md bg-white no-underline hover:border-[rgba(44,74,115,0.25)] transition-colors"
             >
-              <h3 className="font-heading text-lg font-medium text-[#1B1E20] mb-2">Helac Replacement Guide</h3>
-              <p className="text-sm text-[#4A4E54] leading-relaxed">Browse replacement actuators by Helac series.</p>
+              <h3 className="font-heading text-lg font-medium text-[#1B1E20] mb-2">Rotary Actuator Types</h3>
+              <p className="text-sm text-[#4A4E54] leading-relaxed">Helical, rack-and-pinion and vane designs compared.</p>
             </Link>
             <Link
               href="/alternatives/cross-reference-guide"
@@ -349,11 +349,11 @@ export default function HowToIdentifyPage() {
               <p className="text-sm text-[#4A4E54] leading-relaxed">Match OEM part numbers to the right replacement.</p>
             </Link>
             <Link
-              href="/alternatives/rebuild-vs-replacement"
+              href="/alternatives/rotary-actuator-troubleshooting"
               className="block p-6 border border-[rgba(44,74,115,0.10)] rounded-md bg-white no-underline hover:border-[rgba(44,74,115,0.25)] transition-colors"
             >
-              <h3 className="font-heading text-lg font-medium text-[#1B1E20] mb-2">Rebuild vs Replacement</h3>
-              <p className="text-sm text-[#4A4E54] leading-relaxed">Compare costs, downtime, and risk factors.</p>
+              <h3 className="font-heading text-lg font-medium text-[#1B1E20] mb-2">Troubleshooting Guide</h3>
+              <p className="text-sm text-[#4A4E54] leading-relaxed">Diagnose drift, weak torque, leaks and noise.</p>
             </Link>
           </div>
         </div>
