@@ -138,9 +138,13 @@ export function ModelPage({ d, related }: { d: ModelData; related: { slug: strin
     ],
   };
 
+  // HM is a quote-based B2B maker with no public price, so this is emitted as a Service
+  // rather than schema.org Product: Product rich results require offers/rating we cannot
+  // honestly provide. Identification and spec data stays machine-readable for GEO/entities.
   const productJsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'Product',
+    '@type': 'Service',
+    serviceType: 'Sourcing and supply of a replacement hydraulic rotary actuator',
     name: d.catalogBuild
       ? `Replacement rotary actuator for Helac ${d.model} (catalog configuration)`
       : d.modelCodeUnverified
@@ -148,15 +152,13 @@ export function ModelPage({ d, related }: { d: ModelData; related: { slug: strin
       : d.sourcingOnly
       ? `Sourcing / alternative supply for ${ob} ${d.model}`
       : `Replacement rotary actuator for ${ob} ${d.model}`,
-    category: 'Hydraulic rotary actuator',
     image: `${SITE}${resolvedImage}`,
     description: d.catalogBuild
       ? `${d.intro} Configuration derived from HY34-1001; engineering data per ${d.catalogSpec?.source ?? 'published Helac tables'}; exact configuration and compatibility confirmed against the original unit tag and mounting drawings.`
       : d.sourcingOnly
       ? `${d.intro} HM offers sourcing and alternative-supply support; original brand and interchangeability are not claimed without verification; exact configuration and mounting are confirmed on inquiry.`
       : `${d.intro} Exact HM model confirmed on inquiry.`,
-    brand: { '@type': 'Brand', name: 'HM Hydraulics' },
-    manufacturer: {
+    provider: {
       '@type': 'Organization',
       name: 'HM Hydraulics — Qingdao Hydraulic Machinery Co., Ltd.',
       url: SITE,

@@ -146,7 +146,9 @@ export const modelPages: ModelData[] = [
     weight: '12 kg',
     brands: ['Sandvik'],
     parts: ['76350014', 'BG00568383'],
-    machines: [],
+    // 76350014 historically cross-matched to DS311/DS2710 (online parts leads, not independently
+    // OEM-verified); BG00568383 has no confirmed machine, so both are shown as associated refs only.
+    machines: ['DS311', 'DS2710'],
     image: '/images/atlas-copco/l10-3-0-s-rf-180-s1-0-h-rotary-actuator.webp',
     imageW: 909,
     imageH: 603,
@@ -245,7 +247,9 @@ export const modelPages: ModelData[] = [
     weight: '27 kg',
     brands: ['Sandvik'],
     parts: ['76350011'],
-    machines: [],
+    // Historical online match to DS311/DS2710 (not independently OEM-verified this round);
+    // emitted as an associated reference, fit confirmed against the unit tag before quoting.
+    machines: ['DS311', 'DS2710'],
     image: '/images/alternatives/hp-15-s-ft-180.jpg',
     imageW: 214,
     imageH: 217,
@@ -504,7 +508,8 @@ export const modelPages: ModelData[] = [
     weight: '140 kg',
     brands: ['Atlas'],
     parts: ['3128341070'],
-    machines: [],
+    // Atlas Copco / Epiroc parts catalogue lists 3128341070 per-number on the Boomer S1 D.
+    machines: ['Boomer S1 D'],
     image: '/images/atlas-copco/l40-110-m-rf-360-s1-c-h-rotary-actuator.webp',
     imageW: 1600,
     imageH: 857,
@@ -1546,8 +1551,10 @@ export const modelPages: ModelData[] = [
     rotation: '360°',
     weight: '285.8 kg',
     brands: ['Atlas'],
-    parts: ['3128314313'],
-    machines: ['Simba S7D', 'Simba H1257'],
+    parts: ['3128314313', '3128325839'],
+    // 3128325839 is the MS (metric special-port) build of this L30-125 foot-mount family,
+    // listed per-number for the Boltec MC in the Atlas Copco / Epiroc parts catalogue.
+    machines: ['Simba S7D', 'Simba H1257', 'Boltec MC'],
     image: '/images/atlas-copco/l30-125-m-ft-360-s1-c-h-rotary-actuator.webp',
     imageW: 1600,
     imageH: 1200,
@@ -1716,7 +1723,9 @@ export const modelPages: ModelData[] = [
     weight: '255 kg',
     brands: ['Sandvik'],
     parts: ['BG00334414'],
-    machines: [],
+    // Historical online cross-match to DD321 (not independently verified this round);
+    // shown as an associated machine reference only.
+    machines: ['DD321'],
     image: '/images/sandvik/eckart-sz-sm3-215-357-bg00334414-rotary-actuator.webp',
     imageW: 1600,
     imageH: 1200,
@@ -1749,7 +1758,9 @@ export const modelPages: ModelData[] = [
     weight: '255 kg',
     brands: ['Sandvik'],
     parts: ['BG00334337'],
-    machines: [],
+    // Historical online cross-match to DD321 (not independently verified this round);
+    // shown as an associated machine reference only.
+    machines: ['DD321'],
     image: '/images/sandvik/eckart-sz-sm3-170-357-bg00334337-rotary-actuator.webp',
     imageW: 1440,
     imageH: 810,

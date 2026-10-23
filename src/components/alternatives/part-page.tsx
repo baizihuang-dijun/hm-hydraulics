@@ -82,12 +82,15 @@ export function PartPage({ g }: { g: OemPartGroup }) {
         ],
       },
       {
-        '@type': 'Product',
+        // HM is a quote-based B2B maker with no public price, so this is emitted as a
+        // Service (not a schema.org Product): Product rich results require offers/rating
+        // we cannot honestly provide. Identification/spec data is kept machine-readable.
+        '@type': 'Service',
         name: `${g.brand} ${g.primary} replacement rotary actuator`,
+        serviceType: 'Sourcing and supply of a replacement hydraulic rotary actuator',
         description: g.lead,
-        brand: { '@type': 'Brand', name: 'HM Hydraulics' },
+        provider: { '@type': 'Organization', name: 'HM Hydraulics' },
         image: `https://www.hmhydraulics.com${g.image}`,
-        category: 'Hydraulic rotary actuator',
         // Machine fitment is reference-only cross-reference data for lead generation; HM confirms
         // fitment privately per inquiry before quoting. It is emitted as a DESCRIPTIVE PropertyValue
         // (never schema.org isCompatibleWith), so machine models stay machine-readable for SEO/entities

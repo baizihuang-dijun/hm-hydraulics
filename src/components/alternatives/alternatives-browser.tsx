@@ -338,7 +338,7 @@ function Chip({
         active ? activeCls : idleCls
       }`}
     >
-      {name} <span className="ml-1.5 opacity-70">{count}</span>
+      {name}
     </button>
   );
 }

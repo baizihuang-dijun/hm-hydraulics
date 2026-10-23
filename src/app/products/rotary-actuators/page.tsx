@@ -142,11 +142,14 @@ const rotaryFaqs = [
 ];
 
 function jsonLd() {
+  // Emitted as Service (not Product): quote-based sales carry no public offers/rating,
+  // which schema.org Product rich results require. Spec data is retained for entities/GEO.
   const items = HMR_SERIES_CODES.map((code, i) => ({
-    '@type': 'Product',
+    '@type': 'Service',
     name: code,
+    serviceType: `${code} helical hydraulic rotary actuator series`,
     description: `${code} helical hydraulic rotary actuator series`,
-    brand: { '@type': 'Brand', name: 'HM Hydraulics' },
+    provider: { '@type': 'Organization', name: 'HM Hydraulics' },
     hasVariant: HMR_ALL_DATA.models
       .filter((m) => m.series === code)
       .map((m) => {
@@ -171,10 +174,11 @@ function jsonLd() {
           props.push({ '@type': 'PropertyValue', name: 'Comparable note', value: m.comparableNote });
         }
         return {
-          '@type': 'Product',
+          '@type': 'Service',
           name: m.hmr,
+          serviceType: 'Hydraulic rotary actuator',
           description: `Rated driving torque ${m.drivingNm} Nm at ${HMR_ALL_DATA.series[code].pressureBar} bar`,
-          brand: { '@type': 'Brand', name: 'HM Hydraulics' },
+          provider: { '@type': 'Organization', name: 'HM Hydraulics' },
           additionalProperty: props,
         };
       }),
