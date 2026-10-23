@@ -11,7 +11,7 @@ const staticRoutes = [
   '',
   '/products',
   '/products/rotary-actuators',
-  '/products/rotary-actuators/hmr4',
+  // HMR4 is a JS-redirect stub canonicalised to the rotary series page; keep it out of the sitemap.
   '/products/slew-drives',
   '/products/tilt-actuators',
   '/solutions',
