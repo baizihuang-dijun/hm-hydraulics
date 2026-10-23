@@ -3,7 +3,8 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Slew Drives',
-  description: 'Precision slew drives — coming soon to the HM Hydraulics product range.',
+  description:
+    'Worm-gear slew drives for rotational positioning on mining and construction equipment. HM Hydraulics is preparing this range — sourcing enquiries welcome.',
   alternates: { canonical: '/products/slew-drives' },
 };
 
