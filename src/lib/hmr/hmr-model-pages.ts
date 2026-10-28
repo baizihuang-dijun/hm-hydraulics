@@ -7,6 +7,22 @@
  * dynamic route params to avoid generating the same path twice.
  */
 export const HMR_MODEL_PAGE_CODES = [
+  // HMR1 — flange mount, 210 bar, 90° / 180° / 270° / 360°
+  'HMR1-020',
+  'HMR1-035',
+  'HMR1-065',
+  'HMR1-135',
+  'HMR1-250',
+  'HMR1-500',
+  'HMR1-700',
+  'HMR1-1100',
+  'HMR1-1600',
+  'HMR1-2200',
+  'HMR1-3200',
+  'HMR1-3900',
+  'HMR1-4400',
+  'HMR1-6000',
+  'HMR1-7600',
   // HMR2 — foot mount, 210 bar, 180°
   'HMR2-050',
   'HMR2-095',

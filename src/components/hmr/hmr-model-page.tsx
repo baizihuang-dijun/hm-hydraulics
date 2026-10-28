@@ -26,6 +26,7 @@ const MOUNT_PHRASE: Record<string, string> = {
 };
 
 const MOUNT_PHRASE_BY_SERIES: Record<string, string> = {
+  'HMR1-FL': 'flange mount',
   'HMR6-FT': 'straddle mount',
   'HMR5-FL': 'valve mounting flange',
 };
@@ -46,6 +47,16 @@ const SERIES_META: Record<
   string,
   { label: string; family: string; duty: string; angleNote: string; pressureNote: string }
 > = {
+  HMR1: {
+    label: 'flange-mount',
+    family: 'Helical, flange-mount family',
+    duty:
+      'general positioning, swing and clamping duties where the actuator face-bolts to a machined flange on the machine, and the same housing is specified across four standard rotations',
+    angleNote:
+      'HMR1 covers 90°, 180°, 270° and 360° as standard rotations; the flange mount is implicit in the order code.',
+    pressureNote:
+      'HMR1 is rated at 210 bar continuous; the flange pilot diameter and bolt circle are what decide whether the unit sits square on your existing bracket.',
+  },
   HMR2: {
     label: 'foot-mount',
     family: 'Helical, foot-mount family',
