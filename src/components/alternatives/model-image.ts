@@ -58,11 +58,22 @@ const REPRESENTATIVE_STEMS = new Set<string>([
   'l10-3-0-e-rf-180',
   'l30-42-m-ft-180',
   'l40-110-m-rf-360',
+  // Same SRA-110 frame photographed on the 360° build; the 240° record reuses it
+  // as a clearly labelled representative reference, never as the exact unit.
+  'putzmeister-sra-110-360-co-rf-sh-n',
 ]);
 
 function stemMatchesModel(stem: string, model: string): boolean {
   let code = stem;
-  for (const prefix of ['helac-', 'hks-', 'moveco-', 'sungji-', 'eckart-']) {
+  for (const prefix of [
+    'helac-',
+    'hks-',
+    'moveco-',
+    'sungji-',
+    'eckart-',
+    'putzmeister-',
+    'resemin-',
+  ]) {
     if (code.startsWith(prefix)) {
       code = code.slice(prefix.length);
       break;
@@ -107,7 +118,10 @@ export function resolveModelAlt(record: ModelData): string {
     return `${record.model} rotary actuator — correct unit drawing available on request`;
   }
   if (tier === 'representative') {
-    return `${record.originBrand ?? 'Helac'} ${record.series} class rotary actuator — representative reference`;
+    // Hand-written alts already state what the photo shows and that it is not the
+    // exact unit; prefer them over the generic template.
+    if (record.imageAlt) return record.imageAlt;
+    return `${record.series} class rotary actuator — representative reference`;
   }
   return record.imageAlt;
 }

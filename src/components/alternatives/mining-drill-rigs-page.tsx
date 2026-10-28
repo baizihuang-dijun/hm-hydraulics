@@ -37,7 +37,7 @@ const slugByModelCode: Record<string, string | undefined> = {
   'BG01035613 (DD321-40 unit)': 'sandvik-bg01035613-rotary-actuator',
   'L10-3.0-M-RF-360-S1-C-H (RESEMIN)': 'resemin-l10-3-0-m-rf-360-s1-c-h',
   'L40-110-M-FT-220/185-S1-C-H (RESEMIN)': 'resemin-l40-110-m-ft-220-185-s1-c-h',
-  'L40-110-M-RL/RF-360-S1-C-H (RESEMIN)': 'l40-110-m-rf-360-s1-c-h',
+  'L40-110-M-RL/RF-360-S1-C-H (RESEMIN)': 'resemin-l40-110-m-rlrf-360-s1-c-h',
   'SRA-110-360-CO-RF-SH-N (Putzmeister)': 'putzmeister-sra-110-360-co-rf-sh-n',
 };
 

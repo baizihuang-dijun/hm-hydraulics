@@ -36,6 +36,11 @@ export interface OemPartGroup {
   lead: string;
   /** Additional photos (e.g. the same build under its newer number), optional. */
   extraImages?: string[];
+  /**
+   * Bare actuator model-code page this OEM number maps to (cross-link, reference only).
+   * Fitment is still confirmed per inquiry; this is an identification aid, not a fit claim.
+   */
+  bareModel?: { slug: string; label: string };
 }
 
 const img = (dir: 'jlg' | 'genie', f: string) => `/images/${dir}/${f}-rotary-actuator.png`;
@@ -184,6 +189,18 @@ export const oemPartGroups: OemPartGroup[] = [
     machines: ['1200SJP', '1250AJP', '1350SJP'],
     image: img('jlg', '1001178247'),
     lead: 'Replacement helical rotary actuator reported on JLG Ultra Boom 1200SJP, 1250AJP and 1350SJP platforms.',
+  },
+  {
+    slug: '1001307707',
+    brand: 'JLG',
+    primary: '1001307707',
+    allNumbers: ['1001307707', '1001119369', '0060044'],
+    numberNote:
+      '1001307707 · 1001119369 also marked on the unit · 0060044 is the JLG service-listing number for the same jib actuator (Helac 300N / 4.5K build)',
+    machines: ['E400AJPN'],
+    image: img('jlg', '1001307707'),
+    lead: 'Replacement helical rotary actuator with integral control valve reported on the JLG E400AJPN electric articulating boom lift jib function.',
+    bareModel: { slug: 'l20-4-5-e-ft-180-s1-c-h', label: 'L20-4.5-E-FT-180-S1-C-H' },
   },
 ];
 

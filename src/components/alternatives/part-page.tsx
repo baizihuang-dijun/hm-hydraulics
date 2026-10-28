@@ -185,6 +185,25 @@ export function PartPage({ g }: { g: OemPartGroup }) {
               </div>
             ) : null}
 
+            {g.bareModel ? (
+              <div className="rounded-lg border border-[rgba(44,74,115,0.14)] bg-[#FAFAF7] p-4 mb-6">
+                <p className="font-label text-xs uppercase tracking-wider text-[#62666C] mb-1.5">
+                  Reference actuator build
+                </p>
+                <p className="text-sm text-[#4A4E54] leading-relaxed m-0">
+                  This assembly maps to the bare model code{' '}
+                  <Link
+                    href={`/alternatives/${g.bareModel.slug}`}
+                    className="font-medium text-[#2C4A73] hover:underline"
+                  >
+                    {g.bareModel.label}
+                  </Link>{' '}
+                  for identification. Verify the rotation, mounting and the valve/seal suffix against
+                  your tag — production revisions can change the final suffix.
+                </p>
+              </div>
+            ) : null}
+
             <p className="text-sm text-[#4A4E54] leading-relaxed">
               Independently supplied replacement unit engineered to match the interface and performance of
               the original. {g.brand} numbers are used for identification only.{' '}

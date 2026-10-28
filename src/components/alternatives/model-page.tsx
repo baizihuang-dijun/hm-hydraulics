@@ -111,6 +111,21 @@ export function ModelPage({ d, related }: { d: ModelData; related: { slug: strin
     ...(d.torque ? [{ label: 'Rated torque', value: d.torque, mono: false }] : []),
     ...(d.weight ? [{ label: 'Weight', value: d.weight, mono: false }] : []),
     ...(d.parts.length ? [{ label: 'Original part no.', value: listJoin(d.parts), mono: true }] : []),
+    ...(d.catalogSpec?.pressureBar
+      ? [
+          {
+            label: 'Rated pressure',
+            value:
+              d.catalogSpec.pressureBar === 207
+                ? '3000 psi (207 bar)'
+                : `${d.catalogSpec.pressureBar} bar`,
+            mono: false,
+          },
+        ]
+      : []),
+    ...(d.catalogSpec?.mountingStyles
+      ? [{ label: 'Mounting', value: d.catalogSpec.mountingStyles, mono: false }]
+      : []),
   ];
 
   const partLabel = d.parts.length
@@ -479,6 +494,9 @@ export function ModelPage({ d, related }: { d: ModelData; related: { slug: strin
                   {item.value}
                 </dd>
               </div>
+            ))}
+            {Array.from({ length: (3 - (quickRef.length % 3)) % 3 }).map((_, i) => (
+              <div key={`filler-${i}`} className="bg-white" aria-hidden="true" />
             ))}
           </dl>
         </div>

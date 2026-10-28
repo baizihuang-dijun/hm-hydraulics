@@ -2759,7 +2759,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'SRA-080-180-CN-RF-SH-N-I',
     slug: 'sungji-sra-080-180-cn-rf-sh-n-i',
-    series: 'SRA (L10 class, rear flange)',
+    series: 'SRA',
     seriesSlug: '',
     rotation: '180°',
     weight: '7.1 kg @180°',
@@ -2794,7 +2794,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'SRA-110-180-CN-RF-SH-N-I',
     slug: 'sungji-sra-110-180-cn-rf-sh-n-i',
-    series: 'SRA (L10 class, rear flange)',
+    series: 'SRA',
     seriesSlug: '',
     rotation: '180°',
     weight: '14.8 kg @180°',
@@ -3672,20 +3672,21 @@ export const modelPages: ModelData[] = [
     brands: ['RESEMIN'],
     parts: [],
     machines: [],
-    image: '/images/products/hm-model-placeholder.png',
+    image: '/images/resemin/resemin-l10-3-0-m-rf-360-s1-c-h.png',
     imageW: 1200,
-    imageH: 900,
-    imageAlt: 'Compact helical hydraulic rotary actuator, L10-3.0 class rear-flange build for RESEMIN equipment (representative image)',
+    imageH: 800,
+    imageAlt: 'Batch of compact L10-3.0 class 360-degree rear-flange helical rotary actuators with flange faces and side ports, reference units for RESEMIN equipment',
     sourcingOnly: true,
     hideSeriesLink: true,
+    catalogSpec: { pressureBar: 207, mountingStyles: 'RF rear flange', source: 'Reference actuator nameplate (3000 psi / 207 bar rating); verify against the tag on your unit' },
     intro:
-      'The L10-3.0-M-RF-360-S1-C-H is a compact 360-degree, rear-flange (RF) helical rotary actuator in the Helac L10-3.0 class, recorded in connection with RESEMIN drilling equipment. No separate OEM part number is published for this reference; it is identified by the actuator model code rather than a machine part number. HM provides technical selection and sourcing / alternative-supply support and confirms the exact build, ports and mounting against your actuator nameplate before quotation; we do not promise stock, lead time or a pre-verified interchangeable unit from the code alone.',
+      'The L10-3.0-M-RF-360-S1-C-H is a compact 360-degree, rear-flange (RF) helical rotary actuator in the Helac L10-3.0 class, rated at 3000 psi (about 207 bar) and recorded in connection with RESEMIN drilling equipment. The reference nameplate confirms the full code L10-3.0-M-RF-360-S1-C-H; no separate machine OEM part number is published for it, so it is identified by the actuator model code. HM provides technical selection and sourcing / alternative-supply support and confirms the exact build, ports and mounting against your actuator nameplate before quotation; we do not promise stock, lead time or a pre-verified interchangeable unit from the code alone.',
     crossNote:
-      'This is a model-code sourcing entry for an L10-3.0 class rear-flange 360-degree unit; no OEM cross-reference number is available in the source. Rotation, mounting, shaft and port options vary within the L10-3.0 family and are checked against your nameplate and drawing before any alternative is recommended.',
+      'This is a model-code sourcing entry for an L10-3.0 class rear-flange 360-degree unit; the reference nameplate confirms the code but no machine cross-reference number is published. Rotation, mounting, shaft and port options vary within the L10-3.0 family and are checked against your nameplate and drawing before any alternative is recommended.',
     extraFaqs: [
       {
         q: 'Does RESEMIN publish an OEM part number for the L10-3.0-M-RF-360?',
-        a: 'No separate machine OEM part number is published in the available reference; the unit is identified by the actuator model code L10-3.0-M-RF-360-S1-C-H. Order or enquire using that full code, and send a nameplate photo so we confirm the exact build.',
+        a: 'No separate machine OEM part number is published in the available reference; the unit is identified by the actuator model code L10-3.0-M-RF-360-S1-C-H (the reference tag is rated 3000 psi). Order or enquire using that full code, and send a nameplate photo so we confirm the exact build.',
       },
       {
         q: 'Can HM supply an L10-3.0-M-RF-360-S1-C-H for RESEMIN equipment?',
@@ -3702,25 +3703,30 @@ export const modelPages: ModelData[] = [
     weight: '',
     brands: ['RESEMIN'],
     parts: [],
-    machines: [],
-    image: '/images/products/hm-model-placeholder.png',
+    machines: ['RESEMIN Troidon 66'],
+    image: '/images/resemin/resemin-l40-110-m-ft-220-185-s1-c-h.png',
     imageW: 1200,
-    imageH: 900,
-    imageAlt: 'Heavy-duty helical hydraulic rotary actuator, L40-110 class foot-mount dual-angle build for RESEMIN equipment (representative image)',
+    imageH: 800,
+    imageAlt: 'Heavy-duty L40-110 class foot-mount helical rotary actuator with valve package in export foam and crate packing, reference unit for RESEMIN drilling equipment',
     sourcingOnly: true,
     hideSeriesLink: true,
+    catalogSpec: { pressureBar: 207, mountingStyles: 'FT foot mount', source: 'Reference actuator nameplate on the RESEMIN Troidon 66 installation (3000 psi / 207 bar); verify against the tag on your unit' },
     intro:
-      'The L40-110-M-FT-220/185-S1-C-H is a heavy-duty foot-mount (FT) helical rotary actuator in the Helac L40-110 class, built in 220-degree and 185-degree mining rotation angles and recorded in connection with RESEMIN drilling equipment. No separate OEM part number is published for this reference; it is identified by the actuator model code. HM provides technical selection and sourcing / alternative-supply support and confirms the rotation angle, foot mounting, ports and shaft against your actuator nameplate and drawing before quotation; we do not promise stock or a pre-verified interchangeable unit from the code alone.',
+      'The L40-110-M-FT-220/185-S1-C-H is a heavy-duty foot-mount (FT) helical rotary actuator in the Helac L40-110 class, rated at 3000 psi (about 207 bar), built in 220-degree and 185-degree mining rotation angles and recorded on the RESEMIN Troidon 66 long-hole drill rig. The reference nameplate for that installation reads L40-110-M-FT-220-S1-C-H; the model family is documented with both 220 and 185-degree angles. It is identified by the actuator model code rather than a separate machine part number. HM provides technical selection and sourcing / alternative-supply support and confirms the rotation angle, foot mounting, ports and shaft against your nameplate and drawing before quotation; we do not promise stock or a pre-verified interchangeable unit from the code alone.',
     crossNote:
-      'This is a model-code sourcing entry for an L40-110 class foot-mount unit offered in 220/185-degree rotations; no OEM cross-reference number is available in the source. The 220-degree and 185-degree builds differ in end-stop geometry and are not interchangeable, and FT mounting differs from the RF build; the exact angle and mount are checked against your nameplate before any alternative is recommended.',
+      'This is a model-code sourcing entry for an L40-110 class foot-mount unit offered in 220/185-degree rotations, confirmed fitted to a RESEMIN Troidon 66 rig; no machine cross-reference number is published. The 220-degree and 185-degree builds differ in end-stop geometry and are not interchangeable, and FT mounting differs from the RL/RF build; the exact angle and mount are checked against your nameplate before any alternative is recommended.',
     extraFaqs: [
       {
         q: 'What do the 220 and 185 in L40-110-M-FT-220/185 mean?',
-        a: 'They are the two available rotation angles (220 degrees and 185 degrees) for this foot-mount L40-110 build. The angle changes the end-stop geometry, so the two units are not interchangeable; read the rotation from your actuator tag before ordering.',
+        a: 'They are the two available rotation angles (220 degrees and 185 degrees) for this foot-mount L40-110 build. The angle changes the end-stop geometry, so the two units are not interchangeable; read the rotation from your actuator tag before ordering. The reference Troidon 66 nameplate carries the 220-degree code.',
+      },
+      {
+        q: 'Which RESEMIN machine uses the L40-110-M-FT-220?',
+        a: 'A reference nameplate coded L40-110-M-FT-220-S1-C-H was confirmed on a RESEMIN Troidon 66 long-hole production drill rig. Machine fitment still varies with the rig serial and option build, so send your actuator nameplate and mounting drawing for confirmation before quoting.',
       },
       {
         q: 'Is there an OEM part number, and can HM supply this RESEMIN unit?',
-        a: 'No separate OEM part number is published in the available reference; the unit is identified by the model code L40-110-M-FT-220/185-S1-C-H. We offer selection and sourcing / alternative-supply support; send the nameplate and mounting drawing and we confirm the rotation, foot-mount interface, shaft and ports before quoting.',
+        a: 'No separate machine OEM part number is published in the available reference; the unit is identified by the model code L40-110-M-FT-220/185-S1-C-H. We offer selection and sourcing / alternative-supply support; send the nameplate and mounting drawing and we confirm the rotation, foot-mount interface, shaft and ports before quoting.',
       },
     ],
   },
@@ -3732,26 +3738,102 @@ export const modelPages: ModelData[] = [
     rotation: '360°',
     weight: '',
     brands: ['Putzmeister'],
-    parts: [],
+    parts: ['RA1101K02-0'],
     machines: [],
-    image: '/images/products/hm-model-placeholder.png',
+    image: '/images/putzmeister/putzmeister-sra-110-360-co-rf-sh-n.png',
     imageW: 1200,
-    imageH: 900,
-    imageAlt: 'Compact helical hydraulic rotary actuator, SRA-110 class 360-degree rear-flange build for Putzmeister equipment (representative image, not the original unit)',
+    imageH: 800,
+    imageAlt: 'SRA-110 class 360-degree rear-flange helical rotary actuator showing flange face and side ports, reference unit sourced for Putzmeister equipment (not an original Putzmeister part)',
+    originBrand: 'Sungji',
     sourcingOnly: true,
     hideSeriesLink: true,
+    catalogSpec: { pressureBar: 207, mountingStyles: 'RF rear flange', source: 'Reference SRA-110 actuator nameplate (3000 psi / 207 bar rating); verify against the tag on your unit' },
     intro:
-      'The SRA-110-360-CO-RF-SH-N is a compact 360-degree, rear-flange (RF) helical rotary actuator in the SRA-110 class, recorded in connection with Putzmeister equipment. No separate OEM part number is published for this reference; it is identified by the actuator ordering code. HM provides technical selection and sourcing / alternative-supply support and confirms the exact configuration, mounting, shaft and ports against your actuator nameplate before quotation; we do not represent the offered unit as an original Putzmeister part or promise stock, lead time or a pre-verified interchangeable unit from the code alone.',
+      'The SRA-110-360-CO-RF-SH-N is a compact 360-degree, rear-flange (RF) helical rotary actuator in the SRA-110 class, rated at 3000 psi (about 207 bar) and recorded in connection with Putzmeister equipment. On the reference nameplate this 360-degree build carries the factory parts number RA1101K02-0. HM provides technical selection and sourcing / alternative-supply support and confirms the exact configuration, mounting, shaft and ports against your actuator nameplate before quotation; we do not represent the offered unit as an original Putzmeister part or promise stock, lead time or a pre-verified interchangeable unit from the code alone.',
     crossNote:
-      'This is a model-code sourcing entry for an SRA-110 class 360-degree rear-flange unit; no OEM cross-reference number is available in the source. The same SRA-110 class is used by several equipment makers with different port, valve and seal codes, so the full suffix is confirmed against your nameplate and drawing before any alternative is recommended.',
+      'This is a model-code sourcing entry for an SRA-110 class 360-degree rear-flange unit; the reference nameplate shows factory parts number RA1101K02-0. The same SRA-110 class is used by several equipment makers with different port, valve and seal codes (the 240-degree build carries a different parts number), so the full suffix is confirmed against your nameplate and drawing before any alternative is recommended.',
     extraFaqs: [
       {
         q: 'What does the code SRA-110-360-CO-RF-SH-N mean?',
         a: 'It encodes the SRA family and 110 size, 360-degree rotation, port/valve segment (CO), rear-flange mounting (RF), shaft/cover and seal/standard segments. The exact build must be read from the full nameplate code because several variants share the SRA-110 base.',
       },
       {
+        q: 'What is the parts number RA1101K02-0 on the tag?',
+        a: 'RA1101K02-0 is the factory parts number stamped on the reference 360-degree SRA-110 nameplate. It is useful for confirming the exact build and rotation, but it is the actuator maker\u2019s parts number rather than a Putzmeister machine number; quote either the full model code or this parts number together with a nameplate photo.',
+      },
+      {
         q: 'Can HM supply the Putzmeister SRA-110-360-CO-RF-SH-N?',
         a: 'We offer selection and sourcing / alternative-supply support for this 360-degree rear-flange unit. We do not claim a verified drop-in or that the offered unit is an original Putzmeister part; send the nameplate and a mounting drawing and we confirm mounting, shaft, ports and seal package before quoting.',
+      },
+    ],
+  },
+  {
+    model: 'SRA-110-240-CO-RF-SH-N',
+    slug: 'putzmeister-sra-110-240-co-rf-sh-n',
+    series: 'SRA',
+    seriesSlug: '',
+    rotation: '240°',
+    weight: '',
+    brands: ['Putzmeister'],
+    parts: ['RA1101K03-0'],
+    machines: [],
+    image: '/images/putzmeister/putzmeister-sra-110-360-co-rf-sh-n.png',
+    imageW: 1200,
+    imageH: 800,
+    imageAlt: 'SRA-110 class rear-flange helical rotary actuator showing flange face and side ports (representative image of the same SRA-110 frame; 240-degree unit, not an original Putzmeister part)',
+    originBrand: 'Sungji',
+    sourcingOnly: true,
+    hideSeriesLink: true,
+    modelCodeUnverified: false,
+    catalogSpec: { pressureBar: 207, mountingStyles: 'RF rear flange', source: 'Reference SRA-110 actuator nameplate (3000 psi / 207 bar rating); verify against the tag on your unit' },
+    intro:
+      'The SRA-110-240-CO-RF-SH-N is the 240-degree variant of the compact SRA-110 class rear-flange (RF) helical rotary actuator, rated at 3000 psi (about 207 bar) and recorded in connection with Putzmeister equipment. On the reference nameplate the 240-degree build carries the factory parts number RA1101K03-0. HM provides technical selection and sourcing / alternative-supply support and confirms the rotation angle, mounting, shaft and ports against your nameplate before quotation; the offered unit is not represented as an original Putzmeister part.',
+    crossNote:
+      'This is a model-code sourcing entry for the SRA-110 class 240-degree rear-flange unit; the reference nameplate shows factory parts number RA1101K03-0. The 240-degree and 360-degree builds share the same SRA-110 frame but differ in rotation/end-stop geometry and carry different parts numbers (the 360-degree build is RA1101K02-0), so they are not interchangeable; confirm the angle and full suffix against your nameplate.',
+    extraFaqs: [
+      {
+        q: 'What is the difference between SRA-110-240 and SRA-110-360?',
+        a: 'They use the same SRA-110 frame and rear-flange mounting but differ in total rotation: 240 degrees versus 360 degrees, which changes the internal end-stop geometry and the parts number (RA1101K03-0 for the 240-degree build and RA1101K02-0 for the 360-degree build). Read the rotation from your tag; the two units cannot simply be swapped.',
+      },
+      {
+        q: 'Can HM supply the SRA-110-240-CO-RF-SH-N?',
+        a: 'We offer selection and sourcing / alternative-supply support for this 240-degree rear-flange unit. We do not claim a verified drop-in or that the offered unit is an original Putzmeister part; send the nameplate and a mounting drawing and we confirm the angle, mounting, shaft, ports and seal package before quoting.',
+      },
+    ],
+  },
+  {
+    model: 'L40-110-M-RL/RF-360-S1-C-H',
+    slug: 'resemin-l40-110-m-rlrf-360-s1-c-h',
+    series: 'L40',
+    seriesSlug: 'helac-l40-series',
+    rotation: '360°',
+    weight: '',
+    brands: ['RESEMIN'],
+    parts: [],
+    machines: [],
+    image: '/images/resemin/resemin-l40-110-m-rlrf-360-s1-c-h.png',
+    imageW: 1200,
+    imageH: 800,
+    imageAlt: 'RESEMIN L40-110 class 360-degree helical rotary actuator, representative L40-110 frame unit for the trunnion / rear-flange build; mounting and rotation confirmed against your nameplate',
+    sourcingOnly: true,
+    hideSeriesLink: true,
+    catalogSpec: { pressureBar: 207, mountingStyles: 'RL trunnion / RF rear flange', source: 'Reference actuator nameplate (3000 psi / 207 bar rating); verify against the tag on your unit' },
+    intro:
+      'The L40-110-M-RL/RF-360-S1-C-H is a heavy-duty 360-degree helical rotary actuator in the Helac L40-110 class, offered in a trunnion (RL) / rear-flange (RF) mounting configuration and rated at 3000 psi (about 207 bar), recorded in connection with RESEMIN drilling equipment. It is identified by the actuator model code rather than a separate machine part number. HM provides technical selection and sourcing / alternative-supply support and confirms the mounting style, rotation, ports and shaft against your nameplate and drawing before quotation; we do not promise stock or a pre-verified interchangeable unit from the code alone.',
+    crossNote:
+      'This is a model-code sourcing entry for an L40-110 class 360-degree trunnion / rear-flange unit. The RL/RF mounting differs from the foot-mount (FT) L40-110 build used elsewhere on RESEMIN rigs, and the 360-degree rotation differs from the 220/185-degree FT units; these are not interchangeable. Confirm the mount and angle against your nameplate before any alternative is recommended.',
+    extraFaqs: [
+      {
+        q: 'What does RL/RF mean in L40-110-M-RL/RF-360?',
+        a: 'RL denotes a trunnion (clevis/trunnion) mounting and RF denotes a rear-flange mounting in the L40-110 coding system; this reference covers the trunnion / rear-flange 360-degree build. The mounting interface differs from the foot-mount (FT) L40-110 units, so read the mount letters from your tag before ordering.',
+      },
+      {
+        q: 'Is this the same as the L40-110-M-FT-220/185 used on other RESEMIN rigs?',
+        a: 'No. It is the same L40-110 frame but a different mounting style (RL/RF rather than FT) and a different rotation (360 degrees rather than 220/185 degrees). The two builds are not interchangeable; confirm the full model code, mount and angle on your nameplate.',
+      },
+      {
+        q: 'Can HM supply the L40-110-M-RL/RF-360-S1-C-H?',
+        a: 'We offer selection and sourcing / alternative-supply support for this heavy-duty 360-degree trunnion / rear-flange unit. We do not claim a verified drop-in from the code alone; send the nameplate and a mounting drawing and we confirm the mount, rotation, shaft and ports before quoting.',
       },
     ],
   },
@@ -3807,21 +3889,31 @@ export function getRelatedModels(slug: string): { slug: string; model: string }[
   const model = getModel(slug);
   if (!model) return [];
   const brand = model.originBrand ?? 'Helac';
-  const candidates = modelPages.filter(
-    (m) => m.slug !== slug && m.series === model.series && (m.originBrand ?? 'Helac') === brand
-  );
-  if (candidates.length < 3) {
-    // fallback: same series only
-    candidates.push(...modelPages.filter((m) => m.slug !== slug && m.series === model.series && !candidates.some((c) => c.slug === m.slug)));
+  const byTorque = (a: ModelData, b: ModelData) =>
+    torqueNumeric(a) - torqueNumeric(b) || a.slug.localeCompare(b.slug);
+
+  // Priority tiers, kept in order: closest topical match first, so a page never
+  // loses its own series siblings to a broader brand-level fallback.
+  const tiers = [
+    // 1. same series, same brand
+    modelPages.filter(
+      (m) => m.slug !== slug && m.series === model.series && (m.originBrand ?? 'Helac') === brand
+    ),
+    // 2. same series, other brand lineage
+    modelPages.filter((m) => m.slug !== slug && m.series === model.series),
+    // 3. same brand, other series
+    modelPages.filter((m) => m.slug !== slug && (m.originBrand ?? 'Helac') === brand),
+  ];
+
+  const picked: typeof modelPages = [];
+  for (const tier of tiers) {
+    for (const m of tier.sort(byTorque)) {
+      if (picked.length >= 3) break;
+      if (!picked.some((p) => p.slug === m.slug)) picked.push(m);
+    }
+    if (picked.length >= 3) break;
   }
-  if (candidates.length < 3) {
-    // final fallback: same brand
-    candidates.push(...modelPages.filter((m) => m.slug !== slug && (m.originBrand ?? 'Helac') === brand && !candidates.some((c) => c.slug === m.slug)));
-  }
-  return candidates
-    .sort((a, b) => torqueNumeric(a) - torqueNumeric(b) || a.slug.localeCompare(b.slug))
-    .slice(0, 3)
-    .map((m) => ({ slug: m.slug, model: m.model }));
+  return picked.slice(0, 3).map((m) => ({ slug: m.slug, model: m.model }));
 }
 
 export function getModelsBySeries(seriesCode: string): ModelData[] {
