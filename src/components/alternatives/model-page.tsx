@@ -3,6 +3,8 @@ import { RfqForm } from '@/components/alternatives/rfq-form';
 import type { ModelData } from '@/components/alternatives/model-data';
 import { getSeriesSiblings, parseTorqueNm } from '@/components/alternatives/model-data';
 import { resolveModelImage, modelImageTier, resolveModelAlt } from '@/components/alternatives/model-image';
+import { getHmrComparison } from '@/lib/hmr/hmr-compare';
+import { getCrossBrandPeers } from '@/lib/hmr/hmr-cross-links';
 
 const SITE = 'https://www.hmhydraulics.com';
 
@@ -71,6 +73,8 @@ export function ModelPage({ d, related }: { d: ModelData; related: { slug: strin
   const imageTier = modelImageTier(d);
   const resolvedAlt = resolveModelAlt(d);
   const faqs = buildFaqs(d);
+  const hmr = getHmrComparison(d.hmr);
+  const peers = getCrossBrandPeers(d.slug);
   const path = `/alternatives/${d.slug}`;
   const ob = d.originBrand ?? 'Helac';
 
@@ -477,6 +481,153 @@ export function ModelPage({ d, related }: { d: ModelData; related: { slug: strin
                 </a>
               </p>
             </div>
+          </div>
+        </section>
+      )}
+
+      {/* HM equivalent — original vs. HM comparison */}
+      {hmr && (
+        <section className="border-b border-[rgba(44,74,115,0.10)] bg-[#F7F8FA]">
+          <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
+            <p className="font-label text-xs text-[#62666C] uppercase tracking-wider mb-2">HM equivalent</p>
+            <h2 className="font-heading text-2xl md:text-3xl font-medium text-[#1B1E20] mb-3">
+              {hmr.code} — the same {hmr.drivingNm.toLocaleString('en-US')} Nm torque class
+            </h2>
+            <p className="text-[#4A4E54] leading-relaxed max-w-3xl mb-8">
+              This reference sits in the {hmr.drivingNm.toLocaleString('en-US')} Nm class. The closest HM
+              model is <span className="font-label">{hmr.code}</span> — {hmr.familyClass} —
+              in the same torque class. The table shows what carries over and what still has to be checked on
+              your unit.
+            </p>
+
+            {/* Mobile: compact two-column comparison */}
+            <div className="md:hidden rounded-md border border-[rgba(44,74,115,0.12)] bg-white overflow-hidden">
+              <div className="grid grid-cols-2 bg-[#F1F3F6]">
+                <div className="px-3 py-2.5 border-r border-[rgba(44,74,115,0.10)]">
+                  <p className="m-0 text-[10px] uppercase tracking-wider text-[#62666C] font-label">Original</p>
+                  <p className="m-0 text-[13px] font-medium text-[#1B1E20] leading-snug break-words">{d.model}</p>
+                </div>
+                <div className="px-3 py-2.5">
+                  <p className="m-0 text-[10px] uppercase tracking-wider text-[#62666C] font-label">HM equivalent</p>
+                  <p className="m-0 text-[13px] font-medium text-[#1B1E20] leading-snug">{hmr.code}</p>
+                </div>
+              </div>
+              {[
+                ['Rated torque', `${hmr.drivingNm.toLocaleString('en-US')} Nm *`, `${hmr.drivingNm.toLocaleString('en-US')} Nm`],
+                ['Rated pressure', `${hmr.pressureBar} bar *`, `${hmr.pressureBar} bar`],
+                ['Rotation', d.rotation, `${hmr.angles.join('° / ')}° std., stop at 90°`],
+                ['Mounting', 'Confirm on unit', hmr.mounts.join(' / ') || '—'],
+                ['Output shaft', 'Confirm on unit', hmr.outputs.join(' / ') || '—'],
+                ['Valve options', 'Confirm on unit', hmr.valves.join(' / ')],
+              ].map(([label, orig, mine]) => (
+                <div key={label} className="px-3 py-2.5 border-t border-[rgba(44,74,115,0.10)]">
+                  <p className="m-0 mb-1 text-[10px] uppercase tracking-wider text-[#62666C] font-label">{label}</p>
+                  <div className="grid grid-cols-2 gap-2 text-[13px] leading-snug">
+                    <span className="text-[#62666C] break-words">{orig}</span>
+                    <span className="text-[#1B1E20] break-words">{mine}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="hidden md:block overflow-x-auto rounded-md border border-[rgba(44,74,115,0.12)] bg-white">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="bg-[#F1F3F6] text-left">
+                    <th className="px-4 py-3 font-medium text-[#1B1E20]">&nbsp;</th>
+                    <th className="px-4 py-3 font-medium text-[#1B1E20]">Original {d.model}</th>
+                    <th className="px-4 py-3 font-medium text-[#1B1E20]">HM {hmr.code}</th>
+                  </tr>
+                </thead>
+                <tbody className="text-[#4A4E54]">
+                  {[
+                    ['Rated driving torque', `${hmr.drivingNm.toLocaleString('en-US')} Nm *`, `${hmr.drivingNm.toLocaleString('en-US')} Nm`],
+                    ['Rated pressure', `${hmr.pressureBar} bar *`, `${hmr.pressureBar} bar`],
+                    ['Rotation', d.rotation, `${hmr.angles.join('° / ')}° standard; stop can be set to 90°`],
+                    ['Mounting', 'Per original build — confirm on unit', hmr.mounts.join(' / ') || '—'],
+                    ['Output shaft', 'Per original build — confirm on unit', hmr.outputs.join(' / ') || '—'],
+                    ['Valve options', 'Per original build — confirm on unit', hmr.valves.join(' / ')],
+                    ['Ordering pattern', '—', hmr.orderSyntax ?? '—'],
+                  ].map(([label, orig, mine]) => (
+                    <tr key={label} className="border-t border-[rgba(44,74,115,0.10)]">
+                      <td className="px-4 py-3 text-[#1B1E20] font-medium">{label}</td>
+                      <td className="px-4 py-3">{orig}</td>
+                      <td className="px-4 py-3">{mine}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="mt-3 text-xs text-[#62666C] leading-relaxed">
+              * Original-side figures are the manufacturer&apos;s catalogue values for this torque class.
+              Confirm against the unit nameplate before ordering.
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+              <div className="bg-white border border-[rgba(44,74,115,0.12)] rounded-md p-5">
+                <p className="m-0 mb-3 font-label text-sm font-medium text-[#1B1E20]">What carries over</p>
+                <ul className="m-0 pl-5 text-sm text-[#4A4E54] leading-relaxed space-y-1.5">
+                  <li>Torque class and rated pressure ({hmr.pressureBar} bar).</li>
+                  <li>{hmr.familyClass} architecture.</li>
+                  <li>
+                    Rotation: a 180/90 build is a 180° unit with the stop set at 90° — the same approach is
+                    available on the {hmr.seriesCode} series.
+                  </li>
+                </ul>
+              </div>
+              <div className="bg-white border border-[rgba(44,74,115,0.12)] rounded-md p-5">
+                <p className="m-0 mb-3 font-label text-sm font-medium text-[#1B1E20]">What has to be verified</p>
+                <ul className="m-0 pl-5 text-sm text-[#4A4E54] leading-relaxed space-y-1.5">
+                  <li>Shaft / output flange interface and spline.</li>
+                  <li>Mounting bolt pattern and pilot register.</li>
+                  <li>Port size and position, plus valve arrangement ({hmr.valves.join(' / ')}).</li>
+                  <li>Overall envelope and tie-rod clearance.</li>
+                </ul>
+              </div>
+            </div>
+
+            <p className="mt-6 text-sm text-[#62666C] leading-relaxed max-w-3xl">{hmr.notice}</p>
+            <p className="mt-4">
+              <a
+                href="#rfq"
+                className="inline-flex items-center px-5 py-2.5 bg-[#2C4A73] text-white text-sm font-medium rounded no-underline hover:bg-[#1E3A5F] transition-colors duration-150"
+              >
+                Send your tag &amp; mounting drawing for a fit check
+              </a>
+            </p>
+          </div>
+        </section>
+      )}
+
+      {/* Same torque class — cross-brand links */}
+      {peers.length > 0 && (
+        <section className="border-b border-[rgba(44,74,115,0.10)]">
+          <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-12 md:py-14">
+            <p className="font-label text-xs text-[#62666C] uppercase tracking-wider mb-2">Same torque class</p>
+            <h2 className="font-heading text-xl md:text-2xl font-medium text-[#1B1E20] mb-3">
+              Other references our customers compare with this one
+            </h2>
+            <p className="text-sm text-[#4A4E54] leading-relaxed max-w-3xl mb-5">
+              These builds sit in the same torque class as the unit on this page. Same class does not mean
+              interchangeable — the mounting interface, shaft and port arrangement are confirmed against your
+              tag or drawing before quoting.
+            </p>
+            <ul className="m-0 p-0 list-none grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+              {peers.map((peer) => (
+                <li key={peer.slug} className="m-0">
+                  <Link
+                    href={`/alternatives/${peer.slug}`}
+                    className="block h-full rounded-md border border-[rgba(44,74,115,0.14)] bg-white px-4 py-3 no-underline hover:border-[#2C4A73] transition-colors duration-150"
+                  >
+                    <span className="block text-[11px] uppercase tracking-wider text-[#62666C] font-label">
+                      {peer.brand}
+                    </span>
+                    <span className="block text-sm font-medium text-[#1B1E20] break-words">{peer.label}</span>
+                    <span className="block text-[11px] text-[#62666C] mt-0.5">HM class: {peer.hmr}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
       )}

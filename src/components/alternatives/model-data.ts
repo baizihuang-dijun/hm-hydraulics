@@ -45,6 +45,12 @@ export interface ModelData {
   /** Free-text alternative cross-reference note, e.g. Parker series (optional). */
   crossNote?: string;
   /**
+   * HM equivalent model code from the public HMR dataset (e.g. 'HMR2-180').
+   * When set, the page renders the original-vs-HM comparison block. Only set this
+   * where the cross-reference dataset actually maps the two; never guess.
+   */
+  hmr?: string;
+  /**
    * True when the exact Helac model code is reconstructed from supply records /
    * configuration rather than read off the unit's nameplate. When set, the page keeps
    * the code as a search anchor but avoids asserting an exact code=part identity.
@@ -224,6 +230,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'L20-15-E-CL-180/90-S1-O-H',
     slug: 'l20-15-e-cl-180-90-s1-o-h',
+    hmr: 'HMR2-180',
     series: 'L20',
     seriesSlug: 'helac-l20-series',
     rotation: '180/90°',

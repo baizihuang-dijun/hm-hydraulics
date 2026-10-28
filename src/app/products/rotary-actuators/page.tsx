@@ -4,6 +4,7 @@ import type { ReactNode } from 'react';
 import { RotaryGallery } from '@/components/products/rotary-gallery';
 import { HmrUnifiedSelector } from '@/components/hmr/hmr-unified-selector';
 import { HMR_ALL_DATA, HMR_SERIES_CODES, type HmrModel } from '@/lib/hmr/hmr-all-series';
+import { slugForBase } from '@/lib/hmr/hmr-cross-links';
 
 function formatComparableRefs(refs: string[]): string {
   if (refs.length === 2) {
@@ -19,6 +20,30 @@ function formatComparableRefs(refs: string[]): string {
 
 const NOTE_SYMBOLS = ['*', '†', '‡', '§', '¶', '#'];
 
+function comparableRefNodes(
+  brandKey: 'helac' | 'hks' | 'moveco' | 'sungji',
+  refs: string[],
+): ReactNode {
+  return refs.map((ref, i) => {
+    const slug = slugForBase(ref);
+    return (
+      <span key={ref}>
+        {i > 0 && ', '}
+        {slug ? (
+          <Link
+            href={`/alternatives/${slug}`}
+            className="text-[#2C4A73] underline decoration-[rgba(44,74,115,0.35)] underline-offset-2 hover:decoration-[#2C4A73]"
+          >
+            {ref}
+          </Link>
+        ) : (
+          ref
+        )}
+      </span>
+    );
+  });
+}
+
 function comparableCellText(m: HmrModel, noteToSymbol: Map<string, string>): ReactNode {
   const brands = [
     { key: 'helac' as const, label: 'Helac' },
@@ -26,13 +51,20 @@ function comparableCellText(m: HmrModel, noteToSymbol: Map<string, string>): Rea
     { key: 'moveco' as const, label: 'Moveco' },
     { key: 'sungji' as const, label: 'Sungji' },
   ];
-  const parts = brands
-    .filter((b) => m.comparable[b.key].length > 0)
-    .map((b) => `${b.label}: ${formatComparableRefs(m.comparable[b.key])}`);
+  const active = brands.filter((b) => m.comparable[b.key].length > 0);
   const symbol = m.comparableNote ? noteToSymbol.get(m.comparableNote) : undefined;
   return (
     <>
-      {parts.length > 0 ? parts.join(' · ') : 'Ask engineering'}
+      {active.length > 0 ? (
+        active.map((b, i) => (
+          <span key={b.key}>
+            {i > 0 && ' · '}
+            {b.label}: {comparableRefNodes(b.key, m.comparable[b.key])}
+          </span>
+        ))
+      ) : (
+        <span>Ask engineering</span>
+      )}
       {symbol && (
         <sup
           className="ml-1 text-[10px] text-[#62666C]"
@@ -412,7 +444,7 @@ export default function RotaryActuatorsPage() {
                       <td className="px-4 py-3 text-[#4A4E54]">
                         {m.rotation.map((r) => `${r}°`).join(', ')}
                       </td>
-                      <td className="px-4 py-3 text-[#4A4E54] text-xs whitespace-nowrap">
+                      <td className="px-4 py-3 text-[#4A4E54] text-xs">
                         {comparableCellText(m, noteToSymbol)}
                       </td>
                     </tr>
