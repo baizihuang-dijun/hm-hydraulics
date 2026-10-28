@@ -4,6 +4,7 @@ import type { ReactNode } from 'react';
 import { RotaryGallery } from '@/components/products/rotary-gallery';
 import { HmrUnifiedSelector } from '@/components/hmr/hmr-unified-selector';
 import { HMR_ALL_DATA, HMR_SERIES_CODES, type HmrModel } from '@/lib/hmr/hmr-all-series';
+import { HMR_MODEL_PAGE_CODES } from '@/lib/hmr/hmr-model-pages';
 import { linkForBase } from '@/lib/hmr/hmr-cross-links';
 
 function formatComparableRefs(refs: string[]): string {
@@ -428,11 +429,25 @@ export default function RotaryActuatorsPage() {
                           className="px-4 py-3 font-medium text-[#1B1E20] align-top"
                           rowSpan={models.length}
                         >
-                          {code}
+                          <Link
+                            href={`/products/rotary-actuators/${code.toLowerCase()}`}
+                            className="text-[#2C4A73] no-underline hover:underline"
+                          >
+                            {code}
+                          </Link>
                         </td>
                       )}
                       <td className="px-4 py-3 font-mono text-[#1B1E20]">
-                        <span className="align-middle">{m.hmr}</span>
+                        {HMR_MODEL_PAGE_CODES.includes(m.hmr) ? (
+                          <Link
+                            href={`/products/rotary-actuators/${m.hmr.toLowerCase()}`}
+                            className="align-middle text-[#2C4A73] no-underline hover:underline"
+                          >
+                            {m.hmr}
+                          </Link>
+                        ) : (
+                          <span className="align-middle">{m.hmr}</span>
+                        )}
                         {m.availability === 'engineered' && (
                           <span className="ml-2 inline-flex items-center rounded px-2 py-0.5 text-[10px] font-medium bg-amber-100 text-amber-800 align-middle">
                             Engineered
