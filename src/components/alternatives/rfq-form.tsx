@@ -5,13 +5,15 @@ import { useState, type FormEvent } from 'react';
 type RfqFormProps = {
   /** Model code or series name used to prefill the inquiry subject. */
   context: string;
+  /** Optional button label; defaults to the model-page wording. */
+  submitLabel?: string;
 };
 
 type FieldKey = 'name' | 'email' | 'machine' | 'qty' | 'modelCode' | 'oemPn' | 'msg';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-export function RfqForm({ context }: RfqFormProps) {
+export function RfqForm({ context, submitLabel }: RfqFormProps) {
   const [invalid, setInvalid] = useState<Partial<Record<FieldKey, boolean>>>({});
   const [status, setStatus] = useState<string>('');
   const [sending, setSending] = useState(false);
@@ -162,7 +164,7 @@ export function RfqForm({ context }: RfqFormProps) {
         disabled={sending}
         className="inline-flex items-center px-5 py-2.5 bg-[#2C4A73] text-white text-sm font-medium rounded no-underline hover:bg-[#1E3A5F] transition-colors duration-150 disabled:opacity-60 disabled:cursor-not-allowed"
       >
-        {sending ? 'Sending...' : 'Check compatibility & availability'}
+        {sending ? 'Sending...' : (submitLabel ?? 'Check compatibility & availability')}
       </button>
 
       {status && (

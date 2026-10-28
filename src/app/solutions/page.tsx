@@ -87,6 +87,25 @@ export default function SolutionsPage() {
             </div>
           </div>
 
+          <Link
+            href="/solutions/two-axis-hydraulic-rotary-actuators"
+            className="block bg-white border border-[rgba(44,74,115,0.10)] rounded-lg p-6 md:p-8 mb-6 no-underline hover:border-[#2C4A73] transition-colors duration-150"
+          >
+            <p className="font-label text-xs uppercase tracking-wider text-[#62666C] mb-2">
+              Application note
+            </p>
+            <h3 className="font-heading text-[#1B1E20] text-lg font-medium mb-2">
+              Two-axis rotary actuation: integrated vs. combined designs
+            </h3>
+            <p className="text-[#4A4E54] text-sm leading-relaxed mb-3 max-w-3xl">
+              When a machine needs two rotary outputs at the same joint: how integrated assemblies
+              and combinations of single-axis actuators differ, what external loads do to the
+              arrangement, why bolt access often decides the concept, and which data is needed for an
+              assessment.
+            </p>
+            <span className="text-sm font-medium text-[#2C4A73]">Read the application note &rarr;</span>
+          </Link>
+
           <div className="bg-[#F5F5F0] border border-[rgba(44,74,115,0.10)] rounded-lg p-8 md:p-10">
             <p className="font-heading text-[#1B1E20] text-lg font-medium mb-2">
               Custom doesn&apos;t have to mean starting from zero.
