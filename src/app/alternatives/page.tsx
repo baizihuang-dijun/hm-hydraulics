@@ -182,6 +182,15 @@ export default function AlternativesHubPage() {
                 Atlas Copco / Epiroc, Sandvik, RESEMIN &amp; Putzmeister drill and bolting rigs.
               </p>
             </Link>
+            <Link
+              href="/alternatives/hks-da-h-series"
+              className="block rounded-lg border border-[rgba(44,74,115,0.14)] bg-white p-5 no-underline hover:border-[#2C4A73] transition-colors"
+            >
+              <p className="font-heading text-base font-medium text-[#1B1E20]">HKS DA-H / I-DA-H sizes</p>
+              <p className="text-xs text-[#62666C] mt-1 leading-relaxed">
+                Large-bore industrial actuators, bore 40 to 300 &mdash; 200 to 76,000 Nm at 210 bar.
+              </p>
+            </Link>
           </div>
 
           <p className="font-label text-xs text-[#62666C] uppercase tracking-wider mt-12 mb-3">

@@ -827,7 +827,16 @@ export function ModelPage({ d, related }: { d: ModelData; related: { slug: strin
                       ['Product type', 'Hydraulic rotary actuator'],
                       ['Rotation angle', d.rotation],
                       ...(d.torque ? ([['Rated torque', d.torque]] as [string, string][]) : []),
+                      ...(d.catalogSpec?.pressureBar
+                        ? ([['Rated operating pressure', `${d.catalogSpec.pressureBar} bar`]] as [string, string][])
+                        : []),
+                      ...(d.catalogSpec?.displacementCm3
+                        ? ([['Displacement per cycle', d.catalogSpec.displacementCm3]] as [string, string][])
+                        : []),
                       ...(d.weight ? ([['Unit weight', d.weight]] as [string, string][]) : []),
+                      ...(d.catalogSpec?.mountingStyles
+                        ? ([['Available mounting styles', d.catalogSpec.mountingStyles]] as [string, string][])
+                        : []),
                     ].map(([k, v]) => (
                       <tr key={k} className="border-b border-[rgba(44,74,115,0.08)] last:border-b-0">
                         <th scope="row" className="text-left py-3.5 px-5 font-medium text-[#1B1E20] w-48 align-top">
@@ -861,7 +870,8 @@ export function ModelPage({ d, related }: { d: ModelData; related: { slug: strin
                 <p className="text-sm text-[#4A4E54] leading-relaxed m-0">
                   <strong className="text-[#1B1E20]">HM alternative model — confirmed on inquiry.</strong>{' '}
                   Send us your original model number, part number or machine details and we confirm the matching
-                  configuration, specifications and compatibility, then quote. The exact HM model is not published online.
+                  configuration, specifications and compatibility, then quote. The exact ordering code — rotation,
+                  output and valve arrangement — is confirmed against your unit and is not published online.
                 </p>
               </div>
             </>
