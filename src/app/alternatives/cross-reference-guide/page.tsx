@@ -27,7 +27,7 @@ const faqs = [
   },
   {
     q: 'Do you publish a full cross-reference table online?',
-    a: 'No. Dimensions overlap between models and OEM revisions, so a published table can create ordering errors. We verify every match before quoting.',
+    a: 'We publish torque-class comparisons — which models from other makes sit in the same rated-torque class as each HM size — on the selection page. What we do not publish is a fit claim: mounting pattern, shaft, rotation angle and valve ports are compared against your unit before anything is quoted.',
   },
   {
     q: 'Which Helac series do you cover?',
@@ -328,6 +328,13 @@ export default function CrossReferenceGuidePage() {
             >
               <h3 className="font-heading text-lg font-medium text-[#1B1E20] mb-2">How to Identify Your Actuator</h3>
               <p className="text-sm text-[#4A4E54] leading-relaxed">Read model tags and decode Helac model codes.</p>
+            </Link>
+            <Link
+              href="/alternatives/which-one-do-i-need"
+              className="block p-6 border border-[rgba(44,74,115,0.10)] rounded-md bg-white no-underline hover:border-[rgba(44,74,115,0.25)] transition-colors"
+            >
+              <h3 className="font-heading text-lg font-medium text-[#1B1E20] mb-2">Which One Do I Need</h3>
+              <p className="text-sm text-[#4A4E54] leading-relaxed">Torque classes across four makes, side by side.</p>
             </Link>
           </div>
         </div>

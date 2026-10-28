@@ -268,6 +268,12 @@ export function HmrSeriesPage({ series }: { series: string }) {
             >
               Match a model code with the selector
             </Link>
+            <Link
+              href="/alternatives/which-one-do-i-need"
+              className="inline-flex items-center px-5 py-2.5 rounded-lg border border-[rgba(44,74,115,0.20)] text-[#2C4A73] text-sm font-medium no-underline hover:bg-[#F7F8FA]"
+            >
+              Which torque class do I need
+            </Link>
           </div>
         </div>
       </section>

@@ -30,6 +30,7 @@ const staticRoutes = [
   '/alternatives',
   '/alternatives/rebuild-vs-replacement',
   '/alternatives/cross-reference-guide',
+  '/alternatives/which-one-do-i-need',
   '/alternatives/how-to-identify',
   '/alternatives/rotary-actuator-types',
   '/alternatives/rotary-actuator-vs-motor',
