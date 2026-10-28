@@ -31,6 +31,7 @@ const staticRoutes = [
   '/alternatives/jlg-aerial-work-platform',
   '/alternatives/genie-boom-lifts',
   '/alternatives/mining-drill-rigs',
+  '/alternatives/hks-da-h-series',
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
