@@ -59,6 +59,8 @@ export function HmrUnifiedSelector() {
   const [angleFilter, setAngleFilter] = useState('Any');
 
   const [candidates, setCandidates] = useState<CandidateCard[]>([]);
+  const [seriesPick, setSeriesPick] = useState<string | null>(null);
+  const [resultHeading, setResultHeading] = useState('Matching HMR references');
   const [selectedModel, setSelectedModel] = useState<HmrModel | null>(null);
   const [noMatchRef, setNoMatchRef] = useState<string | null>(null);
   const [overMax, setOverMax] = useState(false);
@@ -79,12 +81,30 @@ export function HmrUnifiedSelector() {
 
   function resetResults() {
     setCandidates([]);
+    setSeriesPick(null);
+    setResultHeading('Matching HMR references');
     setSelectedModel(null);
     setNoMatchRef(null);
     setOverMax(false);
     setSearchNote(null);
     setParseError(null);
     setDirectInfo(null);
+  }
+
+  /** Browse by actuator shape: list every catalogue build in one series. */
+  function pickSeries(code: string) {
+    resetResults();
+    setSeriesPick(code);
+    const models = HMR_ALL_DATA.models.filter((m) => m.series === code);
+    setCandidates(models.map((m) => ({ model: m })));
+    const lo = models[0]?.drivingNm ?? 0;
+    const hi = models[models.length - 1]?.drivingNm ?? 0;
+    setResultHeading(
+      `${code} — ${models.length} catalogue builds, ${lo.toLocaleString()}–${hi.toLocaleString()} Nm`
+    );
+    setSearchNote(
+      'Selected by shape. These are the standard catalogue builds in this series, smallest first. Mounting interface, shaft and port details are confirmed by our engineering team before quotation.'
+    );
   }
 
   function defaultsForModel(m: HmrModel) {
@@ -245,6 +265,45 @@ export function HmrUnifiedSelector() {
 
           <div className="md:col-span-6 bg-[#FAFAF7] border border-[rgba(44,74,115,0.10)] rounded-xl p-6">
             <label className="block text-sm font-medium text-[#1B1E20] mb-2">B. By required driving torque</label>
+            <div className="mb-4">
+              <p className="text-xs text-[#62666C] mb-2">
+                Or start from the shape — pick a series by picture
+              </p>
+              <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
+                {HMR_SERIES_CODES.map((code) => {
+                  const active = seriesPick === code;
+                  return (
+                    <button
+                      key={code}
+                      type="button"
+                      onClick={() => pickSeries(code)}
+                      title={`${code} series`}
+                      className={classNames(
+                        'flex flex-col items-center gap-1 rounded-lg border p-1.5 transition-colors',
+                        active
+                          ? 'border-[#D98A1D] bg-[#FFF8EE]'
+                          : 'border-[rgba(44,74,115,0.15)] bg-white hover:border-[#D98A1D]'
+                      )}
+                    >
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={getSeriesImage(code)}
+                        alt={`${code} helical rotary actuator`}
+                        className="h-12 w-full object-contain"
+                      />
+                      <span
+                        className={classNames(
+                          'text-[10px] font-mono leading-none',
+                          active ? 'text-[#D98A1D] font-semibold' : 'text-[#4A4E54]'
+                        )}
+                      >
+                        {code}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
             <div className="flex gap-3 mb-3">
               <input
                 type="number"
@@ -252,12 +311,12 @@ export function HmrUnifiedSelector() {
                 value={torqueInput}
                 onChange={(e) => setTorqueInput(e.target.value)}
                 placeholder="Required torque in Nm"
-                className="flex-1 px-4 py-3 rounded-lg border border-[rgba(44,74,115,0.15)] bg-white text-sm focus:outline-none focus:border-[#D98A1D] focus:ring-1 focus:ring-[#D98A1D]"
+                className="flex-1 min-w-0 px-4 py-3 rounded-lg border border-[rgba(44,74,115,0.15)] bg-white text-sm focus:outline-none focus:border-[#D98A1D] focus:ring-1 focus:ring-[#D98A1D]"
               />
               <select
                 value={angleFilter}
                 onChange={(e) => setAngleFilter(e.target.value)}
-                className="px-4 py-3 rounded-lg border border-[rgba(44,74,115,0.15)] bg-white text-sm focus:outline-none focus:border-[#D98A1D]"
+                className="shrink-0 px-4 py-3 rounded-lg border border-[rgba(44,74,115,0.15)] bg-white text-sm focus:outline-none focus:border-[#D98A1D]"
               >
                 {ANGLE_OPTIONS.map((a) => (
                   <option key={a} value={a}>
@@ -312,7 +371,7 @@ export function HmrUnifiedSelector() {
 
         {candidates.length > 1 && !selectedModel && (
           <div className="mb-12">
-            <h3 className="text-lg font-medium text-[#1B1E20] mb-2">Matching HMR references</h3>
+            <h3 className="text-lg font-medium text-[#1B1E20] mb-2">{resultHeading}</h3>
             {searchNote && (
               <p className="text-sm text-[#4A4E54] mb-4">{searchNote}</p>
             )}

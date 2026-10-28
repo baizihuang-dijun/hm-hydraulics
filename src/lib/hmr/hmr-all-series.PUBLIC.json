@@ -1335,7 +1335,9 @@
         "helac": [],
         "hks": [],
         "moveco": [],
-        "sungji": []
+        "sungji": [
+          "SRS-090"
+        ]
       }
     },
     {
@@ -1373,7 +1375,9 @@
         ],
         "hks": [],
         "moveco": [],
-        "sungji": []
+        "sungji": [
+          "SRS-115"
+        ]
       }
     },
     {
