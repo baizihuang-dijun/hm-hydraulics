@@ -5,6 +5,7 @@ import { getSeriesSiblings, parseTorqueNm } from '@/components/alternatives/mode
 import { resolveModelImage, modelImageTier, resolveModelAlt } from '@/components/alternatives/model-image';
 import { getHmrComparison } from '@/lib/hmr/hmr-compare';
 import { getCrossBrandPeers, getSameBaseVariants } from '@/lib/hmr/hmr-cross-links';
+import { CodeDecodeBlock } from '@/components/alternatives/code-decode';
 
 const SITE = 'https://www.hmhydraulics.com';
 
@@ -628,6 +629,9 @@ export function ModelPage({ d, related }: { d: ModelData; related: { slug: strin
           </div>
         </section>
       )}
+
+      {/* Code anatomy — segment-by-segment decode of the model code */}
+      <CodeDecodeBlock model={d.model} />
 
       {/* Same torque class — cross-brand links */}
       {peers.length > 0 && (
