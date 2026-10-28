@@ -12,15 +12,45 @@ export function baseModelCode(model: string): string {
   return trimmed.split('-').slice(0, 2).join('-').toUpperCase();
 }
 
-const SLUG_BY_BASE = new Map<string, string>();
+type BaseEntry = { slug: string; seriesSlug?: string };
+
+const PAGES_BY_BASE = new Map<string, BaseEntry[]>();
 for (const m of modelPages) {
   const key = baseModelCode(m.model);
-  if (!SLUG_BY_BASE.has(key)) SLUG_BY_BASE.set(key, m.slug);
+  const list = PAGES_BY_BASE.get(key) ?? [];
+  list.push({ slug: m.slug, seriesSlug: m.seriesSlug || undefined });
+  PAGES_BY_BASE.set(key, list);
 }
 
 /** Slug for a base model code, or undefined when no page exists for it. */
 export function slugForBase(base: string): string | undefined {
-  return SLUG_BY_BASE.get(base.trim().toUpperCase());
+  return PAGES_BY_BASE.get(base.trim().toUpperCase())?.[0]?.slug;
+}
+
+/**
+ * Best landing page for a base model code. When the base has several builds
+ * (FT / FF / RF / CL, different angles) and a series page exists, the series page
+ * is the right target because it lists every build; otherwise the first build page.
+ */
+export function linkForBase(base: string): string | undefined {
+  const list = PAGES_BY_BASE.get(base.trim().toUpperCase());
+  if (!list || list.length === 0) return undefined;
+  const withSeries = list.find((x) => x.seriesSlug);
+  if (withSeries?.seriesSlug) return withSeries.seriesSlug;
+  return list[0].slug;
+}
+
+/** Every page that shares this base model code (other mounts, angles, valve builds). */
+export function getSameBaseVariants(slug: string): { slug: string; model: string; rotation?: string }[] {
+  const page = modelPages.find((m) => m.slug === slug);
+  if (!page) return [];
+  const key = baseModelCode(page.model);
+  return (PAGES_BY_BASE.get(key) ?? [])
+    .filter((x) => x.slug !== slug)
+    .map((x) => {
+      const rec = modelPages.find((m) => m.slug === x.slug)!;
+      return { slug: rec.slug, model: rec.model, rotation: rec.rotation };
+    });
 }
 
 const BRAND_KEYS = ['helac', 'hks', 'moveco', 'sungji'] as const;

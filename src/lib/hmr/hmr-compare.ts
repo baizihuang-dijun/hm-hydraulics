@@ -56,8 +56,11 @@ export type HmrComparison = {
   notice: string;
 };
 
-function label(list: { code: string; label?: string }[]): string[] {
-  return list.filter((x) => !('implicit' in x && x.implicit)).map((x) => (x.label ? `${x.code} — ${x.label}` : x.code));
+function label(list: { code: string; label?: string; implicit?: boolean }[]): string[] {
+  return list.map((x) => {
+    const base = x.label ? `${x.code} — ${x.label}` : x.code;
+    return x.implicit ? `${base} (standard)` : base;
+  });
 }
 
 /**

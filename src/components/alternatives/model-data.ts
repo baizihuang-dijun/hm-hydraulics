@@ -32,9 +32,9 @@ export interface ModelData {
   /** Known machine models (public), or [] when none. */
   machines: string[];
   /** Project-relative image path. */
-  image: string;
-  imageW: number;
-  imageH: number;
+  image?: string;
+  imageW?: number;
+  imageH?: number;
   imageAlt: string;
   /** Short GEO-friendly lead paragraph. */
   intro: string;
@@ -114,6 +114,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'L10-3.0-E-RF-180-S1-O-H',
     slug: 'l10-3-0-e-rf-180-s1-o-h',
+    hmr: 'HMR3-030',
     series: 'L10',
     seriesSlug: 'helac-l10-series',
     rotation: '180°',
@@ -146,6 +147,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'L10-3.0-S-RF-180-S1-0-H',
     slug: 'l10-3-0-s-rf-180-s1-0-h',
+    hmr: 'HMR3-030',
     series: 'L10',
     seriesSlug: 'helac-l10-series',
     rotation: '180°',
@@ -172,6 +174,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'L10-5.5-E-RF-360-S1-O-H',
     slug: 'l10-5-5-e-rf-360-s1-o-h',
+    hmr: 'HMR3-060',
     series: 'L10',
     seriesSlug: 'helac-l10-series',
     rotation: '360°',
@@ -201,6 +204,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'L10-5.5-M-RF-360-S1-O-H',
     slug: 'l10-5-5-m-rf-360-s1-o-h',
+    hmr: 'HMR3-060',
     series: 'L10',
     seriesSlug: 'helac-l10-series',
     rotation: '360°',
@@ -332,6 +336,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'L30-65-S-RF-360-S1-C-H',
     slug: 'l30-65-s-rf-360-s1-c-h',
+    hmr: 'HMR4-750',
     series: 'L30',
     seriesSlug: 'helac-l30-series',
     rotation: '360°',
@@ -370,6 +375,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'L30-95-E-FT-360-S1-C-H',
     slug: 'l30-95-e-ft-360-s1-c-h',
+    hmr: 'HMR4-1000',
     series: 'L30',
     seriesSlug: 'helac-l30-series',
     rotation: '360°',
@@ -436,6 +442,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'L10-5.5-M-RF-360/240-S1-CH',
     slug: 'l10-5-5-m-rf-360-240-s1-ch',
+    hmr: 'HMR3-060',
     series: 'L10',
     seriesSlug: 'helac-l10-series',
     rotation: '360/240°',
@@ -455,6 +462,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'L10-9.5-M-RF-185-S-C-H',
     slug: 'l10-9-5-m-rf-185-s-c-h',
+    hmr: 'HMR3-100',
     series: 'L10',
     seriesSlug: 'helac-l10-series',
     rotation: '185°',
@@ -561,6 +569,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'L30-95-E-FT-180-S1-C-H',
     slug: 'l30-95-e-ft-180-s1-c-h',
+    hmr: 'HMR4-1000',
     series: 'L30',
     seriesSlug: 'helac-l30-series',
     rotation: '180°',
@@ -625,6 +634,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'L30-17-E-FT-180-S1-C-H',
     slug: 'l30-17-e-ft-180-s1-c-h',
+    hmr: 'HMR4-200',
     series: 'L30',
     seriesSlug: 'helac-l30-series',
     rotation: '180°',
@@ -699,6 +709,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'L30-17-E-FT-360-S1-C-H',
     slug: 'l30-17-e-ft-360-s1-c-h',
+    hmr: 'HMR4-200',
     series: 'L30',
     seriesSlug: 'helac-l30-series',
     rotation: '360°',
@@ -763,6 +774,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'L30-125-E-FT-180-S1-C-H',
     slug: 'l30-125-e-ft-180-s1-c-h',
+    hmr: 'HMR4-1400',
     series: 'L30',
     seriesSlug: 'helac-l30-series',
     rotation: '180°',
@@ -832,6 +844,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'L30-125-E-FT-360-S1-C-H',
     slug: 'l30-125-e-ft-360-s1-c-h',
+    hmr: 'HMR4-1400',
     series: 'L30',
     seriesSlug: 'helac-l30-series',
     rotation: '360°',
@@ -896,6 +909,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'L30-165-E-FT-180-S1-C-H',
     slug: 'l30-165-e-ft-180-s1-c-h',
+    hmr: 'HMR4-1800',
     series: 'L30',
     seriesSlug: 'helac-l30-series',
     rotation: '180°',
@@ -965,6 +979,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'L30-165-E-FT-360-S1-C-H',
     slug: 'l30-165-e-ft-360-s1-c-h',
+    hmr: 'HMR4-1800',
     series: 'L30',
     seriesSlug: 'helac-l30-series',
     rotation: '360°',
@@ -1029,6 +1044,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'L30-215-E-FT-180-S1-C-H',
     slug: 'l30-215-e-ft-180-s1-c-h',
+    hmr: 'HMR4-2500',
     series: 'L30',
     seriesSlug: 'helac-l30-series',
     rotation: '180°',
@@ -1098,6 +1114,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'L30-215-E-FT-360-S1-C-H',
     slug: 'l30-215-e-ft-360-s1-c-h',
+    hmr: 'HMR4-2500',
     series: 'L30',
     seriesSlug: 'helac-l30-series',
     rotation: '360°',
@@ -1162,6 +1179,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'L10-15-E-RF-180-S1-C-H',
     slug: 'l10-15-e-rf-180-s1-c-h',
+    hmr: 'HMR3-160',
     series: 'L10',
     seriesSlug: 'helac-l10-series',
     rotation: '180°',
@@ -1230,6 +1248,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'L10-15-E-RF-360-S1-C-H',
     slug: 'l10-15-e-rf-360-s1-c-h',
+    hmr: 'HMR3-160',
     series: 'L10',
     seriesSlug: 'helac-l10-series',
     rotation: '360°',
@@ -1293,6 +1312,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'L10-25-E-RF-180-S1-C-H',
     slug: 'l10-25-e-rf-180-s1-c-h',
+    hmr: 'HMR3-280',
     series: 'L10',
     seriesSlug: 'helac-l10-series',
     rotation: '180°',
@@ -1356,6 +1376,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'L10-25-E-RF-360-S1-C-H',
     slug: 'l10-25-e-rf-360-s1-c-h',
+    hmr: 'HMR3-280',
     series: 'L10',
     seriesSlug: 'helac-l10-series',
     rotation: '360°',
@@ -1419,6 +1440,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'L20-15-E-FT-180-S1-C-H',
     slug: 'l20-15-e-ft-180-s1-c-h',
+    hmr: 'HMR2-180',
     series: 'L20',
     seriesSlug: 'helac-l20-series',
     rotation: '180°',
@@ -1486,6 +1508,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'L20-39-E-FT-180-S1-C-H',
     slug: 'l20-39-e-ft-180-s1-c-h',
+    hmr: 'HMR2-450',
     series: 'L20',
     seriesSlug: 'helac-l20-series',
     rotation: '180°',
@@ -1797,6 +1820,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'L20-4.5-E-FT-180-S1-C-H',
     slug: 'l20-4-5-e-ft-180-s1-c-h',
+    hmr: 'HMR2-050',
     series: 'L20',
     seriesSlug: 'helac-l20-series',
     rotation: '180°',
@@ -1860,6 +1884,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'L20-4.5-E-FT-360-S1-C-H',
     slug: 'l20-4-5-e-ft-360-s1-c-h',
+    hmr: 'HMR2-050',
     series: 'L20',
     seriesSlug: 'helac-l20-series',
     rotation: '360°',
@@ -1910,6 +1935,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'L20-8.2-E-FT-180-S1-C-H',
     slug: 'l20-8-2-e-ft-180-s1-c-h',
+    hmr: 'HMR2-095',
     series: 'L20',
     seriesSlug: 'helac-l20-series',
     rotation: '180°',
@@ -1973,6 +1999,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'L20-8.2-E-FT-360-S1-C-H',
     slug: 'l20-8-2-e-ft-360-s1-c-h',
+    hmr: 'HMR2-095',
     series: 'L20',
     seriesSlug: 'helac-l20-series',
     rotation: '360°',
@@ -2023,6 +2050,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'L20-25-E-FT-180-S1-C-H',
     slug: 'l20-25-e-ft-180-s1-c-h',
+    hmr: 'HMR2-280',
     series: 'L20',
     seriesSlug: 'helac-l20-series',
     rotation: '180°',
@@ -2086,6 +2114,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'L20-25-E-FT-360-S1-C-H',
     slug: 'l20-25-e-ft-360-s1-c-h',
+    hmr: 'HMR2-280',
     series: 'L20',
     seriesSlug: 'helac-l20-series',
     rotation: '360°',
@@ -2136,6 +2165,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'T20-25-E-FT-220-S1-C-H',
     slug: 't20-25-e-ft-220-s1-c-h',
+    hmr: 'HMR6-280',
     series: 'T20',
     seriesSlug: '',
     rotation: '220°',
@@ -2189,6 +2219,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'T30-27-E-FT-220-S1-C-H',
     slug: 't30-27-e-ft-220-s1-c-h',
+    hmr: 'HMR6-280',
     series: 'T30',
     seriesSlug: '',
     rotation: '220°',
@@ -2242,6 +2273,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'T20-45-E-FT-220-S1-C-H',
     slug: 't20-45-e-ft-220-s1-c-h',
+    hmr: 'HMR6-500',
     series: 'T20',
     seriesSlug: '',
     rotation: '220°',
@@ -2285,6 +2317,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'T20-60-E-FT-220-S1-C-H',
     slug: 't20-60-e-ft-220-s1-c-h',
+    hmr: 'HMR6-680',
     series: 'T20',
     seriesSlug: '',
     rotation: '220°',
@@ -2344,6 +2377,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'M-DA-H 50',
     slug: 'hks-m-da-h-50',
+    hmr: 'HMR3-020',
     series: 'M-DA-H (mobile)',
     seriesSlug: '',
     rotation: '180°',
@@ -2414,6 +2448,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'M-DA-H 80',
     slug: 'hks-m-da-h-80',
+    hmr: 'HMR3-100',
     series: 'M-DA-H (mobile)',
     seriesSlug: '',
     rotation: '180° / 360°',
@@ -2449,6 +2484,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'M-DA-H 90',
     slug: 'hks-m-da-h-90',
+    hmr: 'HMR3-160',
     series: 'M-DA-H (mobile)',
     seriesSlug: '',
     rotation: '180° / 360°',
@@ -2484,6 +2520,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'M-DA-H 100',
     slug: 'hks-m-da-h-100',
+    hmr: 'HMR3-280',
     series: 'M-DA-H (mobile)',
     seriesSlug: '',
     rotation: '180° / 360°',
@@ -2519,6 +2556,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'M-DA-H-F7 70',
     slug: 'hks-m-da-h-f7-70',
+    hmr: 'HMR2-050',
     series: 'M-DA-H-F7 (mobile housing variant)',
     seriesSlug: '',
     rotation: '180°',
@@ -2554,6 +2592,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'M-DA-H-F7 85',
     slug: 'hks-m-da-h-f7-85',
+    hmr: 'HMR2-095',
     series: 'M-DA-H-F7 (mobile housing variant)',
     seriesSlug: '',
     rotation: '180°',
@@ -2589,6 +2628,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'M-DA-H-F7 120',
     slug: 'hks-m-da-h-f7-120',
+    hmr: 'HMR2-180',
     series: 'M-DA-H-F7 (mobile housing variant)',
     seriesSlug: '',
     rotation: '180°',
@@ -2624,6 +2664,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'M-DA-H-F7 145',
     slug: 'hks-m-da-h-f7-145',
+    hmr: 'HMR2-450',
     series: 'M-DA-H-F7 (mobile housing variant)',
     seriesSlug: '',
     rotation: '180°',
@@ -2659,6 +2700,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'F5 115',
     slug: 'hks-f5-115',
+    hmr: 'HMR4-200',
     series: 'M-DA-H-F5 (foot) / F10 (flange)',
     seriesSlug: '',
     rotation: '180° / 360°',
@@ -2694,6 +2736,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'F5 150',
     slug: 'hks-f5-150',
+    hmr: 'HMR4-470',
     series: 'M-DA-H-F5 (foot) / F10 (flange)',
     seriesSlug: '',
     rotation: '180° / 360°',
@@ -2729,6 +2772,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'F5 200',
     slug: 'hks-f5-200',
+    hmr: 'HMR4-1000',
     series: 'M-DA-H-F5 (foot) / F10 (flange)',
     seriesSlug: '',
     rotation: '180° / 360°',
@@ -2766,6 +2810,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'SRA-080-180-CN-RF-SH-N-I',
     slug: 'sungji-sra-080-180-cn-rf-sh-n-i',
+    hmr: 'HMR3-020',
     series: 'SRA',
     seriesSlug: '',
     rotation: '180°',
@@ -2836,6 +2881,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'SRB-080-180-CN-FT-SH-N-I',
     slug: 'sungji-srb-080-180-cn-ft-sh-n-i',
+    hmr: 'HMR2-050',
     series: 'SRB (L20 class, multi-mount)',
     seriesSlug: '',
     rotation: '180°',
@@ -2871,6 +2917,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'SRB-090-180-CN-FT-SH-N-I',
     slug: 'sungji-srb-090-180-cn-ft-sh-n-i',
+    hmr: 'HMR2-095',
     series: 'SRB (L20 class, multi-mount)',
     seriesSlug: '',
     rotation: '180°',
@@ -2906,6 +2953,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'SRB-140-180-CN-FT-SH-N-I',
     slug: 'sungji-srb-140-180-cn-ft-sh-n-i',
+    hmr: 'HMR2-300',
     series: 'SRB (L20 class, multi-mount)',
     seriesSlug: '',
     rotation: '180°',
@@ -2976,6 +3024,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'SRS-115-220-CN-FT-DS-N-I',
     slug: 'sungji-srs-115-220-cn-ft-ds-n-i',
+    hmr: 'HMR6-280',
     series: 'SRS (T class, dual spline, 220°)',
     seriesSlug: '',
     rotation: '220°',
@@ -3011,6 +3060,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'SRS-150-220-CN-FT-DS-N-I',
     slug: 'sungji-srs-150-220-cn-ft-ds-n-i',
+    hmr: 'HMR6-680',
     series: 'SRS (T class, dual spline, 220°)',
     seriesSlug: '',
     rotation: '220°',
@@ -3048,6 +3098,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'RP17',
     slug: 'moveco-rp17',
+    hmr: 'HMR2-050',
     series: 'RP (ARP, flange)',
     seriesSlug: '',
     rotation: '180°',
@@ -3083,6 +3134,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'RP24',
     slug: 'moveco-rp24',
+    hmr: 'HMR2-095',
     series: 'RP (ARP, flange)',
     seriesSlug: '',
     rotation: '180°',
@@ -3118,6 +3170,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'RP33',
     slug: 'moveco-rp33',
+    hmr: 'HMR2-180',
     series: 'RP (ARP, flange)',
     seriesSlug: '',
     rotation: '180°',
@@ -3153,6 +3206,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'RP40',
     slug: 'moveco-rp40',
+    hmr: 'HMR2-300',
     series: 'RP (ARP, flange)',
     seriesSlug: '',
     rotation: '180°',
@@ -3188,6 +3242,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'RP46',
     slug: 'moveco-rp46',
+    hmr: 'HMR2-450',
     series: 'RP (ARP, flange)',
     seriesSlug: '',
     rotation: '180°',
@@ -3223,6 +3278,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'RR34',
     slug: 'moveco-rr34',
+    hmr: 'HMR4-200',
     series: 'RR (ARR, foot)',
     seriesSlug: '',
     rotation: '180°',
@@ -3258,6 +3314,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'RR40',
     slug: 'moveco-rr40',
+    hmr: 'HMR4-300',
     series: 'RR (ARR, foot)',
     seriesSlug: '',
     rotation: '180°',
@@ -3293,6 +3350,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'RR46',
     slug: 'moveco-rr46',
+    hmr: 'HMR4-500',
     series: 'RR (ARR, foot)',
     seriesSlug: '',
     rotation: '180°',
@@ -3328,6 +3386,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'RR52',
     slug: 'moveco-rr52',
+    hmr: 'HMR4-750',
     series: 'RR (ARR, foot)',
     seriesSlug: '',
     rotation: '180°',
@@ -3363,6 +3422,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'RR58',
     slug: 'moveco-rr58',
+    hmr: 'HMR4-1400',
     series: 'RR (ARR, foot)',
     seriesSlug: '',
     rotation: '180°',
@@ -3398,6 +3458,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'RR66',
     slug: 'moveco-rr66',
+    hmr: 'HMR4-1800',
     series: 'RR (ARR, foot)',
     seriesSlug: '',
     rotation: '180°',
@@ -3433,6 +3494,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'RR72',
     slug: 'moveco-rr72',
+    hmr: 'HMR4-2500',
     series: 'RR (ARR, foot)',
     seriesSlug: '',
     rotation: '180°',
@@ -3468,6 +3530,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'RR78',
     slug: 'moveco-rr78',
+    hmr: 'HMR4-4200',
     series: 'RR (ARR, foot)',
     seriesSlug: '',
     rotation: '180°',
@@ -3503,6 +3566,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'L30-65-S-RF-180-S1-C-H',
     slug: 'l30-65-s-rf-180-s1-c-h',
+    hmr: 'HMR4-750',
     series: 'L30',
     seriesSlug: 'helac-l30-series',
     rotation: '180°',
@@ -3672,6 +3736,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'L10-3.0-M-RF-360-S1-C-H',
     slug: 'resemin-l10-3-0-m-rf-360-s1-c-h',
+    hmr: 'HMR3-030',
     series: 'L10',
     seriesSlug: 'helac-l10-series',
     rotation: '360°',
@@ -3841,6 +3906,43 @@ export const modelPages: ModelData[] = [
       {
         q: 'Can HM supply the L40-110-M-RL/RF-360-S1-C-H?',
         a: 'We offer selection and sourcing / alternative-supply support for this heavy-duty 360-degree trunnion / rear-flange unit. We do not claim a verified drop-in from the code alone; send the nameplate and a mounting drawing and we confirm the mount, rotation, shaft and ports before quoting.',
+      },
+    ],
+  },
+  {
+    model: 'DA-H 125 / I-DA-H 125',
+    slug: 'hks-da-h-125',
+    series: 'DA-H / I-DA-H (5,100 Nm class)',
+    seriesSlug: '',
+    rotation: '90° / 180° / 270° / 360°',
+    weight: 'Per original build',
+    brands: [],
+    parts: [],
+    machines: [],
+    imageAlt: 'Helical hydraulic rotary actuator in the 5,100 Nm class',
+    originBrand: 'HKS',
+    sourcingOnly: true,
+    hideSeriesLink: true,
+    torque: '5100 Nm',
+    hmr: 'HMR1-500',
+    intro: 'The HKS DA-H 125 and I-DA-H 125 are helical hydraulic rotary actuators in HKS\'s large-bore programme, rated at about 5,100 Nm output torque at 210 bar. The number 125 is an HKS bore/housing size designation, not a torque figure and not another maker\'s size number. In HM\'s controlled cross-reference this reference sits in the 5,100 Nm class, matched to HM\'s own HMR1-500 build. HM Hydraulics supplies an alternative unit from that HM build and supports the selection work around it; we do not hold the HKS unit as a stocked SKU and do not promise stock, lead time or confirmed availability. Rotation, mounting interface, shaft and port arrangement are checked against your nameplate and drawing before any quotation.',
+    crossNote: 'References below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): HM HMR1-500 (5,100 Nm). HM has no supply-verified interchange record for this pairing, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
+    extraFaqs: [
+      {
+        q: 'Can HM supply the HKS DA-H 125 or I-DA-H 125?',
+        a: 'HM supplies an alternative unit from its own HMR1-500 build, which sits in the same 5,100 Nm torque class at 210 bar. We do not keep the HKS unit in stock and do not promise availability or lead time. The exact HKS configuration — rotation, mounting, shaft and port arrangement — is confirmed against your nameplate and, where needed, a mounting drawing before we quote.',
+      },
+      {
+        q: 'What is the difference between the DA-H and I-DA-H prefixes?',
+        a: 'Both are the same bore size in HKS\'s large-bore programme, offered as two housing/interface variants. The torque class is the same. Which one you have on the machine is read from the nameplate, and it matters for the mounting and shaft interface rather than for the torque rating.',
+      },
+      {
+        q: 'Is the HMR1-500 a drop-in replacement for the HKS DA-H 125?',
+        a: 'No. They sit in the same torque class in our cross-reference, but the housing, mounting bolt pattern, shaft and port arrangement are designed independently. We confirm each of those against your unit before quoting, and we do not claim a verified drop-in fit from the model number alone.',
+      },
+      {
+        q: 'What information does HM need before quoting this actuator?',
+        a: 'Send the nameplate (brand, full model code, rotation, mounting, shaft and port details) and a mounting drawing or photo if you have one. We then confirm the configuration and advise the alternative-supply option, including what has to be adapted on the interface.',
       },
     ],
   },

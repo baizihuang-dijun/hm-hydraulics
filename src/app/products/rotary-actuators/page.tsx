@@ -4,7 +4,7 @@ import type { ReactNode } from 'react';
 import { RotaryGallery } from '@/components/products/rotary-gallery';
 import { HmrUnifiedSelector } from '@/components/hmr/hmr-unified-selector';
 import { HMR_ALL_DATA, HMR_SERIES_CODES, type HmrModel } from '@/lib/hmr/hmr-all-series';
-import { slugForBase } from '@/lib/hmr/hmr-cross-links';
+import { linkForBase } from '@/lib/hmr/hmr-cross-links';
 
 function formatComparableRefs(refs: string[]): string {
   if (refs.length === 2) {
@@ -25,7 +25,7 @@ function comparableRefNodes(
   refs: string[],
 ): ReactNode {
   return refs.map((ref, i) => {
-    const slug = slugForBase(ref);
+    const slug = linkForBase(ref);
     return (
       <span key={ref}>
         {i > 0 && ', '}

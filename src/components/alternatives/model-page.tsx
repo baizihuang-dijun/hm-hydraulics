@@ -4,7 +4,7 @@ import type { ModelData } from '@/components/alternatives/model-data';
 import { getSeriesSiblings, parseTorqueNm } from '@/components/alternatives/model-data';
 import { resolveModelImage, modelImageTier, resolveModelAlt } from '@/components/alternatives/model-image';
 import { getHmrComparison } from '@/lib/hmr/hmr-compare';
-import { getCrossBrandPeers } from '@/lib/hmr/hmr-cross-links';
+import { getCrossBrandPeers, getSameBaseVariants } from '@/lib/hmr/hmr-cross-links';
 
 const SITE = 'https://www.hmhydraulics.com';
 
@@ -75,6 +75,7 @@ export function ModelPage({ d, related }: { d: ModelData; related: { slug: strin
   const faqs = buildFaqs(d);
   const hmr = getHmrComparison(d.hmr);
   const peers = getCrossBrandPeers(d.slug);
+  const variants = getSameBaseVariants(d.slug);
   const path = `/alternatives/${d.slug}`;
   const ob = d.originBrand ?? 'Helac';
 
@@ -515,8 +516,8 @@ export function ModelPage({ d, related }: { d: ModelData; related: { slug: strin
               {[
                 ['Rated torque', `${hmr.drivingNm.toLocaleString('en-US')} Nm *`, `${hmr.drivingNm.toLocaleString('en-US')} Nm`],
                 ['Rated pressure', `${hmr.pressureBar} bar *`, `${hmr.pressureBar} bar`],
-                ['Rotation', d.rotation, `${hmr.angles.join('° / ')}° std., stop at 90°`],
-                ['Mounting', 'Confirm on unit', hmr.mounts.join(' / ') || '—'],
+                ['Rotation', d.rotation, `${hmr.angles.join('° / ')}°`],
+                ['Mounting', 'Confirm on unit', hmr.mounts.join(' / ') || 'Flange (standard)'],
                 ['Output shaft', 'Confirm on unit', hmr.outputs.join(' / ') || '—'],
                 ['Valve options', 'Confirm on unit', hmr.valves.join(' / ')],
               ].map(([label, orig, mine]) => (
@@ -543,8 +544,8 @@ export function ModelPage({ d, related }: { d: ModelData; related: { slug: strin
                   {[
                     ['Rated driving torque', `${hmr.drivingNm.toLocaleString('en-US')} Nm *`, `${hmr.drivingNm.toLocaleString('en-US')} Nm`],
                     ['Rated pressure', `${hmr.pressureBar} bar *`, `${hmr.pressureBar} bar`],
-                    ['Rotation', d.rotation, `${hmr.angles.join('° / ')}° standard; stop can be set to 90°`],
-                    ['Mounting', 'Per original build — confirm on unit', hmr.mounts.join(' / ') || '—'],
+                    ['Rotation', d.rotation, `${hmr.angles.join('° / ')}°${hmr.angles.includes('90') ? '' : '; stop at 90° available'}`],
+                    ['Mounting', 'Per original build — confirm on unit', hmr.mounts.join(' / ') || 'Flange (standard)'],
                     ['Output shaft', 'Per original build — confirm on unit', hmr.outputs.join(' / ') || '—'],
                     ['Valve options', 'Per original build — confirm on unit', hmr.valves.join(' / ')],
                     ['Ordering pattern', '—', hmr.orderSyntax ?? '—'],
@@ -570,8 +571,8 @@ export function ModelPage({ d, related }: { d: ModelData; related: { slug: strin
                   <li>Torque class and rated pressure ({hmr.pressureBar} bar).</li>
                   <li>{hmr.familyClass} architecture.</li>
                   <li>
-                    Rotation: a 180/90 build is a 180° unit with the stop set at 90° — the same approach is
-                    available on the {hmr.seriesCode} series.
+                    Rotation: {hmr.angles.join('/')}° available on the {hmr.seriesCode} series. A 180/90 code
+                    is a 180° unit with the stop set at 90°, not a separate build.
                   </li>
                 </ul>
               </div>
@@ -595,6 +596,35 @@ export function ModelPage({ d, related }: { d: ModelData; related: { slug: strin
                 Send your tag &amp; mounting drawing for a fit check
               </a>
             </p>
+          </div>
+        </section>
+      )}
+
+      {/* Other builds of the same base model */}
+      {variants.length > 0 && (
+        <section className="border-b border-[rgba(44,74,115,0.10)] bg-[#F7F8FA]">
+          <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-10 md:py-12">
+            <p className="font-label text-xs text-[#62666C] uppercase tracking-wider mb-2">Same base, other builds</p>
+            <h2 className="font-heading text-lg md:text-xl font-medium text-[#1B1E20] mb-2">
+              Other configurations of this size
+            </h2>
+            <p className="text-sm text-[#4A4E54] leading-relaxed max-w-3xl mb-4">
+              One base size is built in several mountings, angles and valve arrangements. If your unit carries a
+              different code from the one on this page, start from the closest build below.
+            </p>
+            <ul className="m-0 p-0 list-none flex flex-wrap gap-2">
+              {variants.map((v) => (
+                <li key={v.slug} className="m-0">
+                  <Link
+                    href={`/alternatives/${v.slug}`}
+                    className="inline-flex flex-col rounded border border-[rgba(44,74,115,0.16)] bg-white px-3 py-2 no-underline hover:border-[#2C4A73] transition-colors duration-150"
+                  >
+                    <span className="text-[13px] font-medium text-[#1B1E20]">{v.model}</span>
+                    {v.rotation && <span className="text-[11px] text-[#62666C]">{v.rotation}</span>}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
       )}
@@ -689,17 +719,23 @@ export function ModelPage({ d, related }: { d: ModelData; related: { slug: strin
           {d.catalogBuild ? (
             <>
               <p className="font-label text-xs text-[#62666C] uppercase tracking-wider mb-2">
-                Catalog engineering data · {d.catalogSpec?.source}
+                Reference only · original manufacturer data
               </p>
               <h2 className="font-heading text-2xl md:text-3xl font-medium text-[#1B1E20] mb-4">
-                Technical specifications — {d.catalogSpec?.baseLabel ?? d.series}, {d.rotation} build
+                What the original catalogue lists for {d.catalogSpec?.baseLabel ?? d.series}
               </h2>
-              <p className="text-sm text-[#62666C] max-w-3xl mb-8">
-                Performance figures are taken from the published Helac catalog ({d.catalogSpec?.source}). The full
-                configuration and compatibility are confirmed against your unit tag and mounting drawings before
-                ordering.
+              <p className="text-sm text-[#4A4E54] max-w-3xl mb-6">
+                The figures below are the original manufacturer&apos;s published catalogue values, kept here so you
+                can compare them with the HM equivalent above. They are not HM performance data and they are not a
+                statement of interchangeability.
               </p>
-              <div className="overflow-hidden border border-[rgba(44,74,115,0.10)] rounded-md bg-white max-w-3xl">
+              <details className="max-w-3xl group">
+                <summary className="cursor-pointer list-none inline-flex items-center gap-2 rounded border border-[rgba(44,74,115,0.18)] bg-white px-4 py-2.5 text-sm font-medium text-[#1B1E20] hover:border-[#2C4A73] transition-colors duration-150">
+                  <span className="text-[#2C4A73] group-open:hidden">+</span>
+                  <span className="text-[#2C4A73] hidden group-open:inline">−</span>
+                  Show original catalogue figures ({d.catalogSpec?.source})
+                </summary>
+                <div className="mt-4 overflow-hidden border border-[rgba(44,74,115,0.10)] rounded-md bg-white">
                 <table className="w-full text-sm">
                   <tbody>
                     {([
@@ -728,7 +764,8 @@ export function ModelPage({ d, related }: { d: ModelData; related: { slug: strin
                     ))}
                   </tbody>
                 </table>
-              </div>
+                </div>
+              </details>
 
               {/* 180 vs 360 sibling builds — real independent value */}
               {d.catalogSpec?.siblingAngle && (

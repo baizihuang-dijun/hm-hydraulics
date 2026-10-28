@@ -108,7 +108,7 @@ export function modelImageTier(record: ModelData): ModelImageTier {
 
 export function resolveModelImage(record: ModelData): string {
   const tier = modelImageTier(record);
-  return tier === 'placeholder' ? MODEL_IMAGE_PLACEHOLDER : record.image;
+  return tier === 'placeholder' ? MODEL_IMAGE_PLACEHOLDER : (record.image ?? MODEL_IMAGE_PLACEHOLDER);
 }
 
 /** Alt text that never claims a shared reference photo is the exact unit. */
