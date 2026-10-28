@@ -1323,6 +1323,22 @@
       "comparableNote": "Moveco valve references are rated at 210 bar vs HMR5 at 135 bar; torque-near only, not equal-class. Confirm operating pressure and interface with engineering."
     },
     {
+      "hmr": "HMR6-180",
+      "series": "HMR6",
+      "spec": "180",
+      "drivingNm": 1800,
+      "rotation": [
+        "220",
+        "180"
+      ],
+      "comparable": {
+        "helac": [],
+        "hks": [],
+        "moveco": [],
+        "sungji": []
+      }
+    },
+    {
       "hmr": "HMR6-280",
       "series": "HMR6",
       "spec": "280",
@@ -1333,14 +1349,31 @@
       ],
       "comparable": {
         "helac": [
-          "T20-25",
-          "T30-27"
+          "T20-25"
         ],
         "hks": [],
         "moveco": [],
         "sungji": [
           "SRS-115"
         ]
+      }
+    },
+    {
+      "hmr": "HMR6-300",
+      "series": "HMR6",
+      "spec": "300",
+      "drivingNm": 3050,
+      "rotation": [
+        "220",
+        "180"
+      ],
+      "comparable": {
+        "helac": [
+          "T30-27"
+        ],
+        "hks": [],
+        "moveco": [],
+        "sungji": []
       }
     },
     {

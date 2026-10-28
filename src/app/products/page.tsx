@@ -12,7 +12,7 @@ const products = [
   {
     name: 'Rotary Actuators',
     slug: 'rotary-actuators',
-    badge: '6 HMR Series · 54 Configurations',
+    badge: '6 HMR Series · 56 Configurations',
     description:
       'Hydraulic rotary actuators covering 125 Nm to 76,000 Nm, with foot, flange, and through-shaft configurations.',
     specs: [

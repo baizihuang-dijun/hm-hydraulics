@@ -28,10 +28,10 @@ const ANGLE_OPTIONS = ['Any', '90', '180', '270', '360', '220'];
 
 const MOUNT_OPTIONS = [
   { code: 'Any', label: 'Any mounting' },
-  { code: 'FT', label: 'Foot mount' },
-  { code: 'FF', label: 'Front flange' },
-  { code: 'RF', label: 'Rear flange' },
-  { code: 'FL', label: 'Valve / manifold flange' },
+  { code: 'FT', label: 'Foot mount (HMR2 / HMR4 / HMR6)' },
+  { code: 'FF', label: 'Front flange (HMR3 / HMR4)' },
+  { code: 'RF', label: 'Rear flange (HMR4)' },
+  { code: 'FL', label: 'Flange mount (HMR1)' },
 ];
 
 const VALVE_LABELS: Record<string, string> = {

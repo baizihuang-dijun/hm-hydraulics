@@ -80,7 +80,7 @@ function comparableCellText(m: HmrModel, noteToSymbol: Map<string, string>): Rea
 export const metadata: Metadata = {
   title: 'Hydraulic Rotary Actuators — Helical, Block Mount, 125–76,000 Nm | HM',
   description:
-    'Helical hydraulic rotary actuators (rotary hydraulic cylinders) in foot, flange and block-mount styles — from small hydraulic rotary actuators to 76,000 Nm. HMR1–HMR6, 54 builds. Cross-reference Helac, HKS, Moveco.',
+    'Helical hydraulic rotary actuators (rotary hydraulic cylinders) in foot, flange and block-mount styles — from small hydraulic rotary actuators to 76,000 Nm. HMR1–HMR6, 56 builds. Cross-reference Helac, HKS, Moveco.',
   alternates: { canonical: '/products/rotary-actuators' },
 };
 
@@ -128,7 +128,7 @@ const hmrSeries = [
   {
     name: 'HMR6',
     torqueMax: 6780,
-    torque: '2,830 – 6,780 Nm',
+    torque: '1,800 – 6,780 Nm',
     pressure: 'Up to 210 bar',
     rotation: '220°',
     applications: 'Sanitation truck lifter systems, waste container tipping mechanisms',
@@ -278,7 +278,7 @@ export default function RotaryActuatorsPage() {
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
           <p className="eyebrow text-[#2C4A73] mb-4">ROTARY ACTUATORS</p>
           <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-medium text-[#1B1E20] mb-4">
-            6 HMR Series. 54 Configurations. One Sourcing Point.
+            6 HMR Series. 56 Configurations. One Sourcing Point.
           </h1>
           <p className="text-lg text-[#4A4E54] leading-relaxed max-w-2xl">
             Helical hydraulic rotary actuators covering 125 Nm to 76,000 Nm across six standard HMR

@@ -2219,7 +2219,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'T30-27-E-FT-220-S1-C-H',
     slug: 't30-27-e-ft-220-s1-c-h',
-    hmr: 'HMR6-280',
+    hmr: 'HMR6-300',
     series: 'T30',
     seriesSlug: '',
     rotation: '220°',
