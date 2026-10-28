@@ -2,6 +2,7 @@ import type { MetadataRoute } from 'next';
 import { SERIES_INFO } from '@/components/alternatives/series-page';
 import { modelPages } from '@/components/alternatives/model-data';
 import { oemPartGroups } from '@/components/alternatives/oem-parts';
+import { HMR_MODEL_PAGE_CODES } from '@/lib/hmr/hmr-model-pages';
 
 export const dynamic = 'force-static';
 
@@ -56,6 +57,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
   for (const m of modelPages) {
     entries.push({
       url: `${BASE}/alternatives/${m.slug}`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    });
+  }
+
+  for (const code of HMR_MODEL_PAGE_CODES) {
+    entries.push({
+      url: `${BASE}/products/rotary-actuators/${code.toLowerCase()}`,
       lastModified: now,
       changeFrequency: 'monthly',
       priority: 0.8,

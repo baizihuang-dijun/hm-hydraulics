@@ -202,8 +202,8 @@ export default function RebuildVsReplacementPage() {
                 </tr>
                 <tr className="border-b border-[rgba(44,74,115,0.10)]">
                   <td className="py-3 pr-4 font-medium text-[#1B1E20]">Downtime</td>
-                  <td className="py-3 px-4">Short, if kit is in stock</td>
-                  <td className="py-3 pl-4">2–4 weeks typical lead time</td>
+                  <td className="py-3 px-4">Short, once the kit is on site</td>
+                  <td className="py-3 pl-4">Depends on build and quantity — confirmed at quotation</td>
                 </tr>
                 <tr className="border-b border-[rgba(44,74,115,0.10)]">
                   <td className="py-3 pr-4 font-medium text-[#1B1E20]">Warranty risk</td>

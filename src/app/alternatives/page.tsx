@@ -28,8 +28,8 @@ const searchIndex = [...modelIndex, ...oemPartIndex];
 
 const faqs = [
   {
-    q: 'Do you supply direct replacements for Helac, HKS or Moveco rotary actuators?',
-    a: 'We supply alternative rotary actuators that match Helac, HKS, Moveco and Sungji units used on Atlas, Sandvik and other equipment. Rotation, weight and mounting interface are checked against your original unit before we confirm the exact replacement model.',
+    q: 'Do you supply alternatives for Helac, HKS or Moveco rotary actuators?',
+    a: 'We supply alternative rotary actuators for Helac, HKS, Moveco and Sungji units used on Atlas, Sandvik and other equipment. Rotation, weight and mounting interface are checked against your original unit before we confirm which HM build suits it; we do not claim a verified drop-in.',
   },
   {
     q: 'What information do you need to confirm the right replacement?',
@@ -41,7 +41,7 @@ const faqs = [
   },
   {
     q: 'What is the lead time for a replacement rotary actuator?',
-    a: 'Lead time depends on the model and quantity. Standard models are typically available within 2-4 weeks. Send your model code for an accurate timeline.',
+    a: 'Lead time depends on the build and the quantity, and is confirmed in the quotation. Send your model code and the date you need it and we will come back with a delivery window for that build.',
   },
   {
     q: 'Do you ship worldwide?',

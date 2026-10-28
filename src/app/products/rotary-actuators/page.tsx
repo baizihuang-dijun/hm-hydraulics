@@ -160,7 +160,7 @@ const rotaryFaqs = [
     a: 'Start from the load torque and duty cycle, then add a safety margin for shock and side loading. Confirm the working pressure, rotation angle and shaft or interface dimensions, and match the mounting envelope. Send the required torque, angle, pressure and a drawing — engineering confirms the HMR series and configuration.',
   },
   {
-    q: 'Are HMR actuators direct replacements for Helac, HKS, Moveco or Sungji units?',
+    q: 'Can HMR actuators be used in place of Helac, HKS, Moveco or Sungji units?',
     a: 'Use the cross-reference tables as a starting point, not a guarantee of interchangeability. Torque and envelope can align, but shaft, port and mounting dimensions must be verified against the controlled drawing. Share the OEM model or drawing and HM confirms fit before order.',
   },
   {
