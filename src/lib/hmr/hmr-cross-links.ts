@@ -7,7 +7,8 @@ import { modelPages } from '@/components/alternatives/model-data';
  * codes that already carry a space (M-DA-H 50, F5 115) are used as-is.
  */
 export function baseModelCode(model: string): string {
-  const trimmed = model.trim();
+  // Some pages cover two codes at once ("DA-H 125 / I-DA-H 125"); the base is the first one.
+  const trimmed = model.split('/')[0].trim();
   if (trimmed.includes(' ')) return trimmed.toUpperCase();
   return trimmed.split('-').slice(0, 2).join('-').toUpperCase();
 }
@@ -16,10 +17,16 @@ type BaseEntry = { slug: string; seriesSlug?: string };
 
 const PAGES_BY_BASE = new Map<string, BaseEntry[]>();
 for (const m of modelPages) {
-  const key = baseModelCode(m.model);
-  const list = PAGES_BY_BASE.get(key) ?? [];
-  list.push({ slug: m.slug, seriesSlug: m.seriesSlug || undefined });
-  PAGES_BY_BASE.set(key, list);
+  const entry = { slug: m.slug, seriesSlug: m.seriesSlug || undefined };
+  // Register every code the page covers, so "I-DA-H 125" resolves to the same page as "DA-H 125".
+  const keys = new Set(
+    m.model.split('/').map((part) => baseModelCode(part)).filter((k) => k.length > 0),
+  );
+  for (const key of keys) {
+    const list = PAGES_BY_BASE.get(key) ?? [];
+    list.push(entry);
+    PAGES_BY_BASE.set(key, list);
+  }
 }
 
 /** Slug for a base model code, or undefined when no page exists for it. */
