@@ -103,7 +103,9 @@ export function HmrUnifiedSelector() {
       `${code} — ${models.length} catalogue builds, ${lo.toLocaleString()}–${hi.toLocaleString()} Nm`
     );
     setSearchNote(
-      'Selected by shape. These are the standard catalogue builds in this series, smallest first. Mounting interface, shaft and port details are confirmed by our engineering team before quotation.'
+      code === 'HMR5'
+        ? 'HMR5 is the valve-mounted series — 135 bar, 90° rotation, sized for valve and pilot duty rather than external load. All catalogue builds are listed, smallest first. Tell us the valve you are driving and we confirm the interface before quotation.'
+        : 'Selected by shape. These are the standard catalogue builds in this series, smallest first. Mounting interface, shaft and port details are confirmed by our engineering team before quotation.'
     );
   }
 
