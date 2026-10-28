@@ -70,6 +70,16 @@ const SERIES_META: Record<
     angleNote: 'HMR4 is offered in 180° and 360° as standard rotations, with the same rated performance across FT, FF and RF mounting.',
     pressureNote: 'HMR4 is rated at 210 bar continuous; at this torque class the tie-rod clearance and bracket stiffness matter as much as the port size.',
   },
+  HMR5: {
+    label: 'valve-mount',
+    family: 'Helical, valve-mount family',
+    duty:
+      'piloting and positioning duties on valve and damper linkages, where the actuator flange bolts straight to the valve body and swings the spool or lever through a fixed arc',
+    angleNote:
+      '90° is the standard rotation on HMR5; other angles are quoted as engineered specials.',
+    pressureNote:
+      'HMR5 is rated at 135 bar, lower than the other HMR series because the valve-mount duty carries no external load support — the housing is not designed to take radial or bending loads from a linkage.',
+  },
   HMR6: {
     label: 'through-shaft straddle',
     family: 'Helical, through-shaft straddle-mount family',
@@ -123,18 +133,19 @@ export function HmrModelPage({ code }: { code: string }) {
     })),
   );
 
+  const rawSeries = HMR_ALL_DATA.series[c.seriesCode];
+
   const specs: [string, string][] = [
     ['Rated driving torque', `${c.drivingNm.toLocaleString('en-US')} Nm`],
     ['Rated pressure', `${c.pressureBar} bar`],
     ['Rotation', `${c.angles.join('° / ')}°`],
     ['Mounting', mountLabel],
-    ['Output shaft', c.outputs.join(' · ')],
+    ['Output shaft', rawSeries.outputs.map((o) => o.code).join(' / ')],
     ['Valve options', c.valves.join(' / ')],
     ['Ordering pattern', c.orderSyntax ?? '—'],
     ['Example order code', c.example ?? '—'],
   ];
 
-  const rawSeries = HMR_ALL_DATA.series[c.seriesCode];
   const decode: [string, string][] = [
     [c.seriesCode, `Series — helical rotary actuator, ${meta.label} family, ${c.pressureBar} bar rated`],
     [model.spec, `Spec size — ${c.drivingNm.toLocaleString('en-US')} Nm driving torque class`],
@@ -142,7 +153,9 @@ export function HmrModelPage({ code }: { code: string }) {
     [mountCodes.join(' / '), `Mounting — ${rawMounts.map((m) => mountText(m).toLowerCase()).join(' / ')}`],
     [
       rawSeries.outputs.map((o) => o.code).join(' / '),
-      `Output — ${rawSeries.outputs.map((o) => (o.label ?? o.code).toLowerCase()).join(' / ')}`,
+      `Output — ${rawSeries.outputs
+        .map((o) => (o.label ? `${o.code} ${o.label.toLowerCase()}` : `${o.code} (interface per drawing)`))
+        .join(' / ')}`,
     ],
     [c.valves.join(' / '), 'Valve — integral valve block or plain ports'],
   ];

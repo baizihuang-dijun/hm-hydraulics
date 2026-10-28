@@ -41,6 +41,16 @@ export const HMR_MODEL_PAGE_CODES = [
   'HMR6-300',
   'HMR6-500',
   'HMR6-680',
+  // HMR5 — valve-mount, 135 bar, 90°
+  'HMR5-012',
+  'HMR5-025',
+  'HMR5-050',
+  'HMR5-100',
+  'HMR5-200',
+  'HMR5-400',
+  'HMR5-800',
+  'HMR5-1600',
+  'HMR5-3200',
 ];
 
 /** Codes served by a dedicated static route directory rather than the [code] route. */
