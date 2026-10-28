@@ -1,0 +1,79 @@
+{
+  "generated": "2026-10-28",
+  "source": "HM cross-reference DB v2.4 · sheet 02_型号参数主表 · in-house A–F family rows only (factory-confirmed rated torque)",
+  "why": "Build-time guard: the public HMR dataset may only carry these torque figures and the four public competitor brands. In-house source rows outside the four public brands are never exported. Regenerate with scripts/export-hmr-torque-authority.py after any DB change.",
+  "publicBrands": [
+    "helac",
+    "hks",
+    "moveco",
+    "sungji"
+  ],
+  "models": {
+    "HMR1-020": 200,
+    "HMR1-035": 340,
+    "HMR1-065": 650,
+    "HMR1-1100": 11300,
+    "HMR1-135": 1350,
+    "HMR1-1600": 16200,
+    "HMR1-2200": 22300,
+    "HMR1-250": 2500,
+    "HMR1-3200": 32000,
+    "HMR1-3900": 38920,
+    "HMR1-4400": 44000,
+    "HMR1-500": 5100,
+    "HMR1-6000": 60800,
+    "HMR1-700": 7100,
+    "HMR1-7600": 76000,
+    "HMR2-050": 508,
+    "HMR2-095": 960,
+    "HMR2-180": 1690,
+    "HMR2-280": 2830,
+    "HMR2-300": 3150,
+    "HMR2-450": 4400,
+    "HMR2-580": 5870,
+    "HMR3-020": 190,
+    "HMR3-030": 340,
+    "HMR3-060": 620,
+    "HMR3-100": 1075,
+    "HMR3-160": 1695,
+    "HMR3-280": 2825,
+    "HMR4-1000": 10700,
+    "HMR4-1150": 11500,
+    "HMR4-1400": 14100,
+    "HMR4-1800": 18600,
+    "HMR4-200": 1920,
+    "HMR4-2500": 24300,
+    "HMR4-280": 2820,
+    "HMR4-300": 3100,
+    "HMR4-4200": 42900,
+    "HMR4-470": 4750,
+    "HMR4-500": 5100,
+    "HMR4-750": 7340,
+    "HMR5-012": 125,
+    "HMR5-025": 250,
+    "HMR5-050": 500,
+    "HMR5-100": 1000,
+    "HMR5-1600": 16000,
+    "HMR5-200": 2000,
+    "HMR5-3200": 32000,
+    "HMR5-400": 4000,
+    "HMR5-800": 8000,
+    "HMR6-280": 2830,
+    "HMR6-500": 5090,
+    "HMR6-680": 6780
+  },
+  "engineered": {
+    "HMR4-2850": {
+      "drivingNm": 28500,
+      "note": "Engineered non-standard size between 2500 and 4200; approved 2026-10-20."
+    },
+    "HMR4-8300": {
+      "drivingNm": 83600,
+      "note": "Engineered non-standard top size; approved 2026-10-20."
+    }
+  },
+  "engineeredOrder": [
+    "HMR4-2850",
+    "HMR4-8300"
+  ]
+}

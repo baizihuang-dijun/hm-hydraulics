@@ -8,6 +8,8 @@ cd "${COZE_WORKSPACE_PATH}"
 echo "Installing dependencies..."
 pnpm install --prefer-frozen-lockfile --prefer-offline --loglevel debug --reporter=append-only
 
+echo "Checking HMR dataset integrity..."
+node scripts/check-hmr-data.mjs
 echo "Building the Next.js project..."
 pnpm next build
 

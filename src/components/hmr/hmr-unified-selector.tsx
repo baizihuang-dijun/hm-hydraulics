@@ -16,7 +16,23 @@ import {
 } from '@/lib/hmr/hmr-all-series';
 import { HmrRfqForm } from './hmr-rfq-form';
 
+/** One candidate card: a model plus how far its rated torque sits from the requirement. */
+interface CandidateCard {
+  model: HmrModel;
+  /** Signed gap vs the buyer's figure, in percent. Undefined for competitor-reference hits. */
+  deviationPct?: number;
+  meetsRequirement?: boolean;
+}
+
 const ANGLE_OPTIONS = ['Any', '90', '180', '270', '360', '220'];
+
+const MOUNT_OPTIONS = [
+  { code: 'Any', label: 'Any mounting' },
+  { code: 'FT', label: 'Foot mount' },
+  { code: 'FF', label: 'Front flange' },
+  { code: 'RF', label: 'Rear flange' },
+  { code: 'FL', label: 'Valve / manifold flange' },
+];
 
 const VALVE_LABELS: Record<string, string> = {
   NV: 'No valve',
@@ -42,7 +58,7 @@ export function HmrUnifiedSelector() {
   const [torqueInput, setTorqueInput] = useState('');
   const [angleFilter, setAngleFilter] = useState('Any');
 
-  const [candidates, setCandidates] = useState<HmrModel[]>([]);
+  const [candidates, setCandidates] = useState<CandidateCard[]>([]);
   const [selectedModel, setSelectedModel] = useState<HmrModel | null>(null);
   const [noMatchRef, setNoMatchRef] = useState<string | null>(null);
   const [overMax, setOverMax] = useState(false);
@@ -51,6 +67,7 @@ export function HmrUnifiedSelector() {
 
   const [angle, setAngle] = useState<string>('');
   const [mount, setMount] = useState<string>('');
+  const [mountFilter, setMountFilter] = useState<string>('Any');
   const [output, setOutput] = useState<string>('');
   const [valve, setValve] = useState<string>('');
   const [copied, setCopied] = useState(false);
@@ -90,7 +107,7 @@ export function HmrUnifiedSelector() {
       if (upper.startsWith('HMR')) {
         const parsed = parseOrderCodeInput(upper);
         if (parsed.ok) {
-          setCandidates([parsed.model]);
+          setCandidates([{ model: parsed.model }]);
           setSelectedModel(parsed.model);
           setAngle(parsed.angle);
           setMount(parsed.mount);
@@ -112,7 +129,7 @@ export function HmrUnifiedSelector() {
         setDirectInfo(direct);
         return;
       }
-      setCandidates(matches);
+      setCandidates(matches.map((m) => ({ model: m })));
       setSearchNote(note);
       if (matches.length === 1) {
         setSelectedModel(matches[0]);
@@ -130,13 +147,19 @@ export function HmrUnifiedSelector() {
         setOverMax(true);
         return;
       }
-      const matches = findModelsByTorque(nm, angleFilter === 'Any' ? undefined : angleFilter);
+      const matches = findModelsByTorque(
+        nm,
+        angleFilter === 'Any' ? undefined : angleFilter,
+        mountFilter === 'Any' ? undefined : mountFilter
+      );
       if (matches.length) {
-        setCandidates(matches);
-        setSearchNote('Choose the size closest to your torque requirement. Mounting interface must be confirmed by our engineering team before quotation.');
+        setCandidates(matches.map((c) => ({ model: c.model, deviationPct: c.deviationPct, meetsRequirement: c.meetsRequirement })));
+        setSearchNote(
+          'Ranked by how closely the rated torque matches your figure — closest first. Mounting interface and shaft details must be confirmed by our engineering team before quotation.'
+        );
         if (matches.length === 1) {
-          setSelectedModel(matches[0]);
-          defaultsForModel(matches[0]);
+          setSelectedModel(matches[0].model);
+          defaultsForModel(matches[0].model);
         }
       } else {
         setNoMatchRef(torqueInput.trim());
@@ -243,8 +266,23 @@ export function HmrUnifiedSelector() {
                 ))}
               </select>
             </div>
+            <div className="flex gap-3 mb-3">
+              <select
+                value={mountFilter}
+                onChange={(e) => setMountFilter(e.target.value)}
+                className="flex-1 px-4 py-3 rounded-lg border border-[rgba(44,74,115,0.15)] bg-white text-sm focus:outline-none focus:border-[#D98A1D]"
+              >
+                {MOUNT_OPTIONS.map((o) => (
+                  <option key={o.code} value={o.code}>
+                    {o.label}
+                  </option>
+                ))}
+              </select>
+            </div>
             <p className="text-xs text-[#62666C]">
-              We recommend the smallest HMR model whose rated driving torque meets or exceeds your value.
+              We show the closest rated torque in each HMR series, ranked by how near it sits to your figure.
+              Several series can sit in the same torque class — pick your mounting format to narrow the list.
+              Our engineering team confirms the mounting interface before quotation.
             </p>
           </div>
         </div>
@@ -279,17 +317,46 @@ export function HmrUnifiedSelector() {
               <p className="text-sm text-[#4A4E54] mb-4">{searchNote}</p>
             )}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {candidates.map((m) => (
+              {candidates.map((card) => {
+                const m = card.model;
+                return (
                 <button
                   key={m.hmr}
                   onClick={() => selectCandidate(m)}
-                  className="text-left p-5 rounded-xl border border-[rgba(44,74,115,0.10)] bg-white hover:border-[#D98A1D] hover:shadow-sm transition-all"
+                  className="h-full flex flex-col items-start justify-start text-left p-5 rounded-xl border border-[rgba(44,74,115,0.10)] bg-white hover:border-[#D98A1D] hover:shadow-sm transition-all"
                 >
-                  <div className="text-lg font-semibold text-[#1B1E20] font-mono mb-1">{m.hmr}</div>
-                  <div className="text-xs text-[#62666C] uppercase tracking-wide mb-2">{m.series}</div>
+                  <div className="flex items-start justify-between gap-3">
+                    <div>
+                      <div className="text-lg font-semibold text-[#1B1E20] font-mono mb-1">{m.hmr}</div>
+                      <div className="text-xs text-[#62666C] uppercase tracking-wide mb-2">{m.series}</div>
+                    </div>
+                    {card.deviationPct !== undefined && (
+                      <span
+                        className={
+                          'shrink-0 px-2 py-1 rounded text-xs font-medium ' +
+                          (Math.abs(card.deviationPct) <= 3
+                            ? 'bg-[#EAF2E9] text-[#2F5D34]'
+                            : Math.abs(card.deviationPct) <= 20
+                              ? 'bg-[#F0F4FA] text-[#2C4A73]'
+                              : 'bg-[#F5F1EA] text-[#7A5A2A]')
+                        }
+                      >
+                        {card.deviationPct === 0
+                          ? 'Exact class'
+                          : card.deviationPct > 0
+                            ? `+${card.deviationPct}% headroom`
+                            : `${Math.abs(card.deviationPct)}% under`}
+                      </span>
+                    )}
+                  </div>
                   <div className="text-sm text-[#4A4E54]">
                     {m.drivingNm.toLocaleString()} Nm · {HMR_SERIES[m.series].pressureBar} bar
                   </div>
+                  {card.meetsRequirement === false && (
+                    <div className="mt-2 text-xs text-[#7A5A2A]">
+                      Rated just under your figure — closest class in this series.
+                    </div>
+                  )}
                   <div className="text-xs text-[#62666C] mt-2">
                     Rotation: {m.rotation.map((r) => `${r}°`).join(', ')}
                   </div>
@@ -303,7 +370,8 @@ export function HmrUnifiedSelector() {
                     </p>
                   )}
                 </button>
-              ))}
+                );
+              })}
             </div>
           </div>
         )}

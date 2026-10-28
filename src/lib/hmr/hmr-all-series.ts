@@ -226,29 +226,81 @@ export function findModelByTorque(requiredNm: number, angle?: string): HmrModel 
 }
 
 const TORQUE_CANDIDATE_SERIES_ORDER = ['HMR1','HMR4','HMR2','HMR3','HMR6'] as const;
+type CandidateSeries = typeof TORQUE_CANDIDATE_SERIES_ORDER[number];
 
 /**
- * Torque-only search returns one candidate per helical rotary-actuator series
- * (HMR1/2/3/4/6). HMR5 is excluded because it is a valve actuator family.
+ * How far below the buyer's figure a model may sit and still be offered.
+ *
+ * Competitor catalogues publish torque in in-lb converted to Nm while HM figures come
+ * from the supplier's own Nm table, so a genuine equivalent can land a fraction of a
+ * percent under the requested value (L20-4.5 = 509 Nm vs HMR2-050 = 508 Nm). Requiring
+ * an exact `>=` silently dropped the correct model. Anything beyond this band is not
+ * offered at all.
  */
-export function findModelsByTorque(requiredNm: number, angle?: string): HmrModel[] {
-  const candidates: HmrModel[] = [];
+export const TORQUE_SHORTFALL_TOLERANCE = 0.02;
+
+/**
+ * Largest headroom a candidate may carry and still be listed.
+ *
+ * Every series is searched, so a small requirement would otherwise pull in models two or
+ * three times its size. Anything above this is not a substitute for the buyer's figure.
+ */
+export const TORQUE_MAX_HEADROOM = 0.6;
+
+export interface TorqueCandidate {
+  model: HmrModel;
+  /** Signed gap between the model's rated torque and the requirement, in percent. */
+  deviationPct: number;
+  /** True when the model's rated driving torque meets or exceeds the requirement. */
+  meetsRequirement: boolean;
+}
+
+/**
+ * Torque-only search returns at most one candidate per helical rotary-actuator series
+ * (HMR1/2/3/4/6). HMR5 stays out because it is a valve-actuator family.
+ *
+ * Candidates are ordered by how closely their rated torque fits the requirement, not by
+ * series. A fixed series order used to put HMR1 first on every query simply because its
+ * range spans the whole catalogue, which buried the model that actually matched.
+ */
+export function findModelsByTorque(
+  requiredNm: number,
+  angle?: string,
+  mount?: string
+): TorqueCandidate[] {
+  const floor = requiredNm * (1 - TORQUE_SHORTFALL_TOLERANCE);
+  const mountFilter = mount && mount !== 'Any' ? mount : null;
+  const candidates: TorqueCandidate[] = [];
+
   for (const code of TORQUE_CANDIDATE_SERIES_ORDER) {
+    if (mountFilter && !(HMR_SERIES[code].mounts ?? []).some((mt) => mt.code === mountFilter)) {
+      continue;
+    }
     const eligible = HMR_MODELS.filter(
       (m) =>
         m.series === code &&
-        m.drivingNm >= requiredNm &&
+        m.drivingNm >= floor &&
         (angle == null || angle === 'Any' || m.rotation.includes(angle))
-    ).sort((a, b) => a.drivingNm - b.drivingNm);
-    if (eligible.length) {
-      candidates.push(eligible[0]);
-    }
+    ).sort((a, b) => Math.abs(a.drivingNm - requiredNm) - Math.abs(b.drivingNm - requiredNm));
+
+    if (!eligible.length) continue;
+    const model = eligible[0];
+    if (model.drivingNm > requiredNm * (1 + TORQUE_MAX_HEADROOM)) continue;
+    candidates.push({
+      model,
+      deviationPct: Math.round(((model.drivingNm - requiredNm) / requiredNm) * 1000) / 10,
+      meetsRequirement: model.drivingNm >= requiredNm,
+    });
   }
+
   return candidates.sort((a, b) => {
-    const idxA = TORQUE_CANDIDATE_SERIES_ORDER.indexOf(a.series as typeof TORQUE_CANDIDATE_SERIES_ORDER[number]);
-    const idxB = TORQUE_CANDIDATE_SERIES_ORDER.indexOf(b.series as typeof TORQUE_CANDIDATE_SERIES_ORDER[number]);
-    if (idxA !== idxB) return idxA - idxB;
-    return (a.drivingNm - requiredNm) - (b.drivingNm - requiredNm);
+    const gap = Math.abs(a.deviationPct) - Math.abs(b.deviationPct);
+    if (gap !== 0) return gap;
+    if (a.meetsRequirement !== b.meetsRequirement) return a.meetsRequirement ? -1 : 1;
+    return (
+      TORQUE_CANDIDATE_SERIES_ORDER.indexOf(a.model.series as CandidateSeries) -
+      TORQUE_CANDIDATE_SERIES_ORDER.indexOf(b.model.series as CandidateSeries)
+    );
   });
 }
 
