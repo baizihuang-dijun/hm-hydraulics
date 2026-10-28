@@ -25,6 +25,16 @@ const MOUNT_PHRASE: Record<string, string> = {
   FL: 'flange mount',
 };
 
+const MOUNT_PHRASE_BY_SERIES: Record<string, string> = {
+  'HMR6-FT': 'straddle mount',
+  'HMR5-FL': 'valve mounting flange',
+};
+
+const MOUNT_TITLE_BY_SERIES: Record<string, string> = {
+  'HMR6-FT': 'Straddle Mount',
+  'HMR5-FL': 'Valve Flange',
+};
+
 const MOUNT_TITLE: Record<string, string> = {
   FT: 'Foot Mount',
   FF: 'Front Flange',
@@ -84,12 +94,16 @@ export function HmrModelPage({ code }: { code: string }) {
   const meta = SERIES_META[c.seriesCode] ?? SERIES_META.HMR2;
   const rawMounts = HMR_ALL_DATA.series[c.seriesCode].mounts;
   const mountCodes = rawMounts.map((m) => m.code);
+  const mountText = (m: { code: string; label?: string }) => m.label ?? MOUNT_LABELS[m.code] ?? m.code;
   const mountLabel = rawMounts
-    .map((m) => `${m.code} — ${MOUNT_LABELS[m.code] ?? m.code}${m.implicit ? ' (standard)' : ''}`)
+    .map((m) => `${m.code} — ${mountText(m)}${m.implicit ? ' (standard)' : ''}`)
     .join(' / ');
   const mountShort =
     rawMounts.length === 1
-      ? MOUNT_PHRASE[rawMounts[0].code] ?? MOUNT_LABELS[rawMounts[0].code] ?? rawMounts[0].code
+      ? MOUNT_PHRASE_BY_SERIES[`${c.seriesCode}-${rawMounts[0].code}`] ??
+        MOUNT_PHRASE[rawMounts[0].code] ??
+        MOUNT_LABELS[rawMounts[0].code] ??
+        rawMounts[0].code
       : `${rawMounts
           .map((m) => (MOUNT_PHRASE[m.code] ?? m.code).replace(/ mount$/, ''))
           .join(', ')
@@ -125,9 +139,7 @@ export function HmrModelPage({ code }: { code: string }) {
     [c.seriesCode, `Series — helical rotary actuator, ${meta.label} family, ${c.pressureBar} bar rated`],
     [model.spec, `Spec size — ${c.drivingNm.toLocaleString('en-US')} Nm driving torque class`],
     [c.angles.join(' / '), 'Rotation — total travel in degrees'],
-    [mountCodes.join(' / '), `Mounting — ${rawMounts
-      .map((m) => (MOUNT_LABELS[m.code] ?? m.code).toLowerCase())
-      .join(' / ')}`],
+    [mountCodes.join(' / '), `Mounting — ${rawMounts.map((m) => mountText(m).toLowerCase()).join(' / ')}`],
     [
       rawSeries.outputs.map((o) => o.code).join(' / '),
       `Output — ${rawSeries.outputs.map((o) => (o.label ?? o.code).toLowerCase()).join(' / ')}`,
@@ -460,12 +472,14 @@ export function hmrModelMetadata(code: string) {
   const rawMounts = HMR_ALL_DATA.series[c.seriesCode].mounts;
   const mountTitle =
     rawMounts.length === 1
-      ? MOUNT_TITLE[rawMounts[0].code] ?? rawMounts[0].code
+      ? MOUNT_TITLE_BY_SERIES[`${c.seriesCode}-${rawMounts[0].code}`] ??
+        MOUNT_TITLE[rawMounts[0].code] ??
+        rawMounts[0].code
       : rawMounts.map((m) => m.code).join('/') + ' Mount';
   return {
     title: `${code} Helical Rotary Actuator — ${c.drivingNm.toLocaleString('en-US')} Nm, ${c.angles[0]}° ${mountTitle}`,
     description: `${code} helical hydraulic rotary actuator: ${c.drivingNm.toLocaleString('en-US')} Nm driving torque at ${c.pressureBar} bar, ${c.angles.join('/')}° rotation, ${rawMounts
-      .map((m) => (MOUNT_LABELS[m.code] ?? m.code).toLowerCase())
+      .map((m) => (m.label ?? MOUNT_LABELS[m.code] ?? m.code).toLowerCase())
       .join(' / ')}, ${c.outputs.join('/')} output, ${c.valves.join('/')} valves. ${meta.family}. Order code ${c.example ?? code}.`,
     alternates: { canonical: `/products/rotary-actuators/${code.toLowerCase()}` },
   };

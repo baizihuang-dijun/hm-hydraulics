@@ -35,6 +35,12 @@ export const HMR_MODEL_PAGE_CODES = [
   'HMR4-2500',
   'HMR4-4200',
   'HMR4-8300',
+  // HMR6 — through-shaft straddle mount, 210 bar, 220° standard / 180° special
+  'HMR6-180',
+  'HMR6-280',
+  'HMR6-300',
+  'HMR6-500',
+  'HMR6-680',
 ];
 
 /** Codes served by a dedicated static route directory rather than the [code] route. */
