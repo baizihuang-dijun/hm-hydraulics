@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { RfqForm } from '@/components/alternatives/rfq-form';
-import { SITE, buildSearchIndex } from '@/components/alternatives/model-data';
+import { SITE, buildFullSearchIndex } from '@/components/alternatives/model-data';
 import { AlternativesBrowser } from '@/components/alternatives/alternatives-browser';
 
-const searchIndex = buildSearchIndex();
+const searchIndex = buildFullSearchIndex();
 
 export const metadata: Metadata = {
   title: 'How to Identify Your Helac Actuator: Model Tag, Serial Number & Code Breakdown',
@@ -143,6 +143,21 @@ export default function HowToIdentifyPage() {
             option, valve option and seal compound in a fixed order.
           </p>
           <p className="text-sm text-[#62666C]">Last reviewed: October 2026</p>
+        </div>
+      </section>
+
+      {/* Search — moved directly under the hero: part-number lookup is the highest-intent action */}
+      <section className="border-b border-[rgba(44,74,115,0.10)] bg-[#FCFAF6]">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-12 md:py-14">
+          <h2 className="font-heading text-2xl md:text-3xl font-medium text-[#1B1E20] mb-2">
+            Search by part number or model code
+          </h2>
+          <p className="text-sm text-[#62666C] mb-8 max-w-3xl">
+            Paste an OEM part number (JLG, Genie), a Helac model code, or a brand such as HKS, Moveco
+            or Sungji. Results link straight to the matching reference page; if nothing comes back,
+            send the number and we check it against the factory records.
+          </p>
+          <AlternativesBrowser searchIndex={searchIndex} />
         </div>
       </section>
 
@@ -311,19 +326,6 @@ export default function HowToIdentifyPage() {
               <RfqForm context="Actuator identification" />
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Series / brand browser */}
-      <section className="border-b border-[rgba(44,74,115,0.10)]">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
-          <h2 className="font-heading text-2xl md:text-3xl font-medium text-[#1B1E20] mb-2">
-            Find your actuator reference
-          </h2>
-          <p className="text-sm text-[#62666C] mb-8">
-            Browse Helac series and cross-brand references, or search by model code or part number.
-          </p>
-          <AlternativesBrowser searchIndex={searchIndex} />
         </div>
       </section>
 

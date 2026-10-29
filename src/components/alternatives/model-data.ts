@@ -1,4 +1,5 @@
 import { resolveModelImage } from './model-image';
+import { oemPartGroups } from './oem-parts';
 
 /**
  * A cross-brand candidate shown on a public catalog build page.
@@ -4462,6 +4463,31 @@ export function buildSearchIndex(): {
         : { image: resolved, thumb: thumbFor(resolved) };
     })(),
   }));
+}
+
+/**
+ * Search index for the on-site search box: model-code pages plus OEM part-number pages.
+ *
+ * buildSearchIndex() only covers modelPages. The 15 JLG / Genie part-number groups live in
+ * oem-parts.ts and are generated as their own /alternatives/<number> pages, so without them a
+ * visitor pasting a real part number gets "no published model matches" even though the page
+ * exists. /alternatives used to merge the two lists locally; this is the shared version so every
+ * page that shows the search box behaves the same.
+ */
+export function buildFullSearchIndex() {
+  const modelEntries = buildSearchIndex().map((m) => ({ ...m, kind: 'model' as const }));
+  const partEntries = oemPartGroups.map((g) => ({
+    model: g.primary,
+    slug: g.slug,
+    originBrand: g.brand,
+    equipmentMakes: [g.brand],
+    parts: g.allNumbers,
+    machines: g.machines.map((m) => `${g.brand} ${m}`),
+    kind: 'part' as const,
+    image: g.image,
+    thumb: thumbFor(g.image),
+  }));
+  return [...modelEntries, ...partEntries];
 }
 
 export const SITE = base;

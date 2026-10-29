@@ -1,8 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { RfqForm } from '@/components/alternatives/rfq-form';
-import { buildSearchIndex, thumbFor } from '@/components/alternatives/model-data';
-import { oemPartGroups } from '@/components/alternatives/oem-parts';
+import { buildFullSearchIndex } from '@/components/alternatives/model-data';
 import { AlternativesBrowser } from '@/components/alternatives/alternatives-browser';
 
 export const metadata: Metadata = {
@@ -12,19 +11,7 @@ export const metadata: Metadata = {
   alternates: { canonical: '/alternatives' },
 };
 
-const modelIndex = buildSearchIndex().map((m) => ({ ...m, kind: 'model' as const }));
-const oemPartIndex = oemPartGroups.map((g) => ({
-  model: g.primary,
-  slug: g.slug,
-  originBrand: g.brand,
-  equipmentMakes: [g.brand],
-  parts: g.allNumbers,
-  machines: g.machines.map((m) => `${g.brand} ${m}`),
-  kind: 'part' as const,
-  image: g.image,
-  thumb: thumbFor(g.image),
-}));
-const searchIndex = [...modelIndex, ...oemPartIndex];
+const searchIndex = buildFullSearchIndex();
 
 const faqs = [
   {

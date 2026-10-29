@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { RfqForm } from '@/components/alternatives/rfq-form';
-import { SITE, buildSearchIndex } from '@/components/alternatives/model-data';
+import { SITE, buildFullSearchIndex } from '@/components/alternatives/model-data';
 import { AlternativesBrowser } from '@/components/alternatives/alternatives-browser';
 
-const searchIndex = buildSearchIndex();
+const searchIndex = buildFullSearchIndex();
 
 export const metadata: Metadata = {
   title: 'Rotary Actuator Types Compared: Helical, Rack & Pinion vs Vane',
