@@ -15,7 +15,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { SERIES, MODELS, check, segmentCount } from './hmr-code.mjs';
+import { SERIES, MODELS, check, segmentLengths } from './hmr-code.mjs';
 
 const here = path.dirname(new URL(import.meta.url).pathname);
 const outDir = process.argv[2] ?? path.join(here, '..', 'out');
@@ -35,9 +35,11 @@ function judge(tok) {
   const model = MODELS.find((m) => m.hmr === `${seriesCode}-${p[1]}`);
   if (!model) return { level: 'bad', why: `unknown size ${p[1]} in ${seriesCode}` };
 
-  const want = segmentCount(seriesCode);
-  if (p.length > want) return { level: 'bad', why: `${p.length} segments, syntax has ${want}` };
-  if (p.length === want) {
+  // a series may accept a short form alongside the full one (e.g. HMR3, HMR6)
+  const lengths = segmentLengths(seriesCode);
+  const longest = Math.max(...lengths);
+  if (p.length > longest) return { level: 'bad', why: `${p.length} segments, longest syntax has ${longest}` };
+  if (lengths.includes(p.length)) {
     const r = check(tok);
     return r.ok ? { level: 'ok', model } : { level: 'bad', why: r.rows.find(([, v]) => /INVALID|expected/.test(v))?.[1] ?? 'invalid' };
   }

@@ -10,7 +10,9 @@
  * Parsing is template-driven: the series orderSyntax is split on '-' and each
  * literal segment must match exactly, each {placeholder} is validated against
  * the dictionary. This is the only way to stay correct for series whose syntax
- * has literal segments (HMR2 has a literal FT, HMR3 a literal FF-1F).
+ * has literal segments (HMR2 has a literal FT, HMR3 a literal FF-1F, HMR6 a
+ * literal FT-DS). Where a series also accepts a short form (shortSyntax, e.g.
+ * HMR3-030-180-NV), both templates are tried.
  *
  * Usage:
  *   node scripts/hmr-code.mjs list [HMR4] [--spec 470]
@@ -47,25 +49,36 @@ export function build(seriesCode, { spec, angle, mount, output, valve }) {
     .replace('{valve}', valve);
 }
 
-/** Number of segments a complete code for this series must have. */
+/** Every legal syntax template for a series: full form first, short form (if any) second. */
+export function templates(seriesCode) {
+  const s = SERIES[seriesCode];
+  if (!s) return [];
+  return s.shortSyntax ? [s.orderSyntax, s.shortSyntax] : [s.orderSyntax];
+}
+
+/** Number of segments the FULL code for this series must have. */
 export function segmentCount(seriesCode) {
   const s = SERIES[seriesCode];
   return s ? s.orderSyntax.split('-').length : null;
 }
 
-/** Validate a full order code against the dictionary, segment by segment. */
-export function check(code) {
+/** Every legal complete-code length for a series (short form allowed alongside the full one). */
+export function segmentLengths(seriesCode) {
+  return [...new Set(templates(seriesCode).map((t) => t.split('-').length))].sort((a, b) => a - b);
+}
+
+/** Validate a full order code against one template. */
+function checkTemplate(code, syntax) {
   const rows = [];
   const p = code.split('-');
   const seriesCode = p[0];
   const s = SERIES[seriesCode];
-  if (!s) return { ok: false, rows: [[seriesCode, 'unknown series']] };
 
-  const tpl = s.orderSyntax.split('-');
+  const tpl = syntax.split('-');
   if (p.length !== tpl.length)
     return {
       ok: false,
-      rows: [['shape', `expected ${tpl.length} segments (${s.orderSyntax}), got ${p.length}`]],
+      rows: [['shape', `expected ${tpl.length} segments (${syntax}), got ${p.length}`]],
     };
 
   let model = null;
@@ -98,6 +111,19 @@ export function check(code) {
   }
   const ok = rows.every(([, v]) => !v.includes('INVALID') && !v.includes('expected literal'));
   return { ok, rows, model };
+}
+
+/** Validate a full order code against the dictionary, trying every legal template. */
+export function check(code) {
+  const seriesCode = code.split('-')[0];
+  if (!SERIES[seriesCode]) return { ok: false, rows: [[seriesCode, 'unknown series']] };
+  let first = null;
+  for (const syntax of templates(seriesCode)) {
+    const r = checkTemplate(code, syntax);
+    if (r.ok) return r;
+    if (!first) first = r;
+  }
+  return first;
 }
 
 /** Expand one model into every legal full order code. */

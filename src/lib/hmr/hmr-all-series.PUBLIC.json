@@ -246,9 +246,10 @@
           "code": "CS"
         }
       ],
-      "orderSyntax": "HMR6-{spec}-{angle}-{valve}",
-      "example": "HMR6-280-220-CB",
-      "note": "220° standard; 180° is a special angle requiring engineering confirmation."
+      "orderSyntax": "HMR6-{spec}-{angle}-FT-DS-{valve}",
+      "shortSyntax": "HMR6-{spec}-{angle}-{valve}",
+      "example": "HMR6-280-220-FT-DS-CB",
+      "note": "220° standard; 180° is a special angle requiring engineering confirmation. FT and DS are fixed for this series and always written in the code."
     }
   },
   "models": [
