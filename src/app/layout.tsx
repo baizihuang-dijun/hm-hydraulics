@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
+import { graphLd, organizationLd, webSiteLd } from '@/lib/schema';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.hmhydraulics.com'),
@@ -30,9 +31,19 @@ export const metadata: Metadata = {
     siteName: 'HM Hydraulics',
     locale: 'en_US',
     type: 'website',
+    url: 'https://www.hmhydraulics.com/',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'HM Hydraulics — hydraulic rotary actuators and core components',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
+    images: ['/og-image.png'],
     title: 'HM Hydraulics — Hydraulic Rotary Actuators & Components',
     description:
       'Technical sourcing partner for core hydraulic components. 1,000,000-cycle endurance documented. Every rotary actuator pressure-tested before shipment.',
@@ -58,6 +69,12 @@ export default function RootLayout({
         <script
           dangerouslySetInnerHTML={{
             __html: `window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-ZPJ9PXS32N');`,
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(graphLd([organizationLd(), webSiteLd()])),
           }}
         />
       </head>
