@@ -13,6 +13,29 @@ import {
   ordinal,
 } from '@/lib/hmr/hmr-series-meta';
 
+/**
+ * Worked order code for ONE model, built from the frozen dictionary.
+ * Never use the series-level example on a model page: it makes every model show
+ * the same code (the HMR4-470 page used to show HMR4-500-...), which invites
+ * copy-and-swap order codes.
+ */
+export function workedOrderCode(
+  seriesCode: string,
+  spec: string,
+  rotation: readonly string[] | undefined,
+): string {
+  const series = HMR_ALL_DATA.series[seriesCode];
+  const syntax = series?.orderSyntax;
+  if (!series || !syntax) return `${seriesCode}-${spec}`;
+  const angle = String(rotation?.[0] ?? series.angles[0] ?? '');
+  return syntax
+    .replace('{spec}', spec)
+    .replace('{angle}', angle)
+    .replace('{mount}', series.mounts[0]?.code ?? '')
+    .replace('{output}', series.outputs[0]?.code ?? '')
+    .replace('{valve}', series.valves[0]?.code ?? '');
+}
+
 const BRAND_ORDER = [
   ['helac', 'Helac'],
   ['hks', 'HKS'],
@@ -59,6 +82,8 @@ export function HmrModelPage({ code }: { code: string }) {
 
   const rawSeries = HMR_ALL_DATA.series[c.seriesCode];
 
+  const workedExample = workedOrderCode(c.seriesCode, model.spec, model.rotation);
+
   const specs: [string, string][] = [
     ['Rated driving torque', `${c.drivingNm.toLocaleString('en-US')} Nm`],
     ['Rated pressure', `${c.pressureBar} bar`],
@@ -67,7 +92,7 @@ export function HmrModelPage({ code }: { code: string }) {
     ['Output shaft', rawSeries.outputs.map((o) => o.code).join(' / ')],
     ['Valve options', c.valves.join(' / ')],
     ['Ordering pattern', c.orderSyntax ?? '—'],
-    ['Example order code', c.example ?? '—'],
+    ['Example order code', workedExample],
   ];
 
   const decode: [string, string][] = [
@@ -109,7 +134,7 @@ export function HmrModelPage({ code }: { code: string }) {
     },
     {
       q: `How is the ${code} order code put together?`,
-      a: `The pattern is ${c.orderSyntax ?? 'series-spec-angle-mount-output-valve'}. A worked example is ${c.example ?? code}. Rotation, mount, output and valve are chosen per machine, so the code on your drawing is what we build to.`,
+      a: `The pattern is ${c.orderSyntax ?? 'series-spec-angle-mount-output-valve'}. A worked example for this size is ${workedExample}. Rotation, mount, output and valve are chosen per machine, so the code on your drawing is what we build to.`,
     },
   ];
 
@@ -423,7 +448,7 @@ export function hmrModelMetadata(code: string) {
     title: `${code} Helical Rotary Actuator — ${c.drivingNm.toLocaleString('en-US')} Nm, ${c.angles[0]}° ${mountTitle}`,
     description: `${code} helical hydraulic rotary actuator: ${c.drivingNm.toLocaleString('en-US')} Nm driving torque at ${c.pressureBar} bar, ${c.angles.join('/')}° rotation, ${rawMounts
       .map((m) => (m.label ?? MOUNT_LABELS[m.code] ?? m.code).toLowerCase())
-      .join(' / ')}, ${c.outputs.join('/')} output, ${c.valves.join('/')} valves. ${meta.family}. Order code ${c.example ?? code}.`,
+      .join(' / ')}, ${c.outputs.join('/')} output, ${c.valves.join('/')} valves. ${meta.family}. Order code ${workedOrderCode(c.seriesCode, model.spec, model.rotation)}.`,
     alternates: { canonical: `/products/rotary-actuators/${code.toLowerCase()}` },
   };
 }
