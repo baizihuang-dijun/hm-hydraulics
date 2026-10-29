@@ -142,56 +142,77 @@ export default function TwoAxisPage() {
           {/* Schematic */}
           <figure className="mb-10 rounded-lg border border-[rgba(44,74,115,0.14)] bg-[#FAFAF7] p-5">
             <svg
-              viewBox="0 0 720 260"
+              viewBox="0 0 720 330"
               role="img"
               aria-labelledby="twoAxisDiagramTitle twoAxisDiagramDesc"
               className="w-full h-auto"
             >
               <title id="twoAxisDiagramTitle">
-                Schematic comparison of an integrated two-axis assembly and two combined single-axis
+                Load-path comparison: an integrated two-axis assembly and two combined single-axis
                 actuators
               </title>
               <desc id="twoAxisDiagramDesc">
-                Left: a purpose-designed assembly with two rotary outputs on separate axes. Right: two
-                single-axis actuators connected through an engineered mounting structure, each with its
-                own port pair.
+                Panel A: one housing contains both rotational axes, so the moment produced by the second
+                axis closes inside the same body. Panel B: two separate housings joined by an engineered
+                mounting structure, where the second unit sits at an offset from the first axis and
+                therefore loads the first unit output as an overhung moment M.
               </desc>
 
               {/* Panel A */}
-              <text x="20" y="24" fontSize="13" fill="#2C4A73" fontFamily="system-ui, sans-serif" fontWeight="600">
+              <text x="24" y="32" fontSize="13" fill="#2C4A73" fontFamily="system-ui, sans-serif" fontWeight="600">
                 A · Integrated
               </text>
-              <rect x="40" y="70" width="150" height="90" rx="10" fill="#FFFFFF" stroke="#2C4A73" strokeWidth="2" />
-              <rect x="190" y="96" width="46" height="38" rx="4" fill="#DCE6F2" stroke="#2C4A73" strokeWidth="2" />
-              <circle cx="236" cy="115" r="9" fill="#2C4A73" />
-              <rect x="118" y="34" width="34" height="36" rx="4" fill="#DCE6F2" stroke="#2C4A73" strokeWidth="2" />
-              <circle cx="135" cy="26" r="9" fill="#2C4A73" />
-              <text x="20" y="188" fontSize="11" fill="#62666C" fontFamily="system-ui, sans-serif">
-                purpose-designed assembly · two outputs
+
+              <line x1="40" y1="160" x2="252" y2="160" stroke="#2C4A73" strokeWidth="1" strokeDasharray="5 4" opacity="0.45" />
+              <line x1="160" y1="68" x2="160" y2="242" stroke="#2C4A73" strokeWidth="1" strokeDasharray="5 4" opacity="0.45" />
+
+              <rect x="90" y="120" width="140" height="80" rx="6" fill="#FFFFFF" stroke="#2C4A73" strokeWidth="2" />
+              <rect x="72" y="140" width="18" height="40" rx="2" fill="#DCE6F2" stroke="#2C4A73" strokeWidth="2" />
+              <rect x="138" y="102" width="44" height="18" rx="2" fill="#DCE6F2" stroke="#2C4A73" strokeWidth="2" />
+
+              <circle cx="252" cy="160" r="4" fill="#2C4A73" />
+              <text x="260" y="164" fontSize="10" fill="#62666C" fontFamily="system-ui, sans-serif">axis 1</text>
+              <circle cx="160" cy="68" r="4" fill="#2C4A73" />
+              <text x="168" y="72" fontSize="10" fill="#62666C" fontFamily="system-ui, sans-serif">axis 2</text>
+
+              <text x="24" y="284" fontSize="11" fill="#62666C" fontFamily="system-ui, sans-serif">
+                one housing — both axes in one body
               </text>
-              <text x="20" y="206" fontSize="11" fill="#62666C" fontFamily="system-ui, sans-serif">
-                architecture varies by manufacturer
+              <text x="24" y="302" fontSize="11" fill="#62666C" fontFamily="system-ui, sans-serif">
+                axis 2 moment closes inside the body
               </text>
 
               {/* Divider */}
-              <line x1="360" y1="40" x2="360" y2="230" stroke="rgba(44,74,115,0.18)" strokeWidth="1" strokeDasharray="4 4" />
+              <line x1="360" y1="40" x2="360" y2="312" stroke="rgba(44,74,115,0.18)" strokeWidth="1" strokeDasharray="4 4" />
 
               {/* Panel B */}
-              <text x="400" y="24" fontSize="13" fill="#2C4A73" fontFamily="system-ui, sans-serif" fontWeight="600">
+              <text x="384" y="32" fontSize="13" fill="#2C4A73" fontFamily="system-ui, sans-serif" fontWeight="600">
                 B · Combined actuators
               </text>
-              <rect x="420" y="112" width="120" height="60" rx="8" fill="#FFFFFF" stroke="#2C4A73" strokeWidth="2" />
-              <rect x="420" y="60" width="120" height="40" rx="8" fill="#DCE6F2" stroke="#2C4A73" strokeWidth="2" />
-              <line x1="420" y1="106" x2="540" y2="106" stroke="#2C4A73" strokeWidth="3" />
-              <circle cx="540" cy="80" r="8" fill="#2C4A73" />
-              <circle cx="540" cy="142" r="8" fill="#2C4A73" />
-              <text x="556" y="84" fontSize="10" fill="#62666C" fontFamily="system-ui, sans-serif">axis 1</text>
-              <text x="556" y="146" fontSize="10" fill="#62666C" fontFamily="system-ui, sans-serif">axis 2</text>
-              <text x="400" y="188" fontSize="11" fill="#62666C" fontFamily="system-ui, sans-serif">
-                two actuators · engineered structure
+
+              <line x1="366" y1="191" x2="515" y2="191" stroke="#2C4A73" strokeWidth="1" strokeDasharray="5 4" opacity="0.45" />
+              <line x1="576" y1="85" x2="576" y2="177" stroke="#2C4A73" strokeWidth="1" strokeDasharray="5 4" opacity="0.45" />
+
+              <rect x="410" y="155" width="105" height="72" rx="6" fill="#FFFFFF" stroke="#2C4A73" strokeWidth="2" />
+              <rect x="515" y="171" width="14" height="40" rx="2" fill="#DCE6F2" stroke="#2C4A73" strokeWidth="2" />
+              <rect x="529" y="105" width="12" height="140" fill="#E8E8E4" stroke="#2C4A73" strokeWidth="2" />
+              <rect x="541" y="115" width="70" height="62" rx="6" fill="#FFFFFF" stroke="#2C4A73" strokeWidth="2" />
+              <rect x="558" y="100" width="36" height="15" rx="2" fill="#DCE6F2" stroke="#2C4A73" strokeWidth="2" />
+
+              <path d="M 522 223 A 32 32 0 0 1 554 191" fill="none" stroke="#B4552F" strokeWidth="2" />
+              <path d="M 554 191 L 548 199 M 554 191 L 560 199" fill="none" stroke="#B4552F" strokeWidth="2" />
+              <text x="558" y="210" fontSize="12" fill="#B4552F" fontFamily="system-ui, sans-serif" fontWeight="600">M</text>
+
+              <circle cx="366" cy="191" r="4" fill="#2C4A73" />
+              <text x="366" y="182" fontSize="10" fill="#62666C" fontFamily="system-ui, sans-serif">axis 1</text>
+              <circle cx="576" cy="85" r="4" fill="#2C4A73" />
+              <text x="584" y="89" fontSize="10" fill="#62666C" fontFamily="system-ui, sans-serif">axis 2</text>
+
+              <text x="384" y="284" fontSize="11" fill="#62666C" fontFamily="system-ui, sans-serif">
+                two housings + a mounting structure
               </text>
-              <text x="400" y="206" fontSize="11" fill="#62666C" fontFamily="system-ui, sans-serif">
-                independent ports per axis
+              <text x="384" y="302" fontSize="11" fill="#62666C" fontFamily="system-ui, sans-serif">
+                unit 2 loads unit 1 as a moment M
               </text>
             </svg>
             <figcaption className="text-xs text-[#8A8E94] leading-relaxed mt-3">
