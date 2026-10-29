@@ -98,6 +98,13 @@ export function ModelPage({ d, related }: { d: ModelData; related: { slug: strin
     : [];
   const currentIndex = sortedSiblings.findIndex((s) => s.current);
 
+  // Sibling card grid. Only rendered where the torque/weight table above is not shown, so no
+  // page lists the same models twice. This is the horizontal-comparison entry point for model
+  // pages whose series hub does not exist yet: it links real pages to each other instead of
+  // sending the visitor back to the /alternatives index.
+  const siblingCards = showSiblingSizes ? [] : getSeriesSiblings(d.slug).filter((s) => !s.current);
+  const shownSiblingCards = siblingCards.slice(0, 8);
+
   const quickRef = d.catalogBuild
     ? [
         { label: 'Catalog configuration', value: d.model, mono: true },
@@ -954,13 +961,49 @@ export function ModelPage({ d, related }: { d: ModelData; related: { slug: strin
             </div>
           )}
 
-          {/* Sibling series link */}
-          {!d.hideSeriesLink && (
-          <p className="mt-6 text-sm">
-            <Link href={`/alternatives/${d.seriesSlug}`} className="text-[#2C4A73] hover:underline">
-              View more {ob} {d.series} series models →
-            </Link>
-          </p>
+          {/* Other models in the same series — card grid (only when the size table is not rendered) */}
+          {shownSiblingCards.length > 0 && (
+            <div className="mt-10">
+              <p className="font-label text-xs text-[#62666C] uppercase tracking-wider mb-3">
+                Other models in the {ob} {d.series} range
+              </p>
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+                {shownSiblingCards.map((s) => (
+                  <Link
+                    key={s.slug}
+                    href={`/alternatives/${s.slug}`}
+                    className="block p-4 bg-white border border-[rgba(44,74,115,0.12)] rounded-md hover:border-[#2C4A73] transition-colors"
+                  >
+                    <span className="block font-mono text-sm text-[#1B1E20] break-all">{s.model}</span>
+                    <span className="block mt-1 text-xs text-[#62666C]">
+                      {s.torque ? `${s.torque} · ` : ''}
+                      {s.rotation}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+              {siblingCards.length > shownSiblingCards.length && (
+                <p className="mt-3 text-xs text-[#62666C]">
+                  Showing {shownSiblingCards.length} of {siblingCards.length} other models in this range.
+                </p>
+              )}
+            </div>
+          )}
+
+          {/* Series link — only when the series page actually exists */}
+          {!d.hideSeriesLink && d.seriesSlug && (
+            <p className="mt-6 text-sm">
+              <Link href={`/alternatives/${d.seriesSlug}`} className="text-[#2C4A73] hover:underline">
+                View more {ob} {d.series} series models →
+              </Link>
+            </p>
+          )}
+          {!d.hideSeriesLink && !d.seriesSlug && (
+            <p className="mt-6 text-sm">
+              <Link href="/alternatives" className="text-[#2C4A73] hover:underline">
+                Browse all {ob} references →
+              </Link>
+            </p>
           )}
         </div>
       </section>

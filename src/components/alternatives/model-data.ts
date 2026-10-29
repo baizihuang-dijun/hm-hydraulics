@@ -4345,6 +4345,7 @@ export function getSeriesSiblings(slug: string): {
   model: string;
   torque?: string;
   weight?: string;
+  rotation: string;
   current: boolean;
 }[] {
   const model = getModel(slug);
@@ -4362,8 +4363,8 @@ export function getSeriesSiblings(slug: string): {
     return a.slug.localeCompare(b.slug);
   });
   return [
-    { slug: model.slug, model: model.model, torque: model.torque, weight: model.weight, current: true },
-    ...sortedSiblings.map((m) => ({ slug: m.slug, model: m.model, torque: m.torque, weight: m.weight, current: false })),
+    { slug: model.slug, model: model.model, torque: model.torque, weight: model.weight, rotation: model.rotation, current: true },
+    ...sortedSiblings.map((m) => ({ slug: m.slug, model: m.model, torque: m.torque, weight: m.weight, rotation: m.rotation, current: false })),
   ];
 }
 
