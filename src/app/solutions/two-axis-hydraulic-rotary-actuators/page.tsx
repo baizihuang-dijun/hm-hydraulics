@@ -118,10 +118,11 @@ export default function TwoAxisPage() {
             1. What is a two-axis hydraulic rotary actuator?
           </h2>
           <p className="text-[#4A4E54] leading-relaxed mb-4">
-            A two-axis arrangement produces <strong className="text-[#1B1E20]">two independent
-            rotary outputs</strong>. Typically one axis carries the primary motion — swing, boom
-            rotation or arm indexing — and the second carries a secondary motion such as tilt, wrist
-            rotation or jib movement.
+            A two-axis arrangement provides rotary motion about{' '}
+            <strong className="text-[#1B1E20]">two distinct axes</strong>. Whether the two axes can be
+            controlled independently depends on the hydraulic circuit and the control system.
+            Typically one axis carries the primary motion — swing, boom rotation or arm indexing — and
+            the second carries a secondary motion such as tilt, wrist rotation or jib movement.
           </p>
           <p className="text-[#4A4E54] leading-relaxed mb-4">
             The important point for specification is that the two axes are <em>not</em> one larger
@@ -168,7 +169,9 @@ export default function TwoAxisPage() {
                       Load path
                     </th>
                     <td className="py-2.5 px-3 text-xs leading-relaxed">
-                      Both axes act inside one housing, so the second-axis moment closes in the body.
+                      The axes may share one housing and bearing arrangement. External loads and
+                      reaction moments still pass through the internal structure into the mounting
+                      interface, according to the design.
                     </td>
                     <td className="py-2.5 pl-3 text-xs leading-relaxed">
                       Unit 2 sits at an offset from axis 1, so its mass and working load reach axis 1 as
@@ -193,7 +196,8 @@ export default function TwoAxisPage() {
                       Interfaces added
                     </th>
                     <td className="py-2.5 px-3 text-xs leading-relaxed">
-                      None between the axes — one mounting interface, one set of ports.
+                      Fewer external mechanical interfaces may be needed. Porting and circuit
+                      connections depend on the integrated design and on how each axis is controlled.
                     </td>
                     <td className="py-2.5 pl-3 text-xs leading-relaxed">
                       Connecting structure, a second bolt pattern, a second set of ports and hoses, and
@@ -228,7 +232,8 @@ export default function TwoAxisPage() {
                       Service access
                     </th>
                     <td className="py-2.5 px-3 text-xs leading-relaxed">
-                      Bearings and seals are shared in one body; access is decided at design stage.
+                      Bearing and seal arrangements are design-specific; whether each axis can be
+                      serviced independently has to be checked at design review.
                     </td>
                     <td className="py-2.5 pl-3 text-xs leading-relaxed">
                       Either unit can be removed on its own, provided the connecting structure and the
@@ -364,6 +369,21 @@ export default function TwoAxisPage() {
             <li>rotation angle, including any special or limited-swing requirement;</li>
             <li>speed and duty cycle, since these drive both sizing and thermal behaviour;</li>
             <li>space envelope and mass budget at the mounting point.</li>
+          </ul>
+          <p className="text-[#4A4E54] leading-relaxed mb-4">For the external loads acting on the
+          assembly:</p>
+          <ul className="list-disc pl-5 space-y-1.5 text-[#4A4E54] mb-4">
+            <li>
+              radial and axial load at each output, where the load acts, and its distance from the
+              rotation axis — this is what sets the overhung moment;
+            </li>
+            <li>
+              dynamic and shock components, and whether the load reverses in service;
+            </li>
+            <li>
+              external supports or bearings already present in the machine, and what they are intended
+              to carry.
+            </li>
           </ul>
           <p className="text-[#4A4E54] leading-relaxed mb-4">For the assembly as a whole:</p>
           <ul className="list-disc pl-5 space-y-1.5 text-[#4A4E54] mb-8">
