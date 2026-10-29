@@ -1,4 +1,5 @@
 import type { ModelData } from '@/components/alternatives/model-data';
+import { getSeriesImage, HMR_ALL_DATA } from '@/lib/hmr/hmr-all-series';
 
 export const MODEL_IMAGE_PLACEHOLDER = '/images/products/hm-model-placeholder.png';
 
@@ -85,8 +86,53 @@ function stemMatchesModel(stem: string, model: string): boolean {
   return modelNorm.startsWith(codeNorm) || codeNorm.startsWith(modelNorm);
 }
 
+/**
+ * Own-product photo for the HM series this reference is matched to.
+ *
+ * Non-Helac references (HKS / Moveco / Sungji) used to show a Helac-frame photo as a
+ * "representative" reference. Those pages sell the HM build, so they now show the HM
+ * product photo for the matched series instead — never another make's hardware.
+ */
+/** Nearest HM series by rated torque, for records with no mapped HM model. */
+function seriesFromTorque(torque?: string): string | null {
+  if (!torque) return null;
+  const value = Number.parseFloat(torque.replace(/[^0-9.]/g, ''));
+  if (!Number.isFinite(value) || value <= 0) return null;
+  let best: { hmr: string; diff: number } | null = null;
+  for (const m of HMR_ALL_DATA.models) {
+    const diff = Math.abs(m.drivingNm - value);
+    if (!best || diff < best.diff) best = { hmr: m.hmr, diff };
+  }
+  return best ? best.hmr.split('-')[0] : null;
+}
+
+export function hmSeriesForPhoto(record: ModelData): string | null {
+  const mapped = record.hmr ? record.hmr.split('-')[0] : null;
+  const series = mapped && /^HMR[1-6]$/.test(mapped) ? mapped : seriesFromTorque(record.torque);
+  return series && /^HMR[1-6]$/.test(series) ? series : null;
+}
+
+function ownProductPhoto(record: ModelData): string | null {
+  const series = hmSeriesForPhoto(record);
+  return series ? getSeriesImage(series) || null : null;
+}
+
+function isOwnProductPhoto(path?: string): boolean {
+  return Boolean(path && path.startsWith('/images/products/'));
+}
+
+/** True when the page shows the HM build photo in place of another make's hardware. */
+export function usesOwnProductPhoto(record: ModelData): boolean {
+  const brand = record.originBrand ?? 'Helac';
+  if (brand === 'Helac') return false;
+  if (isOwnProductPhoto(record.image)) return false;
+  return ownProductPhoto(record) !== null;
+}
+
 export function modelImageTier(record: ModelData): ModelImageTier {
   const { image, model } = record;
+
+  if (usesOwnProductPhoto(record)) return 'representative';
 
   if (!image || image.includes('placeholder')) return 'placeholder';
 
@@ -107,6 +153,8 @@ export function modelImageTier(record: ModelData): ModelImageTier {
 }
 
 export function resolveModelImage(record: ModelData): string {
+  const own = ownProductPhoto(record);
+  if (own && usesOwnProductPhoto(record)) return own;
   const tier = modelImageTier(record);
   return tier === 'placeholder' ? MODEL_IMAGE_PLACEHOLDER : (record.image ?? MODEL_IMAGE_PLACEHOLDER);
 }
@@ -118,6 +166,10 @@ export function resolveModelAlt(record: ModelData): string {
     return `${record.model} rotary actuator — correct unit drawing available on request`;
   }
   if (tier === 'representative') {
+    if (usesOwnProductPhoto(record)) {
+      const series = hmSeriesForPhoto(record) ?? 'HMR';
+      return `${series} series actuator — HM product photo for this torque class, not the ${record.originBrand ?? 'other'} unit`;
+    }
     // Hand-written alts already state what the photo shows and that it is not the
     // exact unit; prefer them over the generic template.
     if (record.imageAlt) return record.imageAlt;

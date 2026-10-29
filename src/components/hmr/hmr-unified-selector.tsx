@@ -14,6 +14,8 @@ import {
   type CompetitorDirectResult,
   type HmrModel,
 } from '@/lib/hmr/hmr-all-series';
+import Link from 'next/link';
+import { HMR_MODEL_PAGE_CODES } from '@/lib/hmr/hmr-model-pages';
 import { HmrRfqForm } from './hmr-rfq-form';
 
 /** One candidate card: a model plus how far its rated torque sits from the requirement. */
@@ -232,9 +234,48 @@ export function HmrUnifiedSelector() {
     rfqRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
+  // Shareable selector state: #selector?torque=8300&angle=360&mount=FT, or ?ref=L30-65-...
+  const [pendingDeepLink, setPendingDeepLink] = useState(false);
+
   useEffect(() => {
-    setAngleFilter('Any');
+    const hash = window.location.hash;
+    const queryIndex = hash.indexOf('?');
+    const params = new URLSearchParams(queryIndex === -1 ? '' : hash.slice(queryIndex + 1));
+    const torqueParam = params.get('torque');
+    const refParam = params.get('ref');
+    const angleParam = params.get('angle');
+    const mountParam = params.get('mount');
+    if (!torqueParam && !refParam) {
+      setAngleFilter('Any');
+      return;
+    }
+    if (refParam) setReferenceQuery(refParam);
+    if (torqueParam) setTorqueInput(torqueParam);
+    if (angleParam) setAngleFilter(angleParam);
+    if (mountParam) setMountFilter(mountParam);
+    setPendingDeepLink(true);
   }, []);
+
+  useEffect(() => {
+    if (!pendingDeepLink) return;
+    setPendingDeepLink(false);
+    handleSearch();
+    // handleSearch reads the inputs set by the effect above.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pendingDeepLink]);
+
+  // Keep the address bar in step with the result so a selection can be shared.
+  useEffect(() => {
+    if (!selectedModel && candidates.length === 0) return;
+    const params = new URLSearchParams();
+    if (referenceQuery.trim()) params.set('ref', referenceQuery.trim());
+    else if (torqueInput.trim()) params.set('torque', torqueInput.trim());
+    if (angleFilter !== 'Any') params.set('angle', angleFilter);
+    if (mountFilter !== 'Any') params.set('mount', mountFilter);
+    const query = params.toString();
+    if (!query) return;
+    window.history.replaceState(null, '', `${window.location.pathname}#selector?${query}`);
+  }, [candidates, selectedModel, referenceQuery, torqueInput, angleFilter, mountFilter]);
 
   return (
     <section id="selector" className="bg-white py-16 md:py-20">
@@ -381,10 +422,18 @@ export function HmrUnifiedSelector() {
               {candidates.map((card) => {
                 const m = card.model;
                 return (
-                <button
+                <div
                   key={m.hmr}
+                  role="button"
+                  tabIndex={0}
                   onClick={() => selectCandidate(m)}
-                  className="h-full flex flex-col items-start justify-start text-left p-5 rounded-xl border border-[rgba(44,74,115,0.10)] bg-white hover:border-[#D98A1D] hover:shadow-sm transition-all"
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      selectCandidate(m);
+                    }
+                  }}
+                  className="h-full flex flex-col items-start justify-start text-left p-5 rounded-xl border border-[rgba(44,74,115,0.10)] bg-white hover:border-[#D98A1D] hover:shadow-sm transition-all cursor-pointer"
                 >
                   <div className="flex items-start justify-between gap-3">
                     <div>
@@ -430,7 +479,19 @@ export function HmrUnifiedSelector() {
                       engineering team will confirm a configuration.
                     </p>
                   )}
-                </button>
+                  <div className="mt-auto pt-4 flex items-center gap-4">
+                    <span className="text-xs font-medium text-[#2C4A73]">Configure this size →</span>
+                    {HMR_MODEL_PAGE_CODES.includes(m.hmr) && (
+                      <Link
+                        href={`/products/rotary-actuators/${m.hmr.toLowerCase()}`}
+                        onClick={(e) => e.stopPropagation()}
+                        className="text-xs text-[#4A4E54] underline underline-offset-2 hover:text-[#2C4A73]"
+                      >
+                        Full specification
+                      </Link>
+                    )}
+                  </div>
+                </div>
                 );
               })}
             </div>
@@ -484,7 +545,17 @@ export function HmrUnifiedSelector() {
               <div className="flex items-center justify-between px-4 py-3 rounded-lg bg-[#F0F4FA]">
                 <div>
                   <div className="text-xs text-[#62666C]">Selected model</div>
-                  <div className="text-xl font-semibold font-mono text-[#1B1E20]">{selectedModel.hmr}</div>
+                  <div className="flex items-baseline gap-3">
+                    <span className="text-xl font-semibold font-mono text-[#1B1E20]">{selectedModel.hmr}</span>
+                    {HMR_MODEL_PAGE_CODES.includes(selectedModel.hmr) && (
+                      <Link
+                        href={`/products/rotary-actuators/${selectedModel.hmr.toLowerCase()}`}
+                        className="text-xs text-[#2C4A73] underline underline-offset-2"
+                      >
+                        Full specification →
+                      </Link>
+                    )}
+                  </div>
                 </div>
                 <div className="text-right">
                   <div className="text-xs text-[#62666C]">Driving torque</div>

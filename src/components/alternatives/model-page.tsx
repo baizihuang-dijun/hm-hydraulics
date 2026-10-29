@@ -2,10 +2,11 @@ import Link from 'next/link';
 import { RfqForm } from '@/components/alternatives/rfq-form';
 import type { ModelData } from '@/components/alternatives/model-data';
 import { getSeriesSiblings, parseTorqueNm } from '@/components/alternatives/model-data';
-import { resolveModelImage, modelImageTier, resolveModelAlt } from '@/components/alternatives/model-image';
+import { resolveModelImage, modelImageTier, resolveModelAlt, usesOwnProductPhoto, hmSeriesForPhoto } from '@/components/alternatives/model-image';
 import { getHmrComparison } from '@/lib/hmr/hmr-compare';
 import { getCrossBrandPeers, getSameBaseVariants } from '@/lib/hmr/hmr-cross-links';
 import { CodeDecodeBlock } from '@/components/alternatives/code-decode';
+import { RotationNote } from '@/components/alternatives/rotation-note';
 
 const SITE = 'https://www.hmhydraulics.com';
 
@@ -391,6 +392,8 @@ export function ModelPage({ d, related }: { d: ModelData; related: { slug: strin
               <figcaption className="text-xs text-[#62666C] px-1 pt-2.5 pb-1">
                 {imageTier === 'placeholder'
                   ? 'Correct unit drawing available on request — send your nameplate or mounting photo'
+                  : usesOwnProductPhoto(d)
+                  ? `HM ${hmSeriesForPhoto(d) ?? ''} series actuator — our own build for this torque class; the exact ${ob} unit is confirmed against your nameplate and drawing`
                   : imageTier === 'representative' || d.sourcingOnly
                     ? `Representative ${d.series} class rotary actuator — the exact ${ob} build is confirmed against your nameplate and drawing`
                     : `${d.series} series rotary actuator — verify flange and port configuration against your unit`}
@@ -632,6 +635,9 @@ export function ModelPage({ d, related }: { d: ModelData; related: { slug: strin
 
       {/* Code anatomy — segment-by-segment decode of the model code */}
       <CodeDecodeBlock model={d.model} />
+
+      {/* Rotation sweep — what this build's angle changes, keeps angle variants distinct */}
+      <RotationNote rotation={d.rotation} />
 
       {/* Same torque class — cross-brand links */}
       {peers.length > 0 && (
