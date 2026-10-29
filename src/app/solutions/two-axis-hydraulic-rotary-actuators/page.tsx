@@ -139,88 +139,106 @@ export default function TwoAxisPage() {
             envelope, load paths and service access will actually allow.
           </p>
 
-          {/* Schematic */}
-          <figure className="mb-10 rounded-lg border border-[rgba(44,74,115,0.14)] bg-[#FAFAF7] p-5">
-            <svg
-              viewBox="0 0 720 330"
-              role="img"
-              aria-labelledby="twoAxisDiagramTitle twoAxisDiagramDesc"
-              className="w-full h-auto"
-            >
-              <title id="twoAxisDiagramTitle">
-                Load-path comparison: an integrated two-axis assembly and two combined single-axis
-                actuators
-              </title>
-              <desc id="twoAxisDiagramDesc">
-                Panel A: one housing contains both rotational axes, so the moment produced by the second
-                axis closes inside the same body. Panel B: two separate housings joined by an engineered
-                mounting structure, where the second unit sits at an offset from the first axis and
-                therefore loads the first unit output as an overhung moment M.
-              </desc>
-
-              {/* Panel A */}
-              <text x="24" y="32" fontSize="13" fill="#2C4A73" fontFamily="system-ui, sans-serif" fontWeight="600">
-                A · Integrated
-              </text>
-
-              <line x1="40" y1="160" x2="252" y2="160" stroke="#2C4A73" strokeWidth="1" strokeDasharray="5 4" opacity="0.45" />
-              <line x1="160" y1="68" x2="160" y2="242" stroke="#2C4A73" strokeWidth="1" strokeDasharray="5 4" opacity="0.45" />
-
-              <rect x="90" y="120" width="140" height="80" rx="6" fill="#FFFFFF" stroke="#2C4A73" strokeWidth="2" />
-              <rect x="72" y="140" width="18" height="40" rx="2" fill="#DCE6F2" stroke="#2C4A73" strokeWidth="2" />
-              <rect x="138" y="102" width="44" height="18" rx="2" fill="#DCE6F2" stroke="#2C4A73" strokeWidth="2" />
-
-              <circle cx="252" cy="160" r="4" fill="#2C4A73" />
-              <text x="260" y="164" fontSize="10" fill="#62666C" fontFamily="system-ui, sans-serif">axis 1</text>
-              <circle cx="160" cy="68" r="4" fill="#2C4A73" />
-              <text x="168" y="72" fontSize="10" fill="#62666C" fontFamily="system-ui, sans-serif">axis 2</text>
-
-              <text x="24" y="284" fontSize="11" fill="#62666C" fontFamily="system-ui, sans-serif">
-                one housing — both axes in one body
-              </text>
-              <text x="24" y="302" fontSize="11" fill="#62666C" fontFamily="system-ui, sans-serif">
-                axis 2 moment closes inside the body
-              </text>
-
-              {/* Divider */}
-              <line x1="360" y1="40" x2="360" y2="312" stroke="rgba(44,74,115,0.18)" strokeWidth="1" strokeDasharray="4 4" />
-
-              {/* Panel B */}
-              <text x="384" y="32" fontSize="13" fill="#2C4A73" fontFamily="system-ui, sans-serif" fontWeight="600">
-                B · Combined actuators
-              </text>
-
-              <line x1="366" y1="191" x2="515" y2="191" stroke="#2C4A73" strokeWidth="1" strokeDasharray="5 4" opacity="0.45" />
-              <line x1="576" y1="85" x2="576" y2="177" stroke="#2C4A73" strokeWidth="1" strokeDasharray="5 4" opacity="0.45" />
-
-              <rect x="410" y="155" width="105" height="72" rx="6" fill="#FFFFFF" stroke="#2C4A73" strokeWidth="2" />
-              <rect x="515" y="171" width="14" height="40" rx="2" fill="#DCE6F2" stroke="#2C4A73" strokeWidth="2" />
-              <rect x="529" y="105" width="12" height="140" fill="#E8E8E4" stroke="#2C4A73" strokeWidth="2" />
-              <rect x="541" y="115" width="70" height="62" rx="6" fill="#FFFFFF" stroke="#2C4A73" strokeWidth="2" />
-              <rect x="558" y="100" width="36" height="15" rx="2" fill="#DCE6F2" stroke="#2C4A73" strokeWidth="2" />
-
-              <path d="M 522 223 A 32 32 0 0 1 554 191" fill="none" stroke="#B4552F" strokeWidth="2" />
-              <path d="M 554 191 L 548 199 M 554 191 L 560 199" fill="none" stroke="#B4552F" strokeWidth="2" />
-              <text x="558" y="210" fontSize="12" fill="#B4552F" fontFamily="system-ui, sans-serif" fontWeight="600">M</text>
-
-              <circle cx="366" cy="191" r="4" fill="#2C4A73" />
-              <text x="366" y="182" fontSize="10" fill="#62666C" fontFamily="system-ui, sans-serif">axis 1</text>
-              <circle cx="576" cy="85" r="4" fill="#2C4A73" />
-              <text x="584" y="89" fontSize="10" fill="#62666C" fontFamily="system-ui, sans-serif">axis 2</text>
-
-              <text x="384" y="284" fontSize="11" fill="#62666C" fontFamily="system-ui, sans-serif">
-                two housings + a mounting structure
-              </text>
-              <text x="384" y="302" fontSize="11" fill="#62666C" fontFamily="system-ui, sans-serif">
-                unit 2 loads unit 1 as a moment M
-              </text>
-            </svg>
-            <figcaption className="text-xs text-[#8A8E94] leading-relaxed mt-3">
-              Conceptual illustration only. It shows the two configuration families in general terms
-              and is not a product HM Hydraulics manufactures, supplies or has validated, nor an
-              approved assembly sequence.
-            </figcaption>
-          </figure>
+          {/* Comparison table */}
+          <div className="mb-10 rounded-lg border border-[rgba(44,74,115,0.14)] bg-[#FAFAF7] px-5 pt-5 pb-4">
+            <p className="text-sm text-[#62666C] leading-relaxed mb-4">
+              Neither family is better in general. What differs is what each one asks of the machine.
+            </p>
+            <div className="overflow-x-auto">
+              <table className="min-w-full text-left border-collapse">
+                <caption className="sr-only">
+                  Comparison of an integrated two-axis assembly and two combined single-axis actuators
+                </caption>
+                <thead>
+                  <tr className="border-b border-[rgba(44,74,115,0.20)]">
+                    <th scope="col" className="py-2.5 pr-4 font-heading text-xs font-medium text-[#1B1E20] w-[22%]">
+                      Factor
+                    </th>
+                    <th scope="col" className="py-2.5 px-3 font-heading text-xs font-medium text-[#1B1E20]">
+                      Integrated assembly
+                    </th>
+                    <th scope="col" className="py-2.5 pl-3 font-heading text-xs font-medium text-[#1B1E20]">
+                      Two combined actuators
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="text-[#4A4E54]">
+                  <tr className="border-b border-[rgba(44,74,115,0.10)]">
+                    <th scope="row" className="py-2.5 pr-4 text-xs font-medium text-[#1B1E20] text-left">
+                      Load path
+                    </th>
+                    <td className="py-2.5 px-3 text-xs leading-relaxed">
+                      Both axes act inside one housing, so the second-axis moment closes in the body.
+                    </td>
+                    <td className="py-2.5 pl-3 text-xs leading-relaxed">
+                      Unit 2 sits at an offset from axis 1, so its mass and working load reach axis 1 as
+                      an overhung moment.
+                    </td>
+                  </tr>
+                  <tr className="border-b border-[rgba(44,74,115,0.10)]">
+                    <th scope="row" className="py-2.5 pr-4 text-xs font-medium text-[#1B1E20] text-left">
+                      Allowable external loads
+                    </th>
+                    <td className="py-2.5 px-3 text-xs leading-relaxed">
+                      Set by the design of the assembly; radial, axial and tilting-moment limits have to
+                      be published and checked.
+                    </td>
+                    <td className="py-2.5 pl-3 text-xs leading-relaxed">
+                      Checked on unit 1 against its own published limits. This is often the item that
+                      decides feasibility.
+                    </td>
+                  </tr>
+                  <tr className="border-b border-[rgba(44,74,115,0.10)]">
+                    <th scope="row" className="py-2.5 pr-4 text-xs font-medium text-[#1B1E20] text-left">
+                      Interfaces added
+                    </th>
+                    <td className="py-2.5 px-3 text-xs leading-relaxed">
+                      None between the axes — one mounting interface, one set of ports.
+                    </td>
+                    <td className="py-2.5 pl-3 text-xs leading-relaxed">
+                      Connecting structure, a second bolt pattern, a second set of ports and hoses, and
+                      an alignment to hold over life.
+                    </td>
+                  </tr>
+                  <tr className="border-b border-[rgba(44,74,115,0.10)]">
+                    <th scope="row" className="py-2.5 pr-4 text-xs font-medium text-[#1B1E20] text-left">
+                      Envelope and mass
+                    </th>
+                    <td className="py-2.5 px-3 text-xs leading-relaxed">
+                      Usually compact at the joint, but the geometry is fixed once chosen.
+                    </td>
+                    <td className="py-2.5 pl-3 text-xs leading-relaxed">
+                      Larger at the joint, and the mass of unit 2 is carried on unit 1.
+                    </td>
+                  </tr>
+                  <tr className="border-b border-[rgba(44,74,115,0.10)]">
+                    <th scope="row" className="py-2.5 pr-4 text-xs font-medium text-[#1B1E20] text-left">
+                      Sizing per axis
+                    </th>
+                    <td className="py-2.5 px-3 text-xs leading-relaxed">
+                      Both axes are defined by the integrated design.
+                    </td>
+                    <td className="py-2.5 pl-3 text-xs leading-relaxed">
+                      Each axis is sized on its own duty — useful when the two torque requirements differ
+                      widely.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row" className="py-2.5 pr-4 text-xs font-medium text-[#1B1E20] text-left">
+                      Service access
+                    </th>
+                    <td className="py-2.5 px-3 text-xs leading-relaxed">
+                      Bearings and seals are shared in one body; access is decided at design stage.
+                    </td>
+                    <td className="py-2.5 pl-3 text-xs leading-relaxed">
+                      Either unit can be removed on its own, provided the connecting structure and the
+                      assembly sequence allow it.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
 
           {/* 2 */}
           <h2 className="font-heading text-2xl font-medium text-[#1B1E20] mb-4">
