@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { CookieSettingsButton } from '@/components/cookie-settings-button';
 
 export function Footer() {
   return (
@@ -108,7 +109,8 @@ export function Footer() {
         {/* Bottom */}
         <div className="mt-8 pt-8 border-t border-[rgba(255,255,255,0.08)] flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
           <p className="text-xs text-[#6B7280]">
-            &copy; {new Date().getFullYear()} HM Hydraulics. All rights reserved.
+            &copy; {new Date().getFullYear()} HM Hydraulics. All rights reserved.{' '}
+            <CookieSettingsButton className="underline decoration-[#4B5563] underline-offset-2 transition-colors hover:text-white" />
           </p>
           <div className="flex items-center gap-6">
             <a

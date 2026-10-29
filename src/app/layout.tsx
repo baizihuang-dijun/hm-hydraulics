@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
+import { Analytics } from '@/components/analytics';
+import { ConsentBanner } from '@/components/consent-banner';
 import { graphLd, organizationLd, webSiteLd } from '@/lib/schema';
 
 export const metadata: Metadata = {
@@ -65,12 +67,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZPJ9PXS32N" />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-ZPJ9PXS32N');`,
-          }}
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -82,6 +78,8 @@ export default function RootLayout({
         <Header />
         <main className="min-h-screen">{children}</main>
         <Footer />
+        <ConsentBanner />
+        <Analytics />
       </body>
     </html>
   );
