@@ -121,11 +121,26 @@ function isOwnProductPhoto(path?: string): boolean {
   return Boolean(path && path.startsWith('/images/products/'));
 }
 
+/**
+ * True when the record already has a real photo of that make's own unit (ECKART /
+ * Putzmeister / Sandvik / Atlas builds photographed in the workshop), as opposed to a
+ * Helac catalog thumbnail borrowed as a stand-in. A real unit photo always wins over
+ * the HM series photo: it is the actual hardware being described.
+ */
+function hasRealUnitPhoto(record: ModelData): boolean {
+  const { image } = record;
+  if (!image || image.includes('placeholder') || isOwnProductPhoto(image)) return false;
+  if (image.startsWith('/images/alternatives/')) return false; // Helac catalog thumbs only
+  const stem = stemFromPath(image);
+  return !REPRESENTATIVE_STEMS.has(stem);
+}
+
 /** True when the page shows the HM build photo in place of another make's hardware. */
 export function usesOwnProductPhoto(record: ModelData): boolean {
   const brand = record.originBrand ?? 'Helac';
   if (brand === 'Helac') return false;
   if (isOwnProductPhoto(record.image)) return false;
+  if (hasRealUnitPhoto(record)) return false;
   return ownProductPhoto(record) !== null;
 }
 

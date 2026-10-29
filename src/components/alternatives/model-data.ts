@@ -122,10 +122,11 @@ export const modelPages: ModelData[] = [
     brands: ['Husqvarna'],
     parts: ['541 20 09-94'],
     machines: ['RS8500D'],
-    image: '/images/alternatives/l10-3-0-e-rf-180.jpg',
-    imageW: 211,
-    imageH: 212,
-    imageAlt: 'Replacement steering rotary actuator for Helac L10-3.0-E-RF-180, Husqvarna RS8500D part 541 20 09-94',
+    image: '/images/atlas-copco/l10-3-0-e-rf-180-s1-o-h-rotary-actuator.webp',
+    imageW: 1600,
+    imageH: 1137,
+    imageAlt:
+      'L10-3.0-E-RF-180-S1-O-H helical rotary actuator, rear-flange 180-degree build, photographed unit',
     intro:
       'Alternative steering rotary actuator for the Helac L10-3.0-E-RF-180-S1-O-H, a compact 180-degree helical rotary actuator in the 12 kg class rated at 3,000 in-lb. It is listed by Husqvarna as steering actuator part number 541 20 09-94 on the RS8500D ride-on concrete saw, supplied for maintenance and aftermarket replacement.',
     applicationNote:
