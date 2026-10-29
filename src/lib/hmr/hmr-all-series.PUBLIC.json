@@ -123,7 +123,7 @@
       ],
       "orderSyntax": "HMR3-{spec}-{angle}-FF-1F-{valve}",
       "shortSyntax": "HMR3-{spec}-{angle}-{valve}",
-      "example": "HMR3-030-180-CB",
+      "example": "HMR3-030-180-FF-1F-CB",
       "note": "FF mounting and 1F output are standard and may be omitted in the short code."
     },
     "HMR4": {

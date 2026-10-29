@@ -16,8 +16,10 @@ if command -v pnpm >/dev/null 2>&1; then
   pnpm install --frozen-lockfile
   node scripts/check-hmr-data.mjs
   pnpm next build
+  node scripts/audit-hmr-codes.mjs out
 else
   npm install --no-audit --no-fund --ignore-scripts
   node scripts/check-hmr-data.mjs
   npx next build
+  node scripts/audit-hmr-codes.mjs out
 fi
