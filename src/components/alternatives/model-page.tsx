@@ -80,6 +80,18 @@ export function ModelPage({ d, related }: { d: ModelData; related: { slug: strin
   const variants = getSameBaseVariants(d.slug);
   const path = `/alternatives/${d.slug}`;
   const ob = d.originBrand ?? 'Helac';
+  // Some records carry the maker name inside the model string (e.g. 'ECKART SZ.SM3.215-357°/SO');
+  // avoid rendering the brand twice in front of it.
+  const brandedModel = d.model.toUpperCase().startsWith(ob.toUpperCase())
+    ? d.model
+    : `${ob} ${d.model}`;
+  // RFQ prompt: name the equipment brand this record actually carries instead of hard-coding one.
+  // Skip it when the equipment brand is the same name already used for the maker, to avoid
+  // "Putzmeister model number, the Putzmeister / OEM part number".
+  const oemPartPrompt =
+    d.brands.length && d.brands[0].toUpperCase() !== ob.toUpperCase()
+      ? `${listJoin(d.brands)} / OEM part number`
+      : 'OEM part number (if available)';
 
   const siblingsRaw = getSeriesSiblings(d.slug);
   const allSiblingsHaveTorque =
@@ -179,8 +191,8 @@ export function ModelPage({ d, related }: { d: ModelData; related: { slug: strin
       : d.modelCodeUnverified
       ? `Replacement rotary actuator for ${d.brands[0] ?? 'OEM'} ${d.parts[0] ?? d.model} (Helac HP-class)`
       : d.sourcingOnly
-      ? `Sourcing / alternative supply for ${ob} ${d.model}`
-      : `Replacement rotary actuator for ${ob} ${d.model}`,
+      ? `Sourcing / alternative supply for ${brandedModel}`
+      : `Replacement rotary actuator for ${brandedModel}`,
     image: `${SITE}${resolvedImage}`,
     description: d.catalogBuild
       ? `${d.intro} Configuration derived from HY34-1001; engineering data per ${d.catalogSpec?.source ?? 'published Helac tables'}; exact configuration and compatibility confirmed against the original unit tag and mounting drawings.`
@@ -319,9 +331,9 @@ export function ModelPage({ d, related }: { d: ModelData; related: { slug: strin
                             d.parts.length > 1 ? ` (also listed as ${listJoin(d.parts.slice(1))})` : ''
                           }; the supplied build is recorded as Helac HP-series code ${d.model}, to be confirmed against the nameplate.`
                         : d.sourcingOnly
-                        ? <>Sourcing / alternative supply for {ob} {d.model}
+                        ? <>Sourcing / alternative supply for {brandedModel}
                           {d.parts.length > 1 ? ` — also listed as ${listJoin(d.parts.slice(1))}` : ''}. Interchangeability confirmed on inquiry.</>
-                        : <>Alternative rotary actuator for {ob} {d.model}
+                        : <>Alternative rotary actuator for {brandedModel}
                           {d.parts.length > 1 ? ` — also listed as ${listJoin(d.parts.slice(1))}` : ''}.</>}
                     </p>
                   </div>
@@ -1073,7 +1085,7 @@ export function ModelPage({ d, related }: { d: ModelData; related: { slug: strin
                   </>
                 ) : d.sourcingOnly ? (
                   <>
-                    Send the original {ob} model number, the Sandvik / OEM part number, machine details or a
+                    Send the original {ob} model number, the {oemPartPrompt}, machine details or a
                     mounting drawing. We confirm the configuration and advise the available sourcing or
                     alternative-supply option before quoting.
                   </>
