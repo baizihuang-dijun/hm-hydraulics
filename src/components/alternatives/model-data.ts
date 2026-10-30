@@ -32,6 +32,13 @@ export interface ModelData {
   parts: string[];
   /** Known machine models (public), or [] when none. */
   machines: string[];
+  /**
+   * Alternative order codes the customer may type for this same page, beyond `model`.
+   * Search-only: never rendered, never used for H1/title/canonical. Use it where a maker
+   * prefixes a family code the public page omits (e.g. HKS writes M-DA-H-F5 115 while the
+   * page shows F5 115), so the full code still finds the page.
+   */
+  aliases?: string[];
   /** Project-relative image path. */
   image?: string;
   imageW?: number;
@@ -2695,6 +2702,7 @@ export const modelPages: ModelData[] = [
   },
   {
     model: 'F5 115',
+    aliases: ['M-DA-H-F5 115'],
     slug: 'hks-f5-115',
     hmr: 'HMR4-200',
     series: 'M-DA-H-F5 (foot) / F10 (flange)',
@@ -2730,6 +2738,7 @@ export const modelPages: ModelData[] = [
   },
   {
     model: 'F5 125',
+    aliases: ['M-DA-H-F5 125'],
     slug: 'hks-f5-125',
     hmr: 'HMR4-280',
     series: 'M-DA-H-F5 (foot) / F10 (flange)',
@@ -2765,6 +2774,7 @@ export const modelPages: ModelData[] = [
   },
   {
     model: 'F5 150',
+    aliases: ['M-DA-H-F5 150'],
     slug: 'hks-f5-150',
     hmr: 'HMR4-470',
     series: 'M-DA-H-F5 (foot) / F10 (flange)',
@@ -2800,6 +2810,7 @@ export const modelPages: ModelData[] = [
   },
   {
     model: 'F5 200',
+    aliases: ['M-DA-H-F5 200'],
     slug: 'hks-f5-200',
     hmr: 'HMR4-1000',
     series: 'M-DA-H-F5 (foot) / F10 (flange)',
@@ -4485,6 +4496,7 @@ export function buildSearchIndex(): {
   equipmentMakes: string[];
   parts: string[];
   machines: string[];
+  aliases?: string[];
   image?: string;
   thumb?: string;
 }[] {
@@ -4495,6 +4507,7 @@ export function buildSearchIndex(): {
     equipmentMakes: (m.brands ?? []).map(equipmentMakeName),
     parts: m.parts ?? [],
     machines: m.machines ?? [],
+    ...(m.aliases?.length ? { aliases: m.aliases } : {}),
     ...(() => {
       const resolved = resolveModelImage(m);
       return resolved.includes('placeholder')

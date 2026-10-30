@@ -10,6 +10,7 @@ export interface SearchIndexItem {
   equipmentMakes?: string[];
   parts: string[];
   machines: string[];
+  aliases?: string[];
   kind?: 'model' | 'part';
   image?: string;
   thumb?: string;
@@ -28,8 +29,25 @@ function matchesQuery(m: SearchIndexItem, raw: string): boolean {
   if (!q) return false;
   const needle = normalize(q);
   if (!needle) return false;
-  const fields = [m.model, m.slug, m.originBrand, ...(m.equipmentMakes ?? []), ...m.parts, ...m.machines];
+  const fields = [
+    m.model,
+    m.slug,
+    m.originBrand,
+    ...(m.aliases ?? []),
+    ...(m.equipmentMakes ?? []),
+    ...m.parts,
+    ...m.machines,
+  ];
   return fields.some((f) => normalize(String(f)).includes(needle));
+}
+
+/**
+ * HKS material numbers (S9xxx) are configuration codes layered on a base actuator model:
+ * they carry valve and seal options, so the same number is never a standalone model code.
+ * Recognising the shape lets the empty state explain that instead of a dead end.
+ */
+function looksLikeHksMaterialNumber(raw: string): boolean {
+  return /^s9\d{2,5}$/i.test(raw.trim());
 }
 
 /**
@@ -45,12 +63,35 @@ function matchesQuery(m: SearchIndexItem, raw: string): boolean {
 function searchWithFallback(
   items: SearchIndexItem[],
   raw: string,
-): { items: SearchIndexItem[]; baseQuery: string | null; stripped: string | null } {
+): {
+  items: SearchIndexItem[];
+  baseQuery: string | null;
+  stripped: string | null;
+  mode: 'config' | 'family' | null;
+} {
   const q = raw.trim();
-  if (!q) return { items: [], baseQuery: null, stripped: null };
+  if (!q) return { items: [], baseQuery: null, stripped: null, mode: null };
 
   const exact = items.filter((m) => matchesQuery(m, q));
-  if (exact.length) return { items: exact, baseQuery: null, stripped: null };
+  if (exact.length) return { items: exact, baseQuery: null, stripped: null, mode: null };
+
+  // Order codes arrive as "FAMILY SIZE ANGLE-CONFIG THREAD MATERIAL" separated by spaces,
+  // e.g. "M-DA-H-F5 245 180°S2,LH S9159". Peel trailing space-separated tokens first so the
+  // family/size token survives and the whole family comes back as the closest match.
+  const words = q.split(/\s+/).filter(Boolean);
+  for (let cut = 1; cut <= 4 && words.length - cut >= 1; cut++) {
+    const base = words.slice(0, words.length - cut).join(' ');
+    if (base.length < 4) break;
+    const hits = items.filter((m) => matchesQuery(m, base));
+    if (hits.length) {
+      return {
+        items: hits,
+        baseQuery: base,
+        stripped: words.slice(words.length - cut).join(' '),
+        mode: 'family',
+      };
+    }
+  }
 
   const segs = q.split('-').filter(Boolean);
   // Peel at most 3 trailing segments, never below a 4-segment body code.
@@ -59,10 +100,15 @@ function searchWithFallback(
     const base = segs.slice(0, segs.length - cut).join('-');
     const hits = items.filter((m) => matchesQuery(m, base));
     if (hits.length) {
-      return { items: hits, baseQuery: base, stripped: segs.slice(segs.length - cut).join('-') };
+      return {
+        items: hits,
+        baseQuery: base,
+        stripped: segs.slice(segs.length - cut).join('-'),
+        mode: 'config',
+      };
     }
   }
-  return { items: [], baseQuery: null, stripped: null };
+  return { items: [], baseQuery: null, stripped: null, mode: null };
 }
 
 export function AlternativesBrowser({ searchIndex }: AlternativesBrowserProps) {
@@ -83,11 +129,12 @@ export function AlternativesBrowser({ searchIndex }: AlternativesBrowserProps) {
     filtered,
     baseQuery,
     stripped,
+    fallbackMode,
     actuatorChips,
     equipmentChips,
   } = useMemo(() => {
     const q = query.trim();
-    const { items: filtered, baseQuery, stripped } = searchWithFallback(searchIndex, q);
+    const { items: filtered, baseQuery, stripped, mode: fallbackMode } = searchWithFallback(searchIndex, q);
 
     const l10Count = searchIndex.filter((m) => m.model.startsWith('L10-')).length;
     const l20Count = searchIndex.filter((m) => m.model.startsWith('L20-')).length;
@@ -132,6 +179,7 @@ export function AlternativesBrowser({ searchIndex }: AlternativesBrowserProps) {
       filtered,
       baseQuery,
       stripped,
+      fallbackMode,
       actuatorChips,
       equipmentChips,
     };
@@ -193,12 +241,23 @@ export function AlternativesBrowser({ searchIndex }: AlternativesBrowserProps) {
               <p className="text-sm font-medium text-[#1B1E20] mb-1.5">
                 No published page for &ldquo;{query.trim()}&rdquo;
               </p>
-              <p className="text-sm text-[#4A4E54] leading-relaxed m-0">
-                Showing the closest match on the <span className="font-medium text-[#1B1E20]">{baseQuery}</span> body.
-                The <span className="font-medium text-[#1B1E20]">{stripped}</span> segments describe shaft end,
-                end-cap flange and porting configuration &mdash; the actuator body, rotation and load ratings are
-                the same. Send a nameplate photo or drawing and we confirm the interface before quoting.
-              </p>
+              {fallbackMode === 'family' ? (
+                <p className="text-sm text-[#4A4E54] leading-relaxed m-0">
+                  Showing the closest match on the{' '}
+                  <span className="font-medium text-[#1B1E20]">{baseQuery}</span> family. The{' '}
+                  <span className="font-medium text-[#1B1E20]">{stripped}</span> part of that line carries the
+                  size, angle, hand and material-number detail on top of the family &mdash; send the full order
+                  line, a nameplate photo or a drawing and we confirm the exact build before quoting.
+                </p>
+              ) : (
+                <p className="text-sm text-[#4A4E54] leading-relaxed m-0">
+                  Showing the closest match on the{' '}
+                  <span className="font-medium text-[#1B1E20]">{baseQuery}</span> body. The{' '}
+                  <span className="font-medium text-[#1B1E20]">{stripped}</span> segments describe shaft end,
+                  end-cap flange and porting configuration &mdash; the actuator body, rotation and load ratings
+                  are the same. Send a nameplate photo or drawing and we confirm the interface before quoting.
+                </p>
+              )}
             </div>
           )}
           <p className="font-label text-xs text-[#62666C] uppercase tracking-wider mb-4">
@@ -252,10 +311,21 @@ export function AlternativesBrowser({ searchIndex }: AlternativesBrowserProps) {
       )}
 
       {query.trim() && filtered.length === 0 && (
-        <p className="text-sm text-[#62666C]">
-          No published model matches &ldquo;{query}&rdquo;. Send the model code or part number and we will check
-          it against our engineering records.
-        </p>
+        <div className="text-sm text-[#62666C]">
+          <p className="m-0">
+            No published model matches &ldquo;{query}&rdquo;. Send the model code or part number and we will
+            check it against our engineering records.
+          </p>
+          {looksLikeHksMaterialNumber(query) && (
+            <p className="mt-3 p-4 m-0 border border-[rgba(44,74,115,0.15)] bg-[#FAFAF7] rounded-md leading-relaxed">
+              <span className="font-medium text-[#1B1E20]">{query.trim()}</span> looks like an HKS material
+              number. HKS folds valve and seal options into an S9xxx material number that sits on top of a base
+              actuator model &mdash; the number identifies a configured build, not a standalone model. Send the
+              full order line or a nameplate photo and we identify the base actuator, then quote the equivalent
+              build.
+            </p>
+          )}
+        </div>
       )}
 
       {/* Primary series cards */}
