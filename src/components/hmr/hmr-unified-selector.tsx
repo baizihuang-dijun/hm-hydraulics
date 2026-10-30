@@ -755,6 +755,11 @@ export function HmrUnifiedSelector() {
                       {copied ? 'Copied' : 'Copy code'}
                     </button>
                   </div>
+                  <p className="mt-2 mb-0 text-xs leading-relaxed text-[#62666C]">
+                    Preliminary configuration code for quotation only. Final availability and the combination of
+                    rotation, mounting, output shaft and valve options are subject to engineering confirmation before
+                    order acceptance.
+                  </p>
                 </div>
 
                 <button
