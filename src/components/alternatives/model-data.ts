@@ -2702,7 +2702,7 @@ export const modelPages: ModelData[] = [
   },
   {
     model: 'F5 115',
-    aliases: ['M-DA-H-F5 115'],
+    aliases: ['M-DA-H-F5 115', 'M-DA-H-F10 115'],
     slug: 'hks-f5-115',
     hmr: 'HMR4-200',
     series: 'M-DA-H-F5 (foot) / F10 (flange)',
@@ -2719,7 +2719,7 @@ export const modelPages: ModelData[] = [
     originBrand: 'HKS',
     sourcingOnly: true,
     torque: '1920 Nm',
-    intro: 'The HKS F5 115 is a mobile-version helical hydraulic rotary actuator in HKS\'s M-DA-H programme (German maker); HKS writes this base size as M-DA-H-F5 115 for the foot-mount build and M-DA-H-F10 115 for the flange-mount build. HKS uses its own bore/housing size numbers; the code is a size designation, not a torque figure and not a Helac size number, rated at about 1920 Nm output torque at 210 bar. The maker\'s table lists 180° / 360° builds for this base size. In the controlled cross-reference it sits in the ~1921 Nm torque class together with: Helac L30-17; Moveco RR34; Sungji SRC-115-180-CN-FT-SH-N-I. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
+    intro: 'The HKS F5 115 is a mobile-version helical hydraulic rotary actuator in HKS\'s M-DA-H programme (German maker); HKS writes this base size as M-DA-H-F5 115 for the foot-mount build and M-DA-H-F10 115 for the flange-mount build, where the S2 straddle option is not available. HKS uses its own bore/housing size numbers; the code is a size designation, not a torque figure and not a Helac size number, rated at about 1920 Nm output torque at 210 bar. The maker\'s table lists 180° / 360° builds for this base size. In the controlled cross-reference it sits in the ~1921 Nm torque class together with: Helac L30-17; Moveco RR34; Sungji SRC-115-180-CN-FT-SH-N-I. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
     crossNote: 'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Helac L30-17 (~1921 Nm); Moveco RR34 (~1921 Nm); Sungji SRC-115-180-CN-FT-SH-N-I (~1921 Nm). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
     extraFaqs: [
       {
@@ -2738,13 +2738,13 @@ export const modelPages: ModelData[] = [
   },
   {
     model: 'F5 125',
-    aliases: ['M-DA-H-F5 125'],
+    aliases: ['M-DA-H-F5 125', 'M-DA-H-F10 125'],
     slug: 'hks-f5-125',
     hmr: 'HMR4-280',
     series: 'M-DA-H-F5 (foot) / F10 (flange)',
     seriesSlug: '',
     rotation: '180° / 360°',
-    weight: '',
+    weight: '48 kg @180°; 64 kg @360°',
     brands: [],
     parts: [],
     machines: [],
@@ -2755,7 +2755,7 @@ export const modelPages: ModelData[] = [
     originBrand: 'HKS',
     sourcingOnly: true,
     torque: '2820 Nm',
-    intro: 'The HKS F5 125 is a mobile-version helical hydraulic rotary actuator in HKS\'s M-DA-H programme (German maker); HKS writes this base size as M-DA-H-F5 125 for the foot-mount build and M-DA-H-F10 125 for the flange-mount build. HKS uses its own bore/housing size numbers; the code is a size designation, not a torque figure and not a Helac size number, rated at about 2820 Nm output torque at 210 bar. The maker\'s table lists 180° / 360° builds for this base size. In HM\'s controlled cross-reference this base size spans two entries, HMR4-280 (~2821 Nm) and HMR4-300 (~3100 Nm), and sits with: Helac L30-25; Moveco RR40; Sungji SRC-125. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
+    intro: 'The HKS F5 125 is a mobile-version helical hydraulic rotary actuator in HKS\'s M-DA-H programme (German maker); HKS writes this base size as M-DA-H-F5 125 for the foot-mount build and M-DA-H-F10 125 for the flange-mount build, where the S2 straddle option is not available. HKS uses its own bore/housing size numbers; the code is a size designation, not a torque figure and not a Helac size number, rated at about 2820 Nm output torque at 210 bar. The maker\'s table lists 180° / 360° builds for this base size. In HM\'s controlled cross-reference this base size spans two entries, HMR4-280 (~2821 Nm) and HMR4-300 (~3100 Nm), and sits with: Helac L30-25; Moveco RR40; Sungji SRC-125. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
     crossNote: 'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Helac L30-25 (~2821 Nm); Moveco RR40 (~2821 Nm); Sungji SRC-125 (~2821 Nm). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
     extraFaqs: [
       {
@@ -2774,7 +2774,7 @@ export const modelPages: ModelData[] = [
   },
   {
     model: 'F5 150',
-    aliases: ['M-DA-H-F5 150'],
+    aliases: ['M-DA-H-F5 150', 'M-DA-H-F10 150'],
     slug: 'hks-f5-150',
     hmr: 'HMR4-470',
     series: 'M-DA-H-F5 (foot) / F10 (flange)',
@@ -2791,7 +2791,7 @@ export const modelPages: ModelData[] = [
     originBrand: 'HKS',
     sourcingOnly: true,
     torque: '4750 Nm',
-    intro: 'The HKS F5 150 is a mobile-version helical hydraulic rotary actuator in HKS\'s M-DA-H programme (German maker); HKS writes this base size as M-DA-H-F5 150 for the foot-mount build and M-DA-H-F10 150 for the flange-mount build. HKS uses its own bore/housing size numbers; the code is a size designation, not a torque figure and not a Helac size number, rated at about 4750 Nm output torque at 210 bar. The maker\'s table lists 180° / 360° builds for this base size. In the controlled cross-reference it sits in the ~4746 Nm torque class together with: Helac L30-42; Moveco RR46; Sungji SRC-150-180-CN-FT-SH-N-I. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
+    intro: 'The HKS F5 150 is a mobile-version helical hydraulic rotary actuator in HKS\'s M-DA-H programme (German maker); HKS writes this base size as M-DA-H-F5 150 for the foot-mount build and M-DA-H-F10 150 for the flange-mount build, where the S2 straddle option is not available. HKS uses its own bore/housing size numbers; the code is a size designation, not a torque figure and not a Helac size number, rated at about 4750 Nm output torque at 210 bar. The maker\'s table lists 180° / 360° builds for this base size. In the controlled cross-reference it sits in the ~4746 Nm torque class together with: Helac L30-42; Moveco RR46; Sungji SRC-150-180-CN-FT-SH-N-I. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
     crossNote: 'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Helac L30-42 (~4746 Nm); Moveco RR46 (~4746 Nm); Sungji SRC-150-180-CN-FT-SH-N-I (~4746 Nm). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
     extraFaqs: [
       {
@@ -2810,7 +2810,7 @@ export const modelPages: ModelData[] = [
   },
   {
     model: 'F5 200',
-    aliases: ['M-DA-H-F5 200'],
+    aliases: ['M-DA-H-F5 200', 'M-DA-H-F10 200'],
     slug: 'hks-f5-200',
     hmr: 'HMR4-1000',
     series: 'M-DA-H-F5 (foot) / F10 (flange)',
@@ -2827,7 +2827,7 @@ export const modelPages: ModelData[] = [
     originBrand: 'HKS',
     sourcingOnly: true,
     torque: '10700 Nm',
-    intro: 'The HKS F5 200 is a mobile-version helical hydraulic rotary actuator in HKS\'s M-DA-H programme (German maker); HKS writes this base size as M-DA-H-F5 200 for the foot-mount build and M-DA-H-F10 200 for the flange-mount build. HKS uses its own bore/housing size numbers; the code is a size designation, not a torque figure and not a Helac size number, rated at about 10700 Nm output torque at 210 bar. The maker\'s table lists 180° / 360° builds for this base size. In the controlled cross-reference it sits in the ~10735 Nm torque class together with: Helac L30-95. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
+    intro: 'The HKS F5 200 is a mobile-version helical hydraulic rotary actuator in HKS\'s M-DA-H programme (German maker); HKS writes this base size as M-DA-H-F5 200 for the foot-mount build and M-DA-H-F10 200 for the flange-mount build, where the S2 straddle option is not available. HKS uses its own bore/housing size numbers; the code is a size designation, not a torque figure and not a Helac size number, rated at about 10700 Nm output torque at 210 bar. The maker\'s table lists 180° / 360° builds for this base size. In the controlled cross-reference it sits in the ~10735 Nm torque class together with: Helac L30-95. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
     crossNote: 'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Helac L30-95 (~10735 Nm). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
     extraFaqs: [
       {
@@ -3888,6 +3888,174 @@ export const modelPages: ModelData[] = [
       {
         q: 'Can HM supply the SRA-110-240-CO-RF-SH-N?',
         a: 'We offer selection and sourcing / alternative-supply support for this 240-degree rear-flange unit. We do not claim a verified drop-in or that the offered unit is an original Putzmeister part; send the nameplate and a mounting drawing and we confirm the angle, mounting, shaft, ports and seal package before quoting.',
+      },
+    ],
+  },
+  {
+    model: 'SRC-115',
+    slug: 'sungji-src-115',
+    hmr: 'HMR4-200',
+    series: 'SRC',
+    seriesSlug: '',
+    rotation: '180°',
+    weight: '34.5 kg @180°',
+    brands: [],
+    parts: [],
+    machines: [],
+    aliases: ['SRC 115'],
+    image: '/images/alternatives/l30-25-m-ft-180.jpg',
+    imageW: 338,
+    imageH: 232,
+    imageAlt: 'Helical hydraulic rotary actuator, SRC torque class (generic representative image, not the original Sungji unit)',
+    originBrand: 'Sungji',
+    sourcingOnly: true,
+    torque: '1912.3 Nm',
+    intro:
+      'The Sungji SRC-115 is a helical hydraulic rotary actuator from Sungji (SJH, Korea), part of the SRC family in the L30 size class and rated at about 1912.3 Nm output torque at 210 bar. Sungji lists the SRC series at 180-degree rotation only, with no 360-degree build in this family. In the controlled cross-reference it sits in the ~1920 Nm torque class together with: Helac L30-17 (~1920 Nm); HKS F5 115 / M-DA-H-F10 115 (~1920 Nm); Moveco RR34 (~1920 Nm). These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
+    crossNote:
+      'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Helac L30-17 (~1920 Nm); HKS F5 115 / M-DA-H-F10 115 (~1920 Nm); Moveco RR34 (~1920 Nm). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
+    extraFaqs: [
+      {
+        q: 'What does the Sungji code SRC-115 mean, and can HM source it?',
+        a: 'The code encodes the SRC family, bore size, rotation, valve/port, mounting, shaft cover and seal/standard segments. HM can source or arrange alternative supply for this standard build after confirming the exact configuration from your nameplate; we do not hold it as stock or promise lead time.',
+      },
+      {
+        q: 'Does Sungji list a 360-degree build in the SRC family?',
+        a: 'No. The Sungji catalogue lists the SRC series at 180-degree rotation only, so there is no 360-degree SRC build. If your unit is a 360-degree actuator, send the nameplate and we check the equivalent in another Sungji family or advise the alternative-supply option.',
+      },
+      {
+        q: 'Is the SRC-115 a one-to-one replacement for the Helac / HKS / Moveco unit in the same torque class?',
+        a: 'They are same-torque-class engineering references only; housings, mounts and published moment figures differ. We do not claim a verified drop-in or guaranteed compatibility without checking the drawing, mounting dimensions, shaft and ports against your unit.',
+      },
+      {
+        q: 'What information does HM need before quoting this actuator?',
+        a: 'Send us the actuator nameplate (brand, full model code, rotation, mounting, shaft and port details) and, if available, a mounting drawing. HM then confirms the exact configuration and advises the available sourcing or alternative-supply option. Mounting dimensions and drawings are provided on request only.',
+      },
+    ],
+  },
+  {
+    model: 'SRC-125',
+    slug: 'sungji-src-125',
+    hmr: 'HMR4-280',
+    series: 'SRC',
+    seriesSlug: '',
+    rotation: '180°',
+    weight: '47 kg @180°',
+    brands: [],
+    parts: [],
+    machines: [],
+    aliases: ['SRC 125'],
+    image: '/images/alternatives/l30-25-m-ft-180.jpg',
+    imageW: 338,
+    imageH: 232,
+    imageAlt: 'Helical hydraulic rotary actuator, SRC torque class (generic representative image, not the original Sungji unit)',
+    originBrand: 'Sungji',
+    sourcingOnly: true,
+    torque: '2824.3 Nm',
+    intro:
+      'The Sungji SRC-125 is a helical hydraulic rotary actuator from Sungji (SJH, Korea), part of the SRC family in the L30 size class and rated at about 2824.3 Nm output torque at 210 bar. Sungji lists the SRC series at 180-degree rotation only, with no 360-degree build in this family. In the controlled cross-reference it sits in the ~2820 Nm torque class together with: Helac L30-25 (~2821 Nm); HKS F5 125 / M-DA-H-F10 125 (~2820 Nm); Moveco RR40 (~2821 Nm). These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
+    crossNote:
+      'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Helac L30-25 (~2821 Nm); HKS F5 125 / M-DA-H-F10 125 (~2820 Nm); Moveco RR40 (~2821 Nm). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
+    extraFaqs: [
+      {
+        q: 'What does the Sungji code SRC-125 mean, and can HM source it?',
+        a: 'The code encodes the SRC family, bore size, rotation, valve/port, mounting, shaft cover and seal/standard segments. HM can source or arrange alternative supply for this standard build after confirming the exact configuration from your nameplate; we do not hold it as stock or promise lead time.',
+      },
+      {
+        q: 'Does Sungji list a 360-degree build in the SRC family?',
+        a: 'No. The Sungji catalogue lists the SRC series at 180-degree rotation only, so there is no 360-degree SRC build. If your unit is a 360-degree actuator, send the nameplate and we check the equivalent in another Sungji family or advise the alternative-supply option.',
+      },
+      {
+        q: 'Is the SRC-125 a one-to-one replacement for the Helac / HKS / Moveco unit in the same torque class?',
+        a: 'They are same-torque-class engineering references only; housings, mounts and published moment figures differ. We do not claim a verified drop-in or guaranteed compatibility without checking the drawing, mounting dimensions, shaft and ports against your unit.',
+      },
+      {
+        q: 'What information does HM need before quoting this actuator?',
+        a: 'Send us the actuator nameplate (brand, full model code, rotation, mounting, shaft and port details) and, if available, a mounting drawing. HM then confirms the exact configuration and advises the available sourcing or alternative-supply option. Mounting dimensions and drawings are provided on request only.',
+      },
+    ],
+  },
+  {
+    model: 'SRC-150',
+    slug: 'sungji-src-150',
+    hmr: 'HMR4-470',
+    series: 'SRC',
+    seriesSlug: '',
+    rotation: '180°',
+    weight: '71 kg @180°',
+    brands: [],
+    parts: [],
+    machines: [],
+    aliases: ['SRC 150'],
+    image: '/images/alternatives/l30-42-m-ft-180.jpg',
+    imageW: 408,
+    imageH: 246,
+    imageAlt: 'Helical hydraulic rotary actuator, SRC torque class (generic representative image, not the original Sungji unit)',
+    originBrand: 'Sungji',
+    sourcingOnly: true,
+    torque: '4746.4 Nm',
+    intro:
+      'The Sungji SRC-150 is a helical hydraulic rotary actuator from Sungji (SJH, Korea), part of the SRC family in the L30 size class and rated at about 4746.4 Nm output torque at 210 bar. Sungji lists the SRC series at 180-degree rotation only, with no 360-degree build in this family. In the controlled cross-reference it sits in the ~4750 Nm torque class together with: Helac L30-42 (~4750 Nm); HKS F5 150 / M-DA-H-F10 150 (~4750 Nm); Moveco RR46 (~4750 Nm). These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
+    crossNote:
+      'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Helac L30-42 (~4750 Nm); HKS F5 150 / M-DA-H-F10 150 (~4750 Nm); Moveco RR46 (~4750 Nm). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
+    extraFaqs: [
+      {
+        q: 'What does the Sungji code SRC-150 mean, and can HM source it?',
+        a: 'The code encodes the SRC family, bore size, rotation, valve/port, mounting, shaft cover and seal/standard segments. HM can source or arrange alternative supply for this standard build after confirming the exact configuration from your nameplate; we do not hold it as stock or promise lead time.',
+      },
+      {
+        q: 'Does Sungji list a 360-degree build in the SRC family?',
+        a: 'No. The Sungji catalogue lists the SRC series at 180-degree rotation only, so there is no 360-degree SRC build. If your unit is a 360-degree actuator, send the nameplate and we check the equivalent in another Sungji family or advise the alternative-supply option.',
+      },
+      {
+        q: 'Is the SRC-150 a one-to-one replacement for the Helac / HKS / Moveco unit in the same torque class?',
+        a: 'They are same-torque-class engineering references only; housings, mounts and published moment figures differ. We do not claim a verified drop-in or guaranteed compatibility without checking the drawing, mounting dimensions, shaft and ports against your unit.',
+      },
+      {
+        q: 'What information does HM need before quoting this actuator?',
+        a: 'Send us the actuator nameplate (brand, full model code, rotation, mounting, shaft and port details) and, if available, a mounting drawing. HM then confirms the exact configuration and advises the available sourcing or alternative-supply option. Mounting dimensions and drawings are provided on request only.',
+      },
+    ],
+  },
+  {
+    model: 'SRC-180',
+    slug: 'sungji-src-180',
+    hmr: 'HMR4-750',
+    series: 'SRC',
+    seriesSlug: '',
+    rotation: '180°',
+    weight: '108 kg @180°',
+    brands: [],
+    parts: [],
+    machines: [],
+    aliases: ['SRC 180'],
+    image: '/images/alternatives/l30-65-s-rf-360.jpg',
+    imageW: 384,
+    imageH: 510,
+    imageAlt: 'Helical hydraulic rotary actuator, SRC torque class (generic representative image, not the original Sungji unit)',
+    originBrand: 'Sungji',
+    sourcingOnly: true,
+    torque: '7335.4 Nm',
+    intro:
+      'The Sungji SRC-180 is a helical hydraulic rotary actuator from Sungji (SJH, Korea), part of the SRC family in the L30 size class and rated at about 7335.4 Nm output torque at 210 bar. Sungji lists the SRC series at 180-degree rotation only, with no 360-degree build in this family. In the controlled cross-reference it sits in the ~7340 Nm torque class together with: Helac L30-65 (~7340 Nm); HKS F5 175 / M-DA-H-F10 175 (~7340 Nm); Moveco RR52 (~7340 Nm). These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
+    crossNote:
+      'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Helac L30-65 (~7340 Nm); HKS F5 175 / M-DA-H-F10 175 (~7340 Nm); Moveco RR52 (~7340 Nm). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
+    extraFaqs: [
+      {
+        q: 'What does the Sungji code SRC-180 mean, and can HM source it?',
+        a: 'The code encodes the SRC family, bore size, rotation, valve/port, mounting, shaft cover and seal/standard segments. HM can source or arrange alternative supply for this standard build after confirming the exact configuration from your nameplate; we do not hold it as stock or promise lead time.',
+      },
+      {
+        q: 'Does Sungji list a 360-degree build in the SRC family?',
+        a: 'No. The Sungji catalogue lists the SRC series at 180-degree rotation only, so there is no 360-degree SRC build. If your unit is a 360-degree actuator, send the nameplate and we check the equivalent in another Sungji family or advise the alternative-supply option.',
+      },
+      {
+        q: 'Is the SRC-180 a one-to-one replacement for the Helac / HKS / Moveco unit in the same torque class?',
+        a: 'They are same-torque-class engineering references only; housings, mounts and published moment figures differ. We do not claim a verified drop-in or guaranteed compatibility without checking the drawing, mounting dimensions, shaft and ports against your unit.',
+      },
+      {
+        q: 'What information does HM need before quoting this actuator?',
+        a: 'Send us the actuator nameplate (brand, full model code, rotation, mounting, shaft and port details) and, if available, a mounting drawing. HM then confirms the exact configuration and advises the available sourcing or alternative-supply option. Mounting dimensions and drawings are provided on request only.',
       },
     ],
   },
