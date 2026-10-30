@@ -2844,6 +2844,45 @@ export const modelPages: ModelData[] = [
       }
     ],
   },
+  {
+    model: 'F5 245',
+    aliases: ['M-DA-H-F5 245', 'M-DA-H-F10 245'],
+    slug: 'hks-f5-245',
+    series: 'M-DA-H-F5 (foot) / F10 (flange)',
+    seriesSlug: '',
+    rotation: '180° / 360°',
+    weight: '280 kg @180°; 370 kg @360°',
+    brands: [],
+    parts: [],
+    machines: [],
+    image: '/images/alternatives/l30-65-s-rf-360.jpg',
+    imageW: 384,
+    imageH: 510,
+    imageAlt: 'Helical hydraulic rotary actuator, M-DA-H-F5 torque class (generic representative image, not the original HKS unit)',
+    originBrand: 'HKS',
+    sourcingOnly: true,
+    torque: '18600 Nm',
+    intro: 'The HKS F5 245 is a mobile-version helical hydraulic rotary actuator in HKS\'s M-DA-H programme (German maker); HKS writes this base size as M-DA-H-F5 245 for the foot-mount build and M-DA-H-F10 245 for the flange-mount build, where the S2 straddle option is not available. HKS uses its own bore/housing size numbers; the code is a size designation, not a torque figure and not a Helac size number, rated at about 18600 Nm output torque at 210 bar, with 280 kg at 180 degrees and 370 kg at 360 degrees. The maker\'s table lists 180° / 360° builds for this base size. This size sits above the top of the HMR range HM publishes, so there is no same-torque-class HM model to point at here. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
+    crossNote: 'This base size is above the top of the HMR range HM publishes, so no same-torque-class HM model is listed against it. Anything below is a family or size neighbour, not an equivalent. All references are engineering cross-references from HM\'s controlled multi-brand database; they are not validated substitutions, and HM has no supply-verified interchange record for any pairing, so nothing is presented as a verified interchangeable unit.',
+    extraFaqs: [
+      {
+        q: 'Can HM supply the HKS F5 245?',
+        a: 'HM provides technical selection and a sourcing / alternative-supply route for the HKS F5 245 base size. We do not keep stock and do not promise availability or lead time; the exact HKS configuration (S1/S2, rotation direction, valve and seal options folded into the FU/S9xxx code) is confirmed against your nameplate, with the factory when needed, before we quote.',
+      },
+      {
+        q: 'What is the difference between M-DA-H-F5 245 and M-DA-H-F10 245?',
+        a: 'Same base size and the same performance table; the difference is mounting. M-DA-H-F5 is the foot-mount build and takes the S1 cantilever or S2 straddle option. M-DA-H-F10 is the flange-mount build, and the S2 straddle option is not available with flange mounting. Moment capacity, torque, displacement and weight are otherwise identical.',
+      },
+      {
+        q: 'Is there a Helac or HM model in the same torque class as the F5 245?',
+        a: 'Not in the HMR range HM publishes: the F5 245 is rated at about 18600 Nm at 210 bar, above the largest HMR size. Send the nameplate, the required torque and the mounting envelope and HM checks the sourcing route rather than pointing at a smaller model.',
+      },
+      {
+        q: 'What information does HM need before quoting this actuator?',
+        a: 'Send us the actuator nameplate (brand, full model code, rotation, mounting, shaft and port details) and, if available, a mounting drawing. HM then confirms the exact configuration and advises the available sourcing or alternative-supply option. Mounting dimensions and drawings are provided on request only. HKS folds valve and seal options into the FU requirement code and the S9xxx material number; a complete HKS order code must be confirmed with HKS for each requirement (torque, rotation, S1/S2, rotation direction, valve, seal).',
+      }
+    ],
+  },
 
   // --- Batch4 P1 (2026-10-19): Sungji multi-brand sourcing entries (8) ---
   {

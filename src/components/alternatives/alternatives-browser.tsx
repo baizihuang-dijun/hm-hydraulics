@@ -67,7 +67,7 @@ function searchWithFallback(
   items: SearchIndexItem[];
   baseQuery: string | null;
   stripped: string | null;
-  mode: 'config' | 'family' | null;
+  mode: 'config' | 'family' | 'material' | null;
 } {
   const q = raw.trim();
   if (!q) return { items: [], baseQuery: null, stripped: null, mode: null };
@@ -108,6 +108,19 @@ function searchWithFallback(
       };
     }
   }
+  // HKS material numbers (S9xxx) are configuration codes layered on a base actuator model,
+  // so there is no page of their own to land on. Show the M-DA-H-F5 family instead of a dead
+  // end: that is the family a customer holding an S9xxx code is most likely looking at, and
+  // the page set lets them pick the base size before confirming the build with us.
+  if (looksLikeHksMaterialNumber(q)) {
+    const family = items.filter((m) =>
+      (m.aliases ?? []).some((a) => a.toUpperCase().startsWith('M-DA-H-F5 ')),
+    );
+    if (family.length) {
+      return { items: family, baseQuery: 'M-DA-H-F5', stripped: q, mode: 'material' };
+    }
+  }
+
   return { items: [], baseQuery: null, stripped: null, mode: null };
 }
 
@@ -241,7 +254,16 @@ export function AlternativesBrowser({ searchIndex }: AlternativesBrowserProps) {
               <p className="text-sm font-medium text-[#1B1E20] mb-1.5">
                 No published page for &ldquo;{query.trim()}&rdquo;
               </p>
-              {fallbackMode === 'family' ? (
+              {fallbackMode === 'material' ? (
+                <p className="text-sm text-[#4A4E54] leading-relaxed m-0">
+                  <span className="font-medium text-[#1B1E20]">{query.trim()}</span> looks like an HKS
+                  material number &mdash; a configuration code carrying valve and seal options on top of a
+                  base actuator model, not a standalone model number. The{' '}
+                  <span className="font-medium text-[#1B1E20]">M-DA-H-F5</span> family is listed below.
+                  Tell us the base size on the tag, or send the full order line or a nameplate photo, and we
+                  identify the exact build and quote the equivalent.
+                </p>
+              ) : fallbackMode === 'family' ? (
                 <p className="text-sm text-[#4A4E54] leading-relaxed m-0">
                   Showing the closest match on the{' '}
                   <span className="font-medium text-[#1B1E20]">{baseQuery}</span> family. The{' '}
