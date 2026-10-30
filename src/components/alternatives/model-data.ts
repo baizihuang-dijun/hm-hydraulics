@@ -2729,6 +2729,41 @@ export const modelPages: ModelData[] = [
     ],
   },
   {
+    model: 'F5 125',
+    slug: 'hks-f5-125',
+    hmr: 'HMR4-280',
+    series: 'M-DA-H-F5 (foot) / F10 (flange)',
+    seriesSlug: '',
+    rotation: '180° / 360°',
+    weight: '',
+    brands: [],
+    parts: [],
+    machines: [],
+    image: '/images/alternatives/l30-25-m-ft-180.jpg',
+    imageW: 338,
+    imageH: 232,
+    imageAlt: 'Helical hydraulic rotary actuator, M-DA-H-F5 torque class (generic representative image, not the original HKS unit)',
+    originBrand: 'HKS',
+    sourcingOnly: true,
+    torque: '2820 Nm',
+    intro: 'The HKS F5 125 is a mobile-version helical hydraulic rotary actuator in HKS\'s M-DA-H programme (German maker). HKS uses its own bore/housing size numbers; the code is a size designation, not a torque figure and not a Helac size number, rated at about 2820 Nm output torque at 210 bar. The maker\'s table lists 180° / 360° builds for this base size. In HM\'s controlled cross-reference this base size spans two entries, HMR4-280 (~2821 Nm) and HMR4-300 (~3100 Nm), and sits with: Helac L30-25; Moveco RR40; Sungji SRC-125. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
+    crossNote: 'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Helac L30-25 (~2821 Nm); Moveco RR40 (~2821 Nm); Sungji SRC-125 (~2821 Nm). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
+    extraFaqs: [
+      {
+        q: 'Can HM supply the HKS F5 125?',
+        a: 'HM provides technical selection and a sourcing / alternative-supply route for the HKS F5 125 base size. We do not keep stock and do not promise availability or lead time; the exact HKS configuration (S1/S2, rotation direction, valve and seal options folded into the FU/S9xxx code) is confirmed against your nameplate, with the factory when needed, before we quote.',
+      },
+      {
+        q: 'Is the F5 125 a one-to-one replacement for the Helac-class unit in the same torque bracket?',
+        a: 'They sit in the same torque class in our controlled cross-reference, but HKS uses its own bore/housing design and dimensions. We do not claim a verified drop-in or a guaranteed-compatible unit from the model number alone; rotation, mounting interface, shaft and ports are checked against your unit and drawing first.',
+      },
+      {
+        q: 'What information does HM need before quoting this actuator?',
+        a: 'Send us the actuator nameplate (brand, full model code, rotation, mounting, shaft and port details) and, if available, a mounting drawing. HM then confirms the exact configuration and advises the available sourcing or alternative-supply option. Mounting dimensions and drawings are provided on request only. HKS folds valve and seal options into the FU requirement code and the S9xxx material number; a complete HKS order code must be confirmed with HKS for each requirement (torque, rotation, S1/S2, rotation direction, valve, seal).',
+      }
+    ],
+  },
+  {
     model: 'F5 150',
     slug: 'hks-f5-150',
     hmr: 'HMR4-470',
