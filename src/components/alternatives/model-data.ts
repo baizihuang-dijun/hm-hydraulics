@@ -277,22 +277,25 @@ export const modelPages: ModelData[] = [
     seriesSlug: 'helac-l30-series',
     rotation: '180°',
     weight: '49 kg',
-    brands: [],
-    parts: [],
+    brands: ['Parker'],
+    parts: ['29125'],
     machines: [],
     image: '/images/alternatives/l30-25-m-ft-180.jpg',
     imageW: 338,
     imageH: 232,
-    imageAlt: 'Replacement rotary actuator for Helac L30-25-M-FT-180, flanged helical unit',
+    imageAlt: 'Replacement rotary actuator for Helac L30-25-M-FT-180, Parker 29125, flanged helical unit',
     intro:
-      'Alternative rotary actuator for the Helac L30-25-M-FT-180-S1-C-H, a flanged 180-degree helical actuator in the 49 kg class, supplied for maintenance and aftermarket replacement.',
+      'Alternative rotary actuator for the Helac L30-25-M-FT-180-S1-C-H, a flanged 180-degree helical actuator in the 49 kg class, supplied for maintenance and aftermarket replacement. Parker lists the same L30-25 frame under part number 29125 as the S2 straddle build; both configurations are quoted on the tag code.',
     extraFaqs: [
       {
         q: 'What other order codes are available in this same series?',
         a: 'Other catalog configurations of the same actuator family include: L30-25-E-FT-180-S1-C-H; L30-25-E-FT-360-S1-C-H. These are complete Helac order codes differing in rotation angle, ports, valve or mounting/flange arrangement; they are not interchangeable with the configuration shown on this page. Send the exact code on your unit tag or a mounting drawing and we confirm the matching build before quoting.',
       },
+      {
+        q: 'Is Parker part number 29125 the same actuator?',
+        a: 'Parker lists 29125 under the Helac L30-25-M-FT-180-S2-C-H code. That is the same L30-25 frame, displacement and 180-degree rotation as the unit on this page, built in the straddle (S2) configuration where the load path is carried at both the shaft flange and the end-cap flange; this page shows the cantilever (S1) build of the same frame. Torque, displacement and rotation are identical, and the difference sits in the shaft-end and end-cap flange arrangement. Both configurations are available to order — send the tag code, a photo of the shaft end, or a mounting drawing and we confirm the interface before quoting.',
+      },
     ], // P0-VARIANTS
-
   },
   {
     model: 'L30-42-M-RF-360-S1-C-H',
