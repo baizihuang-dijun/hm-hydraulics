@@ -341,7 +341,7 @@ export function ModelPage({ d, related }: { d: ModelData; related: { slug: strin
               <p className="text-lg text-[#4A4E54] leading-relaxed mb-5">{d.intro}</p>
               {/* Two-edition disclosure - rendered only where catalogVersionAlt is set (currently moveco-rr52 only) */}
               {versionAlt && (
-                <div className="mb-7 max-w-3xl rounded-md border border-[#B45309]/30 bg-[#FFF8ED] p-5">
+                <div className="mb-7 max-w-3xl rounded-md border border-[#B45309]/30 bg-[#FFF8ED] p-4 sm:p-5">
                   <p className="m-0 font-label text-[11px] uppercase tracking-wider text-[#92400E]">
                     Published catalogue differences &middot; two editions, one size code
                   </p>
