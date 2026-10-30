@@ -396,7 +396,7 @@ export const modelPages: ModelData[] = [
       },
       {
         q: 'What do the S, RF and C-H sections of the code mean?',
-        a: 'Reading the Parker-Helac ordering key: the first S is the measurement-system field and marks a special/custom design (standard keys are E for English/SAE and M for metric/BSPP; custom builds are also written ES or MS). RF is the rear-flange housing, the later S1 is the shaft/end-cap flange code (S1 cantilever, S2 straddle), C is the counterbalance-valve option (0 = no valve, the digit zero rather than the letter O; V = valve-ready), and the final H is the standard seals & bearings package (S = special seals & bearings) — the exact seal compound is read from the tag/drawing, not assumed from H. Send the full code or a tag photo and we confirm the exact variant.',
+        a: 'Reading the Parker-Helac ordering key: the first S is the measurement-system field and marks a special/custom design (standard keys are E for English/SAE and M for metric/BSPP; custom builds are also written ES or MS). RF is the rear-flange housing, the later S1 is the shaft/end-cap flange code (S1 cantilever, S2 straddle), C is the counterbalance-valve option (0 = no valve; V = valve-ready), and the final H is the standard seals & bearings package (S = special seals & bearings) — the exact seal compound is read from the tag/drawing, not assumed from H. Send the full code or a tag photo and we confirm the exact variant.',
       },
       {
         q: 'How do Atlas Copco/Epiroc numbers 3128312644 and 3128305918 relate?',
