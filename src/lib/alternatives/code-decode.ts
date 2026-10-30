@@ -52,7 +52,7 @@ const SHAFT: Record<string, string> = {
 
 const VALVE: Record<string, string> = {
   C: 'Counterbalance valve fitted',
-  '0': 'No valve (digit zero — not the letter O)',
+  '0': 'No valve',
   O: 'No valve',
   V: 'Valve ready — pad machined, no valve fitted',
   CH: 'Counterbalance valve with standard seals and bearings (C and H written together)',
