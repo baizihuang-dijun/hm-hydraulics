@@ -10,7 +10,7 @@ import { oemPartGroups } from './oem-parts';
 export interface CrossAlternative {
   /** Brand name, e.g. 'HKS'. */
   brand: string;
-  /** Public model/series reference, e.g. 'M-DA-H F10/F5 200'. */
+  /** Public model/series reference, e.g. 'M-DA-H F10/M-DA-H-F5 200'. */
   seriesRef: string;
   /** Short buyer-facing key spec, e.g. 'Similar torque class'. */
   keySpec: string;
@@ -36,7 +36,7 @@ export interface ModelData {
    * Alternative order codes the customer may type for this same page, beyond `model`.
    * Search-only: never rendered, never used for H1/title/canonical. Use it where a maker
    * prefixes a family code the public page omits (e.g. HKS writes M-DA-H-F5 115 while the
-   * page shows F5 115), so the full code still finds the page.
+   * page shows M-DA-H-F5 115), so the full code still finds the page.
    */
   aliases?: string[];
   /** Project-relative image path. */
@@ -419,7 +419,7 @@ export const modelPages: ModelData[] = [
       crossAlternatives: [
         {
           brand: 'HKS',
-          seriesRef: 'M-DA-H F10/F5 200',
+          seriesRef: 'M-DA-H F10/M-DA-H-F5 200',
           keySpec: 'Similar torque class',
         },
       ],
@@ -442,8 +442,8 @@ export const modelPages: ModelData[] = [
         a: 'They share the same L30 frame and output torque (~10,735 Nm at 207 bar) but are different effective builds: the 360° unit displaces about 5,358.6 cm³ and weighs 204.1 kg, while the 180° unit displaces about 2,687.5 cm³ and weighs 163.3 kg; the straddle (double-flange) moment rating is also higher for the longer 360° body. They suit different travel, cycle-time and mounting-geometry requirements, so choose by the required rotation and confirm against the drawing rather than treating them as interchangeable.',
       },
       {
-        q: 'Can I use the HKS F10 200 / F5 200 as a direct replacement?',
-        a: 'The HKS M-DA-H F10/F5 200 is at a similar torque level, but it is built to HKS\u2019s own frame and mounting dimensions, so a similar rating does not guarantee a fit. Send us your unit tag and mounting drawing \u2014 we overlay the flange, shaft, ports and rotation and confirm whether it is a suitable option for your machine.',
+        q: 'Can I use the HKS M-DA-H-F10 200 / M-DA-H-F5 200 as a direct replacement?',
+        a: 'The HKS M-DA-H F10/M-DA-H-F5 200 is at a similar torque level, but it is built to HKS\u2019s own frame and mounting dimensions, so a similar rating does not guarantee a fit. Send us your unit tag and mounting drawing \u2014 we overlay the flange, shaft, ports and rotation and confirm whether it is a suitable option for your machine.',
       },
       {
         q: 'Which mounting styles are available for the L30-95?',
@@ -611,7 +611,7 @@ export const modelPages: ModelData[] = [
       crossAlternatives: [
         {
           brand: 'HKS',
-          seriesRef: 'M-DA-H F10/F5 200',
+          seriesRef: 'M-DA-H F10/M-DA-H-F5 200',
           keySpec: 'Similar torque class',
         }
       ],
@@ -634,7 +634,7 @@ export const modelPages: ModelData[] = [
         a: 'They share the same L30 frame and output torque (~10,735 Nm at 207 bar) but are different effective builds: the 360° unit displaces about 5,358.6 cm³ and weighs 204.1 kg, while the 180° unit displaces about 2,687.5 cm³ and weighs 163.3 kg; the straddle (double-flange) moment rating is also higher for the longer 360° body. They suit different travel, cycle-time and mounting-geometry requirements, so choose by the required rotation and confirm against the drawing rather than treating them as interchangeable.',
       },
       {
-        q: 'Can I use the HKS M-DA-H F10/F5 200 as a direct replacement?',
+        q: 'Can I use the HKS M-DA-H F10/M-DA-H-F5 200 as a direct replacement?',
         a: 'The listed alternatives are at a similar published torque level, but each is built to its own frame and mounting dimensions, so a similar rating does not guarantee a fit. Send us your unit tag and mounting drawing — we overlay the flange, shaft, ports and rotation and confirm whether one is a suitable option for your machine.',
       },
       {
@@ -676,7 +676,7 @@ export const modelPages: ModelData[] = [
       crossAlternatives: [
         {
           brand: 'HKS',
-          seriesRef: 'M-DA-H F10/F5 115',
+          seriesRef: 'M-DA-H F10/M-DA-H-F5 115',
           keySpec: 'Similar torque class',
         },
         {
@@ -709,7 +709,7 @@ export const modelPages: ModelData[] = [
         a: 'They share the same L30 frame and output torque (~1,921 Nm at 207 bar) but are different effective builds: the 360° unit displaces about 983.2 cm³ and weighs 45.4 kg, while the 180° unit displaces about 488.3 cm³ and weighs 34.5 kg; the straddle (double-flange) moment rating is also higher for the longer 360° body. They suit different travel, cycle-time and mounting-geometry requirements, so choose by the required rotation and confirm against the drawing rather than treating them as interchangeable.',
       },
       {
-        q: 'Can I use the HKS M-DA-H F10/F5 115, Moveco RR34, Sungji SRC-115 as a direct replacement?',
+        q: 'Can I use the HKS M-DA-H F10/M-DA-H-F5 115, Moveco RR34, Sungji SRC-115 as a direct replacement?',
         a: 'The listed alternatives are at a similar published torque level, but each is built to its own frame and mounting dimensions, so a similar rating does not guarantee a fit. Send us your unit tag and mounting drawing — we overlay the flange, shaft, ports and rotation and confirm whether one is a suitable option for your machine.',
       },
       {
@@ -751,7 +751,7 @@ export const modelPages: ModelData[] = [
       crossAlternatives: [
         {
           brand: 'HKS',
-          seriesRef: 'M-DA-H F10/F5 115',
+          seriesRef: 'M-DA-H F10/M-DA-H-F5 115',
           keySpec: 'Similar torque class',
         }
       ],
@@ -774,7 +774,7 @@ export const modelPages: ModelData[] = [
         a: 'They share the same L30 frame and output torque (~1,921 Nm at 207 bar) but are different effective builds: the 360° unit displaces about 983.2 cm³ and weighs 45.4 kg, while the 180° unit displaces about 488.3 cm³ and weighs 34.5 kg; the straddle (double-flange) moment rating is also higher for the longer 360° body. They suit different travel, cycle-time and mounting-geometry requirements, so choose by the required rotation and confirm against the drawing rather than treating them as interchangeable.',
       },
       {
-        q: 'Can I use the HKS M-DA-H F10/F5 115 as a direct replacement?',
+        q: 'Can I use the HKS M-DA-H F10/M-DA-H-F5 115 as a direct replacement?',
         a: 'The listed alternatives are at a similar published torque level, but each is built to its own frame and mounting dimensions, so a similar rating does not guarantee a fit. Send us your unit tag and mounting drawing — we overlay the flange, shaft, ports and rotation and confirm whether one is a suitable option for your machine.',
       },
       {
@@ -816,7 +816,7 @@ export const modelPages: ModelData[] = [
       crossAlternatives: [
         {
           brand: 'HKS',
-          seriesRef: 'M-DA-H F10/F5 220',
+          seriesRef: 'M-DA-H F10/M-DA-H-F5 220',
           keySpec: 'Similar torque class',
         },
         {
@@ -844,7 +844,7 @@ export const modelPages: ModelData[] = [
         a: 'They share the same L30 frame and output torque (~14,125 Nm at 207 bar) but are different effective builds: the 360° unit displaces about 7,079.2 cm³ and weighs 285.8 kg, while the 180° unit displaces about 3,539.6 cm³ and weighs 222.3 kg; the straddle (double-flange) moment rating is also higher for the longer 360° body. They suit different travel, cycle-time and mounting-geometry requirements, so choose by the required rotation and confirm against the drawing rather than treating them as interchangeable.',
       },
       {
-        q: 'Can I use the HKS M-DA-H F10/F5 220, Moveco RR58 / RR61 as a direct replacement?',
+        q: 'Can I use the HKS M-DA-H F10/M-DA-H-F5 220, Moveco RR58 / RR61 as a direct replacement?',
         a: 'The listed alternatives are at a similar published torque level, but each is built to its own frame and mounting dimensions, so a similar rating does not guarantee a fit. Send us your unit tag and mounting drawing — we overlay the flange, shaft, ports and rotation and confirm whether one is a suitable option for your machine.',
       },
       {
@@ -886,7 +886,7 @@ export const modelPages: ModelData[] = [
       crossAlternatives: [
         {
           brand: 'HKS',
-          seriesRef: 'M-DA-H F10/F5 220',
+          seriesRef: 'M-DA-H F10/M-DA-H-F5 220',
           keySpec: 'Similar torque class',
         }
       ],
@@ -909,7 +909,7 @@ export const modelPages: ModelData[] = [
         a: 'They share the same L30 frame and output torque (~14,125 Nm at 207 bar) but are different effective builds: the 360° unit displaces about 7,079.2 cm³ and weighs 285.8 kg, while the 180° unit displaces about 3,539.6 cm³ and weighs 222.3 kg; the straddle (double-flange) moment rating is also higher for the longer 360° body. They suit different travel, cycle-time and mounting-geometry requirements, so choose by the required rotation and confirm against the drawing rather than treating them as interchangeable.',
       },
       {
-        q: 'Can I use the HKS M-DA-H F10/F5 220 as a direct replacement?',
+        q: 'Can I use the HKS M-DA-H F10/M-DA-H-F5 220 as a direct replacement?',
         a: 'The listed alternatives are at a similar published torque level, but each is built to its own frame and mounting dimensions, so a similar rating does not guarantee a fit. Send us your unit tag and mounting drawing — we overlay the flange, shaft, ports and rotation and confirm whether one is a suitable option for your machine.',
       },
       {
@@ -951,7 +951,7 @@ export const modelPages: ModelData[] = [
       crossAlternatives: [
         {
           brand: 'HKS',
-          seriesRef: 'M-DA-H F10/F5 245',
+          seriesRef: 'M-DA-H F10/M-DA-H-F5 245',
           keySpec: 'Similar torque class',
         },
         {
@@ -979,7 +979,7 @@ export const modelPages: ModelData[] = [
         a: 'They share the same L30 frame and output torque (~18,645 Nm at 207 bar) but are different effective builds: the 360° unit displaces about 9,324.3 cm³ and weighs 367.4 kg, while the 180° unit displaces about 4,653.9 cm³ and weighs 276.7 kg; the straddle (double-flange) moment rating is also higher for the longer 360° body. They suit different travel, cycle-time and mounting-geometry requirements, so choose by the required rotation and confirm against the drawing rather than treating them as interchangeable.',
       },
       {
-        q: 'Can I use the HKS M-DA-H F10/F5 245, Moveco RR66 as a direct replacement?',
+        q: 'Can I use the HKS M-DA-H F10/M-DA-H-F5 245, Moveco RR66 as a direct replacement?',
         a: 'The listed alternatives are at a similar published torque level, but each is built to its own frame and mounting dimensions, so a similar rating does not guarantee a fit. Send us your unit tag and mounting drawing — we overlay the flange, shaft, ports and rotation and confirm whether one is a suitable option for your machine.',
       },
       {
@@ -1021,7 +1021,7 @@ export const modelPages: ModelData[] = [
       crossAlternatives: [
         {
           brand: 'HKS',
-          seriesRef: 'M-DA-H F10/F5 245',
+          seriesRef: 'M-DA-H F10/M-DA-H-F5 245',
           keySpec: 'Similar torque class',
         }
       ],
@@ -1044,7 +1044,7 @@ export const modelPages: ModelData[] = [
         a: 'They share the same L30 frame and output torque (~18,645 Nm at 207 bar) but are different effective builds: the 360° unit displaces about 9,324.3 cm³ and weighs 367.4 kg, while the 180° unit displaces about 4,653.9 cm³ and weighs 276.7 kg; the straddle (double-flange) moment rating is also higher for the longer 360° body. They suit different travel, cycle-time and mounting-geometry requirements, so choose by the required rotation and confirm against the drawing rather than treating them as interchangeable.',
       },
       {
-        q: 'Can I use the HKS M-DA-H F10/F5 245 as a direct replacement?',
+        q: 'Can I use the HKS M-DA-H F10/M-DA-H-F5 245 as a direct replacement?',
         a: 'The listed alternatives are at a similar published torque level, but each is built to its own frame and mounting dimensions, so a similar rating does not guarantee a fit. Send us your unit tag and mounting drawing — we overlay the flange, shaft, ports and rotation and confirm whether one is a suitable option for your machine.',
       },
       {
@@ -1086,7 +1086,7 @@ export const modelPages: ModelData[] = [
       crossAlternatives: [
         {
           brand: 'HKS',
-          seriesRef: 'M-DA-H F10/F5 265',
+          seriesRef: 'M-DA-H F10/M-DA-H-F5 265',
           keySpec: 'Similar torque class',
         },
         {
@@ -1114,7 +1114,7 @@ export const modelPages: ModelData[] = [
         a: 'They share the same L30 frame and output torque (~24,295 Nm at 207 bar) but are different effective builds: the 360° unit displaces about 11,995.4 cm³ and weighs 453.6 kg, while the 180° unit displaces about 5,997.7 cm³ and weighs 358.3 kg; the straddle (double-flange) moment rating is also higher for the longer 360° body. They suit different travel, cycle-time and mounting-geometry requirements, so choose by the required rotation and confirm against the drawing rather than treating them as interchangeable.',
       },
       {
-        q: 'Can I use the HKS M-DA-H F10/F5 265, Moveco RR72 as a direct replacement?',
+        q: 'Can I use the HKS M-DA-H F10/M-DA-H-F5 265, Moveco RR72 as a direct replacement?',
         a: 'The listed alternatives are at a similar published torque level, but each is built to its own frame and mounting dimensions, so a similar rating does not guarantee a fit. Send us your unit tag and mounting drawing — we overlay the flange, shaft, ports and rotation and confirm whether one is a suitable option for your machine.',
       },
       {
@@ -1156,7 +1156,7 @@ export const modelPages: ModelData[] = [
       crossAlternatives: [
         {
           brand: 'HKS',
-          seriesRef: 'M-DA-H F10/F5 265',
+          seriesRef: 'M-DA-H F10/M-DA-H-F5 265',
           keySpec: 'Similar torque class',
         }
       ],
@@ -1179,7 +1179,7 @@ export const modelPages: ModelData[] = [
         a: 'They share the same L30 frame and output torque (~24,295 Nm at 207 bar) but are different effective builds: the 360° unit displaces about 11,995.4 cm³ and weighs 453.6 kg, while the 180° unit displaces about 5,997.7 cm³ and weighs 358.3 kg; the straddle (double-flange) moment rating is also higher for the longer 360° body. They suit different travel, cycle-time and mounting-geometry requirements, so choose by the required rotation and confirm against the drawing rather than treating them as interchangeable.',
       },
       {
-        q: 'Can I use the HKS M-DA-H F10/F5 265 as a direct replacement?',
+        q: 'Can I use the HKS M-DA-H F10/M-DA-H-F5 265 as a direct replacement?',
         a: 'The listed alternatives are at a similar published torque level, but each is built to its own frame and mounting dimensions, so a similar rating does not guarantee a fit. Send us your unit tag and mounting drawing — we overlay the flange, shaft, ports and rotation and confirm whether one is a suitable option for your machine.',
       },
       {
@@ -2719,15 +2719,15 @@ export const modelPages: ModelData[] = [
     originBrand: 'HKS',
     sourcingOnly: true,
     torque: '1920 Nm',
-    intro: 'The HKS F5 115 is a mobile-version helical hydraulic rotary actuator in HKS\'s M-DA-H programme (German maker); HKS writes this base size as M-DA-H-F5 115 for the foot-mount build and M-DA-H-F10 115 for the flange-mount build, where the S2 straddle option is not available. HKS uses its own bore/housing size numbers; the code is a size designation, not a torque figure and not a Helac size number, rated at about 1920 Nm output torque at 210 bar. The maker\'s table lists 180° / 360° builds for this base size. In the controlled cross-reference it sits in the ~1921 Nm torque class together with: Helac L30-17; Moveco RR34; Sungji SRC-115-180-CN-FT-SH-N-I. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
+    intro: 'The M-DA-H-F5 115 is a mobile-version helical hydraulic rotary actuator in HKS\'s M-DA-H programme (German maker); HKS writes this base size as M-DA-H-F5 115 for the foot-mount build and M-DA-H-F10 115 for the flange-mount build, where the S2 straddle option is not available. HKS uses its own bore/housing size numbers; the code is a size designation, not a torque figure and not a Helac size number, rated at about 1920 Nm output torque at 210 bar. The maker\'s table lists 180° / 360° builds for this base size. In the controlled cross-reference it sits in the ~1921 Nm torque class together with: Helac L30-17; Moveco RR34; Sungji SRC-115-180-CN-FT-SH-N-I. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
     crossNote: 'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Helac L30-17 (~1921 Nm); Moveco RR34 (~1921 Nm); Sungji SRC-115-180-CN-FT-SH-N-I (~1921 Nm). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
     extraFaqs: [
       {
-        q: 'Can HM supply the HKS F5 115?',
-        a: 'HM provides technical selection and a sourcing / alternative-supply route for the HKS F5 115 base size. We do not keep stock and do not promise availability or lead time; the exact HKS configuration (S1/S2, rotation direction, valve and seal options folded into the FU/S9xxx code) is confirmed against your nameplate, with the factory when needed, before we quote.',
+        q: 'Can HM supply the M-DA-H-F5 115?',
+        a: 'HM provides technical selection and a sourcing / alternative-supply route for the M-DA-H-F5 115 base size. We do not keep stock and do not promise availability or lead time; the exact HKS configuration (S1/S2, rotation direction, valve and seal options folded into the FU/S9xxx code) is confirmed against your nameplate, with the factory when needed, before we quote.',
       },
       {
-        q: 'Is the F5 115 a one-to-one replacement for the Helac-class unit in the same torque bracket?',
+        q: 'Is the M-DA-H-F5 115 a one-to-one replacement for the Helac-class unit in the same torque bracket?',
         a: 'They sit in the same torque class in our controlled cross-reference, but HKS uses its own bore/housing design and dimensions. We do not claim a verified drop-in or a guaranteed-compatible unit from the model number alone; rotation, mounting interface, shaft and ports are checked against your unit and drawing first.',
       },
       {
@@ -2755,15 +2755,15 @@ export const modelPages: ModelData[] = [
     originBrand: 'HKS',
     sourcingOnly: true,
     torque: '2820 Nm',
-    intro: 'The HKS F5 125 is a mobile-version helical hydraulic rotary actuator in HKS\'s M-DA-H programme (German maker); HKS writes this base size as M-DA-H-F5 125 for the foot-mount build and M-DA-H-F10 125 for the flange-mount build, where the S2 straddle option is not available. HKS uses its own bore/housing size numbers; the code is a size designation, not a torque figure and not a Helac size number, rated at about 2820 Nm output torque at 210 bar. The maker\'s table lists 180° / 360° builds for this base size. In HM\'s controlled cross-reference this base size spans two entries, HMR4-280 (~2821 Nm) and HMR4-300 (~3100 Nm), and sits with: Helac L30-25; Moveco RR40; Sungji SRC-125. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
+    intro: 'The M-DA-H-F5 125 is a mobile-version helical hydraulic rotary actuator in HKS\'s M-DA-H programme (German maker); HKS writes this base size as M-DA-H-F5 125 for the foot-mount build and M-DA-H-F10 125 for the flange-mount build, where the S2 straddle option is not available. HKS uses its own bore/housing size numbers; the code is a size designation, not a torque figure and not a Helac size number, rated at about 2820 Nm output torque at 210 bar. The maker\'s table lists 180° / 360° builds for this base size. In HM\'s controlled cross-reference this base size spans two entries, HMR4-280 (~2821 Nm) and HMR4-300 (~3100 Nm), and sits with: Helac L30-25; Moveco RR40; Sungji SRC-125. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
     crossNote: 'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Helac L30-25 (~2821 Nm); Moveco RR40 (~2821 Nm); Sungji SRC-125 (~2821 Nm). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
     extraFaqs: [
       {
-        q: 'Can HM supply the HKS F5 125?',
-        a: 'HM provides technical selection and a sourcing / alternative-supply route for the HKS F5 125 base size. We do not keep stock and do not promise availability or lead time; the exact HKS configuration (S1/S2, rotation direction, valve and seal options folded into the FU/S9xxx code) is confirmed against your nameplate, with the factory when needed, before we quote.',
+        q: 'Can HM supply the M-DA-H-F5 125?',
+        a: 'HM provides technical selection and a sourcing / alternative-supply route for the M-DA-H-F5 125 base size. We do not keep stock and do not promise availability or lead time; the exact HKS configuration (S1/S2, rotation direction, valve and seal options folded into the FU/S9xxx code) is confirmed against your nameplate, with the factory when needed, before we quote.',
       },
       {
-        q: 'Is the F5 125 a one-to-one replacement for the Helac-class unit in the same torque bracket?',
+        q: 'Is the M-DA-H-F5 125 a one-to-one replacement for the Helac-class unit in the same torque bracket?',
         a: 'They sit in the same torque class in our controlled cross-reference, but HKS uses its own bore/housing design and dimensions. We do not claim a verified drop-in or a guaranteed-compatible unit from the model number alone; rotation, mounting interface, shaft and ports are checked against your unit and drawing first.',
       },
       {
@@ -2791,15 +2791,15 @@ export const modelPages: ModelData[] = [
     originBrand: 'HKS',
     sourcingOnly: true,
     torque: '4750 Nm',
-    intro: 'The HKS F5 150 is a mobile-version helical hydraulic rotary actuator in HKS\'s M-DA-H programme (German maker); HKS writes this base size as M-DA-H-F5 150 for the foot-mount build and M-DA-H-F10 150 for the flange-mount build, where the S2 straddle option is not available. HKS uses its own bore/housing size numbers; the code is a size designation, not a torque figure and not a Helac size number, rated at about 4750 Nm output torque at 210 bar. The maker\'s table lists 180° / 360° builds for this base size. In the controlled cross-reference it sits in the ~4746 Nm torque class together with: Helac L30-42; Moveco RR46; Sungji SRC-150-180-CN-FT-SH-N-I. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
+    intro: 'The M-DA-H-F5 150 is a mobile-version helical hydraulic rotary actuator in HKS\'s M-DA-H programme (German maker); HKS writes this base size as M-DA-H-F5 150 for the foot-mount build and M-DA-H-F10 150 for the flange-mount build, where the S2 straddle option is not available. HKS uses its own bore/housing size numbers; the code is a size designation, not a torque figure and not a Helac size number, rated at about 4750 Nm output torque at 210 bar. The maker\'s table lists 180° / 360° builds for this base size. In the controlled cross-reference it sits in the ~4746 Nm torque class together with: Helac L30-42; Moveco RR46; Sungji SRC-150-180-CN-FT-SH-N-I. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
     crossNote: 'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Helac L30-42 (~4746 Nm); Moveco RR46 (~4746 Nm); Sungji SRC-150-180-CN-FT-SH-N-I (~4746 Nm). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
     extraFaqs: [
       {
-        q: 'Can HM supply the HKS F5 150?',
-        a: 'HM provides technical selection and a sourcing / alternative-supply route for the HKS F5 150 base size. We do not keep stock and do not promise availability or lead time; the exact HKS configuration (S1/S2, rotation direction, valve and seal options folded into the FU/S9xxx code) is confirmed against your nameplate, with the factory when needed, before we quote.',
+        q: 'Can HM supply the M-DA-H-F5 150?',
+        a: 'HM provides technical selection and a sourcing / alternative-supply route for the M-DA-H-F5 150 base size. We do not keep stock and do not promise availability or lead time; the exact HKS configuration (S1/S2, rotation direction, valve and seal options folded into the FU/S9xxx code) is confirmed against your nameplate, with the factory when needed, before we quote.',
       },
       {
-        q: 'Is the F5 150 a one-to-one replacement for the Helac-class unit in the same torque bracket?',
+        q: 'Is the M-DA-H-F5 150 a one-to-one replacement for the Helac-class unit in the same torque bracket?',
         a: 'They sit in the same torque class in our controlled cross-reference, but HKS uses its own bore/housing design and dimensions. We do not claim a verified drop-in or a guaranteed-compatible unit from the model number alone; rotation, mounting interface, shaft and ports are checked against your unit and drawing first.',
       },
       {
@@ -2827,19 +2827,19 @@ export const modelPages: ModelData[] = [
     originBrand: 'HKS',
     sourcingOnly: true,
     torque: '7340 Nm',
-    intro: 'The HKS F5 175 is a mobile-version helical hydraulic rotary actuator in HKS\'s M-DA-H programme (German maker); HKS writes this base size as M-DA-H-F5 175 for the foot-mount build and M-DA-H-F10 175 for the flange-mount build, where the S2 straddle option is not available. HKS uses its own bore/housing size numbers; the code is a size designation, not a torque figure and not a Helac size number, rated at about 7340 Nm output torque at 210 bar, with 110 kg at 180 degrees and 140 kg at 360 degrees. The maker\'s table lists 180° / 360° builds for this base size. In the controlled cross-reference it sits in the ~7340 Nm torque class together with: Helac L30-65; Moveco RR52; Sungji SRC-180. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
+    intro: 'The M-DA-H-F5 175 is a mobile-version helical hydraulic rotary actuator in HKS\'s M-DA-H programme (German maker); HKS writes this base size as M-DA-H-F5 175 for the foot-mount build and M-DA-H-F10 175 for the flange-mount build, where the S2 straddle option is not available. HKS uses its own bore/housing size numbers; the code is a size designation, not a torque figure and not a Helac size number, rated at about 7340 Nm output torque at 210 bar, with 110 kg at 180 degrees and 140 kg at 360 degrees. The maker\'s table lists 180° / 360° builds for this base size. In the controlled cross-reference it sits in the ~7340 Nm torque class together with: Helac L30-65; Moveco RR52; Sungji SRC-180. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
     crossNote: 'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Helac L30-65 (~7340 Nm); Moveco RR52 (~7340 Nm); Sungji SRC-180 (~7340 Nm). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
     extraFaqs: [
       {
-        q: 'Can HM supply the HKS F5 175?',
-        a: 'HM provides technical selection and a sourcing / alternative-supply route for the HKS F5 175 base size. We do not keep stock and do not promise availability or lead time; the exact HKS configuration (S1/S2, rotation direction, valve and seal options folded into the FU/S9xxx code) is confirmed against your nameplate, with the factory when needed, before we quote.',
+        q: 'Can HM supply the M-DA-H-F5 175?',
+        a: 'HM provides technical selection and a sourcing / alternative-supply route for the M-DA-H-F5 175 base size. We do not keep stock and do not promise availability or lead time; the exact HKS configuration (S1/S2, rotation direction, valve and seal options folded into the FU/S9xxx code) is confirmed against your nameplate, with the factory when needed, before we quote.',
       },
       {
         q: 'What is the difference between M-DA-H-F5 175 and M-DA-H-F10 175?',
         a: 'Same base size and the same performance table; the difference is mounting. M-DA-H-F5 is the foot-mount build and takes the S1 cantilever or S2 straddle option. M-DA-H-F10 is the flange-mount build, and the S2 straddle option is not available with flange mounting. Moment capacity, torque, displacement and weight are otherwise identical.',
       },
       {
-        q: 'Is the F5 175 a one-to-one replacement for the Helac-class unit in the same torque bracket?',
+        q: 'Is the M-DA-H-F5 175 a one-to-one replacement for the Helac-class unit in the same torque bracket?',
         a: 'They sit in the same torque class in our controlled cross-reference, but HKS uses its own bore/housing design and dimensions. We do not claim a verified drop-in or a guaranteed-compatible unit from the model number alone; rotation, mounting interface, shaft and ports are checked against your unit and drawing first.',
       },
       {
@@ -2867,15 +2867,15 @@ export const modelPages: ModelData[] = [
     originBrand: 'HKS',
     sourcingOnly: true,
     torque: '10700 Nm',
-    intro: 'The HKS F5 200 is a mobile-version helical hydraulic rotary actuator in HKS\'s M-DA-H programme (German maker); HKS writes this base size as M-DA-H-F5 200 for the foot-mount build and M-DA-H-F10 200 for the flange-mount build, where the S2 straddle option is not available. HKS uses its own bore/housing size numbers; the code is a size designation, not a torque figure and not a Helac size number, rated at about 10700 Nm output torque at 210 bar. The maker\'s table lists 180° / 360° builds for this base size. In the controlled cross-reference it sits in the ~10735 Nm torque class together with: Helac L30-95. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
+    intro: 'The M-DA-H-F5 200 is a mobile-version helical hydraulic rotary actuator in HKS\'s M-DA-H programme (German maker); HKS writes this base size as M-DA-H-F5 200 for the foot-mount build and M-DA-H-F10 200 for the flange-mount build, where the S2 straddle option is not available. HKS uses its own bore/housing size numbers; the code is a size designation, not a torque figure and not a Helac size number, rated at about 10700 Nm output torque at 210 bar. The maker\'s table lists 180° / 360° builds for this base size. In the controlled cross-reference it sits in the ~10735 Nm torque class together with: Helac L30-95. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
     crossNote: 'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Helac L30-95 (~10735 Nm). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
     extraFaqs: [
       {
-        q: 'Can HM supply the HKS F5 200?',
-        a: 'HM provides technical selection and a sourcing / alternative-supply route for the HKS F5 200 base size. We do not keep stock and do not promise availability or lead time; the exact HKS configuration (S1/S2, rotation direction, valve and seal options folded into the FU/S9xxx code) is confirmed against your nameplate, with the factory when needed, before we quote.',
+        q: 'Can HM supply the M-DA-H-F5 200?',
+        a: 'HM provides technical selection and a sourcing / alternative-supply route for the M-DA-H-F5 200 base size. We do not keep stock and do not promise availability or lead time; the exact HKS configuration (S1/S2, rotation direction, valve and seal options folded into the FU/S9xxx code) is confirmed against your nameplate, with the factory when needed, before we quote.',
       },
       {
-        q: 'Is the F5 200 a one-to-one replacement for the Helac-class unit in the same torque bracket?',
+        q: 'Is the M-DA-H-F5 200 a one-to-one replacement for the Helac-class unit in the same torque bracket?',
         a: 'They sit in the same torque class in our controlled cross-reference, but HKS uses its own bore/housing design and dimensions. We do not claim a verified drop-in or a guaranteed-compatible unit from the model number alone; rotation, mounting interface, shaft and ports are checked against your unit and drawing first.',
       },
       {
@@ -2903,20 +2903,20 @@ export const modelPages: ModelData[] = [
     originBrand: 'HKS',
     sourcingOnly: true,
     torque: '14100 Nm',
-    intro: 'The HKS F5 220 is a mobile-version helical hydraulic rotary actuator in HKS\'s M-DA-H programme (German maker); HKS writes this base size as M-DA-H-F5 220 for the foot-mount build and M-DA-H-F10 220 for the flange-mount build, where the S2 straddle option is not available. HKS uses its own bore/housing size numbers; the code is a size designation, not a torque figure and not a Helac size number, rated at about 14100 Nm output torque at 210 bar, with 220 kg at 180 degrees and 290 kg at 360 degrees. The maker\'s table lists 180° / 360° builds for this base size. In the controlled cross-reference it sits in the ~14100 Nm torque class together with: Helac L30-125 (~14100 Nm); Moveco RR58 (~14100 Nm); Moveco RR61 (~14100 Nm). These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
+    intro: 'The M-DA-H-F5 220 is a mobile-version helical hydraulic rotary actuator in HKS\'s M-DA-H programme (German maker); HKS writes this base size as M-DA-H-F5 220 for the foot-mount build and M-DA-H-F10 220 for the flange-mount build, where the S2 straddle option is not available. HKS uses its own bore/housing size numbers; the code is a size designation, not a torque figure and not a Helac size number, rated at about 14100 Nm output torque at 210 bar, with 220 kg at 180 degrees and 290 kg at 360 degrees. The maker\'s table lists 180° / 360° builds for this base size. In the controlled cross-reference it sits in the ~14100 Nm torque class together with: Helac L30-125 (~14100 Nm); Moveco RR58 (~14100 Nm); Moveco RR61 (~14100 Nm). These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
     crossNote: 'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Helac L30-125 (~14100 Nm); Moveco RR58 (~14100 Nm); Moveco RR61 (~14100 Nm). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
     extraFaqs: [
       {
-        q: 'Can HM supply the HKS F5 220?',
-        a: 'HM provides technical selection and a sourcing / alternative-supply route for the HKS F5 220 base size. We do not keep stock and do not promise availability or lead time; the exact HKS configuration (S1/S2, rotation direction, valve and seal options folded into the FU/S9xxx code) is confirmed against your nameplate, with the factory when needed, before we quote.',
+        q: 'Can HM supply the M-DA-H-F5 220?',
+        a: 'HM provides technical selection and a sourcing / alternative-supply route for the M-DA-H-F5 220 base size. We do not keep stock and do not promise availability or lead time; the exact HKS configuration (S1/S2, rotation direction, valve and seal options folded into the FU/S9xxx code) is confirmed against your nameplate, with the factory when needed, before we quote.',
       },
       {
         q: 'What is the difference between M-DA-H-F5 220 and M-DA-H-F10 220?',
         a: 'Same base size and the same performance table; the difference is mounting. M-DA-H-F5 is the foot-mount build and takes the S1 cantilever or S2 straddle option. M-DA-H-F10 is the flange-mount build, and the S2 straddle option is not available with flange mounting. Moment capacity, torque, displacement and weight are otherwise identical.',
       },
       {
-        q: 'Which Helac and Moveco sizes sit in the same torque class as the F5 220?',
-        a: 'In HM\'s controlled cross-reference the ~14100 Nm class holds Helac L30-125 and the Moveco RR58 / RR61 pair alongside the HKS F5 220. They are comparable in rated output only: housing, mounting interface, shaft and port layout are independent designs, so we check those against your unit before saying anything about fit.',
+        q: 'Which Helac and Moveco sizes sit in the same torque class as the M-DA-H-F5 220?',
+        a: 'In HM\'s controlled cross-reference the ~14100 Nm class holds Helac L30-125 and the Moveco RR58 / RR61 pair alongside the M-DA-H-F5 220. They are comparable in rated output only: housing, mounting interface, shaft and port layout are independent designs, so we check those against your unit before saying anything about fit.',
       },
       {
         q: 'What information does HM need before quoting this actuator?',
@@ -2943,20 +2943,20 @@ export const modelPages: ModelData[] = [
     originBrand: 'HKS',
     sourcingOnly: true,
     torque: '18600 Nm',
-    intro: 'The HKS F5 245 is a mobile-version helical hydraulic rotary actuator in HKS\'s M-DA-H programme (German maker); HKS writes this base size as M-DA-H-F5 245 for the foot-mount build and M-DA-H-F10 245 for the flange-mount build, where the S2 straddle option is not available. HKS uses its own bore/housing size numbers; the code is a size designation, not a torque figure and not a Helac size number, rated at about 18600 Nm output torque at 210 bar, with 280 kg at 180 degrees and 370 kg at 360 degrees. The maker\'s table lists 180° / 360° builds for this base size. In the controlled cross-reference it sits in the ~18600 Nm torque class together with: Helac L30-165; Moveco RR66. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
+    intro: 'The M-DA-H-F5 245 is a mobile-version helical hydraulic rotary actuator in HKS\'s M-DA-H programme (German maker); HKS writes this base size as M-DA-H-F5 245 for the foot-mount build and M-DA-H-F10 245 for the flange-mount build, where the S2 straddle option is not available. HKS uses its own bore/housing size numbers; the code is a size designation, not a torque figure and not a Helac size number, rated at about 18600 Nm output torque at 210 bar, with 280 kg at 180 degrees and 370 kg at 360 degrees. The maker\'s table lists 180° / 360° builds for this base size. In the controlled cross-reference it sits in the ~18600 Nm torque class together with: Helac L30-165; Moveco RR66. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
     crossNote: 'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Helac L30-165 (~18600 Nm); Moveco RR66 (~18600 Nm). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
     extraFaqs: [
       {
-        q: 'Can HM supply the HKS F5 245?',
-        a: 'HM provides technical selection and a sourcing / alternative-supply route for the HKS F5 245 base size. We do not keep stock and do not promise availability or lead time; the exact HKS configuration (S1/S2, rotation direction, valve and seal options folded into the FU/S9xxx code) is confirmed against your nameplate, with the factory when needed, before we quote.',
+        q: 'Can HM supply the M-DA-H-F5 245?',
+        a: 'HM provides technical selection and a sourcing / alternative-supply route for the M-DA-H-F5 245 base size. We do not keep stock and do not promise availability or lead time; the exact HKS configuration (S1/S2, rotation direction, valve and seal options folded into the FU/S9xxx code) is confirmed against your nameplate, with the factory when needed, before we quote.',
       },
       {
         q: 'What is the difference between M-DA-H-F5 245 and M-DA-H-F10 245?',
         a: 'Same base size and the same performance table; the difference is mounting. M-DA-H-F5 is the foot-mount build and takes the S1 cantilever or S2 straddle option. M-DA-H-F10 is the flange-mount build, and the S2 straddle option is not available with flange mounting. Moment capacity, torque, displacement and weight are otherwise identical.',
       },
       {
-        q: 'Which Helac and Moveco sizes sit in the same torque class as the F5 245?',
-        a: 'In HM\'s controlled cross-reference the ~18600 Nm class holds Helac L30-165 and Moveco RR66 alongside the HKS F5 245. They are comparable in rated output only: housing, mounting interface, shaft and port layout are independent designs, so we check those against your unit before saying anything about fit.'      },
+        q: 'Which Helac and Moveco sizes sit in the same torque class as the M-DA-H-F5 245?',
+        a: 'In HM\'s controlled cross-reference the ~18600 Nm class holds Helac L30-165 and Moveco RR66 alongside the M-DA-H-F5 245. They are comparable in rated output only: housing, mounting interface, shaft and port layout are independent designs, so we check those against your unit before saying anything about fit.'      },
       {
         q: 'What information does HM need before quoting this actuator?',
         a: 'Send us the actuator nameplate (brand, full model code, rotation, mounting, shaft and port details) and, if available, a mounting drawing. HM then confirms the exact configuration and advises the available sourcing or alternative-supply option. Mounting dimensions and drawings are provided on request only. HKS folds valve and seal options into the FU requirement code and the S9xxx material number; a complete HKS order code must be confirmed with HKS for each requirement (torque, rotation, S1/S2, rotation direction, valve, seal).',
@@ -2982,20 +2982,20 @@ export const modelPages: ModelData[] = [
     originBrand: 'HKS',
     sourcingOnly: true,
     torque: '24300 Nm',
-    intro: 'The HKS F5 265 is a mobile-version helical hydraulic rotary actuator in HKS\'s M-DA-H programme (German maker); HKS writes this base size as M-DA-H-F5 265 for the foot-mount build and M-DA-H-F10 265 for the flange-mount build, where the S2 straddle option is not available. HKS uses its own bore/housing size numbers; the code is a size designation, not a torque figure and not a Helac size number, rated at about 24300 Nm output torque at 210 bar, with 360 kg at 180 degrees and 480 kg at 360 degrees. The maker\'s table lists 180° / 360° builds for this base size. In the controlled cross-reference it sits in the ~24300 Nm torque class together with: Helac L30-215 (~24300 Nm); Moveco RR72 (~24300 Nm). These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
+    intro: 'The M-DA-H-F5 265 is a mobile-version helical hydraulic rotary actuator in HKS\'s M-DA-H programme (German maker); HKS writes this base size as M-DA-H-F5 265 for the foot-mount build and M-DA-H-F10 265 for the flange-mount build, where the S2 straddle option is not available. HKS uses its own bore/housing size numbers; the code is a size designation, not a torque figure and not a Helac size number, rated at about 24300 Nm output torque at 210 bar, with 360 kg at 180 degrees and 480 kg at 360 degrees. The maker\'s table lists 180° / 360° builds for this base size. In the controlled cross-reference it sits in the ~24300 Nm torque class together with: Helac L30-215 (~24300 Nm); Moveco RR72 (~24300 Nm). These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
     crossNote: 'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Helac L30-215 (~24300 Nm); Moveco RR72 (~24300 Nm). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
     extraFaqs: [
       {
-        q: 'Can HM supply the HKS F5 265?',
-        a: 'HM provides technical selection and a sourcing / alternative-supply route for the HKS F5 265 base size. We do not keep stock and do not promise availability or lead time; the exact HKS configuration (S1/S2, rotation direction, valve and seal options folded into the FU/S9xxx code) is confirmed against your nameplate, with the factory when needed, before we quote.',
+        q: 'Can HM supply the M-DA-H-F5 265?',
+        a: 'HM provides technical selection and a sourcing / alternative-supply route for the M-DA-H-F5 265 base size. We do not keep stock and do not promise availability or lead time; the exact HKS configuration (S1/S2, rotation direction, valve and seal options folded into the FU/S9xxx code) is confirmed against your nameplate, with the factory when needed, before we quote.',
       },
       {
         q: 'What is the difference between M-DA-H-F5 265 and M-DA-H-F10 265?',
         a: 'Same base size and the same performance table; the difference is mounting. M-DA-H-F5 is the foot-mount build and takes the S1 cantilever or S2 straddle option. M-DA-H-F10 is the flange-mount build, and the S2 straddle option is not available with flange mounting. Moment capacity, torque, displacement and weight are otherwise identical.',
       },
       {
-        q: 'Which Helac and Moveco sizes sit in the same torque class as the F5 265?',
-        a: 'In HM\'s controlled cross-reference the ~24300 Nm class holds Helac L30-215 and Moveco RR72 alongside the HKS F5 265. They are comparable in rated output only: housing, mounting interface, shaft and port layout are independent designs, so we check those against your unit before saying anything about fit.',
+        q: 'Which Helac and Moveco sizes sit in the same torque class as the M-DA-H-F5 265?',
+        a: 'In HM\'s controlled cross-reference the ~24300 Nm class holds Helac L30-215 and Moveco RR72 alongside the M-DA-H-F5 265. They are comparable in rated output only: housing, mounting interface, shaft and port layout are independent designs, so we check those against your unit before saying anything about fit.',
       },
       {
         q: 'What information does HM need before quoting this actuator?',
@@ -3022,19 +3022,19 @@ export const modelPages: ModelData[] = [
     originBrand: 'HKS',
     sourcingOnly: true,
     torque: '42900 Nm',
-    intro: 'The HKS F5 265S is a mobile-version helical hydraulic rotary actuator in HKS\'s M-DA-H programme (German maker); HKS writes this base size as M-DA-H-F5 265S for the foot-mount build and M-DA-H-F10 265S for the flange-mount build, where the S2 straddle option is not available. HKS uses its own bore/housing size numbers; the code is a size designation, not a torque figure and not a Helac size number, rated at about 42900 Nm output torque at 210 bar, with 480 kg at 180 degrees. The maker\'s table lists 180° builds for this base size. In the controlled cross-reference it sits in the ~42900 Nm torque class together with: Moveco RR78 (~42900 Nm). These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
+    intro: 'The M-DA-H-F5 265S is a mobile-version helical hydraulic rotary actuator in HKS\'s M-DA-H programme (German maker); HKS writes this base size as M-DA-H-F5 265S for the foot-mount build and M-DA-H-F10 265S for the flange-mount build, where the S2 straddle option is not available. HKS uses its own bore/housing size numbers; the code is a size designation, not a torque figure and not a Helac size number, rated at about 42900 Nm output torque at 210 bar, with 480 kg at 180 degrees. The maker\'s table lists 180° builds for this base size. In the controlled cross-reference it sits in the ~42900 Nm torque class together with: Moveco RR78 (~42900 Nm). These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
     crossNote: 'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Moveco RR78 (~42900 Nm). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
     extraFaqs: [
       {
-        q: 'Can HM supply the HKS F5 265S?',
-        a: 'HM provides technical selection and a sourcing / alternative-supply route for the HKS F5 265S base size. We do not keep stock and do not promise availability or lead time; the exact HKS configuration (S1/S2, rotation direction, valve and seal options folded into the FU/S9xxx code) is confirmed against your nameplate, with the factory when needed, before we quote.',
+        q: 'Can HM supply the M-DA-H-F5 265S?',
+        a: 'HM provides technical selection and a sourcing / alternative-supply route for the M-DA-H-F5 265S base size. We do not keep stock and do not promise availability or lead time; the exact HKS configuration (S1/S2, rotation direction, valve and seal options folded into the FU/S9xxx code) is confirmed against your nameplate, with the factory when needed, before we quote.',
       },
       {
         q: 'What is the difference between M-DA-H-F5 265S and M-DA-H-F10 265S?',
         a: 'Same base size and the same performance table; the difference is mounting. M-DA-H-F5 is the foot-mount build and takes the S1 cantilever or S2 straddle option. M-DA-H-F10 is the flange-mount build, and the S2 straddle option is not available with flange mounting. Moment capacity, torque, displacement and weight are otherwise identical.',
       },
       {
-        q: 'Does the F5 265S come in a 360-degree build?',
+        q: 'Does the M-DA-H-F5 265S come in a 360-degree build?',
         a: 'No. The maker\'s table lists the 265S at 180-degree rotation only, with no 360-degree build in this base size. Note also that the 265S is a short, large-bore design: its rated torque (about 42900 Nm) is higher than the 265\'s, while its S1 cantilever moment capacity (64400 Nm) is lower than the 265\'s (72900 Nm). If your unit is a 360-degree actuator, send the nameplate and we check the right base size instead.',
       },
       {
@@ -3062,19 +3062,19 @@ export const modelPages: ModelData[] = [
     originBrand: 'HKS',
     sourcingOnly: true,
     torque: '83600 Nm',
-    intro: 'The HKS F5 350 is a mobile-version helical hydraulic rotary actuator in HKS\'s M-DA-H programme (German maker); HKS writes this base size as M-DA-H-F5 350 for the foot-mount build and M-DA-H-F10 350 for the flange-mount build, where the S2 straddle option is not available. HKS uses its own bore/housing size numbers; the code is a size designation, not a torque figure and not a Helac size number, rated at about 83600 Nm output torque at 210 bar, with 1100 kg at 180 degrees. The maker\'s table lists 180° builds for this base size. In the controlled cross-reference it sits in the ~83600 Nm torque class together with: no other brand size in this class. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
+    intro: 'The M-DA-H-F5 350 is a mobile-version helical hydraulic rotary actuator in HKS\'s M-DA-H programme (German maker); HKS writes this base size as M-DA-H-F5 350 for the foot-mount build and M-DA-H-F10 350 for the flange-mount build, where the S2 straddle option is not available. HKS uses its own bore/housing size numbers; the code is a size designation, not a torque figure and not a Helac size number, rated at about 83600 Nm output torque at 210 bar, with 1100 kg at 180 degrees. The maker\'s table lists 180° builds for this base size. In the controlled cross-reference it sits in the ~83600 Nm torque class together with: no other brand size in this class. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
     crossNote: 'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): no other brand size in this class. HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
     extraFaqs: [
       {
-        q: 'Can HM supply the HKS F5 350?',
-        a: 'HM provides technical selection and a sourcing / alternative-supply route for the HKS F5 350 base size. We do not keep stock and do not promise availability or lead time; the exact HKS configuration (S1/S2, rotation direction, valve and seal options folded into the FU/S9xxx code) is confirmed against your nameplate, with the factory when needed, before we quote.',
+        q: 'Can HM supply the M-DA-H-F5 350?',
+        a: 'HM provides technical selection and a sourcing / alternative-supply route for the M-DA-H-F5 350 base size. We do not keep stock and do not promise availability or lead time; the exact HKS configuration (S1/S2, rotation direction, valve and seal options folded into the FU/S9xxx code) is confirmed against your nameplate, with the factory when needed, before we quote.',
       },
       {
         q: 'What is the difference between M-DA-H-F5 350 and M-DA-H-F10 350?',
         a: 'Same base size and the same performance table; the difference is mounting. M-DA-H-F5 is the foot-mount build and takes the S1 cantilever or S2 straddle option. M-DA-H-F10 is the flange-mount build, and the S2 straddle option is not available with flange mounting. Moment capacity, torque, displacement and weight are otherwise identical.',
       },
       {
-        q: 'Does the F5 350 come in a 360-degree build, and what sits in its torque class?',
+        q: 'Does the M-DA-H-F5 350 come in a 360-degree build, and what sits in its torque class?',
         a: 'The maker\'s table lists the 350 at 180-degree rotation only, with no 360-degree build. It is the largest base size in the M-DA-H programme at about 83600 Nm, and HM\'s controlled cross-reference holds no Helac, Moveco or Sungji size in that class, so the page lists no same-torque-class peer from another brand. HM\'s own HMR range does reach this class, which is what we quote against.',
       },
       {
@@ -3558,8 +3558,8 @@ export const modelPages: ModelData[] = [
     originBrand: 'Moveco',
     sourcingOnly: true,
     torque: '2020 Nm',
-    intro: 'The Moveco RR34 is a helical hydraulic rotary actuator from Moveco (Italy). The maker publishes the short size designation only; the full suffix after the size code is not disclosed in the available catalogue and has to be confirmed with the factory, rated at about 2020 Nm output torque at 210 bar. This entry covers the 180-degree configuration only. In the controlled cross-reference it sits in the ~1921 Nm torque class together with: Helac L30-17; HKS F5 115; Sungji SRC-115-180-CN-FT-SH-N-I. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
-    crossNote: 'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Helac L30-17 (~1921 Nm); HKS F5 115 (~1921 Nm); Sungji SRC-115-180-CN-FT-SH-N-I (~1921 Nm). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
+    intro: 'The Moveco RR34 is a helical hydraulic rotary actuator from Moveco (Italy). The maker publishes the short size designation only; the full suffix after the size code is not disclosed in the available catalogue and has to be confirmed with the factory, rated at about 2020 Nm output torque at 210 bar. This entry covers the 180-degree configuration only. In the controlled cross-reference it sits in the ~1921 Nm torque class together with: Helac L30-17; HKS M-DA-H-F5 115; Sungji SRC-115-180-CN-FT-SH-N-I. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
+    crossNote: 'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Helac L30-17 (~1921 Nm); HKS M-DA-H-F5 115 (~1921 Nm); Sungji SRC-115-180-CN-FT-SH-N-I (~1921 Nm). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
     extraFaqs: [
       {
         q: 'Why do you list only the short code RR34?',
@@ -3593,8 +3593,8 @@ export const modelPages: ModelData[] = [
     originBrand: 'Moveco',
     sourcingOnly: true,
     torque: '3100 Nm',
-    intro: 'The Moveco RR40 is a helical hydraulic rotary actuator from Moveco (Italy). The maker publishes the short size designation only; the full suffix after the size code is not disclosed in the available catalogue and has to be confirmed with the factory, rated at about 3100 Nm output torque at 210 bar. This entry covers the 180-degree configuration only. In the controlled cross-reference it sits in the ~2825 Nm torque class together with: Helac L30-25; HKS F5 125; Sungji SRC-125-180-CN-FT-SH-N-I. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
-    crossNote: 'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Helac L30-25 (~2825 Nm); HKS F5 125 (~2825 Nm); Sungji SRC-125-180-CN-FT-SH-N-I (~2825 Nm). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
+    intro: 'The Moveco RR40 is a helical hydraulic rotary actuator from Moveco (Italy). The maker publishes the short size designation only; the full suffix after the size code is not disclosed in the available catalogue and has to be confirmed with the factory, rated at about 3100 Nm output torque at 210 bar. This entry covers the 180-degree configuration only. In the controlled cross-reference it sits in the ~2825 Nm torque class together with: Helac L30-25; HKS M-DA-H-F5 125; Sungji SRC-125-180-CN-FT-SH-N-I. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
+    crossNote: 'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Helac L30-25 (~2825 Nm); HKS M-DA-H-F5 125 (~2825 Nm); Sungji SRC-125-180-CN-FT-SH-N-I (~2825 Nm). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
     extraFaqs: [
       {
         q: 'Why do you list only the short code RR40?',
@@ -3628,8 +3628,8 @@ export const modelPages: ModelData[] = [
     originBrand: 'Moveco',
     sourcingOnly: true,
     torque: '5100 Nm',
-    intro: 'The Moveco RR46 is a helical hydraulic rotary actuator from Moveco (Italy). The maker publishes the short size designation only; the full suffix after the size code is not disclosed in the available catalogue and has to be confirmed with the factory, rated at about 5100 Nm output torque at 210 bar. This entry covers the 180-degree configuration only. In the controlled cross-reference it sits in the ~4746 Nm torque class together with: Helac L30-42; HKS F5 150; Sungji SRC-150-180-CN-FT-SH-N-I. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
-    crossNote: 'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Helac L30-42 (~4746 Nm); HKS F5 150 (~4746 Nm); Sungji SRC-150-180-CN-FT-SH-N-I (~4746 Nm). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
+    intro: 'The Moveco RR46 is a helical hydraulic rotary actuator from Moveco (Italy). The maker publishes the short size designation only; the full suffix after the size code is not disclosed in the available catalogue and has to be confirmed with the factory, rated at about 5100 Nm output torque at 210 bar. This entry covers the 180-degree configuration only. In the controlled cross-reference it sits in the ~4746 Nm torque class together with: Helac L30-42; HKS M-DA-H-F5 150; Sungji SRC-150-180-CN-FT-SH-N-I. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
+    crossNote: 'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Helac L30-42 (~4746 Nm); HKS M-DA-H-F5 150 (~4746 Nm); Sungji SRC-150-180-CN-FT-SH-N-I (~4746 Nm). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
     extraFaqs: [
       {
         q: 'Why do you list only the short code RR46?',
@@ -3663,8 +3663,8 @@ export const modelPages: ModelData[] = [
     originBrand: 'Moveco',
     sourcingOnly: true,
     torque: '8050 Nm',
-    intro: 'The Moveco RR52 is a helical hydraulic rotary actuator from Moveco (Italy). The maker publishes the short size designation only; the full suffix after the size code is not disclosed in the available catalogue and has to be confirmed with the factory, rated at about 8050 Nm output torque at 210 bar. This entry covers the 180-degree configuration only. In the controlled cross-reference it sits in the ~7345 Nm torque class together with: Helac L30-65; HKS F5 175. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
-    crossNote: 'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Helac L30-65 (~7345 Nm); HKS F5 175 (~7345 Nm). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
+    intro: 'The Moveco RR52 is a helical hydraulic rotary actuator from Moveco (Italy). The maker publishes the short size designation only; the full suffix after the size code is not disclosed in the available catalogue and has to be confirmed with the factory, rated at about 8050 Nm output torque at 210 bar. This entry covers the 180-degree configuration only. In the controlled cross-reference it sits in the ~7345 Nm torque class together with: Helac L30-65; HKS M-DA-H-F5 175. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
+    crossNote: 'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Helac L30-65 (~7345 Nm); HKS M-DA-H-F5 175 (~7345 Nm). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
     extraFaqs: [
       {
         q: 'Why do you list only the short code RR52?',
@@ -3698,8 +3698,8 @@ export const modelPages: ModelData[] = [
     originBrand: 'Moveco',
     sourcingOnly: true,
     torque: '12700 Nm',
-    intro: 'The Moveco RR58 is a helical hydraulic rotary actuator from Moveco (Italy). The maker publishes the short size designation only; the full suffix after the size code is not disclosed in the available catalogue and has to be confirmed with the factory, rated at about 12700 Nm output torque at 210 bar. This entry covers the 180-degree configuration only. In the controlled cross-reference it sits in the ~14125 Nm torque class together with: Helac L30-125; HKS F5 220. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
-    crossNote: 'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Helac L30-125 (~14125 Nm); HKS F5 220 (~14125 Nm). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
+    intro: 'The Moveco RR58 is a helical hydraulic rotary actuator from Moveco (Italy). The maker publishes the short size designation only; the full suffix after the size code is not disclosed in the available catalogue and has to be confirmed with the factory, rated at about 12700 Nm output torque at 210 bar. This entry covers the 180-degree configuration only. In the controlled cross-reference it sits in the ~14125 Nm torque class together with: Helac L30-125; HKS M-DA-H-F5 220. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
+    crossNote: 'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Helac L30-125 (~14125 Nm); HKS M-DA-H-F5 220 (~14125 Nm). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
     extraFaqs: [
       {
         q: 'Why do you list only the short code RR58?',
@@ -3733,8 +3733,8 @@ export const modelPages: ModelData[] = [
     originBrand: 'Moveco',
     sourcingOnly: true,
     torque: '20000 Nm',
-    intro: 'The Moveco RR66 is a helical hydraulic rotary actuator from Moveco (Italy). The maker publishes the short size designation only; the full suffix after the size code is not disclosed in the available catalogue and has to be confirmed with the factory, rated at about 20000 Nm output torque at 210 bar. This entry covers the 180-degree configuration only. In the controlled cross-reference it sits in the ~18645 Nm torque class together with: Helac L30-165; HKS F5 245. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
-    crossNote: 'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Helac L30-165 (~18645 Nm); HKS F5 245 (~18645 Nm). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
+    intro: 'The Moveco RR66 is a helical hydraulic rotary actuator from Moveco (Italy). The maker publishes the short size designation only; the full suffix after the size code is not disclosed in the available catalogue and has to be confirmed with the factory, rated at about 20000 Nm output torque at 210 bar. This entry covers the 180-degree configuration only. In the controlled cross-reference it sits in the ~18645 Nm torque class together with: Helac L30-165; HKS M-DA-H-F5 245. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
+    crossNote: 'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Helac L30-165 (~18645 Nm); HKS M-DA-H-F5 245 (~18645 Nm). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
     extraFaqs: [
       {
         q: 'Why do you list only the short code RR66?',
@@ -3768,8 +3768,8 @@ export const modelPages: ModelData[] = [
     originBrand: 'Moveco',
     sourcingOnly: true,
     torque: '27000 Nm',
-    intro: 'The Moveco RR72 is a helical hydraulic rotary actuator from Moveco (Italy). The maker publishes the short size designation only; the full suffix after the size code is not disclosed in the available catalogue and has to be confirmed with the factory, rated at about 27000 Nm output torque at 210 bar. This entry covers the 180-degree configuration only. In the controlled cross-reference it sits in the ~24295 Nm torque class together with: Helac L30-215; HKS F5 265. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
-    crossNote: 'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Helac L30-215 (~24295 Nm); HKS F5 265 (~24295 Nm). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
+    intro: 'The Moveco RR72 is a helical hydraulic rotary actuator from Moveco (Italy). The maker publishes the short size designation only; the full suffix after the size code is not disclosed in the available catalogue and has to be confirmed with the factory, rated at about 27000 Nm output torque at 210 bar. This entry covers the 180-degree configuration only. In the controlled cross-reference it sits in the ~24295 Nm torque class together with: Helac L30-215; HKS M-DA-H-F5 265. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
+    crossNote: 'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Helac L30-215 (~24295 Nm); HKS M-DA-H-F5 265 (~24295 Nm). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
     extraFaqs: [
       {
         q: 'Why do you list only the short code RR72?',
@@ -3803,8 +3803,8 @@ export const modelPages: ModelData[] = [
     originBrand: 'Moveco',
     sourcingOnly: true,
     torque: '43000 Nm',
-    intro: 'The Moveco RR78 is a helical hydraulic rotary actuator from Moveco (Italy). The maker publishes the short size designation only; the full suffix after the size code is not disclosed in the available catalogue and has to be confirmed with the factory, rated at about 43000 Nm output torque at 210 bar. This entry covers the 180-degree configuration only. In the controlled cross-reference it sits in the ~42900 Nm torque class together with: HKS F5 265S. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
-    crossNote: 'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): HKS F5 265S (~42900 Nm). Performance neighbours only, not the same anchor class: Helac L30-215 (~24295 Nm, -43%). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
+    intro: 'The Moveco RR78 is a helical hydraulic rotary actuator from Moveco (Italy). The maker publishes the short size designation only; the full suffix after the size code is not disclosed in the available catalogue and has to be confirmed with the factory, rated at about 43000 Nm output torque at 210 bar. This entry covers the 180-degree configuration only. In the controlled cross-reference it sits in the ~42900 Nm torque class together with: HKS M-DA-H-F5 265S. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
+    crossNote: 'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): HKS M-DA-H-F5 265S (~42900 Nm). Performance neighbours only, not the same anchor class: Helac L30-215 (~24295 Nm, -43%). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
     extraFaqs: [
       {
         q: 'Why do you list only the short code RR78?',
@@ -4150,9 +4150,9 @@ export const modelPages: ModelData[] = [
     sourcingOnly: true,
     torque: '1912.3 Nm',
     intro:
-      'The Sungji SRC-115 is a helical hydraulic rotary actuator from Sungji (SJH, Korea), part of the SRC family in the L30 size class and rated at about 1912.3 Nm output torque at 210 bar. Sungji lists the SRC series at 180-degree rotation only, with no 360-degree build in this family. In the controlled cross-reference it sits in the ~1920 Nm torque class together with: Helac L30-17 (~1920 Nm); HKS F5 115 / M-DA-H-F10 115 (~1920 Nm); Moveco RR34 (~1920 Nm). These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
+      'The Sungji SRC-115 is a helical hydraulic rotary actuator from Sungji (SJH, Korea), part of the SRC family in the L30 size class and rated at about 1912.3 Nm output torque at 210 bar. Sungji lists the SRC series at 180-degree rotation only, with no 360-degree build in this family. In the controlled cross-reference it sits in the ~1920 Nm torque class together with: Helac L30-17 (~1920 Nm); HKS M-DA-H-F5 115 / M-DA-H-F10 115 (~1920 Nm); Moveco RR34 (~1920 Nm). These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
     crossNote:
-      'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Helac L30-17 (~1920 Nm); HKS F5 115 / M-DA-H-F10 115 (~1920 Nm); Moveco RR34 (~1920 Nm). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
+      'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Helac L30-17 (~1920 Nm); HKS M-DA-H-F5 115 / M-DA-H-F10 115 (~1920 Nm); Moveco RR34 (~1920 Nm). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
     extraFaqs: [
       {
         q: 'What does the Sungji code SRC-115 mean, and can HM source it?',
@@ -4192,9 +4192,9 @@ export const modelPages: ModelData[] = [
     sourcingOnly: true,
     torque: '2824.3 Nm',
     intro:
-      'The Sungji SRC-125 is a helical hydraulic rotary actuator from Sungji (SJH, Korea), part of the SRC family in the L30 size class and rated at about 2824.3 Nm output torque at 210 bar. Sungji lists the SRC series at 180-degree rotation only, with no 360-degree build in this family. In the controlled cross-reference it sits in the ~2820 Nm torque class together with: Helac L30-25 (~2821 Nm); HKS F5 125 / M-DA-H-F10 125 (~2820 Nm); Moveco RR40 (~2821 Nm). These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
+      'The Sungji SRC-125 is a helical hydraulic rotary actuator from Sungji (SJH, Korea), part of the SRC family in the L30 size class and rated at about 2824.3 Nm output torque at 210 bar. Sungji lists the SRC series at 180-degree rotation only, with no 360-degree build in this family. In the controlled cross-reference it sits in the ~2820 Nm torque class together with: Helac L30-25 (~2821 Nm); HKS M-DA-H-F5 125 / M-DA-H-F10 125 (~2820 Nm); Moveco RR40 (~2821 Nm). These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
     crossNote:
-      'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Helac L30-25 (~2821 Nm); HKS F5 125 / M-DA-H-F10 125 (~2820 Nm); Moveco RR40 (~2821 Nm). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
+      'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Helac L30-25 (~2821 Nm); HKS M-DA-H-F5 125 / M-DA-H-F10 125 (~2820 Nm); Moveco RR40 (~2821 Nm). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
     extraFaqs: [
       {
         q: 'What does the Sungji code SRC-125 mean, and can HM source it?',
@@ -4234,9 +4234,9 @@ export const modelPages: ModelData[] = [
     sourcingOnly: true,
     torque: '4746.4 Nm',
     intro:
-      'The Sungji SRC-150 is a helical hydraulic rotary actuator from Sungji (SJH, Korea), part of the SRC family in the L30 size class and rated at about 4746.4 Nm output torque at 210 bar. Sungji lists the SRC series at 180-degree rotation only, with no 360-degree build in this family. In the controlled cross-reference it sits in the ~4750 Nm torque class together with: Helac L30-42 (~4750 Nm); HKS F5 150 / M-DA-H-F10 150 (~4750 Nm); Moveco RR46 (~4750 Nm). These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
+      'The Sungji SRC-150 is a helical hydraulic rotary actuator from Sungji (SJH, Korea), part of the SRC family in the L30 size class and rated at about 4746.4 Nm output torque at 210 bar. Sungji lists the SRC series at 180-degree rotation only, with no 360-degree build in this family. In the controlled cross-reference it sits in the ~4750 Nm torque class together with: Helac L30-42 (~4750 Nm); HKS M-DA-H-F5 150 / M-DA-H-F10 150 (~4750 Nm); Moveco RR46 (~4750 Nm). These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
     crossNote:
-      'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Helac L30-42 (~4750 Nm); HKS F5 150 / M-DA-H-F10 150 (~4750 Nm); Moveco RR46 (~4750 Nm). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
+      'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Helac L30-42 (~4750 Nm); HKS M-DA-H-F5 150 / M-DA-H-F10 150 (~4750 Nm); Moveco RR46 (~4750 Nm). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
     extraFaqs: [
       {
         q: 'What does the Sungji code SRC-150 mean, and can HM source it?',
@@ -4276,9 +4276,9 @@ export const modelPages: ModelData[] = [
     sourcingOnly: true,
     torque: '7335.4 Nm',
     intro:
-      'The Sungji SRC-180 is a helical hydraulic rotary actuator from Sungji (SJH, Korea), part of the SRC family in the L30 size class and rated at about 7335.4 Nm output torque at 210 bar. Sungji lists the SRC series at 180-degree rotation only, with no 360-degree build in this family. In the controlled cross-reference it sits in the ~7340 Nm torque class together with: Helac L30-65 (~7340 Nm); HKS F5 175 / M-DA-H-F10 175 (~7340 Nm); Moveco RR52 (~7340 Nm). These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
+      'The Sungji SRC-180 is a helical hydraulic rotary actuator from Sungji (SJH, Korea), part of the SRC family in the L30 size class and rated at about 7335.4 Nm output torque at 210 bar. Sungji lists the SRC series at 180-degree rotation only, with no 360-degree build in this family. In the controlled cross-reference it sits in the ~7340 Nm torque class together with: Helac L30-65 (~7340 Nm); HKS M-DA-H-F5 175 / M-DA-H-F10 175 (~7340 Nm); Moveco RR52 (~7340 Nm). These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
     crossNote:
-      'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Helac L30-65 (~7340 Nm); HKS F5 175 / M-DA-H-F10 175 (~7340 Nm); Moveco RR52 (~7340 Nm). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
+      'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Helac L30-65 (~7340 Nm); HKS M-DA-H-F5 175 / M-DA-H-F10 175 (~7340 Nm); Moveco RR52 (~7340 Nm). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
     extraFaqs: [
       {
         q: 'What does the Sungji code SRC-180 mean, and can HM source it?',
