@@ -113,6 +113,12 @@ export function Footer() {
             <CookieSettingsButton className="underline decoration-[#4B5563] underline-offset-2 transition-colors hover:text-white" />
           </p>
           <div className="flex items-center gap-6">
+            <Link
+              href="/privacy"
+              className="text-xs text-[#9CA3AF] hover:text-white no-underline transition-colors duration-150"
+            >
+              Privacy Policy
+            </Link>
             <a
               href="mailto:hm@hmhydraulics.com"
               className="text-xs text-[#9CA3AF] hover:text-white no-underline transition-colors duration-150"

@@ -27,6 +27,7 @@ const staticRoutes = [
   '/quality',
   '/support',
   '/contact',
+  '/privacy',
   '/alternatives',
   '/alternatives/rebuild-vs-replacement',
   '/alternatives/cross-reference-guide',
