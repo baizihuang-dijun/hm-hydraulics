@@ -32,6 +32,39 @@ function matchesQuery(m: SearchIndexItem, raw: string): boolean {
   return fields.some((f) => normalize(String(f)).includes(needle));
 }
 
+/**
+ * A full Helac code ends with configuration segments that describe shaft end /
+ * end-cap flange arrangement (S1, S2, L1), porting (C) and thread (H). Two units
+ * can share an identical body and still differ in those last segments — the
+ * customer's nameplate says S2 while the published page is S1.
+ *
+ * So when an exact search returns nothing, peel trailing segments off and retry
+ * against the body code. That turns a dead end into "closest match + explain the
+ * difference" instead of "no result".
+ */
+function searchWithFallback(
+  items: SearchIndexItem[],
+  raw: string,
+): { items: SearchIndexItem[]; baseQuery: string | null; stripped: string | null } {
+  const q = raw.trim();
+  if (!q) return { items: [], baseQuery: null, stripped: null };
+
+  const exact = items.filter((m) => matchesQuery(m, q));
+  if (exact.length) return { items: exact, baseQuery: null, stripped: null };
+
+  const segs = q.split('-').filter(Boolean);
+  // Peel at most 3 trailing segments, never below a 4-segment body code.
+  for (let cut = 1; cut <= 3; cut++) {
+    if (segs.length - cut < 4) break;
+    const base = segs.slice(0, segs.length - cut).join('-');
+    const hits = items.filter((m) => matchesQuery(m, base));
+    if (hits.length) {
+      return { items: hits, baseQuery: base, stripped: segs.slice(segs.length - cut).join('-') };
+    }
+  }
+  return { items: [], baseQuery: null, stripped: null };
+}
+
 export function AlternativesBrowser({ searchIndex }: AlternativesBrowserProps) {
   const [query, setQuery] = useState('');
 
@@ -48,11 +81,13 @@ export function AlternativesBrowser({ searchIndex }: AlternativesBrowserProps) {
     heavyCount,
     tSeriesCount,
     filtered,
+    baseQuery,
+    stripped,
     actuatorChips,
     equipmentChips,
   } = useMemo(() => {
     const q = query.trim();
-    const filtered = q ? searchIndex.filter((m) => matchesQuery(m, q)) : [];
+    const { items: filtered, baseQuery, stripped } = searchWithFallback(searchIndex, q);
 
     const l10Count = searchIndex.filter((m) => m.model.startsWith('L10-')).length;
     const l20Count = searchIndex.filter((m) => m.model.startsWith('L20-')).length;
@@ -95,6 +130,8 @@ export function AlternativesBrowser({ searchIndex }: AlternativesBrowserProps) {
       heavyCount,
       tSeriesCount,
       filtered,
+      baseQuery,
+      stripped,
       actuatorChips,
       equipmentChips,
     };
@@ -151,6 +188,19 @@ export function AlternativesBrowser({ searchIndex }: AlternativesBrowserProps) {
       {/* Search results */}
       {query.trim() && filtered.length > 0 && (
         <section>
+          {baseQuery && (
+            <div className="mb-5 p-4 border border-[rgba(196,122,0,0.35)] bg-[#FFFBF2] rounded-md">
+              <p className="text-sm font-medium text-[#1B1E20] mb-1.5">
+                No published page for &ldquo;{query.trim()}&rdquo;
+              </p>
+              <p className="text-sm text-[#4A4E54] leading-relaxed m-0">
+                Showing the closest match on the <span className="font-medium text-[#1B1E20]">{baseQuery}</span> body.
+                The <span className="font-medium text-[#1B1E20]">{stripped}</span> segments describe shaft end,
+                end-cap flange and porting configuration &mdash; the actuator body, rotation and load ratings are
+                the same. Send a nameplate photo or drawing and we confirm the interface before quoting.
+              </p>
+            </div>
+          )}
           <p className="font-label text-xs text-[#62666C] uppercase tracking-wider mb-4">
             Search results ({filtered.length})
           </p>
