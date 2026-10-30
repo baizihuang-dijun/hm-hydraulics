@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: 'What is the HKS DA-H series?',
-    a: 'DA-H is HKS\u2019s large-bore industrial helical rotary actuator programme, rated at 210 bar, with 90, 180, 270 and 360 degree rotations and a hollow-shaft DHK option on the same bore. Bore sizes run from 40 to 300, roughly 200 Nm to 76,000 Nm of output torque. The number in the model is a bore / housing size designation, not a torque figure.',
+    a: 'DA-H is HKS\u2019s large-bore industrial helical rotary actuator programme, rated at 210 bar, with 90, 180, 270 and 360 degree rotations. Hollow-shaft versions are available as HW (DIN 5463 splined bore) and HWP (DIN 6885 keyed bore), subject to configuration confirmation. Bore sizes run from 40 to 300, roughly 200 Nm to 76,000 Nm of output torque. The number in the model is a bore / housing size designation, not a torque figure.',
   },
   {
     q: 'DA-H or I-DA-H \u2014 which one do I have?',
@@ -35,7 +35,7 @@ const faqs = [
   },
   {
     q: 'Why is the number 225S listed separately from 225?',
-    a: '225S is a reinforced variant of the 225 bore with a higher torque rating, so it sits in a different torque class from the standard 225. If your nameplate says 225S, treat it as its own size rather than as a 225 with an option code.',
+    a: '225S is a reinforced variant of the 225 bore with a higher torque rating: 38,920 Nm at 210 bar against 32,000 Nm for the standard 225, so the two sit in different torque classes. If your nameplate says 225S, treat it as its own size rather than as a 225 with an option code.',
   },
 ];
 
@@ -68,8 +68,9 @@ export default function Page() {
         <div className="prose prose-sm max-w-3xl text-[#4A4E54] leading-relaxed space-y-4">
           <p>
             The HKS DA-H programme is the large-bore industrial side of HKS&rsquo;s helical rotary actuator range:
-            210 bar rated, 90 / 180 / 270 / 360 degree rotation, flanged industrial mounting with a hollow-shaft DHK
-            option on the same bore. Bore sizes run from 40 to 300, which covers roughly 200 Nm to 76,000 Nm of output
+            210 bar rated, 90 / 180 / 270 / 360 degree rotation and flanged industrial mounting, with hollow-shaft
+            versions in HW (DIN 5463 splined bore) and HWP (DIN 6885 keyed bore). Bore sizes run from 40 to 300, which
+            covers roughly 200 Nm to 76,000 Nm of output
             torque. The I-DA-H sheet is the same bores in the newer 250 bar generation, with cushioning, an adjustable
             angle stop and a camshaft as standard.
           </p>
