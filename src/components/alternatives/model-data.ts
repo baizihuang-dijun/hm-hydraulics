@@ -85,6 +85,27 @@ export interface ModelData {
    * not a nameplate-verified order code, and show full engineering data instead of an OEM part.
    */
   catalogBuild?: boolean;
+  /**
+   * Present ONLY where the maker's current catalogue carries a differently-named and
+   * differently-rated record for the same size code - a historical naming relationship, not a
+   * verified interchange. Renders a two-edition disclosure on the search card and directly under
+   * the page intro. Never overwrites `torque` / `weight` / `intro`, which stay the values of the
+   * edition this page documents.
+   */
+  catalogVersionAlt?: {
+    /** The alternate edition's commercial name for the same size code. */
+    altModel: string;
+    /** The size code both editions share, e.g. '.52'. */
+    sizeCode: string;
+    /** Which edition this page's own figures come from. */
+    ownEdition: string;
+    /** Which edition the alternate figures come from. Deliberately "newer", never "current/latest". */
+    altEdition: string;
+    /** Published figures from both editions side by side. `card: true` rows also show on the search card. */
+    rows: { label: string; own: string; alt: string; card?: boolean }[];
+    /** One line stating what the two editions are to each other. */
+    note: string;
+  };
   /** Catalog build engineering data (Helac published tables). Numbers with units live in template. */
   catalogSpec?: {
     pressureBar?: number;
@@ -3676,6 +3697,19 @@ export const modelPages: ModelData[] = [
     sourcingOnly: true,
     torque: '8050 Nm',
     intro: 'The Moveco RR52 is a helical hydraulic rotary actuator from Moveco (Italy). The maker publishes the short size designation only; the full suffix after the size code is not disclosed in the available catalogue and has to be confirmed with the factory, rated at about 8050 Nm output torque at 210 bar. This entry covers the 180-degree configuration only. In the controlled cross-reference it sits in the ~7345 Nm torque class together with: Helac L30-65; HKS M-DA-H-F5 175. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
+    catalogVersionAlt: {
+      altModel: 'ARR 370',
+      sizeCode: '.52',
+      ownEdition: 'Older English master catalogue',
+      altEdition: 'Newer Italian series catalogue',
+      rows: [
+        { label: 'Drive torque', own: '8,050 Nm', alt: '7,600 Nm', card: true },
+        { label: 'Holding torque', own: '13,000 Nm', alt: '10,900 Nm' },
+        { label: 'Displacement (180\u00b0 / 360\u00b0)', own: '1,824 / 3,648 cm\u00b3', alt: '1,722 / 3,444 cm\u00b3' },
+        { label: 'Unit weight (180\u00b0 / 360\u00b0)', own: '124 / 171 kg', alt: '135 / 170 kg', card: true },
+      ],
+      note: 'Two catalogue records for the same historical size code. The difference in published figures does not mean the two products are confirmed interchangeable.',
+    },
     crossNote: 'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Helac L30-65 (~7345 Nm); HKS M-DA-H-F5 175 (~7345 Nm). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
     extraFaqs: [
       {
@@ -4925,6 +4959,7 @@ export function buildSearchIndex(): {
   parts: string[];
   machines: string[];
   aliases?: string[];
+  catalogVersionAlt?: ModelData['catalogVersionAlt'];
   image?: string;
   thumb?: string;
 }[] {
@@ -4936,6 +4971,7 @@ export function buildSearchIndex(): {
     parts: m.parts ?? [],
     machines: m.machines ?? [],
     ...(m.aliases?.length ? { aliases: m.aliases } : {}),
+    ...(m.catalogVersionAlt ? { catalogVersionAlt: m.catalogVersionAlt } : {}),
     ...(() => {
       const resolved = resolveModelImage(m);
       return resolved.includes('placeholder')

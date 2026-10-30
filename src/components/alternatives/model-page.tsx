@@ -138,6 +138,8 @@ export function ModelPage({ d, related }: { d: ModelData; related: { slug: strin
   const siblingCards = showSiblingSizes ? [] : getSeriesSiblings(d.slug).filter((s) => !s.current);
   const shownSiblingCards = siblingCards.slice(0, 8);
 
+  const versionAlt = d.catalogVersionAlt;
+
   const quickRef = d.catalogBuild
     ? [
         { label: 'Catalog configuration', value: d.model, mono: true },
@@ -337,6 +339,57 @@ export function ModelPage({ d, related }: { d: ModelData; related: { slug: strin
                 </h1>
               )}
               <p className="text-lg text-[#4A4E54] leading-relaxed mb-5">{d.intro}</p>
+              {/* Two-edition disclosure - rendered only where catalogVersionAlt is set (currently moveco-rr52 only) */}
+              {versionAlt && (
+                <div className="mb-7 max-w-3xl rounded-md border border-[#B45309]/30 bg-[#FFF8ED] p-5">
+                  <p className="m-0 font-label text-[11px] uppercase tracking-wider text-[#92400E]">
+                    Published catalogue differences &middot; two editions, one size code
+                  </p>
+                  <p className="mt-2 mb-0 text-sm leading-relaxed text-[#4A4E54]">
+                    This page documents the <strong className="text-[#1B1E20]">{d.model}</strong> record from the older
+                    edition of the maker&apos;s catalogue. The newer edition lists the same{' '}
+                    <span className="font-label">{versionAlt.sizeCode}</span> size code under a different commercial
+                    name, <strong className="text-[#1B1E20]">{versionAlt.altModel}</strong>, with different figures.
+                    These are two separate catalogue records &mdash; not one ordering code published twice. The edition
+                    each column comes from is named in the table header.
+                  </p>
+                  <div className="mt-4 overflow-hidden rounded border border-[rgba(180,83,9,0.20)] bg-white">
+                    <table className="w-full text-sm">
+                      <thead>
+                        <tr className="border-b border-[rgba(180,83,9,0.20)] bg-[#FFFDF9]">
+                          <th scope="col" className="py-2.5 px-3 sm:px-4 text-left font-medium text-[#1B1E20]">
+                            Figure
+                          </th>
+                          <th scope="col" className="py-2.5 px-3 sm:px-4 text-left font-medium text-[#1B1E20]">
+                            {d.model}
+                            <span className="block text-[11px] font-normal text-[#7C5A2E]">{versionAlt.ownEdition}</span>
+                          </th>
+                          <th scope="col" className="py-2.5 px-3 sm:px-4 text-left font-medium text-[#1B1E20]">
+                            {versionAlt.altModel}
+                            <span className="block text-[11px] font-normal text-[#7C5A2E]">{versionAlt.altEdition}</span>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {versionAlt.rows.map((r) => (
+                          <tr key={r.label} className="border-b border-[rgba(180,83,9,0.12)] last:border-b-0">
+                            <th scope="row" className="py-3 px-3 sm:px-4 text-left font-medium align-top text-[#1B1E20]">
+                              {r.label}
+                            </th>
+                            <td className="py-3 px-3 sm:px-4 align-top tabular-nums text-[#4A4E54]">{r.own}</td>
+                            <td className="py-3 px-3 sm:px-4 align-top tabular-nums text-[#4A4E54]">{r.alt}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                  <p className="mt-3 mb-0 text-xs leading-relaxed text-[#7C5A2E]">{versionAlt.note}</p>
+                  <p className="mt-2 mb-0 text-xs leading-relaxed text-[#7C5A2E]">
+                    The specifications table further down this page carries the {d.model} figures only. We do not
+                    publish a combined or interpolated specification for the two editions.
+                  </p>
+                </div>
+              )}
               {d.parts.length ? (
                 <div className="mb-7 border border-[rgba(44,74,115,0.18)] rounded-md overflow-hidden">
                   <div className="flex flex-col sm:flex-row sm:items-center">

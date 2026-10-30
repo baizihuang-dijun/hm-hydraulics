@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useState } from 'react';
+import { Fragment, useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 
 export interface SearchIndexItem {
@@ -11,6 +11,14 @@ export interface SearchIndexItem {
   parts: string[];
   machines: string[];
   aliases?: string[];
+  catalogVersionAlt?: {
+    altModel: string;
+    sizeCode: string;
+    ownEdition: string;
+    altEdition: string;
+    rows: { label: string; own: string; alt: string; card?: boolean }[];
+    note: string;
+  };
   kind?: 'model' | 'part';
   image?: string;
   thumb?: string;
@@ -292,11 +300,13 @@ export function AlternativesBrowser({ searchIndex }: AlternativesBrowserProps) {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {filtered.map((m) => {
               const oldNums = m.parts.filter((p) => normalize(p) !== normalize(m.model));
+              const alt = m.catalogVersionAlt;
+              const cardRows = alt ? alt.rows.filter((r) => r.card) : [];
               return (
                 <Link
                   key={m.slug}
                   href={`/alternatives/${m.slug}`}
-                  className="flex items-center gap-3 p-3 border border-[rgba(44,74,115,0.10)] rounded-md bg-white no-underline hover:border-[rgba(44,74,115,0.25)] hover:shadow-sm transition-all"
+                  className={`flex items-center gap-3 p-3 border border-[rgba(44,74,115,0.10)] rounded-md bg-white no-underline hover:border-[rgba(44,74,115,0.25)] hover:shadow-sm transition-all${alt ? ' flex-wrap' : ''}`}
                 >
                   {m.thumb ? (
                     // eslint-disable-next-line @next/next/no-img-element
@@ -329,6 +339,29 @@ export function AlternativesBrowser({ searchIndex }: AlternativesBrowserProps) {
                     </p>
                   </div>
                   <span className="text-[#2C4A73] shrink-0">&rarr;</span>
+                  {alt && cardRows.length ? (
+                    <div className="w-full rounded border border-[#B45309]/30 bg-[#FFF8ED] px-3 py-2">
+                      <p className="m-0 text-[11px] font-medium leading-tight text-[#92400E]">
+                        &#9888; Two catalogue editions &mdash; not the same rating
+                      </p>
+                      <dl className="mt-1.5 mb-0 grid grid-cols-[auto_1fr] gap-x-2 gap-y-1 text-[11px] leading-tight">
+                        {cardRows.map((r) => (
+                          <Fragment key={r.label}>
+                            <dt className="m-0 break-words text-[#7C5A2E]">{r.label}</dt>
+                            <dd className="m-0 text-right tabular-nums break-words">
+                              <span className="font-medium text-[#1B1E20]">{r.own}</span>
+                              <span className="mx-1 text-[#A08A6B]">&rarr;</span>
+                              <span className="font-medium text-[#1B1E20]">{r.alt}</span>
+                            </dd>
+                          </Fragment>
+                        ))}
+                      </dl>
+                      <p className="mt-1.5 mb-0 text-[11px] leading-tight text-[#7C5A2E]">
+                        {m.model} &middot; {alt.ownEdition} vs {alt.altModel} &middot; {alt.altEdition}. Not a
+                        verified interchangeable unit.
+                      </p>
+                    </div>
+                  ) : null}
                 </Link>
               );
             })}
