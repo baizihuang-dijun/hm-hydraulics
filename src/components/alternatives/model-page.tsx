@@ -92,6 +92,27 @@ export function ModelPage({ d, related }: { d: ModelData; related: { slug: strin
     d.brands.length && d.brands[0].toUpperCase() !== ob.toUpperCase()
       ? `${listJoin(d.brands)} / OEM part number`
       : 'OEM part number (if available)';
+  // Original-side values in the HM model-reference table must come from this reference's own
+  // record: catalogue builds carry structured figures, nameplate-derived records carry a
+  // free-text torque string. Anything the record does not establish is shown as not verified —
+  // never back-filled from the HM side, and never carried across from another brand's rating.
+  const origTorque = (() => {
+    if (d.catalogSpec?.ratedTorqueNm) {
+      return `${d.catalogSpec.ratedTorqueNm.toLocaleString('en-US')} Nm`;
+    }
+    const m = d.torque?.match(/^~?\s*[\d.,]+\s*(?:Nm|in-lb)/i);
+    return m ? m[0].trim() : 'Not verified';
+  })();
+  const origPressure = (() => {
+    if (d.catalogSpec?.pressureBar) {
+      return d.catalogSpec.pressureBar === 207
+        ? '3,000 psi (207 bar)'
+        : `${d.catalogSpec.pressureBar} bar`;
+    }
+    const m = d.torque?.match(/@\s*([\d.]+)\s*bar/i);
+    return m ? `${m[1]} bar` : 'Not verified';
+  })();
+  const notVerified = 'Not verified — confirm on unit';
 
   const siblingsRaw = getSeriesSiblings(d.slug);
   const allSiblingsHaveTorque =
@@ -509,19 +530,20 @@ export function ModelPage({ d, related }: { d: ModelData; related: { slug: strin
         </section>
       )}
 
-      {/* HM equivalent — original vs. HM comparison */}
+      {/* HM Model Reference — original vs. HM comparison */}
       {hmr && (
         <section className="border-b border-[rgba(44,74,115,0.10)] bg-[#F7F8FA]">
           <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
-            <p className="font-label text-xs text-[#62666C] uppercase tracking-wider mb-2">HM equivalent</p>
+            <p className="font-label text-xs text-[#62666C] uppercase tracking-wider mb-2">HM Model Reference</p>
             <h2 className="font-heading text-2xl md:text-3xl font-medium text-[#1B1E20] mb-3">
-              {hmr.code} — the same {hmr.drivingNm.toLocaleString('en-US')} Nm torque class
+              {hmr.code} — HM&apos;s closest model in the {hmr.drivingNm.toLocaleString('en-US')} Nm class
             </h2>
             <p className="text-[#4A4E54] leading-relaxed max-w-3xl mb-8">
               This reference sits in the {hmr.drivingNm.toLocaleString('en-US')} Nm class. The closest HM
-              model is <span className="font-label">{hmr.code}</span> — {hmr.familyClass} —
-              in the same torque class. The table shows what carries over and what still has to be checked on
-              your unit.
+              model is <span className="font-label">{hmr.code}</span> — {hmr.familyClass} — matched on torque
+              class only. The left column repeats what this reference&apos;s own record states, reproduced as
+              published; the right column is HM&apos;s own rating. The table shows what carries over and what
+              still has to be checked on your unit.
             </p>
 
             {/* Mobile: compact two-column comparison */}
@@ -532,17 +554,17 @@ export function ModelPage({ d, related }: { d: ModelData; related: { slug: strin
                   <p className="m-0 text-[13px] font-medium text-[#1B1E20] leading-snug break-words">{d.model}</p>
                 </div>
                 <div className="px-3 py-2.5">
-                  <p className="m-0 text-[10px] uppercase tracking-wider text-[#62666C] font-label">HM equivalent</p>
+                  <p className="m-0 text-[10px] uppercase tracking-wider text-[#62666C] font-label">HM Model Reference</p>
                   <p className="m-0 text-[13px] font-medium text-[#1B1E20] leading-snug">{hmr.code}</p>
                 </div>
               </div>
               {[
-                ['Rated torque', `${hmr.drivingNm.toLocaleString('en-US')} Nm *`, `${hmr.drivingNm.toLocaleString('en-US')} Nm`],
-                ['Rated pressure', `${hmr.pressureBar} bar *`, `${hmr.pressureBar} bar`],
+                ['Rated torque', origTorque, `${hmr.drivingNm.toLocaleString('en-US')} Nm`],
+                ['Rated pressure', origPressure, `${hmr.pressureBar} bar`],
                 ['Rotation', d.rotation, `${hmr.angles.join('° / ')}°`],
-                ['Mounting', 'Confirm on unit', hmr.mounts.join(' / ') || 'Flange (standard)'],
-                ['Output shaft', 'Confirm on unit', hmr.outputs.join(' / ') || '—'],
-                ['Valve options', 'Confirm on unit', hmr.valves.join(' / ')],
+                ['Mounting', notVerified, hmr.mounts.join(' / ') || 'Flange (standard)'],
+                ['Output shaft', notVerified, hmr.outputs.join(' / ') || '—'],
+                ['Valve options', notVerified, hmr.valves.join(' / ')],
               ].map(([label, orig, mine]) => (
                 <div key={label} className="px-3 py-2.5 border-t border-[rgba(44,74,115,0.10)]">
                   <p className="m-0 mb-1 text-[10px] uppercase tracking-wider text-[#62666C] font-label">{label}</p>
@@ -565,13 +587,13 @@ export function ModelPage({ d, related }: { d: ModelData; related: { slug: strin
                 </thead>
                 <tbody className="text-[#4A4E54]">
                   {[
-                    ['Rated driving torque', `${hmr.drivingNm.toLocaleString('en-US')} Nm *`, `${hmr.drivingNm.toLocaleString('en-US')} Nm`],
-                    ['Rated pressure', `${hmr.pressureBar} bar *`, `${hmr.pressureBar} bar`],
+                    ['Rated driving torque', origTorque, `${hmr.drivingNm.toLocaleString('en-US')} Nm`],
+                    ['Rated pressure', origPressure, `${hmr.pressureBar} bar`],
                     ['Rotation', d.rotation, `${hmr.angles.join('° / ')}°${hmr.angles.includes('90') ? '' : '; stop at 90° available'}`],
-                    ['Mounting', 'Per original build — confirm on unit', hmr.mounts.join(' / ') || 'Flange (standard)'],
-                    ['Output shaft', 'Per original build — confirm on unit', hmr.outputs.join(' / ') || '—'],
-                    ['Valve options', 'Per original build — confirm on unit', hmr.valves.join(' / ')],
-                    ['Ordering pattern', '—', hmr.orderSyntax ?? '—'],
+                    ['Mounting', notVerified, hmr.mounts.join(' / ') || 'Flange (standard)'],
+                    ['Output shaft', notVerified, hmr.outputs.join(' / ') || '—'],
+                    ['Valve options', notVerified, hmr.valves.join(' / ')],
+                    ['Ordering pattern', 'Not applicable', hmr.orderSyntax ?? '—'],
                   ].map(([label, orig, mine]) => (
                     <tr key={label} className="border-t border-[rgba(44,74,115,0.10)]">
                       <td className="px-4 py-3 text-[#1B1E20] font-medium">{label}</td>
@@ -583,15 +605,17 @@ export function ModelPage({ d, related }: { d: ModelData; related: { slug: strin
               </table>
             </div>
             <p className="mt-3 text-xs text-[#62666C] leading-relaxed">
-              * Original-side figures are the manufacturer&apos;s catalogue values for this torque class.
-              Confirm against the unit nameplate before ordering.
+              Left column: this reference&apos;s own published figures, reproduced as recorded. Any field the
+              record does not establish is marked &ldquo;Not verified&rdquo; and is never filled from HM data.
+              Right column: HM&apos;s own rating at HM&apos;s stated pressure. Confirm both against the unit
+              nameplate and mounting drawing before ordering.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
               <div className="bg-white border border-[rgba(44,74,115,0.12)] rounded-md p-5">
                 <p className="m-0 mb-3 font-label text-sm font-medium text-[#1B1E20]">What carries over</p>
                 <ul className="m-0 pl-5 text-sm text-[#4A4E54] leading-relaxed space-y-1.5">
-                  <li>Torque class and rated pressure ({hmr.pressureBar} bar).</li>
+                  <li>HM torque class ({hmr.drivingNm.toLocaleString('en-US')} Nm) at HM&apos;s {hmr.pressureBar} bar rating.</li>
                   <li>{hmr.familyClass} architecture.</li>
                   <li>
                     Rotation: {hmr.angles.join('/')}° available on the {hmr.seriesCode} series. A 180/90 code
@@ -755,7 +779,7 @@ export function ModelPage({ d, related }: { d: ModelData; related: { slug: strin
               </h2>
               <p className="text-sm text-[#4A4E54] max-w-3xl mb-6">
                 The figures below are the original manufacturer&apos;s published catalogue values, kept here so you
-                can compare them with the HM equivalent above. They are not HM performance data and they are not a
+                can compare them with the HM model reference above. They are not HM performance data and they are not a
                 statement of interchangeability.
               </p>
               <details className="max-w-3xl group">
