@@ -280,6 +280,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'L30-25-M-FT-180-S1-C-H',
     slug: 'l30-25-m-ft-180-s1-c-h',
+    hmr: 'HMR4-280',
     series: 'L30',
     seriesSlug: 'helac-l30-series',
     rotation: '180°',
@@ -307,6 +308,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'L30-42-M-RF-360-S1-C-H',
     slug: 'l30-42-m-rf-360-s1-c-h',
+    hmr: 'HMR4-470',
     series: 'L30',
     seriesSlug: 'helac-l30-series',
     rotation: '360°',
@@ -324,6 +326,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'L30-42-M-FT-180-S1-C-H',
     slug: 'l30-42-m-ft-180-s1-c-h',
+    hmr: 'HMR4-470',
     series: 'L30',
     seriesSlug: 'helac-l30-series',
     rotation: '180°',
@@ -1588,6 +1591,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'L30-125-M-FT-360-S1-C-H',
     slug: 'l30-125-m-ft-360-s1-c-h',
+    hmr: 'HMR4-1400',
     series: 'L30',
     seriesSlug: 'helac-l30-series',
     rotation: '360°',
@@ -1692,6 +1696,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'L30-65-S-RF-360-L1-C-H',
     slug: 'l30-65-s-rf-360-l1-c-h',
+    hmr: 'HMR4-750',
     series: 'L30',
     seriesSlug: 'helac-l30-series',
     rotation: '360°',
