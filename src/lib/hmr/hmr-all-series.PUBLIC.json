@@ -1172,9 +1172,7 @@
       "comparable": {
         "helac": [],
         "hks": [],
-        "moveco": [
-          "RL14"
-        ],
+        "moveco": [],
         "sungji": []
       },
       "comparableNote": "Moveco valve references are rated at 210 bar vs HMR5 at 135 bar; torque-near only, not equal-class. Confirm operating pressure and interface with engineering."
@@ -1190,9 +1188,7 @@
       "comparable": {
         "helac": [],
         "hks": [],
-        "moveco": [
-          "RL16"
-        ],
+        "moveco": [],
         "sungji": []
       },
       "comparableNote": "Moveco valve references are rated at 210 bar vs HMR5 at 135 bar; torque-near only, not equal-class. Confirm operating pressure and interface with engineering."
@@ -1208,9 +1204,7 @@
       "comparable": {
         "helac": [],
         "hks": [],
-        "moveco": [
-          "RL26"
-        ],
+        "moveco": [],
         "sungji": []
       },
       "comparableNote": "Moveco valve references are rated at 210 bar vs HMR5 at 135 bar; torque-near only, not equal-class. Confirm operating pressure and interface with engineering."
@@ -1226,9 +1220,7 @@
       "comparable": {
         "helac": [],
         "hks": [],
-        "moveco": [
-          "RL36"
-        ],
+        "moveco": [],
         "sungji": []
       },
       "comparableNote": "Moveco valve references are rated at 210 bar vs HMR5 at 135 bar; torque-near only, not equal-class. Confirm operating pressure and interface with engineering."
@@ -1244,9 +1236,7 @@
       "comparable": {
         "helac": [],
         "hks": [],
-        "moveco": [
-          "RL44"
-        ],
+        "moveco": [],
         "sungji": []
       },
       "comparableNote": "Moveco valve references are rated at 210 bar vs HMR5 at 135 bar; torque-near only, not equal-class. Confirm operating pressure and interface with engineering."
@@ -1262,9 +1252,7 @@
       "comparable": {
         "helac": [],
         "hks": [],
-        "moveco": [
-          "RL52"
-        ],
+        "moveco": [],
         "sungji": []
       },
       "comparableNote": "Moveco valve references are rated at 210 bar vs HMR5 at 135 bar; torque-near only, not equal-class. Confirm operating pressure and interface with engineering."
@@ -1280,9 +1268,7 @@
       "comparable": {
         "helac": [],
         "hks": [],
-        "moveco": [
-          "RL60"
-        ],
+        "moveco": [],
         "sungji": []
       },
       "comparableNote": "Moveco valve references are rated at 210 bar vs HMR5 at 135 bar; torque-near only, not equal-class. Confirm operating pressure and interface with engineering."
@@ -1298,9 +1284,7 @@
       "comparable": {
         "helac": [],
         "hks": [],
-        "moveco": [
-          "RL67"
-        ],
+        "moveco": [],
         "sungji": []
       },
       "comparableNote": "Moveco valve references are rated at 210 bar vs HMR5 at 135 bar; torque-near only, not equal-class. Confirm operating pressure and interface with engineering."
@@ -1316,9 +1300,7 @@
       "comparable": {
         "helac": [],
         "hks": [],
-        "moveco": [
-          "RL86"
-        ],
+        "moveco": [],
         "sungji": []
       },
       "comparableNote": "Moveco valve references are rated at 210 bar vs HMR5 at 135 bar; torque-near only, not equal-class. Confirm operating pressure and interface with engineering."
@@ -1418,6 +1400,17 @@
           "SRS-150"
         ]
       }
+    }
+  ],
+  "revisions": [
+    {
+      "date": "2026-10-30",
+      "scope": "HMR5 comparable.moveco",
+      "action": "withdraw",
+      "count": 9,
+      "reason": "Torque figures rated at different reference pressures are not directly comparable, and several pairs show a large torque deviation; the current evidence does not support a model-level correspondence.",
+      "detail": "Moveco RL is an industrial-valve actuation family published at 210 bar; HMR5 is rated at 135 bar. A linear pressure rescale is an estimate only and is not a manufacturer-confirmed performance figure. Relationships are withdrawn pending evidence.",
+      "kept": true
     }
   ]
 }
