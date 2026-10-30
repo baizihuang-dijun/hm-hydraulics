@@ -2701,7 +2701,7 @@ export const modelPages: ModelData[] = [
     ],
   },
   {
-    model: 'F5 115',
+    model: 'M-DA-H-F5 115',
     aliases: ['M-DA-H-F5 115', 'M-DA-H-F10 115'],
     slug: 'hks-f5-115',
     hmr: 'HMR4-200',
@@ -2737,7 +2737,7 @@ export const modelPages: ModelData[] = [
     ],
   },
   {
-    model: 'F5 125',
+    model: 'M-DA-H-F5 125',
     aliases: ['M-DA-H-F5 125', 'M-DA-H-F10 125'],
     slug: 'hks-f5-125',
     hmr: 'HMR4-280',
@@ -2773,7 +2773,7 @@ export const modelPages: ModelData[] = [
     ],
   },
   {
-    model: 'F5 150',
+    model: 'M-DA-H-F5 150',
     aliases: ['M-DA-H-F5 150', 'M-DA-H-F10 150'],
     slug: 'hks-f5-150',
     hmr: 'HMR4-470',
@@ -2809,7 +2809,7 @@ export const modelPages: ModelData[] = [
     ],
   },
   {
-    model: 'F5 175',
+    model: 'M-DA-H-F5 175',
     aliases: ['M-DA-H-F5 175', 'M-DA-H-F10 175'],
     slug: 'hks-f5-175',
     hmr: 'HMR4-750',
@@ -2849,7 +2849,7 @@ export const modelPages: ModelData[] = [
     ],
   },
   {
-    model: 'F5 200',
+    model: 'M-DA-H-F5 200',
     aliases: ['M-DA-H-F5 200', 'M-DA-H-F10 200'],
     slug: 'hks-f5-200',
     hmr: 'HMR4-1000',
@@ -2885,7 +2885,7 @@ export const modelPages: ModelData[] = [
     ],
   },
   {
-    model: 'F5 220',
+    model: 'M-DA-H-F5 220',
     aliases: ['M-DA-H-F5 220', 'M-DA-H-F10 220'],
     slug: 'hks-f5-220',
     hmr: 'HMR4-1400',
@@ -2925,7 +2925,7 @@ export const modelPages: ModelData[] = [
     ],
   },
   {
-    model: 'F5 245',
+    model: 'M-DA-H-F5 245',
     aliases: ['M-DA-H-F5 245', 'M-DA-H-F10 245'],
     slug: 'hks-f5-245',
     hmr: 'HMR4-1800',
@@ -2964,7 +2964,7 @@ export const modelPages: ModelData[] = [
     ],
   },
   {
-    model: 'F5 265',
+    model: 'M-DA-H-F5 265',
     aliases: ['M-DA-H-F5 265', 'M-DA-H-F10 265'],
     slug: 'hks-f5-265',
     hmr: 'HMR4-2500',
@@ -3004,7 +3004,7 @@ export const modelPages: ModelData[] = [
     ],
   },
   {
-    model: 'F5 265S',
+    model: 'M-DA-H-F5 265S',
     aliases: ['M-DA-H-F5 265S', 'M-DA-H-F10 265S'],
     slug: 'hks-f5-265s',
     hmr: 'HMR4-4200',
@@ -3044,7 +3044,7 @@ export const modelPages: ModelData[] = [
     ],
   },
   {
-    model: 'F5 350',
+    model: 'M-DA-H-F5 350',
     aliases: ['M-DA-H-F5 350', 'M-DA-H-F10 350'],
     slug: 'hks-f5-350',
     hmr: 'HMR4-8300',
@@ -3884,7 +3884,7 @@ export const modelPages: ModelData[] = [
     ],
   },
   {
-    model: '3128309172 (HKS rotary actuator, Boltec)',
+    model: '3128309172',
     slug: 'atlas-3128309172-hks-rotary-actuator',
     series: 'HKS',
     seriesSlug: '',
