@@ -16,19 +16,42 @@ export function baseModelCode(model: string): string {
 /**
  * Every key a base code should answer to.
  *
- * HKS writes the foot-mount and flange-mount families with the programme prefix on the
- * datasheet (M-DA-H-F5 115 / M-DA-H-F10 115), while HM's cross-reference database stores
- * them short (F5 115 / F10 115). The pages show the datasheet code; registering and
- * looking up both spellings keeps the database resolving to the same page.
+ * HKS uses four spellings for one and the same base size, and HM's cross-reference database
+ * mixes all of them:
+ *   F5 115             short form the database stores
+ *   M-DA-H-F5 115      programme-prefixed form printed on the datasheet
+ *   M-DA-H-F10 115     flange-mount build, identical performance table, only S2 unavailable
+ *   I-DA-H 115         second HKS numbering series for the same frame (pages show "DA-H 115")
+ *
+ * Collapsing every spelling onto one canonical key before expanding it again means a
+ * database row written as "F10 115" or "I-DA-H 115" resolves to the page a customer sees,
+ * instead of silently dropping out of the cross-reference block.
  */
 export function baseKeys(code: string): string[] {
   const key = baseModelCode(code);
   if (!key) return [];
   const out = new Set<string>([key]);
-  const prefixed = key.match(/^M-DA-H-(F\d+\s+.+)$/);
-  if (prefixed) out.add(prefixed[1]);
-  const short = key.match(/^(F\d+\s+.+)$/);
-  if (short) out.add(`M-DA-H-${short[1]}`);
+
+  let canon = key;
+  const bare = canon.match(/^(F\d+\s+.+)$/);
+  if (bare) canon = `M-DA-H-${bare[1]}`;
+  const iDah = canon.match(/^I-DA-H\s+(.+)$/);
+  if (iDah) canon = `DA-H ${iDah[1]}`;
+  out.add(canon);
+
+  // Only F5 and F10 are the foot/flange pair of one base size. F7, F8 and F9 are separate
+  // frames with their own torque tables and must not be folded together.
+  const flangePair = canon.match(/^M-DA-H-(F5|F10)\s+(.+)$/);
+  if (flangePair) {
+    out.add(`M-DA-H-F5 ${flangePair[2]}`);
+    out.add(`M-DA-H-F10 ${flangePair[2]}`);
+    out.add(`F5 ${flangePair[2]}`);
+    out.add(`F10 ${flangePair[2]}`);
+  }
+
+  const dah = canon.match(/^DA-H\s+(.+)$/);
+  if (dah) out.add(`I-DA-H ${dah[1]}`);
+
   return [...out];
 }
 

@@ -94,9 +94,13 @@ function searchWithFallback(
   }
 
   const segs = q.split('-').filter(Boolean);
-  // Peel at most 3 trailing segments, never below a 4-segment body code.
-  for (let cut = 1; cut <= 3; cut++) {
-    if (segs.length - cut < 4) break;
+  // Peel trailing segments, stopping at the first cut that lands on a page. Sungji and Helac
+  // order codes carry up to eight segments (SRA-110-180-CN-RF-SH-N-I, L10-3.0-E-RF-180-S1-O-H),
+  // so a three-cut limit left those long codes landing on nothing even though the base page
+  // exists. Peeling to a single segment also covers option suffixes customers add by hand,
+  // such as RR40-S1 or L30-25-M.
+  for (let cut = 1; cut <= 6; cut++) {
+    if (segs.length - cut < 1) break;
     const base = segs.slice(0, segs.length - cut).join('-');
     const hits = items.filter((m) => matchesQuery(m, base));
     if (hits.length) {

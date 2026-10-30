@@ -2404,8 +2404,8 @@ export const modelPages: ModelData[] = [
     originBrand: 'HKS',
     sourcingOnly: true,
     torque: '190 Nm',
-    intro: 'The HKS M-DA-H 50 is a mobile-version helical hydraulic rotary actuator in HKS\'s M-DA-H programme (German maker). HKS uses its own bore/housing size numbers; the code is a size designation, not a torque figure and not a Helac size number, rated at about 190 Nm output torque at 210 bar. In the controlled cross-reference it sits in the ~196.1 Nm torque class together with: Sungji SRA-080-180-CN-RF-SH-N-I. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
-    crossNote: 'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Sungji SRA-080-180-CN-RF-SH-N-I (~196.1 Nm). Performance neighbours only, not the same anchor class: Helac L10-3.0 (~339 Nm, +73%). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
+    intro: 'The HKS M-DA-H 50 is a mobile-version helical hydraulic rotary actuator in HKS\'s M-DA-H programme (German maker). HKS uses its own bore/housing size numbers; the code is a size designation, not a torque figure and not a Helac size number, rated at about 190 Nm output torque at 210 bar. In the controlled cross-reference it sits in the ~196.1 Nm torque class together with: Sungji SRA-080. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
+    crossNote: 'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Sungji SRA-080 (~196.1 Nm). Performance neighbours only, not the same anchor class: Helac L10-3.0 (~339 Nm, +73%). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
     extraFaqs: [
       {
         q: 'Can HM supply the HKS M-DA-H 50?',
@@ -2438,8 +2438,8 @@ export const modelPages: ModelData[] = [
     originBrand: 'HKS',
     sourcingOnly: true,
     torque: '720 Nm',
-    intro: 'The HKS M-DA-H 63 is a mobile-version helical hydraulic rotary actuator in HKS\'s M-DA-H programme (German maker). HKS uses its own bore/housing size numbers; the code is a size designation, not a torque figure and not a Helac size number, rated at about 720 Nm output torque at 210 bar. The maker\'s table lists 180° / 360° builds for this base size. In the controlled cross-reference it sits in the ~735.5 Nm torque class together with: Sungji SRA-110-180-CN-RF-SH-N-I. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
-    crossNote: 'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Sungji SRA-110-180-CN-RF-SH-N-I (~735.5 Nm). Performance neighbours only, not the same anchor class: Helac L10-5.5 (~622 Nm, -15%). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
+    intro: 'The HKS M-DA-H 63 is a mobile-version helical hydraulic rotary actuator in HKS\'s M-DA-H programme (German maker). HKS uses its own bore/housing size numbers; the code is a size designation, not a torque figure and not a Helac size number, rated at about 720 Nm output torque at 210 bar. The maker\'s table lists 180° / 360° builds for this base size. In the controlled cross-reference it sits in the ~735.5 Nm torque class together with: Sungji SRA-110. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
+    crossNote: 'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Sungji SRA-110 (~735.5 Nm). Performance neighbours only, not the same anchor class: Helac L10-5.5 (~622 Nm, -15%). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
     extraFaqs: [
       {
         q: 'Can HM supply the HKS M-DA-H 63?',
@@ -2578,8 +2578,8 @@ export const modelPages: ModelData[] = [
     originBrand: 'HKS',
     sourcingOnly: true,
     torque: '500 Nm',
-    intro: 'The HKS M-DA-H-F7 70 is a mobile-version helical hydraulic rotary actuator in HKS\'s M-DA-H programme (German maker). HKS uses its own bore/housing size numbers; the code is a size designation, not a torque figure and not a Helac size number, rated at about 500 Nm output torque at 210 bar. In the controlled cross-reference it sits in the ~509 Nm torque class together with: Helac L20-4.5; Moveco RP17; Sungji SRB-080-180-CN-FT-SH-N-I. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
-    crossNote: 'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Helac L20-4.5 (~509 Nm); Moveco RP17 (~509 Nm); Sungji SRB-080-180-CN-FT-SH-N-I (~509 Nm). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
+    intro: 'The HKS M-DA-H-F7 70 is a mobile-version helical hydraulic rotary actuator in HKS\'s M-DA-H programme (German maker). HKS uses its own bore/housing size numbers; the code is a size designation, not a torque figure and not a Helac size number, rated at about 500 Nm output torque at 210 bar. In the controlled cross-reference it sits in the ~509 Nm torque class together with: Helac L20-4.5; Moveco RP17; Sungji SRB-080. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
+    crossNote: 'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Helac L20-4.5 (~509 Nm); Moveco RP17 (~509 Nm); Sungji SRB-080 (~509 Nm). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
     extraFaqs: [
       {
         q: 'Can HM supply the HKS M-DA-H-F7 70?',
@@ -2613,8 +2613,8 @@ export const modelPages: ModelData[] = [
     originBrand: 'HKS',
     sourcingOnly: true,
     torque: '930 Nm',
-    intro: 'The HKS M-DA-H-F7 85 is a mobile-version helical hydraulic rotary actuator in HKS\'s M-DA-H programme (German maker). HKS uses its own bore/housing size numbers; the code is a size designation, not a torque figure and not a Helac size number, rated at about 930 Nm output torque at 210 bar. In the controlled cross-reference it sits in the ~927 Nm torque class together with: Helac L20-8.2; Moveco RP24; Sungji SRB-090-180-CN-FT-SH-N-I. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
-    crossNote: 'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Helac L20-8.2 (~927 Nm); Moveco RP24 (~927 Nm); Sungji SRB-090-180-CN-FT-SH-N-I (~927 Nm). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
+    intro: 'The HKS M-DA-H-F7 85 is a mobile-version helical hydraulic rotary actuator in HKS\'s M-DA-H programme (German maker). HKS uses its own bore/housing size numbers; the code is a size designation, not a torque figure and not a Helac size number, rated at about 930 Nm output torque at 210 bar. In the controlled cross-reference it sits in the ~927 Nm torque class together with: Helac L20-8.2; Moveco RP24; Sungji SRB-090. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
+    crossNote: 'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Helac L20-8.2 (~927 Nm); Moveco RP24 (~927 Nm); Sungji SRB-090 (~927 Nm). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
     extraFaqs: [
       {
         q: 'Can HM supply the HKS M-DA-H-F7 85?',
@@ -3086,7 +3086,7 @@ export const modelPages: ModelData[] = [
 
   // --- Batch4 P1 (2026-10-19): Sungji multi-brand sourcing entries (8) ---
   {
-    model: 'SRA-080-180-CN-RF-SH-N-I',
+    model: 'SRA-080',
     slug: 'sungji-sra-080-180-cn-rf-sh-n-i',
     hmr: 'HMR3-020',
     series: 'SRA',
@@ -3103,12 +3103,12 @@ export const modelPages: ModelData[] = [
     originBrand: 'Sungji',
     sourcingOnly: true,
     torque: '196.1 Nm',
-    intro: 'The Sungji SRA-080-180-CN-RF-SH-N-I is a helical hydraulic rotary actuator from Sungji (SJH, Korea); the ordering code follows the SRA/SRB/SRS family, bore size, rotation, valve, mounting and seal segments, rated at about 196.1 Nm output torque at 210 bar. In the controlled cross-reference it sits in the ~196.1 Nm torque class together with: HKS M-DA-H 50. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
+    intro: 'The Sungji SRA-080 is a helical hydraulic rotary actuator from Sungji (SJH, Korea), rated at about 196.1 Nm output torque at 210 bar. In the controlled cross-reference it sits in the ~196.1 Nm torque class together with: HKS M-DA-H 50. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
     crossNote: 'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): HKS M-DA-H 50 (~196.1 Nm). Performance neighbours only, not the same anchor class: Helac L10-3.0 (~339 Nm, +73%). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
     extraFaqs: [
       {
-        q: 'What does the Sungji code SRA-080-180-CN-RF-SH-N-I mean, and can HM source it?',
-        a: 'The code encodes the SRA family, bore size, rotation, valve/port, mounting, shaft cover and seal/standard. HM can source or arrange alternative supply for this standard build after confirming the exact configuration from your nameplate; we do not hold it as stock or promise lead time.',
+        q: 'What does the Sungji code SRA-080 mean, and can HM source it?',
+        a: 'The short code gives the family and bore size; a full ordering code adds rotation, valve/port, mounting, shaft cover and seal/standard segments, so the nameplate tells us the exact build to quote. HM can source or arrange alternative supply for this standard build after confirming the exact configuration from your nameplate; we do not hold it as stock or promise lead time.',
       },
       {
         q: 'Does it match the Helac / HKS / Moveco unit listed in the same torque class?',
@@ -3121,7 +3121,7 @@ export const modelPages: ModelData[] = [
     ],
   },
   {
-    model: 'SRA-110-180-CN-RF-SH-N-I',
+    model: 'SRA-110',
     slug: 'sungji-sra-110-180-cn-rf-sh-n-i',
     series: 'SRA',
     seriesSlug: '',
@@ -3137,12 +3137,12 @@ export const modelPages: ModelData[] = [
     originBrand: 'Sungji',
     sourcingOnly: true,
     torque: '735.5 Nm',
-    intro: 'The Sungji SRA-110-180-CN-RF-SH-N-I is a helical hydraulic rotary actuator from Sungji (SJH, Korea); the ordering code follows the SRA/SRB/SRS family, bore size, rotation, valve, mounting and seal segments, rated at about 735.5 Nm output torque at 210 bar. In the controlled cross-reference it sits in the ~735.5 Nm torque class together with: HKS M-DA-H 63. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
+    intro: 'The Sungji SRA-110 is a helical hydraulic rotary actuator from Sungji (SJH, Korea), rated at about 735.5 Nm output torque at 210 bar. In the controlled cross-reference it sits in the ~735.5 Nm torque class together with: HKS M-DA-H 63. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
     crossNote: 'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): HKS M-DA-H 63 (~735.5 Nm). Performance neighbours only, not the same anchor class: Helac L10-5.5 (~622 Nm, -15%). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
     extraFaqs: [
       {
-        q: 'What does the Sungji code SRA-110-180-CN-RF-SH-N-I mean, and can HM source it?',
-        a: 'The code encodes the SRA family, bore size, rotation, valve/port, mounting, shaft cover and seal/standard. HM can source or arrange alternative supply for this standard build after confirming the exact configuration from your nameplate; we do not hold it as stock or promise lead time.',
+        q: 'What does the Sungji code SRA-110 mean, and can HM source it?',
+        a: 'The short code gives the family and bore size; a full ordering code adds rotation, valve/port, mounting, shaft cover and seal/standard segments, so the nameplate tells us the exact build to quote. HM can source or arrange alternative supply for this standard build after confirming the exact configuration from your nameplate; we do not hold it as stock or promise lead time.',
       },
       {
         q: 'Does it match the Helac / HKS / Moveco unit listed in the same torque class?',
@@ -3155,7 +3155,7 @@ export const modelPages: ModelData[] = [
     ],
   },
   {
-    model: 'SRB-080-180-CN-FT-SH-N-I',
+    model: 'SRB-080',
     slug: 'sungji-srb-080-180-cn-ft-sh-n-i',
     hmr: 'HMR2-050',
     series: 'SRB (L20 class, multi-mount)',
@@ -3172,12 +3172,12 @@ export const modelPages: ModelData[] = [
     originBrand: 'Sungji',
     sourcingOnly: true,
     torque: '559 Nm',
-    intro: 'The Sungji SRB-080-180-CN-FT-SH-N-I is a helical hydraulic rotary actuator from Sungji (SJH, Korea); the ordering code follows the SRA/SRB/SRS family, bore size, rotation, valve, mounting and seal segments, rated at about 559 Nm output torque at 210 bar. In the controlled cross-reference it sits in the ~509 Nm torque class together with: Helac L20-4.5; HKS M-DA-H-F7 70; Moveco RP17. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
+    intro: 'The Sungji SRB-080 is a helical hydraulic rotary actuator from Sungji (SJH, Korea), rated at about 559 Nm output torque at 210 bar. In the controlled cross-reference it sits in the ~509 Nm torque class together with: Helac L20-4.5; HKS M-DA-H-F7 70; Moveco RP17. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
     crossNote: 'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Helac L20-4.5 (~509 Nm); HKS M-DA-H-F7 70 (~509 Nm); Moveco RP17 (~509 Nm). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
     extraFaqs: [
       {
-        q: 'What does the Sungji code SRB-080-180-CN-FT-SH-N-I mean, and can HM source it?',
-        a: 'The code encodes the SRB family, bore size, rotation, valve/port, mounting, shaft cover and seal/standard. HM can source or arrange alternative supply for this standard build after confirming the exact configuration from your nameplate; we do not hold it as stock or promise lead time.',
+        q: 'What does the Sungji code SRB-080 mean, and can HM source it?',
+        a: 'The short code gives the family and bore size; a full ordering code adds rotation, valve/port, mounting, shaft cover and seal/standard segments, so the nameplate tells us the exact build to quote. HM can source or arrange alternative supply for this standard build after confirming the exact configuration from your nameplate; we do not hold it as stock or promise lead time.',
       },
       {
         q: 'Does it match the Helac / HKS / Moveco unit listed in the same torque class?',
@@ -3190,7 +3190,7 @@ export const modelPages: ModelData[] = [
     ],
   },
   {
-    model: 'SRB-090-180-CN-FT-SH-N-I',
+    model: 'SRB-090',
     slug: 'sungji-srb-090-180-cn-ft-sh-n-i',
     hmr: 'HMR2-095',
     series: 'SRB (L20 class, multi-mount)',
@@ -3207,12 +3207,12 @@ export const modelPages: ModelData[] = [
     originBrand: 'Sungji',
     sourcingOnly: true,
     torque: '1029.7 Nm',
-    intro: 'The Sungji SRB-090-180-CN-FT-SH-N-I is a helical hydraulic rotary actuator from Sungji (SJH, Korea); the ordering code follows the SRA/SRB/SRS family, bore size, rotation, valve, mounting and seal segments, rated at about 1029.7 Nm output torque at 210 bar. In the controlled cross-reference it sits in the ~927 Nm torque class together with: Helac L20-8.2; HKS M-DA-H-F7 85; Moveco RP24. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
+    intro: 'The Sungji SRB-090 is a helical hydraulic rotary actuator from Sungji (SJH, Korea), rated at about 1029.7 Nm output torque at 210 bar. In the controlled cross-reference it sits in the ~927 Nm torque class together with: Helac L20-8.2; HKS M-DA-H-F7 85; Moveco RP24. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
     crossNote: 'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Helac L20-8.2 (~927 Nm); HKS M-DA-H-F7 85 (~927 Nm); Moveco RP24 (~927 Nm). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
     extraFaqs: [
       {
-        q: 'What does the Sungji code SRB-090-180-CN-FT-SH-N-I mean, and can HM source it?',
-        a: 'The code encodes the SRB family, bore size, rotation, valve/port, mounting, shaft cover and seal/standard. HM can source or arrange alternative supply for this standard build after confirming the exact configuration from your nameplate; we do not hold it as stock or promise lead time.',
+        q: 'What does the Sungji code SRB-090 mean, and can HM source it?',
+        a: 'The short code gives the family and bore size; a full ordering code adds rotation, valve/port, mounting, shaft cover and seal/standard segments, so the nameplate tells us the exact build to quote. HM can source or arrange alternative supply for this standard build after confirming the exact configuration from your nameplate; we do not hold it as stock or promise lead time.',
       },
       {
         q: 'Does it match the Helac / HKS / Moveco unit listed in the same torque class?',
@@ -3225,7 +3225,7 @@ export const modelPages: ModelData[] = [
     ],
   },
   {
-    model: 'SRB-140-180-CN-FT-SH-N-I',
+    model: 'SRB-140',
     slug: 'sungji-srb-140-180-cn-ft-sh-n-i',
     hmr: 'HMR2-300',
     series: 'SRB (L20 class, multi-mount)',
@@ -3242,12 +3242,12 @@ export const modelPages: ModelData[] = [
     originBrand: 'Sungji',
     sourcingOnly: true,
     torque: '3069.5 Nm',
-    intro: 'The Sungji SRB-140-180-CN-FT-SH-N-I is a helical hydraulic rotary actuator from Sungji (SJH, Korea); the ordering code follows the SRA/SRB/SRS family, bore size, rotation, valve, mounting and seal segments, rated at about 3069.5 Nm output torque at 210 bar. In the controlled cross-reference it sits in the ~2825 Nm torque class together with: Helac L20-25; Moveco RP40; HKS M-DA-H-F7 125. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
+    intro: 'The Sungji SRB-140 is a helical hydraulic rotary actuator from Sungji (SJH, Korea), rated at about 3069.5 Nm output torque at 210 bar. In the controlled cross-reference it sits in the ~2825 Nm torque class together with: Helac L20-25; Moveco RP40; HKS M-DA-H-F7 125. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
     crossNote: 'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Helac L20-25 (~2825 Nm); Moveco RP40 (~2825 Nm); HKS M-DA-H-F7 125 (~2825 Nm). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
     extraFaqs: [
       {
-        q: 'What does the Sungji code SRB-140-180-CN-FT-SH-N-I mean, and can HM source it?',
-        a: 'The code encodes the SRB family, bore size, rotation, valve/port, mounting, shaft cover and seal/standard. HM can source or arrange alternative supply for this standard build after confirming the exact configuration from your nameplate; we do not hold it as stock or promise lead time.',
+        q: 'What does the Sungji code SRB-140 mean, and can HM source it?',
+        a: 'The short code gives the family and bore size; a full ordering code adds rotation, valve/port, mounting, shaft cover and seal/standard segments, so the nameplate tells us the exact build to quote. HM can source or arrange alternative supply for this standard build after confirming the exact configuration from your nameplate; we do not hold it as stock or promise lead time.',
       },
       {
         q: 'Does it match the Helac / HKS / Moveco unit listed in the same torque class?',
@@ -3260,7 +3260,7 @@ export const modelPages: ModelData[] = [
     ],
   },
   {
-    model: 'SRS-090-220-CN-FT-DS-N-I',
+    model: 'SRS-090',
     slug: 'sungji-srs-090-220-cn-ft-ds-n-i',
     series: 'SRS (T class, dual spline, 220°)',
     seriesSlug: '',
@@ -3276,12 +3276,12 @@ export const modelPages: ModelData[] = [
     originBrand: 'Sungji',
     sourcingOnly: true,
     torque: '1696.6 Nm',
-    intro: 'The Sungji SRS-090-220-CN-FT-DS-N-I is a helical hydraulic rotary actuator from Sungji (SJH, Korea); the ordering code follows the SRA/SRB/SRS family, bore size, rotation, valve, mounting and seal segments, rated at about 1696.6 Nm output torque at 210 bar. The SRS family is a fixed 220-degree, dual-spline-output, foot-mounted design. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
+    intro: 'The Sungji SRS-090 is a helical hydraulic rotary actuator from Sungji (SJH, Korea), rated at about 1696.6 Nm output torque at 210 bar. The SRS family is a fixed 220-degree, dual-spline-output, foot-mounted design. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
     crossNote: 'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Performance neighbours only, not the same anchor class: Helac T20-25 / T30-27 (~2825 Nm, +66%). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
     extraFaqs: [
       {
-        q: 'What does the Sungji code SRS-090-220-CN-FT-DS-N-I mean, and can HM source it?',
-        a: 'The code encodes the SRS family, bore size, rotation, valve/port, mounting, shaft cover and seal/standard. HM can source or arrange alternative supply for this standard build after confirming the exact configuration from your nameplate; we do not hold it as stock or promise lead time.',
+        q: 'What does the Sungji code SRS-090 mean, and can HM source it?',
+        a: 'The short code gives the family and bore size; a full ordering code adds rotation, valve/port, mounting, shaft cover and seal/standard segments, so the nameplate tells us the exact build to quote. HM can source or arrange alternative supply for this standard build after confirming the exact configuration from your nameplate; we do not hold it as stock or promise lead time.',
       },
       {
         q: 'Does it match the Helac / HKS / Moveco unit listed in the same torque class?',
@@ -3294,7 +3294,7 @@ export const modelPages: ModelData[] = [
     ],
   },
   {
-    model: 'SRS-115-220-CN-FT-DS-N-I',
+    model: 'SRS-115',
     slug: 'sungji-srs-115-220-cn-ft-ds-n-i',
     hmr: 'HMR6-280',
     series: 'SRS (T class, dual spline, 220°)',
@@ -3311,12 +3311,12 @@ export const modelPages: ModelData[] = [
     originBrand: 'Sungji',
     sourcingOnly: true,
     torque: '3049.9 Nm',
-    intro: 'The Sungji SRS-115-220-CN-FT-DS-N-I is a helical hydraulic rotary actuator from Sungji (SJH, Korea); the ordering code follows the SRA/SRB/SRS family, bore size, rotation, valve, mounting and seal segments, rated at about 3049.9 Nm output torque at 210 bar. The SRS family is a fixed 220-degree, dual-spline-output, foot-mounted design. In the controlled cross-reference it sits in the ~2825 Nm torque class together with: Helac T20-25; Helac T30-27. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
+    intro: 'The Sungji SRS-115 is a helical hydraulic rotary actuator from Sungji (SJH, Korea), rated at about 3049.9 Nm output torque at 210 bar. The SRS family is a fixed 220-degree, dual-spline-output, foot-mounted design. In the controlled cross-reference it sits in the ~2825 Nm torque class together with: Helac T20-25; Helac T30-27. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
     crossNote: 'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Helac T20-25 (~2825 Nm); Helac T30-27 (~2825 Nm). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
     extraFaqs: [
       {
-        q: 'What does the Sungji code SRS-115-220-CN-FT-DS-N-I mean, and can HM source it?',
-        a: 'The code encodes the SRS family, bore size, rotation, valve/port, mounting, shaft cover and seal/standard. HM can source or arrange alternative supply for this standard build after confirming the exact configuration from your nameplate; we do not hold it as stock or promise lead time.',
+        q: 'What does the Sungji code SRS-115 mean, and can HM source it?',
+        a: 'The short code gives the family and bore size; a full ordering code adds rotation, valve/port, mounting, shaft cover and seal/standard segments, so the nameplate tells us the exact build to quote. HM can source or arrange alternative supply for this standard build after confirming the exact configuration from your nameplate; we do not hold it as stock or promise lead time.',
       },
       {
         q: 'Does it match the Helac / HKS / Moveco unit listed in the same torque class?',
@@ -3329,7 +3329,7 @@ export const modelPages: ModelData[] = [
     ],
   },
   {
-    model: 'SRS-150-220-CN-FT-DS-N-I',
+    model: 'SRS-150',
     slug: 'sungji-srs-150-220-cn-ft-ds-n-i',
     hmr: 'HMR6-680',
     series: 'SRS (T class, dual spline, 220°)',
@@ -3346,12 +3346,12 @@ export const modelPages: ModelData[] = [
     originBrand: 'Sungji',
     sourcingOnly: true,
     torque: '6776.4 Nm',
-    intro: 'The Sungji SRS-150-220-CN-FT-DS-N-I is a helical hydraulic rotary actuator from Sungji (SJH, Korea); the ordering code follows the SRA/SRB/SRS family, bore size, rotation, valve, mounting and seal segments, rated at about 6776.4 Nm output torque at 210 bar. The SRS family is a fixed 220-degree, dual-spline-output, foot-mounted design. In the controlled cross-reference it sits in the ~6780 Nm torque class together with: Helac T20-60. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
+    intro: 'The Sungji SRS-150 is a helical hydraulic rotary actuator from Sungji (SJH, Korea), rated at about 6776.4 Nm output torque at 210 bar. The SRS family is a fixed 220-degree, dual-spline-output, foot-mounted design. In the controlled cross-reference it sits in the ~6780 Nm torque class together with: Helac T20-60. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
     crossNote: 'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Helac T20-60 (~6780 Nm). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
     extraFaqs: [
       {
-        q: 'What does the Sungji code SRS-150-220-CN-FT-DS-N-I mean, and can HM source it?',
-        a: 'The code encodes the SRS family, bore size, rotation, valve/port, mounting, shaft cover and seal/standard. HM can source or arrange alternative supply for this standard build after confirming the exact configuration from your nameplate; we do not hold it as stock or promise lead time.',
+        q: 'What does the Sungji code SRS-150 mean, and can HM source it?',
+        a: 'The short code gives the family and bore size; a full ordering code adds rotation, valve/port, mounting, shaft cover and seal/standard segments, so the nameplate tells us the exact build to quote. HM can source or arrange alternative supply for this standard build after confirming the exact configuration from your nameplate; we do not hold it as stock or promise lead time.',
       },
       {
         q: 'Does it match the Helac / HKS / Moveco unit listed in the same torque class?',
@@ -3368,6 +3368,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'RP17',
     slug: 'moveco-rp17',
+    aliases: ['ARP 25'],
     hmr: 'HMR2-050',
     series: 'RP (ARP, flange)',
     seriesSlug: '',
@@ -3383,8 +3384,8 @@ export const modelPages: ModelData[] = [
     originBrand: 'Moveco',
     sourcingOnly: true,
     torque: '505 Nm',
-    intro: 'The Moveco RP17 is a helical hydraulic rotary actuator from Moveco (Italy). The maker publishes the short size designation only; the full suffix after the size code is not disclosed in the available catalogue and has to be confirmed with the factory, rated at about 505 Nm output torque at 210 bar. This entry covers the 180-degree configuration only. In the controlled cross-reference it sits in the ~509 Nm torque class together with: Helac L20-4.5; HKS M-DA-H-F7 70; Sungji SRB-080-180-CN-FT-SH-N-I. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
-    crossNote: 'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Helac L20-4.5 (~509 Nm); HKS M-DA-H-F7 70 (~509 Nm); Sungji SRB-080-180-CN-FT-SH-N-I (~509 Nm). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
+    intro: 'The Moveco RP17 is a helical hydraulic rotary actuator from Moveco (Italy). The maker publishes the short size designation only; the full suffix after the size code is not disclosed in the available catalogue and has to be confirmed with the factory, rated at about 505 Nm output torque at 210 bar. This entry covers the 180-degree configuration only. In the controlled cross-reference it sits in the ~509 Nm torque class together with: Helac L20-4.5; HKS M-DA-H-F7 70; Sungji SRB-080. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
+    crossNote: 'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Helac L20-4.5 (~509 Nm); HKS M-DA-H-F7 70 (~509 Nm); Sungji SRB-080 (~509 Nm). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
     extraFaqs: [
       {
         q: 'Why do you list only the short code RP17?',
@@ -3403,6 +3404,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'RP24',
     slug: 'moveco-rp24',
+    aliases: ['ARP 40'],
     hmr: 'HMR2-095',
     series: 'RP (ARP, flange)',
     seriesSlug: '',
@@ -3418,8 +3420,8 @@ export const modelPages: ModelData[] = [
     originBrand: 'Moveco',
     sourcingOnly: true,
     torque: '960 Nm',
-    intro: 'The Moveco RP24 is a helical hydraulic rotary actuator from Moveco (Italy). The maker publishes the short size designation only; the full suffix after the size code is not disclosed in the available catalogue and has to be confirmed with the factory, rated at about 960 Nm output torque at 210 bar. This entry covers the 180-degree configuration only. In the controlled cross-reference it sits in the ~927 Nm torque class together with: Helac L20-8.2; HKS M-DA-H-F7 85; Sungji SRB-090-180-CN-FT-SH-N-I. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
-    crossNote: 'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Helac L20-8.2 (~927 Nm); HKS M-DA-H-F7 85 (~927 Nm); Sungji SRB-090-180-CN-FT-SH-N-I (~927 Nm). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
+    intro: 'The Moveco RP24 is a helical hydraulic rotary actuator from Moveco (Italy). The maker publishes the short size designation only; the full suffix after the size code is not disclosed in the available catalogue and has to be confirmed with the factory, rated at about 960 Nm output torque at 210 bar. This entry covers the 180-degree configuration only. In the controlled cross-reference it sits in the ~927 Nm torque class together with: Helac L20-8.2; HKS M-DA-H-F7 85; Sungji SRB-090. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
+    crossNote: 'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Helac L20-8.2 (~927 Nm); HKS M-DA-H-F7 85 (~927 Nm); Sungji SRB-090 (~927 Nm). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
     extraFaqs: [
       {
         q: 'Why do you list only the short code RP24?',
@@ -3438,6 +3440,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'RP33',
     slug: 'moveco-rp33',
+    aliases: ['ARP 80'],
     hmr: 'HMR2-180',
     series: 'RP (ARP, flange)',
     seriesSlug: '',
@@ -3488,8 +3491,8 @@ export const modelPages: ModelData[] = [
     originBrand: 'Moveco',
     sourcingOnly: true,
     torque: '3100 Nm',
-    intro: 'The Moveco RP40 is a helical hydraulic rotary actuator from Moveco (Italy). The maker publishes the short size designation only; the full suffix after the size code is not disclosed in the available catalogue and has to be confirmed with the factory, rated at about 3100 Nm output torque at 210 bar. This entry covers the 180-degree configuration only. In the controlled cross-reference it sits in the ~2825 Nm torque class together with: Helac L20-25; Sungji SRB-140-180-CN-FT-SH-N-I; HKS M-DA-H-F7 125. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
-    crossNote: 'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Helac L20-25 (~2825 Nm); Sungji SRB-140-180-CN-FT-SH-N-I (~2825 Nm); HKS M-DA-H-F7 125 (~2825 Nm). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
+    intro: 'The Moveco RP40 is a helical hydraulic rotary actuator from Moveco (Italy). The maker publishes the short size designation only; the full suffix after the size code is not disclosed in the available catalogue and has to be confirmed with the factory, rated at about 3100 Nm output torque at 210 bar. This entry covers the 180-degree configuration only. In the controlled cross-reference it sits in the ~2825 Nm torque class together with: Helac L20-25; Sungji SRB-140; HKS M-DA-H-F7 125. These are same-torque-class engineering references only. HM Hydraulics provides technical selection support and sourcing / alternative-supply service for this reference. We do not hold it as a stocked SKU and do not promise stock, lead time or confirmed availability; configuration, mounting dimensions and drawings are checked on request against your actuator nameplate before any quotation.',
+    crossNote: 'All references below are engineering cross-references by torque class from HM\'s controlled multi-brand database; they are not validated substitutions. Same torque class (comparable rated output; independent housing and mounting designs - do not assume matching dimensions): Helac L20-25 (~2825 Nm); Sungji SRB-140 (~2825 Nm); HKS M-DA-H-F7 125 (~2825 Nm). HM has no supply-verified interchange record for any of these pairings, so the highest claim we make is \'same torque class / comparable\'; nothing is presented as a verified interchangeable unit.',
     extraFaqs: [
       {
         q: 'Why do you list only the short code RP40?',
@@ -3543,6 +3546,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'RR34',
     slug: 'moveco-rr34',
+    aliases: ['ARR 95'],
     hmr: 'HMR4-200',
     series: 'RR (ARR, foot)',
     seriesSlug: '',
@@ -3578,6 +3582,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'RR40',
     slug: 'moveco-rr40',
+    aliases: ['ARR 150'],
     hmr: 'HMR4-300',
     series: 'RR (ARR, foot)',
     seriesSlug: '',
@@ -3613,6 +3618,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'RR46',
     slug: 'moveco-rr46',
+    aliases: ['ARR 240'],
     hmr: 'HMR4-500',
     series: 'RR (ARR, foot)',
     seriesSlug: '',
@@ -3648,6 +3654,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'RR52',
     slug: 'moveco-rr52',
+    aliases: ['ARR 370'],
     hmr: 'HMR4-750',
     series: 'RR (ARR, foot)',
     seriesSlug: '',
@@ -4073,7 +4080,7 @@ export const modelPages: ModelData[] = [
     imageW: 1200,
     imageH: 800,
     imageAlt: 'SRA-110 class 360-degree rear-flange helical rotary actuator showing flange face and side ports, reference unit sourced for Putzmeister equipment (not an original Putzmeister part)',
-    originBrand: 'Sungji',
+    originBrand: 'Putzmeister',
     sourcingOnly: true,
     hideSeriesLink: true,
     catalogSpec: { pressureBar: 207, mountingStyles: 'RF rear flange', source: 'Reference SRA-110 actuator nameplate (3000 psi / 207 bar rating); verify against the tag on your unit' },
@@ -4110,7 +4117,7 @@ export const modelPages: ModelData[] = [
     imageW: 1200,
     imageH: 800,
     imageAlt: 'SRA-110 class rear-flange helical rotary actuator showing flange face and side ports (representative image of the same SRA-110 frame; 240-degree unit, not an original Putzmeister part)',
-    originBrand: 'Sungji',
+    originBrand: 'Putzmeister',
     sourcingOnly: true,
     hideSeriesLink: true,
     modelCodeUnverified: false,
@@ -4156,7 +4163,7 @@ export const modelPages: ModelData[] = [
     extraFaqs: [
       {
         q: 'What does the Sungji code SRC-115 mean, and can HM source it?',
-        a: 'The code encodes the SRC family, bore size, rotation, valve/port, mounting, shaft cover and seal/standard segments. HM can source or arrange alternative supply for this standard build after confirming the exact configuration from your nameplate; we do not hold it as stock or promise lead time.',
+        a: 'The short code gives the family and bore size; a full ordering code adds rotation, valve/port, mounting, shaft cover and seal/standard segments, so the nameplate tells us the exact build to quote. HM can source or arrange alternative supply for this standard build after confirming the exact configuration from your nameplate; we do not hold it as stock or promise lead time.',
       },
       {
         q: 'Does Sungji list a 360-degree build in the SRC family?',
@@ -4198,7 +4205,7 @@ export const modelPages: ModelData[] = [
     extraFaqs: [
       {
         q: 'What does the Sungji code SRC-125 mean, and can HM source it?',
-        a: 'The code encodes the SRC family, bore size, rotation, valve/port, mounting, shaft cover and seal/standard segments. HM can source or arrange alternative supply for this standard build after confirming the exact configuration from your nameplate; we do not hold it as stock or promise lead time.',
+        a: 'The short code gives the family and bore size; a full ordering code adds rotation, valve/port, mounting, shaft cover and seal/standard segments, so the nameplate tells us the exact build to quote. HM can source or arrange alternative supply for this standard build after confirming the exact configuration from your nameplate; we do not hold it as stock or promise lead time.',
       },
       {
         q: 'Does Sungji list a 360-degree build in the SRC family?',
@@ -4240,7 +4247,7 @@ export const modelPages: ModelData[] = [
     extraFaqs: [
       {
         q: 'What does the Sungji code SRC-150 mean, and can HM source it?',
-        a: 'The code encodes the SRC family, bore size, rotation, valve/port, mounting, shaft cover and seal/standard segments. HM can source or arrange alternative supply for this standard build after confirming the exact configuration from your nameplate; we do not hold it as stock or promise lead time.',
+        a: 'The short code gives the family and bore size; a full ordering code adds rotation, valve/port, mounting, shaft cover and seal/standard segments, so the nameplate tells us the exact build to quote. HM can source or arrange alternative supply for this standard build after confirming the exact configuration from your nameplate; we do not hold it as stock or promise lead time.',
       },
       {
         q: 'Does Sungji list a 360-degree build in the SRC family?',
@@ -4282,7 +4289,7 @@ export const modelPages: ModelData[] = [
     extraFaqs: [
       {
         q: 'What does the Sungji code SRC-180 mean, and can HM source it?',
-        a: 'The code encodes the SRC family, bore size, rotation, valve/port, mounting, shaft cover and seal/standard segments. HM can source or arrange alternative supply for this standard build after confirming the exact configuration from your nameplate; we do not hold it as stock or promise lead time.',
+        a: 'The short code gives the family and bore size; a full ordering code adds rotation, valve/port, mounting, shaft cover and seal/standard segments, so the nameplate tells us the exact build to quote. HM can source or arrange alternative supply for this standard build after confirming the exact configuration from your nameplate; we do not hold it as stock or promise lead time.',
       },
       {
         q: 'Does Sungji list a 360-degree build in the SRC family?',
@@ -4384,6 +4391,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'DA-H 40',
     slug: 'hks-da-h-40',
+    aliases: ['I-DA-H 40'],
     series: 'DA-H / I-DA-H',
     seriesSlug: 'hks-da-h-series',
     rotation: '90° / 180° / 270° / 360°',
@@ -4428,6 +4436,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'DA-H 140',
     slug: 'hks-da-h-140',
+    aliases: ['I-DA-H 140'],
     series: 'DA-H / I-DA-H',
     seriesSlug: 'hks-da-h-series',
     rotation: '90° / 180° / 270° / 360°',
@@ -4472,6 +4481,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'DA-H 160',
     slug: 'hks-da-h-160',
+    aliases: ['I-DA-H 160'],
     series: 'DA-H / I-DA-H',
     seriesSlug: 'hks-da-h-series',
     rotation: '90° / 180° / 270° / 360°',
@@ -4516,6 +4526,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'DA-H 180',
     slug: 'hks-da-h-180',
+    aliases: ['I-DA-H 180'],
     series: 'DA-H / I-DA-H',
     seriesSlug: 'hks-da-h-series',
     rotation: '90° / 180° / 270° / 360°',
@@ -4560,6 +4571,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'DA-H 200',
     slug: 'hks-da-h-200',
+    aliases: ['I-DA-H 200'],
     series: 'DA-H / I-DA-H',
     seriesSlug: 'hks-da-h-series',
     rotation: '90° / 180° / 270° / 360°',
@@ -4604,6 +4616,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'DA-H 225',
     slug: 'hks-da-h-225',
+    aliases: ['I-DA-H 225'],
     series: 'DA-H / I-DA-H',
     seriesSlug: 'hks-da-h-series',
     rotation: '90° / 180° / 270° / 360°',
@@ -4648,6 +4661,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'DA-H 250',
     slug: 'hks-da-h-250',
+    aliases: ['I-DA-H 250'],
     series: 'DA-H / I-DA-H',
     seriesSlug: 'hks-da-h-series',
     rotation: '90° / 180° / 270° / 360°',
@@ -4692,6 +4706,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'DA-H 280',
     slug: 'hks-da-h-280',
+    aliases: ['I-DA-H 280'],
     series: 'DA-H / I-DA-H',
     seriesSlug: 'hks-da-h-series',
     rotation: '90° / 180° / 270° / 360°',
@@ -4736,6 +4751,7 @@ export const modelPages: ModelData[] = [
   {
     model: 'DA-H 300',
     slug: 'hks-da-h-300',
+    aliases: ['I-DA-H 300'],
     series: 'DA-H / I-DA-H',
     seriesSlug: 'hks-da-h-series',
     rotation: '90° / 180° / 270° / 360°',
